@@ -14,7 +14,9 @@ import { ClienteService } from './clientes/clientes.service';
 import { ProveedorComponent } from './proveedor/proveedor.component';
 import { ProveedorService } from './proveedor/proveedor.service';
 import{HttpClientModule} from '@angular/common/http';
+
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
+import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,9 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
     DirectivaComponent,
     ClientesComponent,
     ProveedorComponent,
-    RegistroUsuarioComponent
+    RegistroUsuarioComponent,
+    InicioSesionComponent
+
   ],
   imports: [
     BrowserModule,
@@ -33,12 +37,7 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
       {path: 'app-clientes', component: ClientesComponent},
       {path: 'app-proveedor', component: ProveedorComponent},
       {path: 'app-registro-usuario', component: RegistroUsuarioComponent},
-<<<<<<< HEAD
-     
-      {path: 'app-inicio-sesion', component: InicioSesionComponent}
-=======
->>>>>>> 16c4c1834e5e247a1a0c71c5e0de1d01b0c23e0d
-      
+      {path: 'app-inicio-sesion', component: InicioSesionComponent},
 
     ]),
   ],
