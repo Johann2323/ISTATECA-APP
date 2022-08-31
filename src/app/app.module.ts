@@ -32,6 +32,9 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
       {path: 'app-directiva', component: DirectivaComponent},
       {path: 'app-clientes', component: ClientesComponent},
       {path: 'app-proveedor', component: ProveedorComponent},
+      {path: 'app-registro-usuario', component: RegistroUsuarioComponent},
+      
+
     ]),
   ],
   providers: [ClienteService,ProveedorService],

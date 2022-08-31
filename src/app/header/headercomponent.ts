@@ -9,4 +9,5 @@ export class HeaderComponent{
     title:string = "HOME";
     opcion1:string = "Clientes"
     opcion2:string = "Proveedores"
+    opcion3:string = "Registro Usuario"
 }
