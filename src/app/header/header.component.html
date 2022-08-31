@@ -1,48 +1,37 @@
 
-  <nav class="navbar navbar-expand-lg"  style="background-color: #012844;">
+  <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"  style="color: #e3eaef"   routerLink="/app-registro-usuario"> <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20blanco%20(1).png?alt=media&token=aad7ec8f-a2c9-4621-9936-38078017b11e"
-        alt="" width="80" height="80"></a>
+      <a class="navbar-brand" routerLink="/app-directiva">{{title}}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          
           <li class="nav-item">
-            <a class="nav-link active" href="#" routerLink="/app-proveedor">
-              <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar-bibliotecario.png?alt=media&token=82630a09-64d2-468c-83d6-9f2a84e7aea5"
-              alt="" width="35" height="35"></a>
+            <a class="nav-link active" aria-current="page" routerLink="/app-clientes">{{opcion1}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#" routerLink="/app-registro-usuario">
-              <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar%20libro.png?alt=media&token=b7f639da-1aaa-4d12-8133-a59742d32d87"
-              alt="" width="35" height="35"></a>
+            <a class="nav-link active"aria-current="page" routerLink="/app-proveedor">{{opcion2}}</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#" routerLink="/app-registro-usuario">
-              <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fdevolver%20libro.png?alt=media&token=95ede259-0714-4e28-95f9-7d759fda53b4"
-              alt="" width="35" height="35"></a>
+            <a class="nav-link disabled">Disabled</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#" routerLink="/app-registro-usuario">
-              <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Flistas.png?alt=media&token=97df573d-51ec-4d24-8b96-d68164b717ff"
-              alt="" width="40" height="40"></a>
-          </li>
-          
-          
         </ul>
-        <form class="d-flex" role="search" >
-          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" style="background-color: #012844;">
-          <button class="btn" type="submit" >
-            <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fbusqueda.png?alt=media&token=2b59078d-0ef5-4fa4-85c6-396ea7c1c97c"
-            ></button>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-
-        <li class="nav-item">
-          <button type="button" class="btn btn-outline-light" style="background-color: #012844;">Iniciar Sesion</button>>
-        </li>
-        
       </div>
     </div>
   </nav>
