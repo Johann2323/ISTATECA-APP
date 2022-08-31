@@ -1,0 +1,15 @@
+
+
+<div class="row">
+    <div class="col-sm-6"  *ngFor="let proveedores of proveedor">
+      <div class="card text-bg-light text-center">
+        {{proveedores.id}}
+        <div class="card-header text-center"><strong>Proveedor {{proveedores.nombre}}</strong></div>
+        <div class="card-body">
+          <p class="card-text text-center">{{proveedores.descripcion}}</p>
+          <p class="card-text text-center">Dir: {{proveedores.direccion}}</p>
+          <p class="card-text text-center">Telf: {{proveedores.telefono}}</p>
+          
+        </div>
+      </div>
+    </div>
