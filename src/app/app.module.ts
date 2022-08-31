@@ -14,6 +14,7 @@ import { ClienteService } from './clientes/clientes.service';
 import { ProveedorComponent } from './proveedor/proveedor.component';
 import { ProveedorService } from './proveedor/proveedor.service';
 import{HttpClientModule} from '@angular/common/http';
+import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import{HttpClientModule} from '@angular/common/http';
     FooterComponent,
     DirectivaComponent,
     ClientesComponent,
-    ProveedorComponent
+    ProveedorComponent,
+    RegistroUsuarioComponent
   ],
   imports: [
     BrowserModule,
