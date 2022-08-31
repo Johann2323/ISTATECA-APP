@@ -35,6 +35,7 @@ import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
       {path: 'app-clientes', component: ClientesComponent},
       {path: 'app-proveedor', component: ProveedorComponent},
       {path: 'app-registro-usuario', component: RegistroUsuarioComponent},
+     
       {path: 'app-inicio-sesion', component: InicioSesionComponent}
       
 

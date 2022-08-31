@@ -4,6 +4,7 @@ import { InicioSesionComponent } from './inicio-sesion.component';
 
 describe('InicioSesionComponent', () => {
   let component: InicioSesionComponent;
+  
   let fixture: ComponentFixture<InicioSesionComponent>;
 
   beforeEach(async () => {

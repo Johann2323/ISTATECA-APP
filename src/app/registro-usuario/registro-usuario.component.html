@@ -1,98 +1,96 @@
 
 <style>
+    
+    .vl {
+  border-left: 6px solid rgb(0, 0, 0);
+  height: 707px;
+  position: absolute;
+  left: 50%;
+  margin-left: -1px;
+  margin-top: 56px;
+  top: 0;
+}
+    
 
     table {
       font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
+      width: 60%;
+    margin-top: 5%;
       text-align: center;
     }
     
     td, th {
-      border: 1px solid #dddddd;
+    
       text-align: center;
       padding: 8px;
     }
     
+    
     tr:nth-child(even) {
-      background-color: #dddddd;
+      background-color: #ffffff;
+      
     }
     
     h3 {
         text-align: center; 
-      color: gray;
+        margin-inline-start: 30%;
     
     }
     
     h4 {
-    font-size:20px;
-      color: gray;
-    text-align: center; 
+    font-size:50px;
+margin-top: 3%;
+    text-align: left; 
+    margin-inline-start: 13%;
+    }
+    h5 {
+margin-top: 1%;
+    text-align: left; 
+    margin-inline-start: 10%;
     }
     
     </style>
+
+    <h4>Crear nueva cuenta</h4>
 
 <table>
     
         
     <tr>
-      <th>Nombre:</th>
-      <th><input type="text" name="nombre" value="" size="30" required><br></th>
+      <th><h3>Cedula:</h3></th>
+      <th><h5><input type="text" name="nombre" value="" size="30" required></h5></th>
     </tr>
     <tr>
-      <td>Primer Apellido:</td>
-      <td><input type="text" name="nombre" value="" size="30" required></td>
+      <td><h3>Nombres:</h3></td>
+      <td><h5><input type="text" name="nombre" value="" size="30" required></h5></td>
 
     </tr>
     <tr>
-      <td>Segundo Apellido:</td>
-      <td><input type="text" name="nombre" value="" size="30" required></td>
+      <td><h3>Usuario:</h3></td>
+      <td><h5><input type="text" name="nombre" value="" size="30" required></h5></td>
 
     </tr>
     <tr>
-      <td>Telefono de contacto:</td>
-      <td><input type="text" name="nombre"  size="30" placeholder="escribe telefono" required></td>
+      <td><h3>Celular:</h3></td>
+      <td><h5><input type="tel" name="nombre"  size="30" placeholder="ingrese su numero de celular" required></h5></td>
 
     </tr>
 
     
     <tr>
-      <td>E-mail:</td>
-      <td><input type="email" name="name" value="" size="30" placeholder="escribe correo electronico" required></td>
+      <td><h3>E-mail:</h3></td>
+      <td><h5><input type="email" name="name" value="" size="30" placeholder="ingrese su correo electronico" required></h5></td>
 
     </tr>
-    <tr>
-      <td>Tipo de tarjeta:</td>
-      <td><select NAME="combo" required>
-        <option> </option>
-        <option>Mastercard</option>
-  <option>Visa</option>
-  <option>Pacificar</option>
-  <option>American Express</option>
-      </select>
-    </td>
-
-    </tr>
-    <tr>
-      <td>Numero de tarjeta:</td>
-      <td><input type="text" name="name" value="" size="30" placeholder="numero de tarjeta" required></td>
-
-    </tr>
-    <tr>
-        <td>Nombre de usuario:</td>
-        <td><input type="text" name="name" value="" size="30" required></td>
-  
-      </tr>
       <tr>
-        <td>Contraseña:</td>
-        <td><input type="password" name="name" value="" size="30" required></td>
+        <td><h3>Contraseña:</h3></td>
+        <td><h5><input type="password" name="name" value="" size="30" required></h5></td>
   
       </tr>
-      <tr>
-        <td>Verificar contraseña:</td>
-        <td><input type="password" name="name" value="" size="30" required></td>
-  
-      </tr>
+      
 
     
   </table>
+
+  <div class="vl"></div>
+  
