@@ -19,6 +19,7 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 import { FormComponent } from './registro-usuario/form.component';
 import { FormsModule } from '@angular/forms';
+import { VentanaEmergenteComponent } from './inicio-sesion/ventana-emergente.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     ProveedorComponent,
     RegistroUsuarioComponent,
     InicioSesionComponent,
-    FormComponent
+    FormComponent,
+    VentanaEmergenteComponent
 
   ],
   imports: [
@@ -43,6 +45,7 @@ import { FormsModule } from '@angular/forms';
       {path: 'app-registro-usuario', component: RegistroUsuarioComponent},
       {path: 'app-inicio-sesion', component: InicioSesionComponent},
       {path: 'app-form', component: FormComponent},
+      {path: 'app-ventana-emergente', component: VentanaEmergenteComponent},
 
     ]),
   ],
