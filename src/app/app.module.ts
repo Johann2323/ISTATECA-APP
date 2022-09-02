@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 
-import { HeaderComponent } from './header/headercomponent';
+import { HeaderComponent } from './header/header.component';
 
 import {FooterComponent} from './footer/footer.component';
 import { DirectivaComponent } from './directiva/directiva.component';
@@ -17,6 +17,7 @@ import{HttpClientModule} from '@angular/common/http';
 
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
+import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
     ClientesComponent,
     ProveedorComponent,
     RegistroUsuarioComponent,
-    InicioSesionComponent
+    InicioSesionComponent,
+    PaginaInicioComponent
 
   ],
   imports: [

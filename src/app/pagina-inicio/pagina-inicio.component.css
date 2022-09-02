@@ -1,0 +1,52 @@
+.libros {
+    overflow-y: scroll;
+}
+
+.card {
+    height: 600px;
+    width: 1580px;
+}
+
+.cabezera {
+    background-color: #012844;
+    color: white;
+}
+
+.contenedor {
+    width: 100%;
+    display: flex;
+    max-width: max-content;
+    justify-content: center;
+    align-items: center;
+}
+
+.buscar{
+    width: 450px;
+}
+
+.solicitud{
+    
+    background-color: #dde1e3;
+    color: #012844;
+    margin-left: 91%;
+    margin-top: -3%;
+   
+   
+}
+
+h5{
+   font-size: 2cm;
+}
+.tarjeta {
+    margin: 60px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #012844;
+   
+}
+.imagen{
+    margin-block-end: -5%;
+    
+    
+
+}
