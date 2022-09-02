@@ -9,8 +9,7 @@ import {FooterComponent} from './footer/footer.component';
 import { DirectivaComponent } from './directiva/directiva.component';
 
 import { RouterModule } from '@angular/router';
-import { ClientesComponent } from './clientes/clientes.component';
-import { ClienteService } from './clientes/clientes.service';
+
 import { ProveedorComponent } from './proveedor/proveedor.component';
 import { ProveedorService } from './proveedor/proveedor.service';
 import{HttpClientModule} from '@angular/common/http';
@@ -25,7 +24,6 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     DirectivaComponent,
-    ClientesComponent,
     ProveedorComponent,
     RegistroUsuarioComponent,
     InicioSesionComponent,
@@ -38,7 +36,6 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     RouterModule.forRoot([
       {path: 'app-directiva', component: DirectivaComponent},
-      {path: 'app-clientes', component: ClientesComponent},
       {path: 'app-proveedor', component: ProveedorComponent},
       {path: 'app-registro-usuario', component: RegistroUsuarioComponent},
       {path: 'app-inicio-sesion', component: InicioSesionComponent},
@@ -46,7 +43,7 @@ import { FormsModule } from '@angular/forms';
 
     ]),
   ],
-  providers: [ClienteService,ProveedorService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
