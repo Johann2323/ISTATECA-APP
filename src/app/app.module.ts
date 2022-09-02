@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { ProveedorComponent } from './proveedor/proveedor.component';
 import { ProveedorService } from './proveedor/proveedor.service';
 import{HttpClientModule} from '@angular/common/http';
+import { RegistroUsuarioService } from './registro-usuario/registro-usuario.service';
 
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
@@ -43,7 +44,7 @@ import { FormsModule } from '@angular/forms';
 
     ]),
   ],
-  providers: [],
+  providers: [RegistroUsuarioComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
