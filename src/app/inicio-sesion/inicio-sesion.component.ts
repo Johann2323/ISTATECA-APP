@@ -8,8 +8,18 @@ import { Component, OnInit } from '@angular/core';
 
 })
 export class InicioSesionComponent implements OnInit {
-
+mensaje :String="";
+respuesta:boolean=true;
   constructor() { }
+  notificacion(){
+    
+    this.respuesta= confirm("Se a solicitado exitosamente este libro");
+    if(this.respuesta == false){
+      alert("F");
+    }else{
+
+    }
+  }
 
   ngOnInit(): void {
   }
