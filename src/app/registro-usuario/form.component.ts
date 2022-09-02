@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { RegistroUsuarioService } from './registro-usuario.service';
-import { Usuario } from './Usuario';
+import { usuario } from './usuario';
 
 @Component({
   selector: 'app-form',
@@ -10,7 +10,7 @@ import { Usuario } from './Usuario';
 })
 export class FormComponent implements OnInit {
 
-  public usuario:Usuario = new Usuario()
+  public usuario:usuario = new usuario()
   public titulo:string="Crear Cliente"
 
   constructor(private usuarioservice:RegistroUsuarioService, private router:Router) { }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Usuario } from './usuario';
+import { usuario } from './usuario';
 import { Observable,of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
@@ -10,7 +10,7 @@ export class RegistroUsuarioService {
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
   constructor(private http:HttpClient) { }
   
-  create(usuario:Usuario):Observable<Usuario>{
-    return this.http.post<Usuario>(this.urlendpoint, usuario, {headers: this.httpHeaders})
+  create(usuario:usuario):Observable<usuario>{
+    return this.http.post<usuario>(this.urlendpoint, usuario, {headers: this.httpHeaders})
   }
 }
