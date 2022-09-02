@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { RegistroUsuarioService } from './registro-usuario.service';
+import { Usuario } from './usuario';
 
 @Component({
   selector: 'app-form',
@@ -7,15 +10,24 @@ import { NgForm } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
-  constructor() { }
+  public usuario:Usuario = new Usuario()
+  public titulo:string="Crear Cliente"
+
+  constructor(private usuarioservice:RegistroUsuarioService, private router:Router) { }
+
 
   ngOnInit(): void {
   }
-  SaveData(form:NgForm){
-    console.log("enviando datos...")
-    console.log(form);
-    console.log(form.value);
 
+  public reste():void{
+    
+  }
+  
+  public create():void{
+    console.log("ha realizado un clic")
+    this.usuarioservice.create(this.usuario).subscribe(
+      response => this.router.navigate(["app-registro-usuario"])
+    )
   }
 
 }

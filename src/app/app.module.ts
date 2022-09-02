@@ -9,11 +9,11 @@ import {FooterComponent} from './footer/footer.component';
 import { DirectivaComponent } from './directiva/directiva.component';
 
 import { RouterModule } from '@angular/router';
-import { ClientesComponent } from './clientes/clientes.component';
-import { ClienteService } from './clientes/clientes.service';
+
 import { ProveedorComponent } from './proveedor/proveedor.component';
 import { ProveedorService } from './proveedor/proveedor.service';
 import{HttpClientModule} from '@angular/common/http';
+import { RegistroUsuarioService } from './registro-usuario/registro-usuario.service';
 
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
@@ -26,7 +26,6 @@ import { VentanaEmergenteComponent } from './inicio-sesion/ventana-emergente.com
     HeaderComponent,
     FooterComponent,
     DirectivaComponent,
-    ClientesComponent,
     ProveedorComponent,
     RegistroUsuarioComponent,
     InicioSesionComponent,
@@ -40,7 +39,6 @@ import { VentanaEmergenteComponent } from './inicio-sesion/ventana-emergente.com
     FormsModule,
     RouterModule.forRoot([
       {path: 'app-directiva', component: DirectivaComponent},
-      {path: 'app-clientes', component: ClientesComponent},
       {path: 'app-proveedor', component: ProveedorComponent},
       {path: 'app-registro-usuario', component: RegistroUsuarioComponent},
       {path: 'app-inicio-sesion', component: InicioSesionComponent},
@@ -49,7 +47,7 @@ import { VentanaEmergenteComponent } from './inicio-sesion/ventana-emergente.com
 
     ]),
   ],
-  providers: [ClienteService,ProveedorService],
+  providers: [RegistroUsuarioComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
