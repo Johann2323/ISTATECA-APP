@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { RegistroUsuarioService } from './registro-usuario.service';
-import { Usuario } from './usuario';
+import { Usuario } from './Usuario';
 
 @Component({
   selector: 'app-form',

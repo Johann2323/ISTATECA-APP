@@ -17,13 +17,10 @@ import { RegistroUsuarioService } from './registro-usuario/registro-usuario.serv
 
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
-<<<<<<< HEAD
-import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
-=======
 import { FormComponent } from './registro-usuario/form.component';
 import { FormsModule } from '@angular/forms';
 import { VentanaEmergenteComponent } from './inicio-sesion/ventana-emergente.component';
->>>>>>> 04bd54e39c2788c4c965b9a0b1b4c360131bb470
+import{PaginaInicioComponent}from './pagina-inicio/pagina-inicio.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,12 +30,9 @@ import { VentanaEmergenteComponent } from './inicio-sesion/ventana-emergente.com
     ProveedorComponent,
     RegistroUsuarioComponent,
     InicioSesionComponent,
-<<<<<<< HEAD
-    PaginaInicioComponent
-=======
     FormComponent,
-    VentanaEmergenteComponent
->>>>>>> 04bd54e39c2788c4c965b9a0b1b4c360131bb470
+    VentanaEmergenteComponent,
+    PaginaInicioComponent
 
   ],
   imports: [
@@ -52,10 +46,11 @@ import { VentanaEmergenteComponent } from './inicio-sesion/ventana-emergente.com
       {path: 'app-inicio-sesion', component: InicioSesionComponent},
       {path: 'app-form', component: FormComponent},
       {path: 'app-ventana-emergente', component: VentanaEmergenteComponent},
+      {path: 'app-pagina-inicio', component: PaginaInicioComponent},
 
     ]),
   ],
-  providers: [RegistroUsuarioComponent],
+  providers: [RegistroUsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
