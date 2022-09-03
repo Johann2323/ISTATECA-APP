@@ -1,7 +1,8 @@
 export class usuario {
     id: number = 0;
+    estado: boolean=false;
     nombre: string ="";
-    apellido: string ="";
-    createat: string ="";
+    username: string ="";
     email: string ="";
+    password: string="";
 }
