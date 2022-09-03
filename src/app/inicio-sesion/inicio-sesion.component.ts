@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RegistroUsuarioService } from '../registro-usuario/registro-usuario.service';
+import { usuario } from '../registro-usuario/usuario';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -8,19 +10,20 @@ import { Router } from '@angular/router';
 
 })
 export class InicioSesionComponent implements OnInit {
-respuesta:boolean=true;
-  constructor(private router: Router) { }
-  notificacion(){
-    this.router.navigate(['/', 'app-ventana-emergente']);
-    this.respuesta= confirm("Se a solicitado exitosamente este libro");
-    if(this.respuesta == false){
-      alert("F");
-    }else{
+  
+  respuesta: boolean = true;
+  usuarios: usuario[] = [];
+  email:String=document.getElementById('txtcorreo')+"";
+  contra:String=document.getElementById('txtcontra')+"";
 
-    }
+  constructor(private router: Router, private usuarioservice: RegistroUsuarioService) { }
+  ngOnInit(): void {
+    this.usuarioservice.obtenerUsuarios().subscribe(
+      usuarios => this.usuarios = usuarios
+    );
   }
 
-  ngOnInit(): void {
+  notificacion() {
   }
 
 }

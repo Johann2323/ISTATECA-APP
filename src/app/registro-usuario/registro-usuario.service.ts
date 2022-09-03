@@ -13,4 +13,9 @@ export class RegistroUsuarioService {
   create(usuario:usuario):Observable<usuario>{
     return this.http.post<usuario>(this.urlendpoint, usuario, {headers: this.httpHeaders})
   }
+  obtenerUsuarios(): Observable<usuario[]> {
+    //return of(CLIENTES)
+    return this.http.get<usuario[]>(this.urlendpoint);
+
+  }
 }
