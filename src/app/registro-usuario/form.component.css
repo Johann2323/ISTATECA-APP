@@ -1,0 +1,26 @@
+h3 {
+
+    position: absolute;
+    left: 53%;
+    margin-left: -1px;
+    margin-top: 109px;
+    top: 0;
+  }
+  h2 {
+    font-size:18px;
+  position: absolute;
+  left: 54%;
+  margin-left: -1px;
+  margin-top: 209px;
+  top: 0;
+  }
+  h1 {
+  
+    font-size:20px;
+    text-align: center;
+  position: absolute;
+  left: 51%;
+  margin-left: -1px;
+  margin-top: 595px;
+  top: 0;
+  }

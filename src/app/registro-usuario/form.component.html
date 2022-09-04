@@ -44,11 +44,7 @@ font-size: 0px;
     }
     
 </style>
-<script>
-  function myFunction() {
-    document.getElementById("myForm").reset();
-  }
-  </script>
+
 
 <h4>Crear nueva cuenta</h4><br>
 
@@ -56,14 +52,14 @@ font-size: 0px;
     <div class="row mb-3">
       <label for="cedula" class="col-sm-2 col-form-label"> <h3>Cédula:</h3></label>
       <div class="col-sm-3">
-        <h6><input  type="number" class="form-control"  name="cedula" required>ced
+        <h6><input  type="number" class="form-control" [(ngModel)]="usuario.cedula"  name="cedula" required>ced
         </h6>
         </div>
     </div>
     <div class="row mb-3">
       <label for="nombres" class="col-sm-2 col-form-label"><h3>Nombres:</h3></label>
       <div class="col-sm-3">
-        <h6><input type="text" class="form-control" [(ngModel)]="usuario.nombre" name="nombres" required>
+        <h6><input type="text" class="form-control" [(ngModel)]="usuario.nombres" name="nombres" required>
             </h6>
         </div>
     </div>
@@ -71,7 +67,7 @@ font-size: 0px;
     <div class="row mb-3">
         <label for="usuario" class="col-sm-2 col-form-label"><h3>Usuario:</h3></label>
         <div class="col-sm-3">
-          <h6><input type="text" class="form-control" [(ngModel)]="usuario.username" name="usuario" required>
+          <h6><input type="text" class="form-control" [(ngModel)]="usuario.usuario" name="usuario" required>
             </h6>
         </div>
       </div>
@@ -79,21 +75,21 @@ font-size: 0px;
       <div class="row mb-3">
         <label for="celular" class="col-sm-2 col-form-label"><h3>Celular:</h3></label>
         <div class="col-sm-3">
-          <h6><input type="number" class="form-control"  name="celular" required>
+          <h6><input type="number" class="form-control" [(ngModel)]="usuario.celular"  name="celular" required>
             </h6>
         </div>
       </div>
     <div class="row mb-3">
       <label for="correo" class="col-sm-2 col-form-label"><h3>Email:</h3></label>
       <div class="col-sm-3">
-        <h6><input type="email" class="form-control"  name="correo" required>
+        <h6><input type="email" class="form-control" [(ngModel)]="usuario.correo"  name="correo" required>
             </h6>
         </div>
     </div>
     <div class="row mb-3">
         <label for="clave" class="col-sm-2 col-form-label"><h3>Contraseña:</h3></label>
         <div class="col-sm-3">
-          <h6><input type="password" class="form-control" name="clave" required>
+          <h6><input type="password" class="form-control" [(ngModel)]="usuario.clave" name="clave" required>
             </h6>
         </div>
       </div>
@@ -111,5 +107,16 @@ font-size: 0px;
     
     <div class="vl"></div>
     
+    
+    <h3 class="h3">
+      <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20largo%20instituto.png?alt=media&token=4106a2c7-b5d6-4944-8323-6df2d6039a76" class="rounded float-start" alt="" width="750" height="100">
+    </h3>
+    
+      <h2 class="h2">
+        <img src="https://scontent.fcue1-1.fna.fbcdn.net/v/t1.6435-9/79342208_630661044345312_247736191829409792_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=08FBQOdls2cAX8NXmfj&_nc_ht=scontent.fcue1-1.fna&oh=00_AT-wJqMRbh98uF7cSE7EbXX5yEt5slWXmYgZ7bVaXdi7aA&oe=63367073" class="img-thumbnail" alt="" width="670" height="300">
+      </h2>
+      <h1 class="h1"><em>Biblioteca Institucional, un espacio que sin lugar a duda aportará significativamente al desarrollo académico de nuestros estudiantes. Marcelo Aguilera, Rector del Instituto, recalcó que la labor conjunta de autoridades, docentes, administrativos y estudiantes permitieron cumplir con esta obra que refleja una Institución en constante mejora.</em></h1>
+    
+
 
   
