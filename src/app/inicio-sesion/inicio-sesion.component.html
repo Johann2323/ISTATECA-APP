@@ -21,9 +21,8 @@
     <button type="submit" class="boton btn btn-primary" style="background-color:#2E2F5E ;">Iniciar
       Sesión</button><br><br>
     <label for="" style="color:#2E2F5E ;" routerLink="/app-registro-usuario"><u>Registrate aquí</u></label>
-    <div id="buscarestudiante" *ngFor="let usuario of usuarios" active>
-      <div *ngIf="usuario.correo==email"></div>
-      
+    <div type="submit" id="buscarestudiante" *ngFor="let usuario of usuarios" active>
+      <div *ngIf="usuario.correo==email && usuario.clave==contra" routerLink="/app-pagina-inicio"></div>
     </div>
   </form>
   

@@ -1,5 +1,6 @@
+import { NgForOf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { RegistroUsuarioService } from '../registro-usuario/registro-usuario.service';
 import { usuario } from '../registro-usuario/usuario';
 
