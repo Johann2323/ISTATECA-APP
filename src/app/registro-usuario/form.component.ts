@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { RegistroUsuarioService } from './registro-usuario.service';
 import { usuario } from './usuario';
+import { persona } from '../persona';
 
 @Component({
   selector: 'app-form',

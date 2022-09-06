@@ -1,10 +1,7 @@
-export class usuario {
-    id_persona: number = 0;
-    activo: number = 0;
-    cedula: string="";
-    celular: string="";
-    clave: string="";
-    correo: string="";
-    nombres: string ="";
-    usuario: string ="";
+import { persona } from "../persona";
+export class usuario extends persona{
+    id_usuario: number = 0;
+    calificacion: number = 0;
+    observaciones: string = "";
+    
 }

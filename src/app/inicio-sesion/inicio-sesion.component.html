@@ -22,7 +22,7 @@
       Sesión</button><br><br>
     <label for="" style="color:#2E2F5E ;" routerLink="/app-registro-usuario"><u>Registrate aquí</u></label>
     <div type="submit" id="buscarestudiante" *ngFor="let usuario of usuarios" active>
-      <div *ngIf="usuario.correo==email && usuario.clave==contra" routerLink="/app-pagina-inicio"></div>
+      <div *ngIf="usuario.correo" routerLink="/app-pagina-inicio"></div>
     </div>
   </form>
   
