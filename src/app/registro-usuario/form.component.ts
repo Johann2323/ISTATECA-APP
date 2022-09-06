@@ -11,24 +11,49 @@ import { persona } from '../persona';
 })
 export class FormComponent implements OnInit {
 
-  public usuario:usuario = new usuario()
-  public titulo:string="Crear Cliente"
+  public usuario: usuario = new usuario()
+  public usuario1: usuario = new usuario()
 
-  constructor(private usuarioservice:RegistroUsuarioService, private router:Router) { }
+  persona: persona = {};
+
+  persona2: persona = {};
+
+  public titulo: string = "Crear Cliente"
+
+  constructor(private usuarioservice: RegistroUsuarioService, private router: Router) { }
 
 
   ngOnInit(): void {
+
+    this.create();
+
   }
 
-  public reste():void{
-    
-  }
-  
-  public create():void{
+
+
+  public create(): void {
     console.log("ha realizado un clic")
-    this.usuarioservice.create(this.usuario).subscribe(
-      response => this.router.navigate(["app-registro-usuario"])
+
+
+    this.usuarioservice.createP(this.persona).subscribe(
+      response => { 
+        //this.persona = response;
+        this.usuarioservice.create(this.usuario).subscribe(
+          response => { this.usuario }
+        )
+        
+      }
+      
+      
     )
+    
+
+    
+
+    console.log(this.persona)
+    console.log(this.usuario)
+
+
   }
 
 }
