@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RegistroUsuarioService {
-  private urlendpoint:string='http://localhost:8080/api/clientes';
+  private urlendpoint:string='http://localhost:8080/api/crearusuario';
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
   constructor(private http:HttpClient) { }
   
@@ -19,7 +19,7 @@ export class RegistroUsuarioService {
     return this.http.get<usuario[]>(this.urlendpoint);
   }
 
-  createP(persona:persona):Observable<persona[]>{
-    return this.http.post<persona[]>(this.urlendpoint, persona, {headers: this.httpHeaders})
-  }
+  //createP(persona:persona):Observable<persona[]>{
+    //return this.http.post<persona[]>(this.urlendpoint, persona, {headers: this.httpHeaders})
+  //}
 }

@@ -11,12 +11,8 @@ import { persona } from '../persona';
 })
 export class FormComponent implements OnInit {
 
-  public usuario: usuario = new usuario()
-  public usuario1: usuario = new usuario()
-
+  public usuario: usuario = new usuario();
   persona: persona = {};
-
-  persona2: persona = {};
 
   public titulo: string = "Crear Cliente"
 
@@ -24,34 +20,28 @@ export class FormComponent implements OnInit {
 
 
   ngOnInit(): void {
-
-    this.create();
-
   }
 
 
 
   public create(): void {
     console.log("ha realizado un clic")
+    this.usuario.persona=this.persona
+    this.persona.activo=false;
+    console.log(this.persona.cedula)
+    console.log(this.usuario.observaciones)
 
-
-    this.usuarioservice.createP(this.persona).subscribe(
-      response => { 
+    //this.usuarioservice.createP(this.persona).subscribe(
+      //response => { 
         //this.persona = response;
         this.usuarioservice.create(this.usuario).subscribe(
           response => { this.usuario }
+          
         )
         
-      }
-      
-      
-    )
+      //}
+    //)
     
-
-    
-
-    console.log(this.persona)
-    console.log(this.usuario)
 
 
   }

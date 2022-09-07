@@ -1,6 +1,6 @@
 export class persona {
-    id_persona?: number;
-    activo?: number;
+    idPersona?: number;
+    activo?: boolean;
     cedula?: string;
     celular?: string;
     clave?: string;
