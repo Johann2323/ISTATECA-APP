@@ -46,7 +46,7 @@ import{PaginaInicioComponent}from './pagina-inicio/pagina-inicio.component'
       {path: 'app-inicio-sesion', component: InicioSesionComponent},
       {path: 'app-form', component: FormComponent},
       {path: 'app-ventana-emergente', component: VentanaEmergenteComponent},
-      {path: 'app-pagina-inicio', component: PaginaInicioComponent},
+      {path: '', component: PaginaInicioComponent,pathMatch:'full'},
 
     ]),
   ],
