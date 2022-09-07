@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,13 @@ export class AppComponent {
   title = 'Mi primera aplicacion en Angular';
   curso: string="TDS N4A";
   profesor: string="Ing. Carmen Tacuri";
+
+
+
+ //inicio : string = PaginaInicioComponent.;
+
+  //setHabilitar(): void{
+    //inicio.habilitar = (this.inicio==true)? false:true;
+  //}
+  
 }
