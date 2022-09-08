@@ -20,7 +20,8 @@ import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 import { FormComponent } from './registro-usuario/form.component';
 import { FormsModule } from '@angular/forms';
 import { VentanaEmergenteComponent } from './inicio-sesion/ventana-emergente.component';
-import{PaginaInicioComponent}from './pagina-inicio/pagina-inicio.component'
+import{PaginaInicioComponent}from './pagina-inicio/pagina-inicio.component';
+import { RegistroBibliotecarioComponent } from './registro-bibliotecario/registro-bibliotecario.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import{PaginaInicioComponent}from './pagina-inicio/pagina-inicio.component'
     InicioSesionComponent,
     FormComponent,
     VentanaEmergenteComponent,
-    PaginaInicioComponent
+    PaginaInicioComponent,
+    RegistroBibliotecarioComponent
 
   ],
   imports: [
@@ -47,6 +49,8 @@ import{PaginaInicioComponent}from './pagina-inicio/pagina-inicio.component'
       {path: 'app-form', component: FormComponent},
       {path: 'app-ventana-emergente', component: VentanaEmergenteComponent},
       {path: '', component: PaginaInicioComponent,pathMatch:'full'},
+      {path: 'app-registro-bibliotecario', component: VentanaEmergenteComponent},
+      {path: 'app-formB', component: FormComponent},
 
     ]),
   ],

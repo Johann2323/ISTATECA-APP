@@ -27,7 +27,7 @@ export class FormComponent implements OnInit {
   public create(): void {
     console.log("ha realizado un clic")
     this.usuario.persona=this.persona
-    this.persona.activo=false;
+    this.persona.activo=true;
     console.log(this.persona.cedula)
     console.log(this.usuario.observaciones)
 
