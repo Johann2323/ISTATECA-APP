@@ -23,9 +23,8 @@ margin-top: 1%;
     h5 {
 margin-top: 0%;
 font-size: 0px;
-    text-align: left; 
-    margin-inline-start: 23%;
-
+    
+    left: 50%;
     }
 
     h6 {
@@ -37,12 +36,11 @@ font-size: 0px;
     }
 
     h1 {
-        position: absolute;
-  left: 2%;
-  margin-left: -1px;
-  margin-top: 109px;
-  top: 0;
-    
+      position: absolute;
+      left: 2%;
+      margin-left: -1px;
+      margin-top: 109px;
+      top: 0;
     }
     
 </style>
@@ -65,7 +63,7 @@ font-size: 0px;
     <div class="row mb-3">
       <label for="nombres" class="col-sm-3 col-form-label"><h3>Nombres:</h3></label>
       <div class="col-sm-5">
-        <h6><input type="text" class="form-control" placeholder="Aqui se visualizaran sus datos" name="nombres" readonly required>
+        <h6><input type="text" class="form-control-"  placeholder="Aqui se visualizaran sus datos" name="nombres" readonly required>
             </h6>
         </div>
     </div>
@@ -73,7 +71,7 @@ font-size: 0px;
     <div class="row mb-3">
       <label for="celular" class="col-sm-3 col-form-label"><h3>Celular:</h3></label>
       <div class="col-sm-5">
-        <h6><input type="number" class="form-control" placeholder="Aqui se visualizaran sus datos"   name="celular" readonly readonly required>
+        <h6><input type="number" class="form-control" placeholder="Aqui se visualizaran sus datos"   name="celular" readonly required>
           </h6>
       </div>
     </div>
@@ -90,7 +88,7 @@ font-size: 0px;
     <div class="col-sm-5">
       <h6>
         <select class="form-select" id="combo" required>
-            <option value="0"></option>
+            <option value="" disabled selected>Seleccione un rol</option>
             <option value="1">Administrador</option>
             <option value="2">Bibliotecario</option>
           </select>
@@ -120,10 +118,10 @@ font-size: 0px;
         </div>
       </div>
 
-      <!--<h5>
+      <h5>
         <button type="submit" class="btn btn-outline-secondary" >Registrarse</button>  
         <button type="reset" class="btn btn-outline-secondary" >Restablecer</button>  
-      </h5>-->
+      </h5>
 
     </form>
     
