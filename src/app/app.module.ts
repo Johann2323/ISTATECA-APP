@@ -49,8 +49,7 @@ import { RegistroBibliotecarioComponent } from './registro-bibliotecario/registr
       {path: 'app-form', component: FormComponent},
       {path: 'app-ventana-emergente', component: VentanaEmergenteComponent},
       {path: '', component: PaginaInicioComponent,pathMatch:'full'},
-      {path: 'app-registro-bibliotecario', component: VentanaEmergenteComponent},
-      {path: 'app-formB', component: FormComponent},
+      {path: 'app-registro-bibliotecario', component: RegistroBibliotecarioComponent},
 
     ]),
   ],

@@ -1,1 +1,135 @@
-<p>registro-bibliotecario works!</p>
+<style>
+    .vl {
+  border-left: 6px solid rgb(0, 0, 0);
+  height: 615px;
+  position: absolute;
+  left: 50%;
+  margin-left: -1px;
+  margin-top: 105px;
+  top: 0;
+}
+   h3 {
+        text-align: center; 
+        margin-inline-start: 40%;
+    
+    }
+    
+    h4 {
+    font-size:50px;
+margin-top: 1%;
+    text-align: center; 
+
+    }
+    h5 {
+margin-top: 0%;
+font-size: 0px;
+    text-align: left; 
+    margin-inline-start: 23%;
+
+    }
+
+    h6 {
+margin-top: 0%;
+font-size: 0px;
+    text-align: center; 
+    margin-inline-start: 20%;
+
+    }
+
+    h1 {
+        position: absolute;
+  left: 2%;
+  margin-left: -1px;
+  margin-top: 109px;
+  top: 0;
+    
+    }
+    
+</style>
+
+<header> <h4>Registro del Bibliotecario</h4><br> </header>
+
+<body class="elemento" ba>
+<form id="myForm" ngNativeValidate class="row gy-2 gx-3 align-items-center"  onsubmit="alert('Se ha registrado con exito')">
+    <div class="row mb-3">
+      <label for="cedula" class="col-sm-3 col-form-label"> <h3>Cédula:</h3></label>
+      <div class="col-sm-5">
+        <h6><input  type="number" class="form-control" placeholder="Ingrese un numero de cedula"  name="cedula" required>
+        </h6>
+        </div>
+    </div>
+
+    
+
+    <div class="row mb-3">
+      <label for="nombres" class="col-sm-3 col-form-label"><h3>Nombres:</h3></label>
+      <div class="col-sm-5">
+        <h6><input type="text" class="form-control" placeholder="Se visualizaran sus datos cuando ingrese un numero cedula" name="nombres" required>
+            </h6>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="celular" class="col-sm-3 col-form-label"><h3>Celular:</h3></label>
+      <div class="col-sm-5">
+        <h6><input type="number" class="form-control" placeholder="Se visualizaran sus datos cuando ingrese un numero cedula"   name="celular" required>
+          </h6>
+      </div>
+    </div>
+  <div class="row mb-3">
+    <label for="correo" class="col-sm-3 col-form-label"><h3>Email:</h3></label>
+    <div class="col-sm-5">
+      <h6><input type="email" class="form-control" placeholder="Se visualizaran sus datos cuando ingrese un numero cedula"  name="correo" required>
+          </h6>
+      </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="cedula" class="col-sm-3 col-form-label"> <h3>Rol:</h3></label>
+    <div class="col-sm-5">
+      <h6>
+        <select class="form-select" id="combo" required>
+            <option value="0"></option>
+            <option value="1">Administrador</option>
+            <option value="2">Bibliotecario</option>
+          </select>
+      </h6>
+      </div>
+  </div>
+
+
+  
+
+
+
+    <div class="row mb-3">
+        <label for="usuario" class="col-sm-3 col-form-label"><h3>Usuario:</h3></label>
+        <div class="col-sm-5">
+          <h6><input type="text" class="form-control" placeholder="Ingrese un nombre de usuario"  name="usuario" required>
+            </h6>
+        </div>
+      </div>
+
+      
+    <div class="row mb-3">
+        <label for="clave" class="col-sm-3 col-form-label"><h3>Contraseña:</h3></label>
+        <div class="col-sm-5">
+          <h6><input type="password" class="form-control" placeholder="Ingrese una contraseña"  name="clave" required>
+            </h6>
+        </div>
+      </div>
+
+      <!--<h5>
+        <button type="submit" class="btn btn-outline-secondary" >Registrarse</button>  
+        <button type="reset" class="btn btn-outline-secondary" >Restablecer</button>  
+      </h5>-->
+
+    </form>
+    
+    <h1>
+    <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20normal.png?alt=media&token=5c5a4b10-135a-4467-a1cf-3347bbe58df5" class="rounded float-start" alt="" width="400" height="99">
+    </h1>
+
+</body>
+    
+    
