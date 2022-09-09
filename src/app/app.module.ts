@@ -21,6 +21,7 @@ import { FormComponent } from './registro-usuario/form.component';
 import { FormsModule } from '@angular/forms';
 import { VentanaEmergenteComponent } from './inicio-sesion/ventana-emergente.component';
 import{PaginaInicioComponent}from './pagina-inicio/pagina-inicio.component'
+import { PaginaInicioService } from './pagina-inicio/pagina-inicio.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,7 @@ import{PaginaInicioComponent}from './pagina-inicio/pagina-inicio.component'
 
     ]),
   ],
-  providers: [RegistroUsuarioService],
+  providers: [RegistroUsuarioService, PaginaInicioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

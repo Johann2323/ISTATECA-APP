@@ -13,10 +13,6 @@ export class AppComponent {
 
 
 
- //inicio : string = PaginaInicioComponent.;
-
-  //setHabilitar(): void{
-    //inicio.habilitar = (this.inicio==true)? false:true;
-  //}
+ 
   
 }
