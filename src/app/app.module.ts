@@ -22,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { VentanaEmergenteComponent } from './inicio-sesion/ventana-emergente.component';
 import{PaginaInicioComponent}from './pagina-inicio/pagina-inicio.component';
 import { RegistroBibliotecarioComponent } from './registro-bibliotecario/registro-bibliotecario.component'
+import { PaginaInicioService } from './pagina-inicio/pagina-inicio.service';
 @NgModule({
   declarations: [
     AppComponent,
