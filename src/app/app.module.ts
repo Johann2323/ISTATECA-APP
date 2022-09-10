@@ -53,7 +53,7 @@ import { ListaBibliotecariosComponent } from './lista-bibliotecarios/lista-bibli
       {path: 'app-ventana-emergente', component: VentanaEmergenteComponent},
       {path: '', component: PaginaInicioComponent,pathMatch:'full'},
       {path: 'app-registro-bibliotecario', component: RegistroBibliotecarioComponent},
-
+      {path: 'app-lista-bibliotecarios', component: ListaBibliotecariosComponent},
     ]),
   ],
   providers: [RegistroUsuarioService, PaginaInicioService],
