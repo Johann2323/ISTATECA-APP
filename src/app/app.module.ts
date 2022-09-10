@@ -24,6 +24,8 @@ import { RegistroBibliotecarioComponent } from './registro-bibliotecario/registr
 import { PaginaInicioService } from './pagina-inicio/pagina-inicio.service';
 import { ListaBibliotecariosComponent } from './lista-bibliotecarios/lista-bibliotecarios.component';
 import { ListasComponent } from './listas/listas.component';
+import { ListaSolicitudesPendientesComponent } from './lista-solicitudes-pendientes/lista-solicitudes-pendientes.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,8 @@ import { ListasComponent } from './listas/listas.component';
     PaginaInicioComponent,
     RegistroBibliotecarioComponent,
     ListaBibliotecariosComponent,
-    ListasComponent
+    ListasComponent,
+    ListaSolicitudesPendientesComponent,
 
   ],
   imports: [
@@ -54,6 +57,7 @@ import { ListasComponent } from './listas/listas.component';
       {path: 'app-registro-bibliotecario', component: RegistroBibliotecarioComponent},
       {path: 'app-lista-bibliotecarios', component: ListaBibliotecariosComponent},
       {path: 'app-listas', component: ListasComponent},
+      {path: 'app-lista-solicitudes-pendientes', component: ListaSolicitudesPendientesComponent},
     ]),
   ],
   providers: [RegistroUsuarioService, PaginaInicioService],
