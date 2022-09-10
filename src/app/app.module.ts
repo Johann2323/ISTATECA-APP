@@ -19,7 +19,6 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 import { FormComponent } from './registro-usuario/form.component';
 import { FormsModule } from '@angular/forms';
-import { VentanaEmergenteComponent } from './inicio-sesion/ventana-emergente.component';
 import{PaginaInicioComponent}from './pagina-inicio/pagina-inicio.component';
 import { RegistroBibliotecarioComponent } from './registro-bibliotecario/registro-bibliotecario.component'
 import { PaginaInicioService } from './pagina-inicio/pagina-inicio.service';
@@ -35,7 +34,6 @@ import { ListasComponent } from './listas/listas.component';
     RegistroUsuarioComponent,
     InicioSesionComponent,
     FormComponent,
-    VentanaEmergenteComponent,
     PaginaInicioComponent,
     RegistroBibliotecarioComponent,
     ListaBibliotecariosComponent,
@@ -52,10 +50,10 @@ import { ListasComponent } from './listas/listas.component';
       {path: 'app-registro-usuario', component: RegistroUsuarioComponent},
       {path: 'app-inicio-sesion', component: InicioSesionComponent},
       {path: 'app-form', component: FormComponent},
-      {path: 'app-ventana-emergente', component: VentanaEmergenteComponent},
       {path: '', component: PaginaInicioComponent,pathMatch:'full'},
       {path: 'app-registro-bibliotecario', component: RegistroBibliotecarioComponent},
       {path: 'app-lista-bibliotecarios', component: ListaBibliotecariosComponent},
+      {path: 'app-listas', component: ListasComponent},
     ]),
   ],
   providers: [RegistroUsuarioService, PaginaInicioService],
