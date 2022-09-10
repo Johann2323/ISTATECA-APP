@@ -5,10 +5,10 @@
   }
 
   .container{
+    width: 11%;
     position: absolute;
-    text-align: center;
-    left: 75%;
-    top: 27%;
+    left: 80%;
+    top: 33%;
     box-sizing: content-box;
     border: 3px solid black;  
   }
