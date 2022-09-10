@@ -23,6 +23,7 @@ import { VentanaEmergenteComponent } from './inicio-sesion/ventana-emergente.com
 import{PaginaInicioComponent}from './pagina-inicio/pagina-inicio.component';
 import { RegistroBibliotecarioComponent } from './registro-bibliotecario/registro-bibliotecario.component'
 import { PaginaInicioService } from './pagina-inicio/pagina-inicio.service';
+import { ListaBibliotecariosComponent } from './lista-bibliotecarios/lista-bibliotecarios.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { PaginaInicioService } from './pagina-inicio/pagina-inicio.service';
     FormComponent,
     VentanaEmergenteComponent,
     PaginaInicioComponent,
-    RegistroBibliotecarioComponent
+    RegistroBibliotecarioComponent,
+    ListaBibliotecariosComponent
 
   ],
   imports: [
