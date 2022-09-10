@@ -25,6 +25,7 @@ export class FormComponent implements OnInit {
 
 
   public create(): void {
+    
     console.log("ha realizado un clic")
     this.usuario.persona=this.persona
     this.persona.activo=true;

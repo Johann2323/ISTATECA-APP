@@ -48,7 +48,7 @@ font-size: 0px;
 
 <h4><strong>Crear nueva cuenta</strong></h4><br>
 
-<form id="myForm" ngNativeValidate class="row gy-2 gx-3 align-items-center"  onsubmit="alert('Se ha registrado con exito')"  (ngSubmit)="create()" >
+<form id="myForm" ngNativeValidate class="row gy-2 gx-3 align-items-center" onsubmit="alert('Se ha registrado con exito')" (ngSubmit)="create()">
     <div class="row mb-3">
       <label for="cedula" class="col-sm-2 col-form-label"> <h3>Cédula:</h3></label>
       <div class="col-sm-3">
@@ -99,7 +99,7 @@ font-size: 0px;
       </div>
 
       <h5>
-        <button type="submit" class="btn btn-outline-secondary" >Registrarse</button>  
+        <button type="submit" class="btn btn-outline-secondary" routerLinkActive="/app-inicio-sesion">Registrarse</button>  
         <button type="reset" class="btn btn-outline-secondary" >Restablecer</button>  
       </h5>
 
