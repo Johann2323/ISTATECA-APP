@@ -1,6 +1,5 @@
-import { NgForOf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router} from '@angular/router';
 import { RegistroUsuarioService } from '../registro-usuario/registro-usuario.service';
 import { usuario } from '../registro-usuario/usuario';
 
@@ -17,7 +16,7 @@ export class InicioSesionComponent implements OnInit {
   email:String=document.getElementById('txtcorreo')+"";
   contra:String=document.getElementById('txtcontra')+"";
 
-  constructor(private router: Router, private usuarioservice: RegistroUsuarioService) { }
+  constructor(private router: Router, private usuarioservice: RegistroUsuarioService) {}
   ngOnInit(): void {
     this.usuarioservice.obtenerUsuarios().subscribe(
       usuarios => this.usuarios = usuarios

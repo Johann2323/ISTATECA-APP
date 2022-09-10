@@ -7,3 +7,8 @@
   background-repeat: no-repeat;
   background-position: right;
 }
+.container{
+  position: relative;
+  text-align: center;
+  border: 1px solid black;  
+}
