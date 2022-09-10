@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './registro-bibliotecario.component.html',
   styleUrls: ['./registro-bibliotecario.component.css']
 })
+
 export class RegistroBibliotecarioComponent implements OnInit {
 
   constructor() { }

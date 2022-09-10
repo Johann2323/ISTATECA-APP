@@ -3,3 +3,12 @@
     background-repeat: no-repeat;
     background-position: right;
   }
+
+  .container{
+    position: absolute;
+    text-align: center;
+    left: 75%;
+    top: 27%;
+    box-sizing: content-box;
+    border: 3px solid black;  
+  }
