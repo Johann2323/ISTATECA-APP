@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { RegistroUsuarioService } from './registro-usuario.service';
 import { usuario } from './usuario';
 import { persona } from '../persona';
+import { InicioSesionComponent } from '../inicio-sesion/inicio-sesion.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-form',
