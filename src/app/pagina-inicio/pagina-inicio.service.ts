@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class PaginaInicioService {
 
-  private urlEndPoint: string='http://localhost:8080/listalibros'
+  private urlEndPoint: string='http://localhost:8080/api/listalibros'
   constructor(private http: HttpClient ) { }
 
   getLibros(): Observable <PaginaInicio[]>{
