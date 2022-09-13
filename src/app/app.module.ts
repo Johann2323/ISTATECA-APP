@@ -26,6 +26,7 @@ import { ListaBibliotecariosComponent } from './lista-bibliotecarios/lista-bibli
 import { ListasComponent } from './listas/listas.component';
 import { ListaSolicitudesPendientesComponent } from './lista-solicitudes-pendientes/lista-solicitudes-pendientes.component';
 import { RegistroLibroComponent } from './registro-libro/registro-libro.component';
+import { PersonaService } from './inicio-sesion/persona.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,7 @@ import { RegistroLibroComponent } from './registro-libro/registro-libro.componen
       {path: 'app-lista-solicitudes-pendientes', component: ListaSolicitudesPendientesComponent},
     ]),
   ],
-  providers: [RegistroUsuarioService, PaginaInicioService],
+  providers: [RegistroUsuarioService, PaginaInicioService, PersonaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

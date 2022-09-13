@@ -9,7 +9,7 @@
       <label for="exampleInputEmail1" class="destacado form-label">
         <font size="4">Correo:</font>
       </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <input name="segapell" type="email" class="text-center" id="txtcorreo" value="" size="55"
+      <input name="segapell" class="text-center" id="txtcorreo" value="" size="55"
         placeholder="Escriba su correo institucional" required>
     </div>
     
@@ -22,9 +22,7 @@
     <button type="submit" class="boton btn btn-primary" style="background-color:#2E2F5E ;">Iniciar
       Sesión</button><br><br>
     <label for="" style="color:#2E2F5E ;" routerLink="/app-registro-usuario"><u>Registrate aquí</u></label>
-    <div type="submit" id="buscarestudiante" *ngFor="let usuario of usuarios" active>
-      <div *ngIf="usuario.observaciones" routerLink="/app-pagina-inicio"></div>
-    </div>
+    
     
     
   </form>
