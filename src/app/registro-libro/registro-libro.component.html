@@ -1,0 +1,313 @@
+<header>
+    <h4 class="text-center"><strong>Registro de Libros</strong><br></h4>
+</header>
+
+<div class="imagen">
+    <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20normal.png?alt=media&token=5c5a4b10-135a-4467-a1cf-3347bbe58df5"
+        height="80" width="350">
+</div>
+<!--FORMULARIO-->
+
+<body class="elemento">
+    <div class="card" style="text-align:left">
+        <form id="myForm" style="text-align:left">
+            <div class="row mb-3">
+                <label for="Codigo DEWEY" class="col-sm col-form-label">
+                    <h3>Código DEWEY:</h3>
+                </label>
+                <div class="col-sm">
+                    <h6><input type="text" class="form-control" name="Codigo-DEWEY" required>
+                    </h6>
+                </div>
+            </div>
+
+            <div class="row mb">
+                <label for="Titulo-Libro" class="col-sm col-form-label">
+                    <h3>Titulo del Libro:</h3>
+                </label>
+                <div class="col-sm">
+                    <h6><input type="text" class="form-control" name="titulo-libro" required>
+                    </h6>
+                </div>
+            </div>
+
+            <div class="row mb">
+                <label for="Adquisicion-Libro" class="col-sm col-form-label">
+                    <h3>Adquisicion del Libro:</h3>
+                </label>
+                <div class="col-sm">
+                    <h6><input type="text" class="form-control" name="Adquisicion-libro" required>
+                    </h6>
+                </div>
+            </div>
+
+            <div class="row mb">
+                <label for="Año-Publicacion" class="col-sm col-form-label">
+                    <h3>Año de Publicación:</h3>
+                </label>
+                <div class="col-sm">
+                    <h6><input type="text" class="form-control" name="Año-Publicacion" required>
+                    </h6>
+                </div>
+            </div>
+
+            <div class="row mb">
+                <label for="Editor" class="col-sm col-form-label">
+                    <h3>Editor:</h3>
+                </label>
+                <div class="col-sm">
+                    <h6><input type="text" class="form-control" name="Editor" required>
+                    </h6>
+                </div>
+            </div>
+
+            <div class="row mb">
+                <label for="Autor" class="col-sm col-form-label">
+                    <h3>Autor:</h3>
+                </label>
+                <div class="col-sm">
+                    <h6><input type="text" class="form-control" name="Autor" required>
+                    </h6>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="cedula" class="col-sm-6 col-form-label">
+                    <h3>Tipo:</h3>
+                </label>
+                <div class="col-sm-6">
+                    <h6>
+                        <select class="form-select" id="combo" required>
+                            <option value="" disabled selected>Seleccione un tipo</option>
+                            <option value="1">Tipo 1</option>
+                            <option value="2">Tipo 2</option>
+                        </select>
+                    </h6>
+                </div>
+            </div>
+
+            <div class="row mb">
+                <label for="Ciudad" class="col-sm col-form-label">
+                    <h3>Ciudad:</h3>
+                </label>
+                <div class="col-sm">
+                    <h6><input type="text" class="form-control" name="Ciudad" required>
+                    </h6>
+                </div>
+            </div>
+
+            <div class="row mb">
+                <label for="Num-Paginas" class="col-sm col-form-label">
+                    <h3>N° de Paginas:</h3>
+                </label>
+                <div class="col-sm">
+                    <h6><input type="text" class="form-control" name="Num-Paginas" required>
+                    </h6>
+                </div>
+            </div>
+
+            <div class="row mb">
+                <label for="Area" class="col-sm col-form-label">
+                    <h3>Area:</h3>
+                </label>
+                <div class="col-sm">
+                    <h6><input type="text" class="form-control" name="Area" required>
+                    </h6>
+                </div>
+            </div>
+
+            <div class="row mb">
+                <label for="Codigo-ISBN" class="col-sm col-form-label">
+                    <h3>Codigo ISBN:</h3>
+                </label>
+                <div class="col-sm">
+                    <h6><input type="text" class="form-control" name="Codigo-ISBN" required>
+                    </h6>
+                </div>
+            </div>
+
+
+            <div class="row mb">
+                <label for="Idioma" class="col-sm col-form-label">
+                    <h3>Idioma:</h3>
+                </label>
+                <div class="col-sm">
+                    <h6><input type="text" class="form-control" name="Idioma" required>
+                    </h6>
+                </div>
+            </div>
+
+            <div class="row mb">
+                <label for="Descripcion" class="col-sm col-form-label">
+                    <h3>Descripción:</h3>
+                </label>
+                <div class="col-sm">
+                    <h6><input type="text" class="form-control" name="Descripcion" required>
+                    </h6>
+                </div>
+            </div>
+
+            <div class="row mb">
+                <label for="Dimensiones" class="col-sm col-form-label">
+                    <h3>Dimensiones:</h3>
+                </label>
+                <div class="col-sm">
+                    <h6><input type="text" class="form-control" name="Dimensiones" required>
+                    </h6>
+                </div>
+            </div>
+
+            <div class="row mb">
+                <label for="Biblio-registra" class="col-sm col-form-label">
+                    <h3>Bibliotecario que registra:</h3>
+                </label>
+                <div class="col-sm">
+                    <h6><input type="text" class="form-control" name="Biblio-registra" required>
+                    </h6>
+                </div>
+            </div>
+
+            <div class="row mb">
+                <label for="URL" class="col-sm col-form-label">
+                    <h3>URL Digital:</h3>
+                </label>
+                <div class="col-sm">
+                    <h6><input type="text" class="form-control" name="URL" required>
+                    </h6>
+                </div>
+            </div>
+
+            <div class="row mb">
+                <label for="Fecha-Creacion" class="col-sm col-form-label">
+                    <h3>Fecha de Creación:</h3>
+                </label>
+                <div class="col-sm">
+                    <h6><input type="date" class="form-control" name="Fecha-Creacion" required>
+                    </h6>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="cedula" class="col-sm-6 col-form-label">
+                    <h3>Disponible:</h3>
+                </label>
+                <div class="col-sm-6">
+                    <h6>
+                        <select class="form-select" id="combo" required>
+                            <option value="" disabled selected>Seleccione</option>
+                            <option value="1">Disponible</option>
+                            <option value="2">No disponible</option>
+                        </select>
+                    </h6>
+                </div>
+            </div>
+
+
+
+
+
+
+        </form>
+    </div>
+    <!--FIN DE FORMULARIO-->
+
+    <!--CAJA DDE BOTONES-->
+
+    <div class="tarjeta">
+        <div class="row gx-5">
+
+            <div class="col">
+
+                <button class="btn" style="background-color:transparent">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fimpresora.png?alt=media&token=a45ef1f8-6983-4e43-8adf-e31a2f1b6928"
+                        width=30 height=30 align="center">
+                    Imprimir</button>
+
+            </div>
+
+            <div class="col">
+
+
+                <button class="btn" style="background-color:transparent">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar_autor-tipo-donante.png?alt=media&token=4f1e982c-c8a5-496a-80d2-33d6fe7a9d33"
+                        width=30 height=30 align="center">
+                    Añadir Donante</button>
+
+            </div>
+
+            <div class="col">
+
+
+                <button class="btn" style="background-color:transparent">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fmodificar.png?alt=media&token=80f892de-c49a-4833-8019-1e8d7ec8ef06"
+                        width=30 height=30 align="center">
+                    Modificar</button>
+
+            </div>
+
+
+            <div class="col">
+
+
+                <button class="btn" style="background-color:transparent">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Flistas.png?alt=media&token=97df573d-51ec-4d24-8b96-d68164b717ff"
+                        width=30 height=30 align="center">
+                    Lista de Libros</button>
+
+            </div>
+
+            <div class="col">
+
+                <button class="btn" style="background-color:transparent">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar%20libro.png?alt=media&token=b7f639da-1aaa-4d12-8133-a59742d32d87"
+                        width=30 height=30 align="center">
+                    Guardar Libro</button>
+
+            </div>
+
+        </div>
+    </div>
+    <!--FIN DE CAJA DE BOTONES-->
+
+    <!--SUBIR FOTO-->
+    <div class="tarjeta-subir-foto">
+        <div class=" h5 text-center"><strong>Donante</strong></div>
+
+    </div>
+    <!--FIN SUBIR FOTO-->
+
+    <!--REGISTRAR DONANTE-->
+    <div class="tarjeta-registrar-donante">
+        <div class=" h1 text-center"><strong>Donante</strong></div>
+        <div class="col">
+
+            <button class="btn " style="background-color:transparent">
+                <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fsubir%20acta.png?alt=media&token=654756c8-f9ef-46fc-a2df-c740f8e75c45"
+                    width=40 height=40 align="center">
+                Subir Acta</button>
+
+        </div>
+        
+        <div class="row mb" >
+            <label for="Donante" class="col-sm col-form-label">
+                <h3>Nombre del Donante:</h3>
+            </label>
+            <div class="col-sm">
+                <h6><input type="text" class="form-control" name="Donante" required rigth>
+                </h6>
+            </div>
+        </div>
+
+        <div class="row mb">
+            <label for="Fecha-Donacion" class="col-sm col-form-label">
+                <h3>Fecha de Donación:</h3>
+            </label>
+            <div class="col-sm">
+                <h6><input type="date" class="form-control" name="Fecha-Donacion" required>
+                </h6>
+            </div>
+        </div>
+
+    </div>
+    
+</body>
