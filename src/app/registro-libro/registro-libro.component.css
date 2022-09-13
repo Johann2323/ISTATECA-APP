@@ -27,11 +27,36 @@
     border: 6px double rgb(0, 0, 0);
     align-items: center;
     margin-left: 53%;
-    position: absolute; top: 75%;
+    position: absolute; top: 68%;
     border-radius: 8px;
     overflow: hidden;
     background: #ffffff;
 }
+
+.tarjeta-registrar-autor{
+    height: 30%;
+    width: 45%;
+    border: 6px double rgb(0, 0, 0);
+    align-items: center;
+    margin-left: 53%;
+    position: absolute; top: 110%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.tarjeta-registrar-tipo-libro{
+    height: 30%;
+    width: 45%;
+    border: 6px double rgb(0, 0, 0);
+    align-items: center;
+    margin-left: 53%;
+    position: absolute; top: 145%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
 .elemento {
     background-image: url(https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20fondo%20borroso%20peque%C3%B1o.jpg?alt=media&token=8a7bcc9b-f7e0-4757-b3eb-2a20e389ffae);
     background-repeat: no-repeat;
