@@ -33,8 +33,13 @@
       </thead>
       
       <tbody class="text-center" >
-         
-         
+        <tr *ngFor="let bibliotecario of bibliotecarios" >
+          <td>{{bibliotecario.persona?.cedula}}</td>
+          <td>{{bibliotecario.rol}}</td>
+          <td>{{bibliotecario.fechaInicio}}</td>
+          <td>{{bibliotecario.fechaFin}}</td>
+          <td>{{bibliotecario.activoBibliotecario}}</td>
+      </tr>
       </tbody>
   </table>
 </div>
