@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
-import { RegistroUsuarioService } from '../registro-usuario/registro-usuario.service';
-import { usuario } from '../registro-usuario/usuario';
+import { PersonaService} from './persona.service';
+import { persona } from '../persona';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -10,20 +10,22 @@ import { usuario } from '../registro-usuario/usuario';
 
 })
 export class InicioSesionComponent implements OnInit {
-  
-  respuesta: boolean = true;
-  usuarios: usuario[] = [];
+  Persona: persona= new persona;
   email:String=document.getElementById('txtcorreo')+"";
   contra:String=document.getElementById('txtcontra')+"";
 
-  constructor(private router: Router, private usuarioservice: RegistroUsuarioService) {}
+  constructor(private personaservice: PersonaService) {}
   ngOnInit(): void {
-    this.usuarioservice.obtenerUsuarios().subscribe(
-      usuarios => this.usuarios = usuarios
-    );
+    
   }
 
   notificacion() {
+    console.error("errooooor4");
+    this.personaservice.validarLogin(this.email, this.contra).subscribe(
+      (personaApi: persona)=>{
+        this.Persona=personaApi;
+      });
+     alert(this.Persona.usuario);
   }
 
 }
