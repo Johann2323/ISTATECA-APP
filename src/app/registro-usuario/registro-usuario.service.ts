@@ -18,8 +18,4 @@ export class RegistroUsuarioService {
     //return of(CLIENTES)
     return this.http.get<usuario[]>(this.urlendpoint);
   }
-
-  //createP(persona:persona):Observable<persona[]>{
-    //return this.http.post<persona[]>(this.urlendpoint, persona, {headers: this.httpHeaders})
-  //}
 }
