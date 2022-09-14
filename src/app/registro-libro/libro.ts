@@ -1,5 +1,6 @@
 
-import { bibliotecario } from "../registro-bibliotecario/bibliotecario";
+
+import { bibliotecarios } from "../registro-bibliotecario/bibliotecarios";
 export class libro{
     id: number=0;
     codigoDewey: string= '';
@@ -22,7 +23,7 @@ export class libro{
     activo:boolean=true;
     imagen?: ByteLengthQueuingStrategy;
     urlDigital: string= '';
-    bibliotecario?: bibliotecario;
+    bibliotecario?: bibliotecarios;
     fechaCreacion?: Date;
     disponibilidad: boolean=true;
     nombreDonante: string= '';
