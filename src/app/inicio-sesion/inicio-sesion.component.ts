@@ -22,7 +22,6 @@ export class InicioSesionComponent implements OnInit {
     this.personaservice.validarLogin(email, contra).subscribe(data=>{
       if(data==true){
         alert("llego")
-        this.router.navigateByUrl);
       }else{
         alert("no valee")
       }
