@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Route, Router, Routes } from '@angular/router';
+import { RegistroLibroService } from './registro-libro.service';
+import { libro } from './libro';
+
+
 
 
 @Component({
@@ -10,7 +15,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class RegistroLibroComponent implements OnInit {
   public previsualizacion?: string
   public archivos: any = []
-  constructor(private sanitizer:DomSanitizer) { }
+  constructor(private sanitizer:DomSanitizer, private libroservice: RegistroLibroService,private rutas: Router) { }
 
   ngOnInit(): void {
   }
@@ -49,7 +54,13 @@ export class RegistroLibroComponent implements OnInit {
       console.log("Error al Subir Imagen")
     }
   })
+  public Libro: libro=new libro();
+  public create ():void{
 
+    this.libroservice.create(this.Libro).subscribe(
+      Response=>this.rutas.navigate(['/clientes'])
+    )
+  }
 
 
 }

@@ -28,6 +28,7 @@ import { ListaSolicitudesPendientesComponent } from './lista-solicitudes-pendien
 import { RegistroLibroComponent } from './registro-libro/registro-libro.component';
 import { PersonaService } from './inicio-sesion/persona.service';
 import { FormComponentb } from './registro-bibliotecario/form.component';
+import { RegistroLibroService } from './registro-libro/registro-libro.service';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,7 @@ import { FormComponentb } from './registro-bibliotecario/form.component';
       {path: 'app-lista-solicitudes-pendientes', component: ListaSolicitudesPendientesComponent},
     ]),
   ],
-  providers: [RegistroUsuarioService, PaginaInicioService, PersonaService],
+  providers: [RegistroUsuarioService, PaginaInicioService, PersonaService,RegistroLibroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
