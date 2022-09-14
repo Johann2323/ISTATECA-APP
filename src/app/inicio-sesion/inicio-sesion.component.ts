@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router} from '@angular/router';
 import { PersonaService} from './persona.service';
 import { persona } from '../persona';
@@ -10,22 +10,23 @@ import { persona } from '../persona';
 
 })
 export class InicioSesionComponent implements OnInit {
+  respuesta:boolean=false;
   Persona: persona= new persona;
-  email:String=document.getElementById('txtcorreo')+"";
-  contra:String=document.getElementById('txtcontra')+"";
-
-  constructor(private personaservice: PersonaService) {}
+  constructor(private personaservice: PersonaService, private router: Router) {}
   ngOnInit(): void {
     
   }
 
-  notificacion() {
-    console.error("errooooor4");
-    this.personaservice.validarLogin(this.email, this.contra).subscribe(
-      (personaApi: persona)=>{
-        this.Persona=personaApi;
-      });
-     alert(this.Persona.usuario);
+  notificacion(email:String, contra:String) {
+    console.log(email,contra);
+    this.personaservice.validarLogin(email, contra).subscribe(data=>{
+      if(data==true){
+        alert("llego")
+        this.router.navigateByUrl);
+      }else{
+        alert("no valee")
+      }
+    });
   }
 
 }
