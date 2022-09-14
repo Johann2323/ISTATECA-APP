@@ -101,7 +101,7 @@
                     <h3>N° de Paginas:</h3>
                 </label>
                 <div class="col-sm">
-                    <h6><input type="text" class="form-control" name="Num-Paginas" required>
+                    <h6><input type="number" class="form-control" name="Num-Paginas" required>
                     </h6>
                 </div>
             </div>
@@ -270,10 +270,34 @@
     <!--FIN DE CAJA DE BOTONES-->
 
     <!--SUBIR FOTO-->
-    <div class="tarjeta-subir-foto">
-        <div class=" h5 text-center"><strong>Donante</strong></div>
+    <div class="tarjeta-subir-foto" style="align-content: center;">
+
+
+
+        <div *ngIf="previsualizacion" style="align-content: center;">
+            <img width="130px" [src]="previsualizacion" alt="">
+        </div>
+        <div id="boton">
+            <button class="btn" style="background-color:transparent" id="icono">
+                <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar%20libro.png?alt=media&token=b7f639da-1aaa-4d12-8133-a59742d32d87"
+                    width=30 height=30 align="center"> Subir Foto
+
+            </button>
+        </div>
+
+
+        <input (change)="capturarImagen($event)" type="file" id="subir">
+
+
+
+
 
     </div>
+    <script>
+        document.getElementById("boton").addEventListener('click', function() {
+         document.getElementById("subir").click();
+        });
+   </script>
     <!--FIN SUBIR FOTO-->
 
     <!--REGISTRAR DONANTE-->
@@ -285,6 +309,7 @@
                 <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fsubir%20acta.png?alt=media&token=654756c8-f9ef-46fc-a2df-c740f8e75c45"
                     width=40 height=40>
                 Subir Acta</button>
+                <input (change)="capturarImagen($event)" type="file" id="subir">
 
         </div>
 
