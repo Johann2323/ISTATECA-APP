@@ -5,5 +5,5 @@ export class bibliotecarios{
     rol?: number;
     fechaInicio?: Date;
     fechaFin?: Date;
-    activoBibliotecario?: Date;
+    activoBibliotecario?: boolean;
 }
