@@ -12,7 +12,10 @@ import { Router } from '@angular/router';
 export class FormComponentb implements OnInit {
 public bibliotecarios:bibliotecarios= new bibliotecarios();
 persona:persona={};
-
+/*roles =[
+  {codigo: 1 ,nombre:"Administrador"},
+  {codigo: 2 ,nombre:"Bibliotecario"},
+]*/
   constructor(private bibliotecarioservice: RegistroBibliotecarioService, private router:Router) { }
 
   ngOnInit(): void {
@@ -23,8 +26,8 @@ persona:persona={};
     console.log("ha realizado un clic")
     this.bibliotecarios.persona=this.persona
     this.persona.activo=true;
-    console.log(this.persona.cedula)
-    console.log(this.bibliotecarios.fechaInicio)
+    console.log(this.bibliotecarios.persona)
+    console.log(this.bibliotecarios.rol)
         this.bibliotecarioservice.create(this.bibliotecarios).subscribe(
           response => { this.bibliotecarios } 
         )
