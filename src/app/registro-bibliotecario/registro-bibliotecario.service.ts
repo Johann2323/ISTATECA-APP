@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { bibliotecario } from './bibliotecario';
+import { bibliotecarios } from './bibliotecarios';
 import { Observable,of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
@@ -12,11 +12,11 @@ export class RegistroBibliotecarioService {
 
   constructor(private http:HttpClient) { }
 
-  create(bibliotecario:bibliotecario):Observable<bibliotecario>{
-    return this.http.post<bibliotecario>(this.urlendpoint, bibliotecario, {headers: this.httpHeaders})
+  create(bibliotecario:bibliotecarios):Observable<bibliotecarios>{
+    return this.http.post<bibliotecarios>(this.urlendpoint, bibliotecario, {headers: this.httpHeaders})
   }
-  obtenerBibliotecarios(): Observable<bibliotecario[]> {
+  obtenerBibliotecarios(): Observable<bibliotecarios[]> {
     //return of(CLIENTES)
-    return this.http.get<bibliotecario[]>(this.urlendpoint1);
+    return this.http.get<bibliotecarios[]>(this.urlendpoint1);
   }
 }

@@ -1,5 +1,5 @@
 import { persona } from "../persona";
-export class bibliotecario{
+export class bibliotecarios{
     idBibliotecario?: number;
     persona?: persona;
     rol?: number;
