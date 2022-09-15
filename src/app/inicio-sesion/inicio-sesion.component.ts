@@ -21,9 +21,10 @@ export class InicioSesionComponent implements OnInit {
     console.log(email,contra);
     this.personaservice.validarLogin(email, contra).subscribe(data=>{
       if(data==true){
-        alert("llego")
+        alert("Inicio Sesion con exito")
+        this.router.navigate(['/app-pagina-inicio'])
       }else{
-        alert("no valee")
+        alert("No registrado")
       }
     });
   }
