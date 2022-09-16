@@ -47,11 +47,12 @@
      
  </style>
  
+
  
  <header> <h4><strong>Registro del Bibliotecario</strong></h4><br> </header>
  
  <body class="elemento" ba>
- <form id="myForm" style="text-align:center ;" ngNativeValidate class="row gy-2 gx-3 align-items-center" onsubmit="alert('Se ha registrado con exito')"  (ngSubmit)="createbibliotecario()">
+ <form #login="ngForm" style="text-align:center ;" ngNativeValidate class="row gy-2 gx-3 align-items-center" (ngSubmit)="createbibliotecario(login)" onsubmit="alert('Se ha registrado con exito')">
      <div class="row mb-3">
        <label for="cedula" class="col-sm-3 col-form-label"> <h3>Cédula del bibliotecario:</h3></label>
        <div class="col-sm-5">
@@ -155,14 +156,6 @@
           
          </div>
        </div>
- 
- 
- 
- 
-   
- 
- 
- 
      <div class="row mb-3">
          <label for="usuario" class="col-sm-3 col-form-label"><h3>Usuario:</h3></label>
          <div class="col-sm-5">
@@ -185,7 +178,7 @@
            <div class="col">
              
              
-             <button class="btn" style="background-color:transparent">
+             <button class="btn" type="submit" id="guardar" style="background-color:transparent">
                <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fguardar.png?alt=media&token=4325fe8d-024f-4aca-bd99-b5439360b821" width=30 height=30 align="center">
                Guardar</button>
            
@@ -216,6 +209,14 @@
  
      </form>
 
+     <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        let formulario = document.getElementById('formul');
+        formulario.addEventListener('submit', function() {
+          formulario.reset();
+        });
+      });
+    </script>
 
      
      <h1>

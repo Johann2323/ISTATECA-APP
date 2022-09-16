@@ -3,6 +3,7 @@ import { RegistroBibliotecarioService } from './registro-bibliotecario.service';
 import { bibliotecarios } from './bibliotecarios';
 import { persona } from '../persona';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-form-bibliotecario',
@@ -21,8 +22,9 @@ persona:persona={};
   ngOnInit(): void {
   }
 
-  public createbibliotecario(): void {
-    
+  
+  
+  public createbibliotecario(login :NgForm){
     console.log("ha realizado un clic")
     this.bibliotecarios.persona=this.persona
     this.persona.activo=true;
@@ -30,9 +32,13 @@ persona:persona={};
     console.log(this.bibliotecarios.rol)
         this.bibliotecarioservice.create(this.bibliotecarios).subscribe(
           response => { this.bibliotecarios } 
-          
+
 
         )
+
+     login.reset();
+
+        
   }
 
 }
