@@ -27,20 +27,20 @@ export class FormComponent implements OnInit {
 
 
   public create(): void {
-    
     console.log("ha realizado un clic")
     this.usuario.persona=this.persona
     this.persona.activo=true;
     console.log(this.persona.cedula)
     console.log(this.usuario.observaciones)
-
+    
     //this.usuarioservice.createP(this.persona).subscribe(
       //response => { 
         //this.persona = response;
         this.usuarioservice.create(this.usuario).subscribe(
-          response => { this.usuario }
+          response => { this.usuario,this.router.navigate(['/app-inicio-sesion'])},
           
         )
+
         
       //}
     //)

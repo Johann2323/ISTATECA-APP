@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { RegistroUsuarioService } from './registro-usuario.service';
 
@@ -9,9 +10,13 @@ import { RegistroUsuarioService } from './registro-usuario.service';
 })
 export class RegistroUsuarioComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  valid(){
+    this.router.navigate(['/app-inicio-sesion'])
   }
 
 }

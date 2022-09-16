@@ -30,6 +30,8 @@ persona:persona={};
     console.log(this.bibliotecarios.rol)
         this.bibliotecarioservice.create(this.bibliotecarios).subscribe(
           response => { this.bibliotecarios } 
+          
+
         )
   }
 
