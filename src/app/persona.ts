@@ -6,5 +6,6 @@ export class persona {
     clave?: string;
     correo?: string;
     nombres?: string;
+    rol?: number;
     usuario?: string;
 }

@@ -1,9 +1,8 @@
 import { persona } from "../persona";
 export class bibliotecarios{
-    idBibliotecario?: number;
+    id_bibliotecario?: number;
     persona?: persona;
-    rol?: number;
-    fechaInicio?: Date;
-    fechaFin?: Date;
-    activoBibliotecario?: boolean;
+    fecha_inicio?: Date;
+    fecha_fin?: Date;
+    activo_bibliotecario?: boolean;
 }

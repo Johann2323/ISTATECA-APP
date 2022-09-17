@@ -29,16 +29,12 @@ persona:persona={};
     this.bibliotecarios.persona=this.persona
     this.persona.activo=true;
     console.log(this.bibliotecarios.persona)
-    console.log(this.bibliotecarios.rol)
+    console.log(this.persona.rol)
         this.bibliotecarioservice.create(this.bibliotecarios).subscribe(
           response => { this.bibliotecarios } 
+          
 
-
-        )
-
-     login.reset();
-
-        
+        );login.reset();     
   }
 
 }

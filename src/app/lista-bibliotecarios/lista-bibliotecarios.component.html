@@ -35,11 +35,11 @@
       <tbody class="text-center" >
         <tr *ngFor="let bibliotecario of bibliotecarios" >
           <td>{{bibliotecario.persona?.cedula}}</td>
-          <td *ngIf="bibliotecario.rol==0 else menor">Administrador</td>
+          <td *ngIf="bibliotecario.persona?.rol==0 else menor">Administrador</td>
           <ng-template #menor><p>Bibliotecario</p></ng-template>
-          <td>{{bibliotecario.fechaInicio | date:'shortDate'}}</td>
-          <td>{{bibliotecario.fechaFin| date:'shortDate'}}</td>
-          <td *ngIf="bibliotecario.activoBibliotecario else mm">Activo</td>
+          <td>{{bibliotecario.fecha_inicio | date:'shortDate'}}</td>
+          <td>{{bibliotecario.fecha_fin| date:'shortDate'}}</td>
+          <td *ngIf="bibliotecario.activo_bibliotecario else mm">Activo</td>
           <ng-template #mm><p>Inactivo</p></ng-template>
       </tr>
       </tbody>

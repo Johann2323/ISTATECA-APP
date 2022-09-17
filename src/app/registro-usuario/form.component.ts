@@ -30,6 +30,7 @@ export class FormComponent implements OnInit {
     console.log("ha realizado un clic")
     this.usuario.persona=this.persona
     this.persona.activo=true;
+    this.persona.rol=2;
     console.log(this.persona.cedula)
     console.log(this.usuario.observaciones)
     
@@ -47,6 +48,12 @@ export class FormComponent implements OnInit {
     
 
 
+  }
+
+  usuariol:usuario[]=[];
+
+  update(){
+    
   }
 
 }
