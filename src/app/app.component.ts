@@ -8,12 +8,6 @@ import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
 })
 
 export class AppComponent {
-  title = 'Mi primera aplicacion en Angular';
-  curso: string="TDS N4A";
-  profesor: string="Ing. Carmen Tacuri";
 
-
-
- 
   
 }
