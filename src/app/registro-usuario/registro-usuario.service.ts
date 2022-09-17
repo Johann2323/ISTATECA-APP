@@ -4,6 +4,7 @@ import { persona } from '../persona';
 import { Observable,of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { bibliotecarios } from '../registro-bibliotecario/bibliotecarios';
+import { personaP } from '../personaP';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,9 +17,9 @@ export class RegistroUsuarioService {
   create(usuario:usuario):Observable<usuario>{
     return this.http.post<usuario>(this.urlendpoint, usuario, {headers: this.httpHeaders})
   }
-  obtenerPersonasId(cedula:number){
+  obtenerPersonasId(cedula:string) : Observable<personaP>{
     //return of(CLIENTES)
-    return this.http.get<persona>(this.urlendpoint2+"/"+cedula);
+    return this.http.get<personaP>(this.urlendpoint2+"/"+cedula);
   }
   /*actualizarPersonas(bibliotecario:bibliotecarios){
     //return of(CLIENTES)

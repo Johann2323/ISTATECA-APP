@@ -6,6 +6,7 @@ import { usuario } from './usuario';
 import { persona } from '../persona';
 import { InicioSesionComponent } from '../inicio-sesion/inicio-sesion.component';
 import { RouterLink } from '@angular/router';
+import { personaP } from '../personaP';
 
 @Component({
   selector: 'app-form',
@@ -15,8 +16,11 @@ export class FormComponent implements OnInit {
 
   public usuario: usuario = new usuario();
   persona: persona = {};
+  personaP:personaP=new personaP();
 
   public titulo: string = "Crear Cliente"
+  public cedulaa?:string
+
 
   constructor(private usuarioservice: RegistroUsuarioService, private router: Router) { }
 
@@ -42,6 +46,8 @@ export class FormComponent implements OnInit {
           
         )
 
+
+
         
       //}
     //)
@@ -50,10 +56,15 @@ export class FormComponent implements OnInit {
 
   }
 
-  usuariol:usuario[]=[];
+  
 
-  update(){
-    
+  public buscarFenix(registro:NgForm){
+   this.cedulaa =  this.usuario.persona?.cedula?.toString();
+   console.log(this.cedulaa)
+    this.usuarioservice.obtenerPersonasId("this.cedulaa?").subscribe(data =>{
+        this.personaP = data
+      }
+    )
   }
 
 }
