@@ -16,7 +16,7 @@ export class FormComponent implements OnInit {
 
   public usuario: usuario = new usuario();
   persona: persona = {};
-  personaP:personaP=new personaP();
+  personaP:personaP={};
 
   public titulo: string = "Crear Cliente"
   public cedulaa?:string
@@ -35,6 +35,11 @@ export class FormComponent implements OnInit {
     this.usuario.persona=this.persona
     this.persona.activo=true;
     this.persona.rol=2;
+
+    this.persona.nombres=this.personaP.nombres
+    this.persona.correo=this.personaP.correo
+    this.persona.celular=this.personaP.celular
+
     console.log(this.persona.cedula)
     console.log(this.usuario.observaciones)
     
@@ -58,13 +63,18 @@ export class FormComponent implements OnInit {
 
   
 
-  public buscarFenix(registro:NgForm){
-   this.cedulaa =  this.usuario.persona?.cedula?.toString();
-   console.log(this.cedulaa)
-    this.usuarioservice.obtenerPersonasId("this.cedulaa?").subscribe(data =>{
-        this.personaP = data
-      }
+   buscarFenix(cedula:string){
+   
+   console.log(cedula)
+    this.usuarioservice.obtenerPersonasId(cedula).subscribe(
+      personaP=> this.personaP=personaP
+      
     )
+    if(personaP==null){
+      console.log("vacio")
+    }
+    
+    console.log("vacio")
   }
 
 }

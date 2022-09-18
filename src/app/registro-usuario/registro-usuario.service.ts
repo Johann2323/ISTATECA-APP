@@ -17,9 +17,9 @@ export class RegistroUsuarioService {
   create(usuario:usuario):Observable<usuario>{
     return this.http.post<usuario>(this.urlendpoint, usuario, {headers: this.httpHeaders})
   }
-  obtenerPersonasId(cedula:string) : Observable<personaP>{
+  obtenerPersonasId(ced:string) : Observable<personaP>{
     //return of(CLIENTES)
-    return this.http.get<personaP>(this.urlendpoint2+"/"+cedula);
+    return this.http.get<personaP>(this.urlendpoint2+"?ced="+ced);
   }
   /*actualizarPersonas(bibliotecario:bibliotecarios){
     //return of(CLIENTES)
