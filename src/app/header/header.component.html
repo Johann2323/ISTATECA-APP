@@ -1,10 +1,11 @@
 <nav class="navbar navbar-expand-lg"  style="background-color: #012844;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"  style="color: #e3eaef"   routerLink=""> <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20blanco%20(1).png?alt=media&token=aad7ec8f-a2c9-4621-9936-38078017b11e"
+    <a class="navbar-brand" href="#"  style="color: #e3eaef"   routerLink="app-pagina-inicio"> <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20blanco%20(1).png?alt=media&token=aad7ec8f-a2c9-4621-9936-38078017b11e"
       alt="" width="80" height="80"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <div *ngIf=mostrar>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         
@@ -38,7 +39,10 @@
         <a class="nav-link active" href="#" routerLink="/app-lista-solicitudes-pendientes">
           <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fnotificacion.png?alt=media&token=2ef3179f-bd47-483c-a71a-1323570c5837"
           alt="" width="35" height="35"></a>
-        <button type="button" class="btn btn-outline-light" style="background-color: #012844;" routerLink="/app-inicio-sesion">Iniciar Sesion</button>
+          <button type="button" class="btn btn-outline-light" style="background-color: #012844;" (click)= cerrarSesion()>Cerrar Sesion</button>
     </div>
+    
   </div>
+</div>
+
 </nav>

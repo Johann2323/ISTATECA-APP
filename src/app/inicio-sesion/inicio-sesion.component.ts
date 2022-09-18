@@ -18,14 +18,19 @@ export class InicioSesionComponent implements OnInit {
   ngOnInit(): void {
   }
   notificacion(email:String, contra:String) {
+     
+  
     console.log(email,contra);
     this.personaservice.validarLogin(email, contra).subscribe(data=>{
       if(data==true){
         this.personaservice.num_rol(email).subscribe(data=>{
           InicioSesionComponent.rol=data;
-          alert("Inicio Sesion con exito"+InicioSesionComponent.rol)
-          this.router1.navigate(['/app-header'])
+          alert("Inicio Sesion con exito"+InicioSesionComponent.rol);
+          
         })
+        this.router1.navigateByUrl('/app-header', { skipLocationChange: true }).then(() => {
+          this.router1.navigate(['/app-inicio-sesion']);
+      }); 
         this.router.navigate(['/app-pagina-inicio'])
       }else{
         alert("No registrado")
