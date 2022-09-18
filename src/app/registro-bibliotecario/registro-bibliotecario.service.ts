@@ -8,6 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class RegistroBibliotecarioService {
   private urlendpoint:string='http://localhost:8080/api/crearbibliotecario';
   private urlendpoint1:string='http://localhost:8080/api/listarbibliotecario';
+  private urlendpoint2:string='http://localhost:8080/api/bibliotecario_x_cedula';
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
   constructor(private http:HttpClient) { }
@@ -18,5 +19,9 @@ export class RegistroBibliotecarioService {
   obtenerBibliotecarios(): Observable<bibliotecarios[]> {
     //return of(CLIENTES)
     return this.http.get<bibliotecarios[]>(this.urlendpoint1);
+  }
+  buscarBibliotecarios(cedula:String):Observable<bibliotecarios>{
+    let res=this.urlendpoint2+"?ced="+cedula;
+    return this.http.get<bibliotecarios>(res);
   }
 }
