@@ -9,8 +9,9 @@ import { persona } from '../persona';
 })
 export class ListaBibliotecariosComponent implements OnInit {
   bibliotecarios:bibliotecarios[]=[];
-  bibliotecario:bibliotecarios= new bibliotecarios;
+  bibli:bibliotecarios= new bibliotecarios;
   val:String="";
+  bus:boolean=true;
 
   constructor(private bibliotecarioservice: RegistroBibliotecarioService) { }
 
@@ -21,7 +22,8 @@ export class ListaBibliotecariosComponent implements OnInit {
   }
   buscar(cedula:String){
     this.bibliotecarioservice.buscarBibliotecarios(cedula).subscribe(data=>{
-      this.bibliotecario=data;
+      this.bibli=data;
+      this.bus=false;
     }
     );
   }
