@@ -19,6 +19,7 @@ export class HeaderComponent{
             
         }else if(InicioSesionComponent.rol==0 || InicioSesionComponent.rol==1 || InicioSesionComponent.rol==2){
             this.mostrar=true;
+            console.log("Llego");
         }
     }
     cerrarSesion(){
