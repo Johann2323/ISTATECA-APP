@@ -36,6 +36,7 @@ export class FormComponent implements OnInit {
     this.persona.activo=true;
     this.persona.rol=2;
 
+    this.persona.cedula=this.personaP.cedula
     this.persona.nombres=this.personaP.nombres
     this.persona.correo=this.personaP.correo
     this.persona.celular=this.personaP.celular
@@ -43,22 +44,10 @@ export class FormComponent implements OnInit {
     console.log(this.persona.cedula)
     console.log(this.usuario.observaciones)
     
-    //this.usuarioservice.createP(this.persona).subscribe(
-      //response => { 
-        //this.persona = response;
+
         this.usuarioservice.create(this.usuario).subscribe(
-          response => { this.usuario,this.router.navigate(['/app-inicio-sesion'])},
-          
+          response => { this.usuario,this.router.navigate([''])}, 
         )
-
-
-
-        
-      //}
-    //)
-    
-
-
   }
 
   
@@ -70,11 +59,6 @@ export class FormComponent implements OnInit {
       personaP=> this.personaP=personaP
       
     )
-    if(personaP==null){
-      console.log("vacio")
-    }
-    
-    console.log("vacio")
   }
 
 }

@@ -13,10 +13,10 @@
  
      }
      h5 {
- margin-top: 0%;
- font-size: 0px;
-     
-     left: 50%;
+      position: absolute;
+    top: 201px;
+
+     left: 65%;
      }
  
      h6 {
@@ -56,9 +56,8 @@
      <div class="row mb-3">
        <label for="cedula" class="col-sm-3 col-form-label"> <h3>Cédula del bibliotecario:</h3></label>
        <div class="col-sm-5">
-         <h6><input  type="number" class="form-control" [(ngModel)]="persona.cedula" placeholder="Ingrese un numero de cedula"  name="cedula" required>
-         </h6>
- 
+         <h6><input #cedulas  type="number" class="form-control" [(ngModel)]="persona.cedula" placeholder="Ingrese un numero de cedula" name="cedula" required>
+        </h6>
          </div>
      </div>
  
@@ -67,22 +66,21 @@
      <div class="row mb-3">
        <label for="nombres" class="col-sm-3 col-form-label"><h3>Nombres:</h3></label>
        <div class="col-sm-5">
-         <h6><input type="text" class="form-control" [(ngModel)]="persona.nombres" placeholder="Ingrese nombre y apellido" name="nombre"  required>
+         <h6><input type="text" class="form-control text-center" [(ngModel)]="personaP.nombres" value="{{personaP.nombres}}" placeholder="Aqui apareceran sus datos" name="nombre"  readonly required>
              </h6>
          </div>
      </div>
- 
      <div class="row mb-3">
        <label for="celular" class="col-sm-3 col-form-label"><h3>Celular:</h3></label>
        <div class="col-sm-5">
-         <h6><input type="number" class="form-control" [(ngModel)]="persona.celular" placeholder="Ingrese un numero celular"   name="celular"  required>
+         <h6><input type="number" class="form-control text-center" [(ngModel)]="personaP.celular" value="{{personaP.celular}}" placeholder="Aqui apareceran sus datos"   name="celular"  required>
            </h6>
        </div>
      </div>
    <div class="row mb-3">
      <label for="correo" class="col-sm-3 col-form-label"><h3>Email:</h3></label>
      <div class="col-sm-5">
-       <h6><input type="email" class="form-control" [(ngModel)]="persona.correo" placeholder="Ingrese un correo electronico"  name="correo"  required>
+       <h6><input type="email" class="form-control text-center" [(ngModel)]="personaP.correo" value="{{personaP.correo}}" placeholder="Aqui apareceran sus datos"  name="correo"  required>
            </h6>
        </div>
    </div>
@@ -119,7 +117,7 @@
        <div class="row mb-3">
              <label for="usuario" class="col-sm-3 col-form-label"><h3>Fecha de inicio:</h3></label>
              <div class="col-sm-5">
-               <h6><input type="date" [(ngModel)]="bibliotecarios.fecha_inicio" class="form-control" placeholder="Ingrese la fecha de entrada"  name="usuario" required>
+               <h6><input type="date"  [(ngModel)]="bibliotecarios.fecha_inicio" class="form-control text-center" placeholder="Ingrese la fecha de entrada"  name="usuario" required>
                </h6>
              </div>
            </div>
@@ -128,7 +126,7 @@
            <div class="row mb-3">
              <label for="usuario" class="col-sm-3 col-form-label"><h3>Fecha de salida:</h3></label>
              <div class="col-sm-5">
-               <h6><input type="date" class="form-control"  [(ngModel)]="bibliotecarios.fecha_fin" placeholder="Ingrese la fecha de salida"  name="usuario" required>
+               <h6><input type="date" class="form-control text-center"  [(ngModel)]="bibliotecarios.fecha_fin" placeholder="Ingrese la fecha de salida"  name="usuario" required>
                </h6>
              </div>
            </div>
@@ -159,7 +157,7 @@
      <div class="row mb-3">
          <label for="usuario" class="col-sm-3 col-form-label"><h3>Usuario:</h3></label>
          <div class="col-sm-5">
-           <h6><input type="text" class="form-control" [(ngModel)]="persona.usuario" placeholder="Ingrese un nombre de usuario"  name="usuario" required>
+           <h6><input type="text" class="form-control text-center" [(ngModel)]="persona.usuario" placeholder="Ingrese un nombre de usuario"  name="usuario" required>
              </h6>
          </div>
        </div>
@@ -168,7 +166,7 @@
      <div class="row mb-3">
          <label for="clave" class="col-sm-3 col-form-label"><h3>Contraseña:</h3></label>
          <div class="col-sm-5">
-           <h6><input type="password" class="form-control" [(ngModel)]="persona.clave" placeholder="Ingrese una contraseña"  name="clave" required>
+           <h6><input type="password" class="form-control text-center" [(ngModel)]="persona.clave" placeholder="Ingrese una contraseña"  name="clave" required>
              </h6>
          </div>
        </div>
@@ -209,7 +207,11 @@
  
      </form>
 
-     
+     <h5>
+      <button type="button" (click)="buscarFenix(cedulas.value)" class="btn btn-outline-secondary">
+        <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fbusqueda.png?alt=media&token=2b59078d-0ef5-4fa4-85c6-396ea7c1c97c" alt="" width="20" height="20">
+       </button>
+     </h5>
 
      
      <h1>

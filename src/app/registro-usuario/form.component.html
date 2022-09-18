@@ -24,7 +24,7 @@ margin-top: 1%;
 margin-top: 0%;
 font-size: 0px;
     text-align: left; 
-    margin-inline-start: 23%;
+    margin-inline-start: 26%;
 
     }
 
@@ -32,7 +32,7 @@ font-size: 0px;
 margin-top: 0%;
 font-size: 0px;
     text-align: left; 
-    margin-inline-start: 20%;
+    margin-inline-start: 21%;
 
     }
 
@@ -41,6 +41,15 @@ font-size: 0px;
         text-align: right; 
         margin-inline-start: 5%;
     
+    }
+
+    h2 {
+      position: absolute;
+  left: 500px;
+  margin-left: -1px;
+  margin-top: 192px;
+  top: 0;
+
     }
     
 </style>
@@ -51,14 +60,15 @@ font-size: 0px;
     <div class="row mb-3">
       <label for="cedula" class="col-sm-2 col-form-label"> <h3>Cédula:</h3></label>
       <div class="col-sm-3">
-        <h6><input #cedula type="number" class="form-control" [(ngModel)]="persona.cedula"  name="cedula" required>
+        <h6><input #cedula type="number" class="form-control text-center" placeholder="Verifique su cedula" [(ngModel)]="persona.cedula"  name="cedula" required>
+        
         </h6>
         </div>
     </div>
     <div class="row mb-3">
       <label for="nombres" class="col-sm-2 col-form-label"><h3>Nombres:</h3></label>
       <div class="col-sm-3">
-        <h6><input type="text" class="form-control" [(ngModel)]="personaP.nombres" value="{{personaP.nombres}}" name="nombres" required> 
+        <h6><input type="text" class="form-control text-center" placeholder="Aqui apareceran sus datos" [(ngModel)]="personaP.nombres" value="{{personaP.nombres}}" name="nombres" required> 
             </h6>
         </div>
     </div>
@@ -66,14 +76,14 @@ font-size: 0px;
     <div class="row mb-3">
       <label for="celular" class="col-sm-2 col-form-label"><h3>Celular:</h3></label>
       <div class="col-sm-3">
-        <h6><input type="number" class="form-control" [(ngModel)]="personaP.celular" value="{{personaP.celular}}"  name="celular" required>
+        <h6><input type="number" class="form-control text-center" placeholder="Aqui apareceran sus datos" [(ngModel)]="personaP.celular" value="{{personaP.celular}}"  name="celular" required>
           </h6>
       </div>
     </div>
   <div class="row mb-3">
     <label for="correo" class="col-sm-2 col-form-label"><h3>Email:</h3></label>
     <div class="col-sm-3">
-      <h6><input type="email" class="form-control" [(ngModel)]="personaP.correo" value="{{personaP.correo}}" name="correo" required>
+      <h6><input type="email" class="form-control text-center" placeholder="Aqui apareceran sus datos" [(ngModel)]="personaP.correo" value="{{personaP.correo}}" name="correo" required>
           </h6>
       </div>
   </div>
@@ -83,7 +93,7 @@ font-size: 0px;
     <div class="row mb-3">
         <label for="usuario" class="col-sm-2 col-form-label"><h3>Usuario:</h3></label>
         <div class="col-sm-3">
-          <h6><input type="text" class="form-control" [(ngModel)]="persona.usuario" name="usuario" required>
+          <h6><input type="text" class="form-control text-center" placeholder="Ingrese su usuario" [(ngModel)]="persona.usuario" name="usuario" required>
             </h6>
         </div>
       </div>
@@ -92,17 +102,23 @@ font-size: 0px;
     <div class="row mb-3">
         <label for="clave" class="col-sm-2 col-form-label"><h3>Contraseña:</h3></label>
         <div class="col-sm-3">
-          <h6><input type="password" class="form-control" [(ngModel)]="persona.clave" name="clave" required>
+          <h6><input type="password" class="form-control text-center" placeholder="Ingrese una contraseña" [(ngModel)]="persona.clave" name="clave" required>
             </h6>
         </div>
       </div>
 
       <h5>
         <button type="submit" class="btn btn-outline-secondary" >Registrarse</button>   
-        <button type="button" (click)="buscarFenix(cedula.value)" class="btn btn-outline-secondary">Buscar</button>
       </h5>
+      <h2>
+        <button type="button" (click)="buscarFenix(cedula.value)" class="btn btn-outline-secondary">
+          <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fbusqueda.png?alt=media&token=2b59078d-0ef5-4fa4-85c6-396ea7c1c97c" alt="" width="20" height="20"></button>
+      </h2>
+      
 
     </form>
+    
+    
       
     <h1>
     <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20fondo%20borroso%20peque%C3%B1o.jpg?alt=media&token=8a7bcc9b-f7e0-4757-b3eb-2a20e389ffae" class="rounded float-start" alt="" width="200" height="100">
