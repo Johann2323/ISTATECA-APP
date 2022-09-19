@@ -8,24 +8,39 @@ import { persona } from '../persona';
   styleUrls: ['./lista-bibliotecarios.component.css']
 })
 export class ListaBibliotecariosComponent implements OnInit {
-  bibliotecarios:bibliotecarios[]=[];
-  bibli:bibliotecarios= new bibliotecarios;
-  val:String="";
-  bus:boolean=true;
+  bibliotecarios: bibliotecarios[] = [];
+  bibli: bibliotecarios = new bibliotecarios;
+  val: String = "";
+  bus: boolean = true;
+  buscarval: boolean = false;
 
   constructor(private bibliotecarioservice: RegistroBibliotecarioService) { }
 
   ngOnInit(): void {
     this.bibliotecarioservice.obtenerBibliotecarios().subscribe(
-      bibliotecarios=>this.bibliotecarios=bibliotecarios
+      bibliotecarios => this.bibliotecarios = bibliotecarios
     );
+    this.buscarval = false;
+    this.bus = true;
   }
-  buscar(cedula:String){
-    this.bibliotecarioservice.buscarBibliotecarios(cedula).subscribe(data=>{
-      this.bibli=data;
-      this.bus=false;
+  onKeydownEvent(event: KeyboardEvent, cedula:String): void {
+    if(cedula==""){
+     this.ngOnInit();
     }
-    );
+
+ }
+
+  buscar(cedula: String) {
+    console.log("Cedula: "+cedula);
+    this.bus = false;
+      this.bibliotecarioservice.buscarBibliotecarios(cedula).subscribe(data => {
+        this.bibli = data;
+        this.buscarval = true;
+      });
   }
+
+  click(cedula:String="", rol:number=9,fechainicio?:Date, fechafin:Date=?, activo:boolean=false  ) {
+    console.log("click Event");
+}
 
 }

@@ -18,7 +18,7 @@ export class HeaderComponent implements DoCheck {
     constructor(private router1: Router) { }
     ngDoCheck(): void {
         this.reporteV=JSON.parse(localStorage.getItem('rol')+"");
-        console.log(this.reporteV+"kkkkkkkkkkkk")
+        console.log("Rol del Usuario: "+this.reporteV+"")
         if (parseInt(this.reporteV) == 0) {
             this.mostrar = true;
             this.mostrarr = true;
