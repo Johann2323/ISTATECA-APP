@@ -39,8 +39,6 @@ export class ListaBibliotecariosComponent implements OnInit {
       });
   }
 
-  click(cedula:String="", rol:number=9,fechainicio?:Date, fechafin:Date=?, activo:boolean=false  ) {
-    console.log("click Event");
-}
+ 
 
 }
