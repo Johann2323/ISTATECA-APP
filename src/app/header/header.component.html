@@ -7,12 +7,13 @@
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <div class="container-fluid">
     <div *ngIf=mostrar>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <div *ngIf="mostrar2">
             <div *ngIf="mostrarr">
-              <li class="nav-item">
+              <li class="nav-item " >
                 <a class="nav-link active" href="#" routerLink="/app-registro-bibliotecario">
                   <img
                     src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar-bibliotecario.png?alt=media&token=82630a09-64d2-468c-83d6-9f2a84e7aea5"
@@ -24,8 +25,7 @@
                 <img
                   src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar%20libro.png?alt=media&token=b7f639da-1aaa-4d12-8133-a59742d32d87"
                   alt="" width="35" height="35"></a>
-            </li>
-            <li class="nav-item">
+
               <a class="nav-link active" href="#" routerLink="">
                 <img
                   src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fdevolver%20libro.png?alt=media&token=95ede259-0714-4e28-95f9-7d759fda53b4"
@@ -56,6 +56,7 @@
         <button (click)="cerrarSesion()" class="boton btn btn-primary" style="background-color:#2E2F5E ;">Cerrar
           Sesión</button>
       </div>
+    </div>
     </div>
   </div>
 </nav>

@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
     templateUrl: './header.component.html'
 })
 export class HeaderComponent implements DoCheck {
-    reporteV: String = "";
+    reporteV: string = "";
+    
     mostrar: boolean = false;
     mostrarr: boolean = false;
     mostrar1: boolean = false;
@@ -16,19 +17,20 @@ export class HeaderComponent implements DoCheck {
     mostrar3: boolean = false;
     constructor(private router1: Router) { }
     ngDoCheck(): void {
-        InicioSesionComponent.rol;
-        console.log("Cambio en rol a:" + InicioSesionComponent.rol)
-        if (InicioSesionComponent.rol == 0) {
+        this.reporteV=JSON.parse(localStorage.getItem('rol')+"");
+        console.log(this.reporteV+"kkkkkkkkkkkk")
+        if (parseInt(this.reporteV) == 0) {
             this.mostrar = true;
             this.mostrarr = true;
             this.mostrar2 = true;
-        } else if (InicioSesionComponent.rol == 9) {
+        } else if (parseInt(this.reporteV) ==9) {
+            
             this.mostrar = false
-        } else if (InicioSesionComponent.rol == 2) {
+        } else if (parseInt(this.reporteV)== 2) {
             this.mostrar = true;
             this.mostrar2 = false;
             this.mostrarr = false;
-        } else if (InicioSesionComponent.rol == 1) {
+        } else if (parseInt(this.reporteV) == 1) {
             this.mostrar = true;
             this.mostrar2 = true;
             this.mostrarr = false;
@@ -36,17 +38,14 @@ export class HeaderComponent implements DoCheck {
     }
 
     ngOnInit(): void {
-        console.log("Rol inicia en header con:" + InicioSesionComponent.rol)
-        if (InicioSesionComponent.rol == 9) {
-            this.mostrar = false
-        }
+       
     }
 
     cerrarSesion() {
         this.router1.navigate(['']);
         InicioSesionComponent.rol = 9;
-        this.ngOnInit;
         console.log("Cerrar Sesion")
+        localStorage.setItem('rol', 9+""); 
     }
 
 

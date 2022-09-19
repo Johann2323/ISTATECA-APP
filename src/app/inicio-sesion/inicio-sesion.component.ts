@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PersonaService } from './persona.service';
 import { persona } from '../persona';
-import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -22,6 +21,7 @@ export class InicioSesionComponent implements OnInit {
       if (data == true) {
         this.personaservice.num_rol(email).subscribe(data => {
           InicioSesionComponent.rol=data;
+          localStorage.setItem('rol', data+"");
           console.log("Inicio sesion: "+InicioSesionComponent.rol);
           alert("Inicio Sesion con exito");
           this.router.navigate(['/app-pagina-inicio']);
