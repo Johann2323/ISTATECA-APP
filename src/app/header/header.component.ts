@@ -23,24 +23,29 @@ export class HeaderComponent implements DoCheck {
             this.mostrar = true;
             this.mostrarr = true;
             this.mostrar2 = true;
+            this.mostrar3=false;
         } else if (parseInt(this.reporteV) ==9) {
-            
-            this.mostrar = false
+            this.mostrar = false;
+            this.mostrar3=true;
         } else if (parseInt(this.reporteV)== 2) {
             this.mostrar = true;
             this.mostrar2 = false;
             this.mostrarr = false;
+            this.mostrar3=false;
         } else if (parseInt(this.reporteV) == 1) {
             this.mostrar = true;
             this.mostrar2 = true;
             this.mostrarr = false;
+            this.mostrar3=false;
         }
     }
 
     ngOnInit(): void {
        
     }
-
+    iniciarSesion(){
+        this.router1.navigate(['']);
+    }
     cerrarSesion() {
         this.router1.navigate(['']);
         InicioSesionComponent.rol = 9;
