@@ -35,7 +35,7 @@
       </thead>
         <tbody class="text-center" *ngIf=bus>
           <tr *ngFor="let bibliotecario of bibliotecarios">
-            <td><input class="form-check-input" type="checkbox" role="switch" (click)="click(bibliotecario.persona?.cedula, rol.value, fechainic.value, fechafin.value, activo.value)"></td>
+            <td><input class="form-check-input" type="checkbox" role="switch" ></td>
             <td #cedula>{{bibliotecario.persona?.cedula}}</td>
             <td #rol *ngIf="bibliotecario.persona?.rol==0 else menor">Administrador</td>
             <ng-template #menor>
