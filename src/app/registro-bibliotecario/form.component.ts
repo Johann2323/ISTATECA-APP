@@ -46,17 +46,26 @@ personaP:personaP={};
   }
 
   buscarFenix(cedula:string){
-   
-    console.log(cedula)
-     this.bibliotecarioservice.obtenerPersonasId(cedula).subscribe(
-       personaP=> this.personaP=personaP
-       
-     )
-     if(personaP==null){
-       console.log("vacio")
-     }
+    if(!cedula==null){
+      alert('INGRESE UNA CEDULA')
+    }else{
+      console.log(cedula)
+      this.bibliotecarioservice.obtenerPersonasId(cedula).subscribe(
+        personaP=> this.personaP=personaP
+        
+      )
+      if(this.personaP.cedula==null){
+        alert('No hay dato')
+        //this.router.navigate([''])
+      }
+    }
+
+    
+    
+    
+    
      
-     console.log("vacio")
+     
    }
 
 

@@ -30,6 +30,7 @@ import { PersonaService } from './inicio-sesion/persona.service';
 import { FormComponentb } from './registro-bibliotecario/form.component';
 import { RegistroLibroService } from './registro-libro/registro-libro.service';
 import { SolicitudLibroComponent } from './solicitud-libro/solicitud-libro.component';
+import { FormEditComponent } from './registro-usuario/form-edit.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { SolicitudLibroComponent } from './solicitud-libro/solicitud-libro.compo
     ListaSolicitudesPendientesComponent,
     RegistroLibroComponent,
     SolicitudLibroComponent,
+    FormEditComponent,
 
   ],
   imports: [
@@ -62,6 +64,7 @@ import { SolicitudLibroComponent } from './solicitud-libro/solicitud-libro.compo
       {path: '', component: InicioSesionComponent,pathMatch:'full'},
       {path: 'app-form', component: FormComponent},
       {path: 'app-form-bibliotecario', component: FormComponentb},
+      {path: 'app-form-editUsuario', component: FormEditComponent},
       {path: 'app-pagina-inicio', component: PaginaInicioComponent},
       {path: 'app-registro-bibliotecario', component: RegistroBibliotecarioComponent},
       {path: 'app-lista-bibliotecarios', component: ListaBibliotecariosComponent},

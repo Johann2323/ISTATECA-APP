@@ -18,9 +18,6 @@ export class FormComponent implements OnInit {
   persona: persona = {};
   personaP:personaP={};
 
-  public titulo: string = "Crear Cliente"
-  public cedulaa?:string
-
 
   constructor(private usuarioservice: RegistroUsuarioService, private router: Router) { }
 
@@ -53,12 +50,21 @@ export class FormComponent implements OnInit {
   
 
    buscarFenix(cedula:string){
-   
-   console.log(cedula)
-    this.usuarioservice.obtenerPersonasId(cedula).subscribe(
-      personaP=> this.personaP=personaP
+    if(cedula==""){
+      alert('INGRESE UNA CEDULA')
+    }else{
+      console.log(cedula)
+      this.usuarioservice.obtenerPersonasId(cedula).subscribe(
+        personaP=> this.personaP=personaP
+        
+      )
       
-    )
+    }
+    if(personaP==null){
+        alert();
+    }
+   
+   
   }
 
 }

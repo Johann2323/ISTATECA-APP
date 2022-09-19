@@ -49,12 +49,12 @@
  
 
  
- <header> <h4><strong>Registro del Bibliotecario</strong></h4><br> </header>
+ <header> <h4><strong>Modificar Usuario</strong></h4><br> </header>
  
  <body class="elemento" ba>
- <form #login="ngForm" style="text-align:center ;" ngNativeValidate class="row gy-2 gx-3 align-items-center" (ngSubmit)="createbibliotecario(login)" onsubmit="alert('Se ha registrado con exito')">
+ <form #login="ngForm" style="text-align:center ;" ngNativeValidate class="row gy-2 gx-3 align-items-center"  onsubmit="alert('Se ha registrado con exito')">
      <div class="row mb-3">
-       <label for="cedula" class="col-sm-3 col-form-label"> <h3>Cédula del bibliotecario:</h3></label>
+       <label for="cedula" class="col-sm-3 col-form-label"> <h3>Cédula:</h3></label>
        <div class="col-sm-5">
          <h6><input #cedulas  type="number" class="form-control text-center" [(ngModel)]="persona.cedula" placeholder="Ingrese un numero de cedula" name="cedula" required>
         </h6>
@@ -85,75 +85,7 @@
        </div>
    </div>
 
-
-   <div class="row mb-3">
-    <label for="usuario" class="col-sm-3 col-form-label"><h3>Rol:</h3></label>
-    <div class="col-sm-6">
-      
-
-        <h2>
-          <input class="form-check-input" type="radio"  name="flexRadioDefault1" value="0" id="admin" [(ngModel)]="persona.rol" required>
-          &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault3">
-            Administrador
-          </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        
-        
-          <input class="form-check-input" type="radio" name="flexRadioDefault1" value="1" id="biblioteca" [(ngModel)]="persona.rol" required>
-          &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault4">
-            Bibliotecario
-          </label>
-        </h2>  
        
-
-     
-    </div>
-  </div>
- 
-   
-
-
- 
- 
-       <div class="row mb-3">
-             <label for="usuario" class="col-sm-3 col-form-label"><h3>Fecha de inicio:</h3></label>
-             <div class="col-sm-5">
-               <h6><input type="date"  [(ngModel)]="bibliotecarios.fecha_inicio" class="form-control text-center" placeholder="Ingrese la fecha de entrada"  name="usuario" required>
-               </h6>
-             </div>
-           </div>
- 
- 
-           <div class="row mb-3">
-             <label for="usuario" class="col-sm-3 col-form-label"><h3>Fecha de salida:</h3></label>
-             <div class="col-sm-5">
-               <h6><input type="date" class="form-control text-center"  [(ngModel)]="bibliotecarios.fecha_fin" placeholder="Ingrese la fecha de salida"  name="usuario" required>
-               </h6>
-             </div>
-           </div>
- 
- 
-       <div class="row mb-3">
-         <label for="usuario" class="col-sm-3 col-form-label"><h3>Estado:</h3></label>
-         <div class="col-sm-6">
-           
- 
-             <h2>
-               <input class="form-check-input" type="radio"  name="flexRadioDefault" value="true" id="activo" [(ngModel)]="bibliotecarios.activo_bibliotecario" required>
-               &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault1">
-                 Activo
-               </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-             
-             
-               <input class="form-check-input" type="radio" name="flexRadioDefault" value="false" id="inactivo" [(ngModel)]="bibliotecarios.activo_bibliotecario" required>
-               &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault2">
-                 Inactivo
-               </label>
-             </h2>  
-            
- 
-          
-         </div>
-       </div>
      <div class="row mb-3">
          <label for="usuario" class="col-sm-3 col-form-label"><h3>Usuario:</h3></label>
          <div class="col-sm-5">
@@ -176,28 +108,9 @@
            <div class="col">
              
              
-             <button class="btn" type="submit" id="guardar" style="background-color:transparent">
-               <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fguardar.png?alt=media&token=4325fe8d-024f-4aca-bd99-b5439360b821" width=30 height=30 align="center">
-               Guardar</button>
-           
-           </div>
- 
-           <div class="col">
-             
-             
              <button class="btn" style="background-color:transparent">
                <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fmodificar.png?alt=media&token=80f892de-c49a-4833-8019-1e8d7ec8ef06" width=30 height=30 align="center">
                Modificar</button>
-            
-           </div>
- 
- 
-           <div class="col">
-             
-             
-             <button class="btn" style="background-color:transparent" routerLink="/app-lista-bibliotecarios">
-               <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Flistas.png?alt=media&token=97df573d-51ec-4d24-8b96-d68164b717ff" width=30 height=30 align="center" >
-               Lista</button>
             
            </div>
          </div>
@@ -218,8 +131,4 @@
      <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20normal.png?alt=media&token=5c5a4b10-135a-4467-a1cf-3347bbe58df5" class="rounded float-start" alt="" width="300" height="85">
      </h1>
  </body>
-     <pre>
-        {{ bibliotecarios | json }};
-     </pre>
      
- 

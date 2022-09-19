@@ -10,7 +10,7 @@ export class RegistroBibliotecarioService {
   private urlendpoint:string='http://localhost:8080/api/crearbibliotecario';
   private urlendpoint1:string='http://localhost:8080/api/listarbibliotecario';
   private urlendpoint2:string='http://localhost:8080/api/bibliotecario_x_cedula';
-  private urlendpoint3:string='http://localhost:8080/api/fenix_alumno';
+  private urlendpoint4:string='http://localhost:8080/api/fenix_docente';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
@@ -26,7 +26,7 @@ export class RegistroBibliotecarioService {
 
   obtenerPersonasId(ced:string) : Observable<personaP>{
     //return of(CLIENTES)
-    return this.http.get<personaP>(this.urlendpoint3+"?ced="+ced);
+    return this.http.get<personaP>(this.urlendpoint4+"?ced="+ced);
   }
 
   buscarBibliotecarios(cedula:String):Observable<bibliotecarios>{
