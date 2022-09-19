@@ -45,17 +45,19 @@ personaP:personaP={};
         );login.reset();     
   }
 
-  buscarFenix(cedula:string){
-    if(!cedula==null){
+  buscarFenix(cedula:string,nombre:string){
+    if(cedula==""){
       alert('INGRESE UNA CEDULA')
     }else{
       console.log(cedula)
       this.bibliotecarioservice.obtenerPersonasId(cedula).subscribe(
         personaP=> this.personaP=personaP
         
+        
       )
-      if(this.personaP.cedula==null){
-        alert('No hay dato')
+      console.log(this.personaP.cedula);
+      if(this.personaP.cedula==undefined){
+        alert('Cedula no registrada')
         //this.router.navigate([''])
       }
     }

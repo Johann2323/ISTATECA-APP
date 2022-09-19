@@ -66,7 +66,7 @@
      <div class="row mb-3">
        <label for="nombres" class="col-sm-3 col-form-label"><h3>Nombres:</h3></label>
        <div class="col-sm-5">
-         <h6><input type="text" class="form-control text-center" [(ngModel)]="personaP.nombres" value="{{personaP.nombres}}" placeholder="Aqui apareceran sus datos" name="nombre"  required>
+         <h6><input #nombre type="text" class="form-control text-center" [(ngModel)]="personaP.nombres" value="{{personaP.nombres}}" placeholder="Aqui apareceran sus datos" name="nombre"  required>
              </h6>
          </div>
      </div>
@@ -208,7 +208,7 @@
      </form>
 
      <h5>
-      <button type="button" (click)="buscarFenix(cedulas.value)" class="btn btn-outline-secondary">
+      <button type="button" (click)="buscarFenix(cedulas.value,nombre.value)" class="btn btn-outline-secondary">
         <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fbusqueda.png?alt=media&token=2b59078d-0ef5-4fa4-85c6-396ea7c1c97c" alt="" width="20" height="20">
        </button>
      </h5>

@@ -30,7 +30,14 @@ export class FormEditComponent implements OnInit {
         personaP=> this.personaP=personaP
         
       )
+
+      console.log(this.personaP.cedula);
+      if(this.personaP.cedula==undefined){
+        alert('Cedula no registrada')
+        //this.router.navigate([''])
+      }
     }
+
    
     
    }
