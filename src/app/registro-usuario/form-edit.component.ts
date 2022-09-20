@@ -52,12 +52,12 @@ alert(this.usuarioE.id_usuario)
   buscar(idss:string){
     
     this.id=Number.parseInt(idss)
-    alert(this.id)
+    //alert(this.id)
       this.usuarioservice.obtenerUsuariosId(this.id).subscribe(
         usuarioE=> {this.usuarioE=usuarioE,this.persona.cedula=usuarioE.persona?.cedula,this.persona.nombres=usuarioE.persona?.nombres,this.persona.celular=usuarioE.persona?.celular
           ,this.persona.correo=usuarioE.persona?.correo,this.persona.usuario=usuarioE.persona?.usuario,this.persona.clave=usuarioE.persona?.clave
-        alert(this.usuarioE.id_usuario)}
-        
+        //alert(this.usuarioE.id_usuario)}
+        }
       )
      
     

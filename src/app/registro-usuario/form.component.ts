@@ -43,7 +43,7 @@ export class FormComponent implements OnInit {
     
 
         this.usuarioservice.create(this.usuario).subscribe(
-          response => { this.usuario}, 
+          response => { this.usuario,this.router.navigate([''])}, 
         )
 
         
