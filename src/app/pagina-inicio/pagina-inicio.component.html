@@ -1,34 +1,34 @@
-
-   
 <div class="contenedor">
-    
-<div class="card" >
-    
-    <div class="card-header">
 
-    <div class="imagen">
-        <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20normal.png?alt=media&token=5c5a4b10-135a-4467-a1cf-3347bbe58df5" 
-          height="80"  width="350"  >
-    </div>
-         
-           
-       
-     
-        <h5 class="text-center h5" ><strong>Listado de Libros</strong></h5>
-        
-        <form class="d-flex buscar" role="search" >
-            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" style="background-color: #e5e7e8;">
-            <button class="btn" type="submit" >
-              <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fbusqueda.png?alt=media&token=2b59078d-0ef5-4fa4-85c6-396ea7c1c97c"
-              ></button>           
-          </form >
+    <div class="card">
 
-            <button type="button" class="btn btn-outline-light solicitud"   routerLink="">Solicitar libro</button>
-                
-    </div>
-   
-        <div class="card-body text-primary libros" >
-            <table class="table table-bordered table-stripped libros" >
+        <div class="card-header">
+
+            <div class="imagen">
+                <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20normal.png?alt=media&token=5c5a4b10-135a-4467-a1cf-3347bbe58df5"
+                    height="80" width="350">
+            </div>
+
+
+
+
+            <h5 class="text-center h5"><strong>Listado de Libros</strong></h5>
+
+            <form class="d-flex buscar" role="search">
+                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar"
+                    style="background-color: #e5e7e8;">
+                <button class="btn" type="submit">
+                    <img
+                        src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fbusqueda.png?alt=media&token=2b59078d-0ef5-4fa4-85c6-396ea7c1c97c"></button>
+            </form>
+
+            <button type="button" class="btn btn-outline-light solicitud" (click)="SolicitarLibro()">Solicitar
+                libro</button>
+
+        </div>
+
+        <div class="card-body text-primary libros">
+            <table class="table table-bordered table-stripped libros">
                 <thead class="text-center cabezera">
                     <tr>
                         <th>Código</th>
@@ -37,11 +37,11 @@
                         <th>Año de <br>Publicación</th>
                         <th>Descripción</th>
                         <th>Disponible</th>
-                    </tr>    
+                    </tr>
 
                 </thead>
-                
-                <tbody class="text-center" >
+
+                <tbody class="text-center">
                     <tr *ngFor="let pagina of paginas">
                         <td>{{pagina.cod_isbn}}</td>
                         <td>{{pagina.titulo}}</td>
@@ -50,15 +50,21 @@
                         <td>{{pagina.descripcion}}</td>
                         <td>{{pagina.disponibilidad}}</td>
                     </tr>
-                   
+
                 </tbody>
             </table>
         </div>
 
-  
 
+
+    </div>
 </div>
+<div class="contenedor">
+    <div class="overlay" id="overlay">
+        <div class="popup" id="popup">
+            <h3>Solicitud Aceptada</h3>
+            <h4>Toma una captura y facilita la busqueda de tu solicitud</h4>
+            <button id="cerrarpopup" (click)="cerrarpopup()"  class="boton btn btn-primary" style="background-color:#2E2F5E;"> <FONT COLOR="white">Aceptar</FONT></button>
+        </div>
+    </div>
 </div>
-
-
-    
