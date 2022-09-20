@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="#" style="color: #e3eaef" routerLink="/app-pagina-inicio"> <img
         src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20blanco%20(1).png?alt=media&token=aad7ec8f-a2c9-4621-9936-38078017b11e"
-        alt="" width="80" height="80"></a>
+        alt="" width="60" height="60"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -15,14 +15,14 @@
               <a class="nav-link active" href="#" routerLink="/app-registro-bibliotecario">
                 <img
                   src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar-bibliotecario.png?alt=media&token=82630a09-64d2-468c-83d6-9f2a84e7aea5"
-                  alt="" width="35" height="35"></a>
+                  alt="" width="25" height="25"></a>
             </li>
           </div>
           <li class="nav-item">
             <a class="nav-link active" href="#" routerLink="/registro-libro">
               <img
                 src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar%20libro.png?alt=media&token=b7f639da-1aaa-4d12-8133-a59742d32d87"
-                alt="" width="35" height="35"></a>
+                alt=""  width="25" height="25"></a>
 
             
           </li>
@@ -30,37 +30,37 @@
             <a class="nav-link active" href="#" routerLink="">
               <img
                 src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fdevolver%20libro.png?alt=media&token=95ede259-0714-4e28-95f9-7d759fda53b4"
-                alt="" width="35" height="35"></a>
+                alt=""  width="25" height="25"></a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="#" routerLink="/app-listas">
               <img
                 src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Flistas.png?alt=media&token=97df573d-51ec-4d24-8b96-d68164b717ff"
-                alt="" width="40" height="40"></a>
+                alt=""  width="25" height="25"></a>
           </li>
         </ul>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar"
-            style="background-color: #012844; color: white;">
+            style="background-color: #012844; color: white; font-size: small;">
           <button class="btn">
             <img
-              src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fbusqueda.png?alt=media&token=2b59078d-0ef5-4fa4-85c6-396ea7c1c97c"></button>
+              src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fbusqueda.png?alt=media&token=2b59078d-0ef5-4fa4-85c6-396ea7c1c97c"  width="25" height="25"></button>
         </form>
         <div *ngIf="mostrar2">
           <a class="nav-link active" href="#" routerLink="/app-lista-solicitudes-pendientes">
             <img
               src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fnotificacion.png?alt=media&token=2ef3179f-bd47-483c-a71a-1323570c5837"
-              alt="" width="35" height="35">
+              alt=""  width="25" height="25">
           </a>
         </div>
 
-        <button (click)="cerrarSesion()" class="boton btn btn-primary" style="background-color:#2E2F5E ;">Cerrar
+        <button (click)="cerrarSesion()" class="boton btn btn-primary" style="background-color:#2E2F5E; font-size: small;">Cerrar
           Sesión</button>
 
       </div>
     </div>
     <div *ngIf="mostrar3">
-      <button (click)="iniciarSesion()" class="boton btn btn-primary" style="background-color:#2E2F5E;">Iniciar
+      <button (click)="iniciarSesion()" class="boton btn btn-primary" style="background-color:#2E2F5E; font-size: small;">Iniciar
         Sesión</button>
     </div>
   </div>
