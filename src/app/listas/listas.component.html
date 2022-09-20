@@ -30,7 +30,10 @@
                         <th>Nombres de Autores</th>
                     </tr>
                 </thead>
-                <tbody class="text-center">
+                <tbody class="text-center" >
+                    <tr *ngFor="let autor of Autores">
+                        <td>{{autor.id_autor}}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

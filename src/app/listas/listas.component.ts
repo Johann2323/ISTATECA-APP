@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ListasService } from './listas.service';
+import { autor } from './autor';
 
 @Component({
   selector: 'app-listas',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listas.component.css']
 })
 export class ListasComponent implements OnInit {
+  Autores:autor[]=[];
 
-  constructor() { }
+  constructor(private  listaservice: ListasService) { }
 
   ngOnInit(): void {
+    this.listaservice.obtenerAutores().subscribe(
+      Autores=> this.Autores=Autores
+    );
   }
 
 }

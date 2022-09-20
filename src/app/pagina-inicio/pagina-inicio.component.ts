@@ -21,7 +21,6 @@ export class PaginaInicioComponent implements OnInit {
   }
   ngOnInit(): void {
     this.paginainicioService.getLibros().subscribe(
-      //response =>{this.PaginaI}
       pagina => this.paginas=pagina
     );
   }
