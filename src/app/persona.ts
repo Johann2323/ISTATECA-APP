@@ -1,5 +1,5 @@
 export class persona {
-    idPersona?: number;
+    id_persona?: number;
     activo?: boolean;
     cedula?: string;
     celular?: string;

@@ -43,13 +43,19 @@ export class FormComponent implements OnInit {
     
 
         this.usuarioservice.create(this.usuario).subscribe(
-          response => { this.usuario,this.router.navigate([''])}, 
+          response => { this.usuario}, 
         )
+
+        
   }
 
   
 
+  
+
    buscarFenix(cedula:string){
+    
+
     if(cedula==""){
       alert('INGRESE UNA CEDULA')
     }else{
@@ -57,13 +63,13 @@ export class FormComponent implements OnInit {
       this.usuarioservice.obtenerPersonasId(cedula).subscribe(
         personaP=> this.personaP=personaP
         
+        
       )
       console.log(this.personaP.cedula);
       if(this.personaP.cedula==undefined){
         alert('Cedula no registrada')
         //this.router.navigate([''])
       }
-      
     }
     
    
