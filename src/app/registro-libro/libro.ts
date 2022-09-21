@@ -1,32 +1,35 @@
 
 
+import { Binary } from "@angular/compiler";
 import { bibliotecarios } from "../registro-bibliotecario/bibliotecarios";
+import { tipo } from "./tipo";
+
 export class libro{
-    id: number=0;
-    codigoDewey: string= '';
-    titulo: string= '';
-    tipo: number=0;
-    adquisicion: string= '';
-    anioPublicacion: number=0;
-    editor: string= '';
-    ciudad: string= '';
-    numPaginas: number=0;
-    area: string= '';
-    codIsbn: string= '';
-    idioma: string= '';
-    descripcion: string= '';
-    indiceUno: string= '';
-    indiceDos: string= '';
-    indiceTres: string= '';
-    dimensiones: string= '';
-    estadolibro: string= '';
-    activo:boolean=true;
-    imagen?: ByteLengthQueuingStrategy;
-    urlDigital: string= '';
+    idLibro?: number;
+    codigo_dewey?: string;
+    titulo?: string;
+    tipo?:tipo;
+    adquisicion?: string;
+    anio_publicacion?: number;
+    editor?: string;
+    ciudad?: string;
+    num_paginas?: number;
+    area?: string;
+    cod_ISBN?: string;
+    idioma?: string;
+    descripcion?: string;
+    indice_uno?: string;
+    indice_dos?: string;
+    indice_tres?: string;
+    dimensiones?: string;
+    estado_libro?: string;
+    activo?:boolean;
+    imagen?: [];
+    url_digital?: string;
     bibliotecario?: bibliotecarios;
-    fechaCreacion?: Date;
-    disponibilidad: boolean=true;
-    nombreDonante: string= '';
-    documentoDonacion?: ByteLengthQueuingStrategy;
+    fecha_creacion?: Date;
+    disponibilidad?: boolean;
+    nombre_donante?: string;
+    documento_donacion?: ArrayBuffer;
 
 }

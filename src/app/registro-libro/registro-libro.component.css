@@ -122,6 +122,11 @@ h5{
           margin-inline-start: 10%;
       
       }
+      h2{
+        font-size: 19px;
+        text-align: center;
+        margin-inline-start: 10%;
+      }
       
       h4 {
       font-size:45px;
@@ -149,5 +154,6 @@ h5{
          margin-top: -4%;
           text-align: right; 
           margin-inline-start: 5%;
+          
       
       }

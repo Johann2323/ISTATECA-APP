@@ -9,331 +9,340 @@
 <!--FORMULARIO-->
 
 <body class="elemento">
-    <div class="card" style="text-align:left">
-        <form id="myForm" style="text-align:left">
-            <div class="row mb-3">
-                <label for="Codigo DEWEY" class="col-sm col-form-label">
-                    <h3>Código DEWEY:</h3>
-                </label>
-                <div class="col-sm">
-                    <h6><input type="text" class="form-control" name="Codigo-DEWEY" required>
-                    </h6>
+    <form #reg="ngForm" (ngSubmit)="crearLibro(reg)" onsubmit="alert('Se ha Guardado con Exito')">
+        <div class="card" style="text-align:left">
+            
+                <div class="row mb-3">
+                    <label for="Codigo DEWEY" class="col-sm col-form-label">
+                        <h3>Código DEWEY:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <h6><input type="text" class="form-control" name="codigo-DEWEY"[(ngModel)]="Libro.codigo_dewey" required>
+                        </h6>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb">
-                <label for="Titulo-Libro" class="col-sm col-form-label">
-                    <h3>Titulo del Libro:</h3>
-                </label>
-                <div class="col-sm">
-                    <h6><input type="text" class="form-control" name="titulo-libro" required>
-                    </h6>
+                <div class="row mb">
+                    <label for="Titulo-Libro" class="col-sm col-form-label">
+                        <h3>Titulo del Libro:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <h6><input type="text" class="form-control" name="titulo-Libro" [(ngModel)]="Libro.titulo" required>
+                        </h6>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb">
-                <label for="Adquisicion-Libro" class="col-sm col-form-label">
-                    <h3>Adquisicion del Libro:</h3>
-                </label>
-                <div class="col-sm">
-                    <h6><input type="text" class="form-control" name="Adquisicion-libro" required>
-                    </h6>
+                <div class="row mb">
+                    <label for="Adquisicion-Libro" class="col-sm col-form-label">
+                        <h3>Adquisicion del Libro:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <h6><input type="text" class="form-control" name="adquisicion-libro" [(ngModel)]="Libro.adquisicion" required>
+                        </h6>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb">
-                <label for="Año-Publicacion" class="col-sm col-form-label">
-                    <h3>Año de Publicación:</h3>
-                </label>
-                <div class="col-sm">
-                    <h6><input type="text" class="form-control" name="Año-Publicacion" required>
-                    </h6>
+                <div class="row mb">
+                    <label for="Año-Publicacion" class="col-sm col-form-label">
+                        <h3>Año de Publicación:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <h6><input type="number" class="form-control" name="año-Publicacion" [(ngModel)]="Libro.anio_publicacion" required>
+                        </h6>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb">
-                <label for="Editor" class="col-sm col-form-label">
-                    <h3>Editor:</h3>
-                </label>
-                <div class="col-sm">
-                    <h6><input type="text" class="form-control" name="Editor" required>
-                    </h6>
+                <div class="row mb">
+                    <label for="Editor" class="col-sm col-form-label">
+                        <h3>Editor:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <h6><input type="text" class="form-control" name="editor" [(ngModel)]="Libro.editor" required>
+                        </h6>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb">
-                <label for="Autor" class="col-sm col-form-label">
-                    <h3>Autor:</h3>
-                </label>
-                <div class="col-sm">
-                    <h6><input type="text" class="form-control" name="Autor" required>
-                    </h6>
+                <div class="row mb">
+                    <label for="Autor" class="col-sm col-form-label">
+                        <h3>Autor:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <h6><input type="text" class="form-control" name="autor"  required>
+                        </h6>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb-3">
-                <label for="cedula" class="col-sm-6 col-form-label">
-                    <h3>Tipo:</h3>
-                </label>
-                <div class="col-sm-6">
-                    <h6>
-                        <select class="form-select" id="combo" required>
-                            <option value="" disabled selected>Seleccione un tipo</option>
-                            <option value="1">Tipo 1</option>
-                            <option value="2">Tipo 2</option>
-                        </select>
-                    </h6>
+                <div class="row mb-3">
+                    <label for="Tipo" class="col-sm-6 col-form-label">
+                        <h3>Tipo:</h3>
+                    </label>
+                    <div class="col-sm-6"  >
+                        <h6><input type="text" class="form-control" name="ciudad" [(ngModel)]="tipo.id_tipo" required>
+                        </h6>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb">
-                <label for="Ciudad" class="col-sm col-form-label">
-                    <h3>Ciudad:</h3>
-                </label>
-                <div class="col-sm">
-                    <h6><input type="text" class="form-control" name="Ciudad" required>
-                    </h6>
+                <div class="row mb">
+                    <label for="Ciudad" class="col-sm col-form-label">
+                        <h3>Ciudad:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <h6><input type="text" class="form-control" name="ciudad" [(ngModel)]="Libro.ciudad" required>
+                        </h6>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb">
-                <label for="Num-Paginas" class="col-sm col-form-label">
-                    <h3>N° de Paginas:</h3>
-                </label>
-                <div class="col-sm">
-                    <h6><input type="number" class="form-control" name="Num-Paginas" required>
-                    </h6>
+                <div class="row mb">
+                    <label for="Num-Paginas" class="col-sm col-form-label">
+                        <h3>N° de Paginas:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <h6><input type="number" class="form-control" name="num-Paginas" [(ngModel)]="Libro.num_paginas" required>
+                        </h6>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb">
-                <label for="Area" class="col-sm col-form-label">
-                    <h3>Area:</h3>
-                </label>
-                <div class="col-sm">
-                    <h6><input type="text" class="form-control" name="Area" required>
-                    </h6>
+                <div class="row mb">
+                    <label for="Area" class="col-sm col-form-label">
+                        <h3>Area:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <h6><input type="text" class="form-control" name="area" [(ngModel)]="Libro.area" required>
+                        </h6>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb">
-                <label for="Codigo-ISBN" class="col-sm col-form-label">
-                    <h3>Codigo ISBN:</h3>
-                </label>
-                <div class="col-sm">
-                    <h6><input type="text" class="form-control" name="Codigo-ISBN" required>
-                    </h6>
+                <div class="row mb">
+                    <label for="Codigo-ISBN" class="col-sm col-form-label">
+                        <h3>Codigo ISBN:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <h6><input type="text" class="form-control" name="codigo-ISBN" [(ngModel)]="Libro.cod_ISBN" required>
+                        </h6>
+                    </div>
                 </div>
-            </div>
 
 
-            <div class="row mb">
-                <label for="Idioma" class="col-sm col-form-label">
-                    <h3>Idioma:</h3>
-                </label>
-                <div class="col-sm">
-                    <h6><input type="text" class="form-control" name="Idioma" required>
-                    </h6>
+                <div class="row mb">
+                    <label for="Idioma" class="col-sm col-form-label">
+                        <h3>Idioma:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <h6><input type="text" class="form-control" name="idioma" [(ngModel)]="Libro.idioma" required>
+                        </h6>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb">
-                <label for="Descripcion" class="col-sm col-form-label">
-                    <h3>Descripción:</h3>
-                </label>
-                <div class="col-sm">
-                    <h6><input type="text" class="form-control" name="Descripcion" required>
-                    </h6>
+                <div class="row mb">
+                    <label for="Descripcion" class="col-sm col-form-label">
+                        <h3>Descripción:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <h6><input type="text" class="form-control" name="descripcion" [(ngModel)]="Libro.descripcion" required>
+                        </h6>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb">
-                <label for="Dimensiones" class="col-sm col-form-label">
-                    <h3>Dimensiones:</h3>
-                </label>
-                <div class="col-sm">
-                    <h6><input type="text" class="form-control" name="Dimensiones" required>
-                    </h6>
+                <div class="row mb">
+                    <label for="Dimensiones" class="col-sm col-form-label">
+                        <h3>Dimensiones:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <h6><input type="text" class="form-control" name="dimensiones" [(ngModel)]="Libro.dimensiones" required>
+                        </h6>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb">
-                <label for="Biblio-registra" class="col-sm col-form-label">
-                    <h3>Bibliotecario que registra:</h3>
-                </label>
-                <div class="col-sm">
-                    <h6><input type="text" class="form-control" name="Biblio-registra" required>
-                    </h6>
+                <div class="row mb">
+                    <label for="Bibliotecario" class="col-sm col-form-label">
+                        <h3>Bibliotecario que registra:</h3>
+                    </label>
+                    <div class="col-sm">
+
+                        <h6><input type="text" class="form-control" name="bibliotecario" [(ngModel)]="bibliotecarios.id_bibliotecario" required>
+                        </h6>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb">
-                <label for="URL" class="col-sm col-form-label">
-                    <h3>URL Digital:</h3>
-                </label>
-                <div class="col-sm">
-                    <h6><input type="text" class="form-control" name="URL" required>
-                    </h6>
+                <div class="row mb">
+                    <label for="URL" class="col-sm col-form-label">
+                        <h3>URL Digital:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <h6><input type="text" class="form-control" name="url" [(ngModel)]="Libro.url_digital" required>
+                        </h6>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb">
-                <label for="Fecha-Creacion" class="col-sm col-form-label">
-                    <h3>Fecha de Creación:</h3>
-                </label>
-                <div class="col-sm">
-                    <h6><input type="date" class="form-control" name="Fecha-Creacion" required>
-                    </h6>
+                <div class="row mb">
+                    <label for="Fecha-Creacion" class="col-sm col-form-label">
+                        <h3>Fecha de Creación:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <h6><input type="date" class="form-control" name="fecha-Creacion" [(ngModel)]="Libro.fecha_creacion" required>
+                        </h6>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb-3">
-                <label for="cedula" class="col-sm-6 col-form-label">
-                    <h3>Disponible:</h3>
-                </label>
-                <div class="col-sm-6">
-                    <h6>
-                        <select class="form-select" id="combo" required>
-                            <option value="" disabled selected>Seleccione</option>
-                            <option value="1">Disponible</option>
-                            <option value="2">No disponible</option>
-                        </select>
-                    </h6>
+                <div class="row mb-3">
+                    <label for="disponibilidad" class="col-sm-6 col-form-label" >
+                        <h3>Disponible:</h3>
+                    </label>
+                    <div class="col-sm-6">
+                        <h2>
+                            <input class="form-check-input" type="radio"  name="flexRadioDefault" value="true" id="Disponible" [(ngModel)]="Libro.disponibilidad" required>
+                            &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault1">
+                              Disponible
+                            </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          
+                          
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" value="false" id="No Disponible" [(ngModel)]="Libro.disponibilidad" required>
+                            &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault2">
+                              No Disponible
+                            </label>
+                          </h2>  
+                    </div>
                 </div>
-            </div>
 
 
 
 
 
 
-        </form>
-    </div>
-    <!--FIN DE FORMULARIO-->
-
-    <!--CAJA DDE BOTONES-->
-
-    <div class="tarjeta">
-        <div class="row gx-5">
-
-            <div class="col">
-
-                <button class="btn" style="background-color:transparent">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fimpresora.png?alt=media&token=a45ef1f8-6983-4e43-8adf-e31a2f1b6928"
-                        width=30 height=30 align="center">
-                    Imprimir</button>
-
-            </div>
-
-            <div class="col">
-
-
-                <button class="btn" style="background-color:transparent">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar_autor-tipo-donante.png?alt=media&token=4f1e982c-c8a5-496a-80d2-33d6fe7a9d33"
-                        width=30 height=30 align="center">
-                    Añadir Donante</button>
-
-            </div>
-
-            <div class="col">
-
-
-                <button class="btn" style="background-color:transparent">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fmodificar.png?alt=media&token=80f892de-c49a-4833-8019-1e8d7ec8ef06"
-                        width=30 height=30 align="center">
-                    Modificar</button>
-
-            </div>
-
-
-            <div class="col">
-
-
-                <button class="btn" style="background-color:transparent">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Flistas.png?alt=media&token=97df573d-51ec-4d24-8b96-d68164b717ff"
-                        width=30 height=30 align="center">
-                    Lista de Libros</button>
-
-            </div>
-
-            <div class="col">
-
-                <button class="btn" style="background-color:transparent">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar%20libro.png?alt=media&token=b7f639da-1aaa-4d12-8133-a59742d32d87"
-                        width=30 height=30 align="center">
-                    Guardar Libro</button>
-
-            </div>
-
+           
         </div>
-    </div>
-    <!--FIN DE CAJA DE BOTONES-->
+        <!--FIN DE FORMULARIO-->
 
-    <!--SUBIR FOTO-->
-    <div class="tarjeta-subir-foto" style="align-content: center;">
+        <!--CAJA DDE BOTONES-->
+
+        <div class="tarjeta">
+            <div class="row gx-5">
+
+                <div class="col">
+
+                    <button class="btn" style="background-color:transparent">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fimpresora.png?alt=media&token=a45ef1f8-6983-4e43-8adf-e31a2f1b6928"
+                            width=30 height=30 align="center">
+                        Imprimir</button>
+
+                </div>
+
+                <div class="col">
 
 
+                    <button class="btn" style="background-color:transparent">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar_autor-tipo-donante.png?alt=media&token=4f1e982c-c8a5-496a-80d2-33d6fe7a9d33"
+                            width=30 height=30 align="center">
+                        Añadir Donante</button>
 
-        <div *ngIf="previsualizacion" style="align-content: center;">
-            <img width="130px" [src]="previsualizacion" alt="">
-        </div>
-        <div id="boton">
-            <button class="btn" style="background-color:transparent" id="icono">
-                <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar%20libro.png?alt=media&token=b7f639da-1aaa-4d12-8133-a59742d32d87"
-                    width=30 height=30 align="center"> Subir Foto
+                </div>
 
-            </button>
+                <div class="col">
+
+
+                    <button class="btn" style="background-color:transparent">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fmodificar.png?alt=media&token=80f892de-c49a-4833-8019-1e8d7ec8ef06"
+                            width=30 height=30 align="center">
+                        Modificar</button>
+
+                </div>
+
+
+                <div class="col">
+
+
+                    <button class="btn" style="background-color:transparent">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Flistas.png?alt=media&token=97df573d-51ec-4d24-8b96-d68164b717ff"
+                            width=30 height=30 align="center">
+                        Lista de Libros</button>
+
+                </div>
+
+                <div class="col">
+
+                    <button class="btn" type="submit" style="background-color:transparent">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar%20libro.png?alt=media&token=b7f639da-1aaa-4d12-8133-a59742d32d87"
+                            width=30 height=30 align="center">
+                        Guardar Libro</button>
+
+                </div>
+
+            </div>
         </div>
 
+        <!--FIN DE CAJA DE BOTONES-->
 
-        <input (change)="capturarImagen($event)" type="file" id="subir">
+        <!--SUBIR FOTO-->
+        <div class="tarjeta-subir-foto" style="align-content: center;">
 
 
 
+            <div *ngIf="previsualizacion" style="align-content: center;">
+                <img width="230px" [src]="previsualizacion" alt="">
+                {{previsualizacion }}
+            </div>
+            <label id="boton">
+
+                <i> <img
+                        src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar%20libro.png?alt=media&token=b7f639da-1aaa-4d12-8133-a59742d32d87"></i>
 
 
-    </div>
-    <script>
-        document.getElementById("boton").addEventListener('click', function() {
-         document.getElementById("subir").click();
-        });
-   </script>
-    <!--FIN SUBIR FOTO-->
-
-    <!--REGISTRAR DONANTE-->
-    <div class="tarjeta-registrar-donante">
-        <div class=" h1 text-center"><strong>Donante</strong></div>
-        <div class="col" style="margin-left:40% ;">
-
-            <button class="btn " style="background-color:transparent">
-                <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fsubir%20acta.png?alt=media&token=654756c8-f9ef-46fc-a2df-c740f8e75c45"
-                    width=40 height=40>
-                Subir Acta</button>
-                <input (change)="capturarImagen($event)" type="file" id="subir">
-
-        </div>
-
-        <div class="row mb" style="align-content: center;">
-            <label for="Donante" class="col-sm col-form-label">
-                <h3>Nombre del Donante:</h3>
             </label>
-            <div class="col-sm" style="margin-right: 2%;">
-                <h6><input type="text" class="form-control" name="Donante" required rigth>
-                </h6>
+
+
+            <input id="subir" accept="image/*"  (change)="capturarImagen($event)"   type="file"  name="Image">
+
+
+
+
+
+        </div>
+        <script type="application/javascript">
+
+            document.getElementById("boton").addEventListener('click', function () {
+                document.getElementById("subir").click();
+            });
+
+
+        </script>
+        <!--FIN SUBIR FOTO-->
+
+        <!--REGISTRAR DONANTE-->
+        <div class="tarjeta-registrar-donante">
+            <div class=" h1 text-center"><strong>Donante</strong></div>
+            <div class="col" style="margin-left:40% ;">
+
+                <button class="btn " style="background-color:transparent">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fsubir%20acta.png?alt=media&token=654756c8-f9ef-46fc-a2df-c740f8e75c45"
+                        width=40 height=40>
+                    Subir Acta</button>
+                <input (change)="capturarArchivo($event)" type="file" id="subir"  name="PDF">
+
             </div>
+
+            <div class="row mb" style="align-content: center;">
+                <label for="Donante" class="col-sm col-form-label">
+                    <h3>Nombre del Donante:</h3>
+                </label>
+                <div class="col-sm" style="margin-right: 2%;">
+                    <h6><input type="text" class="form-control" name="Donante" required rigth>
+                    </h6>
+                </div>
+            </div>
+
+            <div class="row mb">
+                <label for="Fecha-Donacion" class="col-sm col-form-label">
+                    <h3>Fecha de Donación:</h3>
+                </label>
+                <div class="col-sm" style="margin-right: 2%;">
+                    <h6><input type="date" class="form-control" name="Fecha-Donacion" required>
+                    </h6>
+                </div>
+            </div>
+
         </div>
 
-        <div class="row mb">
-            <label for="Fecha-Donacion" class="col-sm col-form-label">
-                <h3>Fecha de Donación:</h3>
-            </label>
-            <div class="col-sm" style="margin-right: 2%;">
-                <h6><input type="date" class="form-control" name="Fecha-Donacion" required>
-                </h6>
-            </div>
-        </div>
-
-    </div>
+    </form>
     <!--FIN DE REGISTRO DONANTE-->
 
     <!--REGISTRO AUTOR-->
@@ -380,11 +389,11 @@
         </div>
 
         <div class="row mb" style="align-content: center;">
-            <label for="Tipo" class="col-sm col-form-label">
+            <label for="L-Tipo1" class="col-sm col-form-label">
                 <h3>Nombre del Tipo:</h3>
             </label>
             <div class="col-sm-8" style="margin-right: 2%; margin-top: 2%;">
-                <h6><input type="text" class="form-control" name="Tipo" required rigth>
+                <h6><input type="text" class="form-control" name="L-Tipo" required rigth>
                 </h6>
             </div>
         </div>
@@ -393,3 +402,8 @@
     </div>
 
 </body>
+<pre>
+    {{ Libro | json }};
+
+   
+ </pre>
