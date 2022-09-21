@@ -84,17 +84,17 @@ export class RegistroLibroComponent implements OnInit {
       this.previsualizacion = imagen.base;
       
 
-      this.Libro.imagen=imagen.base
+      
       
       
 
-      const data = imagen.base
-      const libre = atob(data.split(",")[1]);
+      // const data = imagen.base
+      // const libre = atob(data.split(",")[1]);
 
-      this.file = libre;
+      // this.file = libre;
       
-      this.Libro.imagen = this.file
-      console.log(this.Libro.imagen);
+      // this.Libro.imagen = this.file
+      // console.log(this.Libro.imagen);
 
     })   
     //this.archivos.push(archivocapturado)
@@ -158,7 +158,8 @@ export class RegistroLibroComponent implements OnInit {
 
     this.bibliotecarioE.id_bibliotecario = this.Libro.bibliotecario.id_bibliotecario
     this.Libro.tipo.id_tipo = this.idT
-    alert(this.idT)
+    this.Libro.imagen= this.previsualizacion
+    this.Libro.activo = true;
 
    
 
