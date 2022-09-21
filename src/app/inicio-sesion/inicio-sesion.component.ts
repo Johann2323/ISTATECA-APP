@@ -51,6 +51,7 @@ export class InicioSesionComponent implements OnInit {
                   data=>{
                     console.log("Bibliotecario");
                     localStorage.setItem('bibliotecario',data.id_bibliotecario+"");
+                    localStorage.setItem('nombrebibliotecario',data.persona?.nombres+"");
                   }
                 );
               }else{

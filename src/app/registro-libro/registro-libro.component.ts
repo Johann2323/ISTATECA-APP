@@ -21,6 +21,8 @@ export class RegistroLibroComponent implements OnInit {
   bibliotecarios: bibliotecarios = {};
   tipo: tipo = {};
   file: any;
+  reporteV:String="";
+  reporteV2:String="";
  
 
   public previsualizacion?: string
@@ -29,6 +31,9 @@ export class RegistroLibroComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer, private libroservice: RegistroLibroService, private rutas: Router) { }
 
   ngOnInit(): void {
+    this.reporteV=localStorage.getItem('bibliotecario')+"";
+    this.reporteV2=localStorage.getItem('nombrebibliotecario')+"";
+    console.log("Bibliotecario: "+this.reporteV+" Nombre:"+ this.reporteV2);
 
   }
 
