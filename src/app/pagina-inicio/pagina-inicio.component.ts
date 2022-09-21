@@ -14,6 +14,8 @@ export class PaginaInicioComponent implements OnInit {
   public PaginaI: PaginaInicio = new PaginaInicio();
   paginas: PaginaInicio[]=[];
   mostrar:boolean=false;
+
+  
   constructor(private paginainicioService: PaginaInicioService, private router: Router, private router1: Router) { }
   ngDoCheck(): void {
     this.reporteV=JSON.parse(localStorage.getItem('rol')+"");

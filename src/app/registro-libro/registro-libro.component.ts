@@ -1,13 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ResolveEnd, Route, Router, Routes } from '@angular/router';
 import { RegistroLibroService } from './registro-libro.service';
 import { libro } from './libro';
 import { bibliotecarios } from '../registro-bibliotecario/bibliotecarios';
-import { tipo } from './tipo';
-import { registerLocaleData } from '@angular/common';
 import { NgForm } from '@angular/forms';
-import { Binary } from '@angular/compiler';
+import { ListasService } from '../listas/listas.service';
+import { TiposLibros } from '../listas/tipos-libros';
+
+import { RegistroBibliotecarioService } from '../registro-bibliotecario/registro-bibliotecario.service';
+import { bibliotecarioE } from '../bibliotecarioE';
+import { persona } from '../persona';
+
 
 
 
@@ -19,23 +23,49 @@ import { Binary } from '@angular/compiler';
 })
 export class RegistroLibroComponent implements OnInit {
   bibliotecarios: bibliotecarios = {};
-  tipo: tipo = {};
+  tipo: TiposLibros={};
   file: any;
   reporteV:String="";
   reporteV2:String="";
+  bibliotecarioE:bibliotecarioE={};
+  persona:persona={};
+  Tipoe: TiposLibros[]=[]
+
+  opcionSeleccionado: string  = '0';
+  verSeleccion: string        = '';
+
+  idb?:number;
+  idT?:number;
  
 
   public previsualizacion?: string
   public PDF?: string
   public archivos: any = []
-  constructor(private sanitizer: DomSanitizer, private libroservice: RegistroLibroService, private rutas: Router) { }
+  constructor(private sanitizer: DomSanitizer, private libroservice: RegistroLibroService, private rutas: Router, private bibliotecarioservice: RegistroBibliotecarioService
+    , private ListaT: ListasService) { }
 
   ngOnInit(): void {
     this.reporteV=localStorage.getItem('bibliotecario')+"";
     this.reporteV2=localStorage.getItem('nombrebibliotecario')+"";
     console.log("Bibliotecario: "+this.reporteV+" Nombre:"+ this.reporteV2);
 
+    this.buscar(this.reporteV+'')
+    this.ListaT.obtenerTipos().subscribe(
+      TipoS=>this.Tipoe=TipoS
+    );
+
+
+
   }
+
+  seleccionT(e : any){
+    console.log(e.target.value);
+     this.idT = e.target.value;
+ 
+  }
+
+
+  
 
 
   capturarArchivo(event: any): any {
@@ -52,10 +82,10 @@ export class RegistroLibroComponent implements OnInit {
     const archivocapturado = event.target.files[0]
     this.extraerBase64(archivocapturado).then((imagen: any) => {
       this.previsualizacion = imagen.base;
-      //console.log(imagen.base);
+      
 
       this.Libro.imagen=imagen.base
-      console.log(imagen.base);
+      
       
 
       const data = imagen.base
@@ -99,6 +129,19 @@ export class RegistroLibroComponent implements OnInit {
     }
   })
 
+
+  buscar(idss:string){
+ 
+    this.idb=Number.parseInt(idss)
+   
+      this.bibliotecarioservice.obtenerBibliotecarioId(this.idb).subscribe(
+        bibliotecarioE=> {this.bibliotecarioE=bibliotecarioE,this.persona.cedula=bibliotecarioE.persona?.cedula,this.persona.nombres=bibliotecarioE.persona?.nombres,this.persona.celular=bibliotecarioE.persona?.celular
+          ,this.persona.correo=bibliotecarioE.persona?.correo,this.persona.usuario=bibliotecarioE.persona?.usuario,this.persona.clave=bibliotecarioE.persona?.clave, this.persona.rol=bibliotecarioE.persona?.rol
+       
+        }
+      )
+   }
+
   //Guardar Libro
 
 
@@ -109,10 +152,13 @@ export class RegistroLibroComponent implements OnInit {
     console.log("Se ha realizado un click")
     this.Libro.tipo = this.tipo
     this.Libro.bibliotecario = this.bibliotecarios
+    this.Libro.bibliotecario = this.bibliotecarioE
 
     console.log(this.Libro.bibliotecario)
 
-    
+    this.bibliotecarioE.id_bibliotecario = this.Libro.bibliotecario.id_bibliotecario
+    this.Libro.tipo.id_tipo = this.idT
+    alert(this.idT)
 
    
 

@@ -3,12 +3,13 @@
 import { Binary } from "@angular/compiler";
 import { bibliotecarios } from "../registro-bibliotecario/bibliotecarios";
 import { tipo } from "./tipo";
+import { TiposLibros } from '../listas/tipos-libros';
 
 export class libro{
     idLibro?: number;
     codigo_dewey?: string;
     titulo?: string;
-    tipo?:tipo;
+    tipo?:TiposLibros;
     adquisicion?: string;
     anio_publicacion?: number;
     editor?: string;
