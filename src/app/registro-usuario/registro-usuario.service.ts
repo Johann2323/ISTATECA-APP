@@ -31,7 +31,7 @@ export class RegistroUsuarioService {
   }
 
   update(usuario:usuario){
-return this.http.put<usuario>(this.urlendpoint3+"/"+usuario.idUsuario,usuario);
+return this.http.put<usuario>(this.urlendpoint3+"/"+usuario.id_usuario,usuario);
   }
   obtenerUsuariosId(id:number){
     return this.http.get<usuarioE>(this.urlendpoint4+"/"+id)

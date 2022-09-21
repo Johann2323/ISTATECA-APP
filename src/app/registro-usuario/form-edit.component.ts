@@ -13,7 +13,7 @@ import { usuarioE } from '../usuarioE';
   styleUrls: ['./form-edit.component.css']
 })
 export class FormEditComponent implements OnInit {
-
+  reporteV:String="";
   public usuario: usuario = new usuario();
   persona: persona = {};
   personaP:personaP={};
@@ -25,7 +25,8 @@ id?:number;
   constructor(private usuarioservice: RegistroUsuarioService, private router: Router) { }
 
   ngOnInit(): void {
-    
+    this.reporteV=localStorage.getItem('usuario')+"";
+        console.log("Usuario: "+this.reporteV+"");
   }
 
   
@@ -34,7 +35,7 @@ id?:number;
   
   actualizarUsuario(usuario:usuario){
     this.usuario.persona=this.persona
-    this.usuario.idUsuario=this.usuarioE.id_usuario
+    this.usuario.id_usuario=this.usuarioE.id_usuario
     this.persona.id_persona=this.usuarioE.persona?.id_persona
     this.persona.activo=true;
     this.persona.rol=2;

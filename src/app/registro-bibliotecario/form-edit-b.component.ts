@@ -12,6 +12,7 @@ import { personaP } from '../personaP';
   styleUrls: ['./form-edit-b.component.css']
 })
 export class FormEditBComponent implements OnInit {
+  reporteV:String="";
   public bibliotecarios: bibliotecarios = new bibliotecarios();
   persona: persona = {};
   personaP: personaP = {};
@@ -21,7 +22,8 @@ export class FormEditBComponent implements OnInit {
   constructor(private bibliotecarioservice: RegistroBibliotecarioService, private router: Router) { }
 
   ngOnInit(): void {
-
+    this.reporteV=localStorage.getItem('bibliotecario')+"";
+        console.log("Bibliotecario: "+this.reporteV+"")
   }
 
   onKeydownEvent(event: KeyboardEvent, cedula:string): void {
