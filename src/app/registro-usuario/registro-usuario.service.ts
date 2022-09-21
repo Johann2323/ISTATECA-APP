@@ -25,10 +25,6 @@ export class RegistroUsuarioService {
     return this.http.get<personaP>(this.urlendpoint2+"?ced="+ced);
 
   }
-  /*=actualizarPersonas(bibliotecario:bibliotecarios){
-    //return of(CLIENTES)
-    return this.http.put<bibliotecarios>(this.urlendpoint2+"/"+bibliotecario.persona?.cedula);
-  }*/
   obtenerUsuarios(): Observable<usuario[]> {
     //return of(CLIENTES)
     return this.http.get<usuario[]>(this.urlendpoint);

@@ -31,6 +31,7 @@ import { FormComponentb } from './registro-bibliotecario/form.component';
 import { RegistroLibroService } from './registro-libro/registro-libro.service';
 import { SolicitudLibroComponent } from './solicitud-libro/solicitud-libro.component';
 import { FormEditComponent } from './registro-usuario/form-edit.component';
+import { FormEditBComponent } from './registro-bibliotecario/form-edit-b.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { FormEditComponent } from './registro-usuario/form-edit.component';
     RegistroLibroComponent,
     SolicitudLibroComponent,
     FormEditComponent,
+    FormEditBComponent,
 
   ],
   imports: [
@@ -64,6 +66,7 @@ import { FormEditComponent } from './registro-usuario/form-edit.component';
       {path: '', component: InicioSesionComponent,pathMatch:'full'},
       {path: 'app-form', component: FormComponent},
       {path: 'app-form-bibliotecario', component: FormComponentb},
+      {path: 'app-form-editBibliotecario', component: FormEditBComponent},
       {path: 'app-form-editUsuario', component: FormEditComponent},
       {path: 'app-pagina-inicio', component: PaginaInicioComponent},
       {path: 'app-registro-bibliotecario', component: RegistroBibliotecarioComponent},

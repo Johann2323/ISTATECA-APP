@@ -59,25 +59,6 @@ alert(this.usuarioE.id_usuario)
         //alert(this.usuarioE.id_usuario)}
         }
       )
-     
-    
-
-    
-    
-
-    /*if(nombre==""){
-      alert('Cedula no registrada')
-      //this.router.navigate([''])
-      window.location.reload();
-    }*/
-
-    
-      
-
-   
-
-   
-    
    }
 
 }
