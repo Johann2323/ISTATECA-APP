@@ -25,6 +25,7 @@ export class FormComponentb implements OnInit {
   }
 
   public createbibliotecario(login: NgForm) {
+
     console.log("ha realizado un clic")
     this.bibliotecarios.persona = this.persona
     this.persona.activo = true;

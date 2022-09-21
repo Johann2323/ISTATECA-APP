@@ -12,12 +12,15 @@ import { personaP } from '../personaP';
   styleUrls: ['./form-edit-b.component.css']
 })
 export class FormEditBComponent implements OnInit {
-  reporteV:String="";
+  public reporteV:String="";
   public bibliotecarios: bibliotecarios = new bibliotecarios();
   persona: persona = {};
   personaP: personaP = {};
   bibliotecarioE:bibliotecarioE={};
   idb?:number;
+ RadioAdmin: any =document.getElementById('admin');
+   RadioBibliotecario: any =document.getElementById('biblioteca');
+  
 
   constructor(private bibliotecarioservice: RegistroBibliotecarioService, private router: Router) { }
 
@@ -54,15 +57,15 @@ export class FormEditBComponent implements OnInit {
 }
 
 buscar(idss:string){
-  
+ 
   this.idb=Number.parseInt(idss)
   //alert(this.id)
     this.bibliotecarioservice.obtenerBibliotecarioId(this.idb).subscribe(
       bibliotecarioE=> {this.bibliotecarioE=bibliotecarioE,this.persona.cedula=bibliotecarioE.persona?.cedula,this.persona.nombres=bibliotecarioE.persona?.nombres,this.persona.celular=bibliotecarioE.persona?.celular
-        ,this.persona.correo=bibliotecarioE.persona?.correo,this.persona.usuario=bibliotecarioE.persona?.usuario,this.persona.clave=bibliotecarioE.persona?.clave
+        ,this.persona.correo=bibliotecarioE.persona?.correo,this.persona.usuario=bibliotecarioE.persona?.usuario,this.persona.clave=bibliotecarioE.persona?.clave, this.persona.rol=bibliotecarioE.persona?.rol
       //alert(this.usuarioE.id_usuario)}
       }
     )
  }
-
+ 
 }

@@ -129,8 +129,12 @@
        <div class="row mb-3">
              <label for="usuario" class="col-sm-3 col-form-label"><h3>Fecha de inicio:</h3></label>
              <div class="col-sm-5">
-               <h6><input type="datetime"  [(ngModel)]="bibliotecarios.fecha_inicio" value="{{bibliotecarioE.fecha_inicio}}" class="form-control text-center" placeholder="Ingrese la fecha de entrada"  name="fecha_inicio" required>
-               </h6>
+               <h6>
+                <div class="input-group">
+                <input type="datetime" style="width : 50px; height: 40px; font-size: small;" class="row mb-8" value="Fecha Anterior: {{bibliotecarioE.fecha_inicio | date:'shortDate'}}" class="form-control text-center" placeholder="Fecha Anterior"  name="fecha_inicio" readonly>
+                <input type="date" [(ngModel)]="bibliotecarios.fecha_inicio"  class="form-control text-center" placeholder="Ingrese la fecha de entrada"  name="fecha_inicio" required>
+              </div> 
+              </h6>
              </div>
            </div>
  
@@ -138,8 +142,12 @@
            <div class="row mb-3">
              <label for="usuario" class="col-sm-3 col-form-label"><h3>Fecha de salida:</h3></label>
              <div class="col-sm-5">
-               <h6><input type="datetime-local" class="form-control text-center"  [(ngModel)]="bibliotecarioE.fecha_fin" placeholder="Ingrese la fecha de salida"  name="fecha" required>
-               </h6>
+               <h6>
+                <div class="input-group">
+                  <input type="datetime" style="width : 50px; height: 40px; font-size: small;" class="row mb-8" value="Fecha Anterior: {{bibliotecarioE.fecha_fin | date:'shortDate'}}" class="form-control text-center" placeholder="Fecha Anterior"  name="fecha_inicio" readonly>
+                <input type="date" class="form-control text-center"  [(ngModel)]="bibliotecarioE.fecha_fin" placeholder="Ingrese la fecha de salida"  name="fecha" required>
+              </div> 
+              </h6>
              </div>
            </div>
  
