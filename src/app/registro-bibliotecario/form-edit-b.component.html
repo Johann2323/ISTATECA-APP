@@ -49,22 +49,10 @@
  
 
  
- <header> <h4><strong>Registro del Bibliotecario</strong></h4><br> </header>
+ <header> <h4><strong>Modificar Bibliotecario</strong></h4><br> </header>
  
  <body class="elemento" ba>
- <form #login="ngForm" style="text-align:center ;" ngNativeValidate class="row gy-2 gx-3 align-items-center" (ngSubmit)="actualizarBibliotecario(bibliotecarios)" onsubmit="alert('Se ha registrado con exito')">
-  
-  <div class="row mb-3">
-    <label for="cedula" class="col-sm-3 col-form-label"> <h3>Id:</h3></label>
-    <div class="col-sm-5">
-      <h6><input #idss  type="number" class="form-control text-center" (keyup)="onKeydownEvent($event, buscaer.value)" #buscaer placeholder="Ingrese un id" name="idd" required>
-     </h6>
-      </div>
-  </div>
-  
-  
-  
-  
+ <form #login="ngForm" style="text-align:center ;" ngNativeValidate class="row gy-2 gx-3 align-items-center" (ngSubmit)="actualizarBibliotecario(bibliotecarios)" onsubmit="alert('Se ha registrado con exito')">  
   <div class="row mb-3">
        <label for="cedula" class="col-sm-3 col-form-label"> <h3>Cédula del bibliotecario:</h3></label>
        <div class="col-sm-5">
@@ -145,7 +133,7 @@
                <h6>
                 <div class="input-group">
                   <input type="datetime" style="width : 50px; height: 40px; font-size: small;" class="row mb-8" value="Fecha Anterior: {{bibliotecarioE.fecha_fin | date:'shortDate'}}" class="form-control text-center" placeholder="Fecha Anterior"  name="fecha_inicio" readonly>
-                <input type="date" class="form-control text-center"  [(ngModel)]="bibliotecarioE.fecha_fin" placeholder="Ingrese la fecha de salida"  name="fecha" required>
+                <input type="date" class="form-control text-center" [(ngModel)]="bibliotecarios.fecha_fin" placeholder="Ingrese la fecha de salida"  name="fecha_fin" required>
               </div> 
               </h6>
              </div>
@@ -197,7 +185,7 @@
            <div class="col">
              
              
-             <button class="btn" (click)="actualizarBibliotecario(bibliotecarios)" style="background-color:transparent">
+             <button class="btn" style="background-color:transparent">
                <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fmodificar.png?alt=media&token=80f892de-c49a-4833-8019-1e8d7ec8ef06" width=30 height=30 align="center">
                Modificar</button>
             

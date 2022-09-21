@@ -27,6 +27,7 @@ id?:number;
   ngOnInit(): void {
     this.reporteV=localStorage.getItem('usuario')+"";
         console.log("Usuario: "+this.reporteV+"");
+        this.buscar(this.reporteV+"")
   }
 
   

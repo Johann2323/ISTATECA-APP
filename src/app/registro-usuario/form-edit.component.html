@@ -52,15 +52,8 @@
  <header> <h4><strong>Modificar Usuario</strong></h4><br> </header>
  
  <body class="elemento" ba>
- <form  style="text-align:center ;" ngNativeValidate class="row gy-2 gx-3 align-items-center">
+ <form  style="text-align:center ;" ngNativeValidate class="row gy-2 gx-3 align-items-center" (ngSubmit)="actualizarUsuario(usuario)" onsubmit="alert('Se ha registrado con exito')">
   
-  <div class="row mb-3">
-    <label for="cedula" class="col-sm-3 col-form-label"> <h3>Id:</h3></label>
-    <div class="col-sm-5">
-      <h6><input #idss  type="number" class="form-control text-center" placeholder="Ingrese su id" name="id" required>
-     </h6>
-      </div>
-  </div>
   
   <div class="row mb-3">
        <label for="cedula" class="col-sm-3 col-form-label"> <h3>Cédula:</h3></label>
@@ -118,9 +111,8 @@
        <div class="container overflow-hidden text-center col-sm-1 ">
          <div class="row gx-5">
            <div class="col">
-             
-             
-             <button class="btn" (click)="actualizarUsuario(usuario)" style="background-color:transparent">
+
+             <button class="btn" style="background-color:transparent">
                <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fmodificar.png?alt=media&token=80f892de-c49a-4833-8019-1e8d7ec8ef06" width=30 height=30 align="center">
                Modificar</button>
             
@@ -132,11 +124,7 @@
  
      </form>
 
-     <h5>
-      <button type="button" (click)="buscar(idss.value)" class="btn btn-outline-secondary">
-        <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fbusqueda.png?alt=media&token=2b59078d-0ef5-4fa4-85c6-396ea7c1c97c" alt="" width="20" height="20">
-       </button>
-     </h5>
+     
 
      
      <h1>

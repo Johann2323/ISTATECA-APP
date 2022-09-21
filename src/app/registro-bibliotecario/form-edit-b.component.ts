@@ -27,6 +27,8 @@ export class FormEditBComponent implements OnInit {
   ngOnInit(): void {
     this.reporteV=localStorage.getItem('bibliotecario')+"";
         console.log("Bibliotecario: "+this.reporteV+"")
+        this.buscar(this.reporteV+"");
+
   }
 
   onKeydownEvent(event: KeyboardEvent, cedula:string): void {
@@ -36,7 +38,7 @@ export class FormEditBComponent implements OnInit {
     }
 
     if(cedula!==""){
-      this.buscar(cedula);
+      this.buscar(this.reporteV+"");
     }
 
  }
