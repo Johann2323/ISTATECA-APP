@@ -158,7 +158,7 @@ export class RegistroLibroComponent implements OnInit {
 
     this.bibliotecarioE.id_bibliotecario = this.Libro.bibliotecario.id_bibliotecario
     this.Libro.tipo.id_tipo = this.idT
-    this.Libro.imagen= this.previsualizacion
+    //this.Libro.imagen= this.previsualizacion
     this.Libro.activo = true;
 
    
