@@ -22,21 +22,21 @@
             <a class="nav-link active" href="#" routerLink="/registro-libro">
               <img
                 src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar%20libro.png?alt=media&token=b7f639da-1aaa-4d12-8133-a59742d32d87"
-                alt=""  width="25" height="25"></a>
+                alt="" width="25" height="25"></a>
 
-            
+
           </li>
-          <li>
-            <a class="nav-link active" href="#" routerLink="">
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fdevolver%20libro.png?alt=media&token=95ede259-0714-4e28-95f9-7d759fda53b4"
-                alt=""  width="25" height="25"></a>
-          </li>
+            <li >
+              <a class="nav-link disabled" href="#">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fdevolver%20libro.png?alt=media&token=95ede259-0714-4e28-95f9-7d759fda53b4"
+                  alt="" width="25" height="25"></a>
+            </li>
           <li class="nav-item">
             <a class="nav-link active" href="#" routerLink="/app-listas">
               <img
                 src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Flistas.png?alt=media&token=97df573d-51ec-4d24-8b96-d68164b717ff"
-                alt=""  width="25" height="25"></a>
+                alt="" width="25" height="25"></a>
           </li>
         </ul>
         <form class="d-flex" role="search">
@@ -44,45 +44,56 @@
             style="background-color: #012844; color: white; font-size: small;">
           <button class="btn">
             <img
-              src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fbusqueda.png?alt=media&token=2b59078d-0ef5-4fa4-85c6-396ea7c1c97c"  width="25" height="25"></button>
+              src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fbusqueda.png?alt=media&token=2b59078d-0ef5-4fa4-85c6-396ea7c1c97c"
+              width="25" height="25"></button>
         </form>
-        
+
         <div *ngIf="mostrar2">
           <a class="nav-link active" href="#" routerLink="/app-lista-solicitudes-pendientes">
             <img
               src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fnotificacion.png?alt=media&token=2ef3179f-bd47-483c-a71a-1323570c5837"
-              alt=""  width="25" height="25">
+              alt="" width="25" height="25">
           </a>
         </div>
 
         &nbsp;&nbsp;
         <div class="dropdown">
-          <a class="btn btn-primary dropdown-toggle" style="background:transparent ; border-color: white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="btn btn-primary dropdown-toggle" style="background:transparent ; border-color: white" href="#"
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <img
-              src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fsettings.png?alt=media&token=0778b34e-416f-4659-8b3c-37714afbf836"  width="25" height="25">
+              src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fsettings.png?alt=media&token=0778b34e-416f-4659-8b3c-37714afbf836"
+              width="25" height="25">
           </a>
-        
+
           <ul class="dropdown-menu" style="background-color: whitesmoke;">
-        
-            <li *ngIf="mostrar && !mostrar2"><a class="dropdown-item" routerLink="/app-form-editUsuario"><img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fmodificar.png?alt=media&token=80f892de-c49a-4833-8019-1e8d7ec8ef06" width=25 height=25 align="center">Modificar</a></li>
-           
-            <li *ngIf="mostrar && mostrar2 "><a class="dropdown-item" routerLink="/app-form-editBibliotecario"><img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fmodificar.png?alt=media&token=80f892de-c49a-4833-8019-1e8d7ec8ef06" width=25 height=25 align="center">Modificar</a></li>
-           
-            <li><hr class="dropdown-divider"></li>
+
+            <li *ngIf="mostrar && !mostrar2"><a class="dropdown-item" routerLink="/app-form-editUsuario"><img
+                  src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fmodificar.png?alt=media&token=80f892de-c49a-4833-8019-1e8d7ec8ef06"
+                  width=25 height=25 align="center">Modificar</a></li>
+
+            <li *ngIf="mostrar && mostrar2 "><a class="dropdown-item" routerLink="/app-form-editBibliotecario"><img
+                  src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fmodificar.png?alt=media&token=80f892de-c49a-4833-8019-1e8d7ec8ef06"
+                  width=25 height=25 align="center">Modificar</a></li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
             <li><a class="dropdown-item disabled"><img
-              src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Flistas.png?alt=media&token=97df573d-51ec-4d24-8b96-d68164b717ff"
-              alt=""  width="25" height="25"> Listar</a></li>
+                  src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Flistas.png?alt=media&token=97df573d-51ec-4d24-8b96-d68164b717ff"
+                  alt="" width="25" height="25"> Listar</a></li>
           </ul>
         </div>
         &nbsp;&nbsp;
 
-        <button (click)="cerrarSesion()" class="boton btn btn-primary" style="background-color:#2E2F5E; font-size: small;">Cerrar
+        <button (click)="cerrarSesion()" class="boton btn btn-primary"
+          style="background-color:#2E2F5E; font-size: small;">Cerrar
           Sesión</button>
 
       </div>
     </div>
     <div *ngIf="mostrar3">
-      <button (click)="iniciarSesion()" class="boton btn btn-primary" style="background-color:#2E2F5E; font-size: small;">Iniciar
+      <button (click)="iniciarSesion()" class="boton btn btn-primary"
+        style="background-color:#2E2F5E; font-size: small;">Iniciar
         Sesión</button>
     </div>
   </div>

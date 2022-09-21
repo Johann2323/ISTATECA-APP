@@ -32,12 +32,11 @@ export class InicioSesionComponent implements OnInit {
           localStorage.setItem('rol', data + "");
           this.personaservice.val_persona(email, contra).subscribe(data => {
             if (data == null) {
-              console.log("Llego mal");
+              console.log("Sin Validar Persona");
             } else {
               console.log("Valido Persona");
               this.id_persona=parseInt(data.id_persona + "");
               this.rol2=parseInt(data.rol + "");
-              console.log('Roljjj'+this.rol2);
               if(this.rol2==2){
                 this.personaservice.tipo_usuario(this.id_persona,this.rol2).subscribe(
                   data=>{
