@@ -166,7 +166,7 @@ export class RegistroLibroComponent implements OnInit {
     this.libroservice.create(this.Libro).subscribe(
       Response => { this.Libro }
 
-    );
+    ); reg.reset();
     
 
   }
