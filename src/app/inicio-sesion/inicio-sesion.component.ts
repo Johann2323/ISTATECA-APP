@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PersonaService } from './persona.service';
 import { persona } from '../persona';
 import { usuario } from '../registro-usuario/usuario';
 import { bibliotecarios } from '../registro-bibliotecario/bibliotecarios';
+import Swal from 'sweetalert2';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -60,11 +62,29 @@ export class InicioSesionComponent implements OnInit {
           }
           );
           console.log("Inicio sesion: " + InicioSesionComponent.rol);
-          alert("Inicio Sesion con exito");
+
           this.router.navigate(['/app-pagina-inicio']);
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: '<strong>BIENVENIDO A ISTATECA</strong>',
+            showConfirmButton: false,
+            timer: 1500
+          })
         })
       } else {
-        alert("No registrado")
+        Swal.fire({
+          confirmButtonColor: '#012844',
+          icon: 'warning',
+          title: 'Ups...',
+          text: '¡No estas registrado!',
+          footer: '<a href="/app-registro-usuario">¡Registrate primero!</a>'
+          
+        })
+        
+
+        
+        
       }
     });
   }
