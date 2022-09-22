@@ -3,6 +3,7 @@ import { PaginaInicioService } from './pagina-inicio.service';
 import { PaginaInicio } from './pagina';
 import { Router, RouterLink } from '@angular/router';
 import { InicioSesionComponent } from '../inicio-sesion/inicio-sesion.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-pagina-inicio',
@@ -29,11 +30,19 @@ export class PaginaInicioComponent implements OnInit {
   SolicitarLibro(){
     if(parseInt(this.reporteV)==9){
       console.log('no ha entrado');
-      alert("Inicie Sesión Primero");
+      Swal.fire({
+        confirmButtonColor: '#012844',
+        icon: 'warning',
+        title: 'Ups...',
+        text: '¡Parece que no has iniciado sesion!',
+        footer: '<a href="/app-registro-usuario">¡Si no tienes cuenta registrate aqui!</a>'
+        
+      })
       this.router.navigate(['/']);
     }else{
       var overlay=document.getElementById('overlay'); 
       overlay?.classList.add('active');
+
     }
   }
   cerrarpopup(){
