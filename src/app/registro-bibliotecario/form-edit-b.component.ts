@@ -5,6 +5,7 @@ import { RegistroBibliotecarioService } from './registro-bibliotecario.service';
 import { Router } from '@angular/router';
 import { persona } from '../persona';
 import { personaP } from '../personaP';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-editBibliotecario',
@@ -12,62 +13,95 @@ import { personaP } from '../personaP';
   styleUrls: ['./form-edit-b.component.css']
 })
 export class FormEditBComponent implements OnInit {
-  public reporteV:String="";
+  public reporteV: String = "";
   public bibliotecarios: bibliotecarios = new bibliotecarios();
   persona: persona = {};
   personaP: personaP = {};
-  bibliotecarioE:bibliotecarioE={};
-  idb?:number;
- RadioAdmin: any =document.getElementById('admin');
-   RadioBibliotecario: any =document.getElementById('biblioteca');
-  
+  bibliotecarioE: bibliotecarioE = {};
+  idb?: number;
+  RadioAdmin: any = document.getElementById('admin');
+  RadioBibliotecario: any = document.getElementById('biblioteca');
+
 
   constructor(private bibliotecarioservice: RegistroBibliotecarioService, private router: Router) { }
 
   ngOnInit(): void {
-    this.reporteV=localStorage.getItem('bibliotecario')+"";
-        console.log("Bibliotecario: "+this.reporteV+"")
-        this.buscar(this.reporteV+"");
+    this.reporteV = localStorage.getItem('bibliotecario') + "";
+    console.log("Bibliotecario: " + this.reporteV + "")
+    this.buscar(this.reporteV + "");
 
   }
 
-  onKeydownEvent(event: KeyboardEvent, cedula:string): void {
-    if(cedula==""){
-     alert('INGRESE UN ID')
-     window.location.reload();
+  onKeydownEvent(event: KeyboardEvent, cedula: string): void {
+    if (cedula == "") {
+      alert('INGRESE UN ID')
+      window.location.reload();
     }
 
-    if(cedula!==""){
-      this.buscar(this.reporteV+"");
+    if (cedula !== "") {
+      this.buscar(this.reporteV + "");
     }
 
- }
+  }
 
- actualizarBibliotecario(bibliotecarios: bibliotecarios) {
-  this.bibliotecarios.persona = this.persona
-  this.bibliotecarios.id_bibliotecario = this.bibliotecarioE.id_bibliotecario
-  this.persona.id_persona = this.bibliotecarioE.persona?.id_persona
-  this.persona.activo = true;
-  alert(this.bibliotecarioE.id_bibliotecario)
-  this.bibliotecarioservice.update(bibliotecarios)
-    .subscribe(data => {
-      this.bibliotecarios = data;
-      alert("Se actualizo con exito...!!")
-      this.router.navigate(['app-pagina-inicio'])
+  actualizarBibliotecario(bibliotecarios: bibliotecarios) {
+    Swal.fire({
+      title: '¿Esta seguro de modificar?',
+      text: "No puede revertir los datos!",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#012844',
+      cancelButtonText: 'Cancelar',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, modificalo!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.bibliotecarios.persona = this.persona
+        this.bibliotecarios.id_bibliotecario = this.bibliotecarioE.id_bibliotecario
+        this.persona.id_persona = this.bibliotecarioE.persona?.id_persona
+        this.persona.activo = true;
+
+        this.bibliotecarioservice.update(bibliotecarios)
+          .subscribe(data => {
+            this.bibliotecarios = data;
+          })
+          Swal.fire({
+            title: '<strong>Bibliotecario Actualizado</strong>',
+              confirmButtonText: 'OK',
+              confirmButtonColor: '#012844',
+              icon: 'success',
+              html:
+              
+                'El bibliotecario<br><b>'+this.bibliotecarios.persona?.nombres+'</b><br>'+
+                'ha sido actualizado correctamente'
+            
+           }
+           
+          )
+          this.router.navigate(['app-pagina-inicio'])
+
+
+
+      }
     })
+    
+
+
+  
 
 }
 
-buscar(idss:string){
- 
-  this.idb=Number.parseInt(idss)
-  //alert(this.id)
+  buscar(idss: string) {
+
+    this.idb = Number.parseInt(idss)
+
     this.bibliotecarioservice.obtenerBibliotecarioId(this.idb).subscribe(
-      bibliotecarioE=> {this.bibliotecarioE=bibliotecarioE,this.persona.cedula=bibliotecarioE.persona?.cedula,this.persona.nombres=bibliotecarioE.persona?.nombres,this.persona.celular=bibliotecarioE.persona?.celular
-        ,this.persona.correo=bibliotecarioE.persona?.correo,this.persona.usuario=bibliotecarioE.persona?.usuario,this.persona.clave=bibliotecarioE.persona?.clave, this.persona.rol=bibliotecarioE.persona?.rol
-      //alert(this.usuarioE.id_usuario)}
+      bibliotecarioE => {
+        this.bibliotecarioE = bibliotecarioE, this.persona.cedula = bibliotecarioE.persona?.cedula, this.persona.nombres = bibliotecarioE.persona?.nombres, this.persona.celular = bibliotecarioE.persona?.celular
+        , this.persona.correo = bibliotecarioE.persona?.correo, this.persona.usuario = bibliotecarioE.persona?.usuario, this.persona.clave = bibliotecarioE.persona?.clave, this.persona.rol = bibliotecarioE.persona?.rol
+
       }
     )
- }
- 
+  }
+
 }

@@ -7,6 +7,7 @@ import { persona } from '../persona';
 import { InicioSesionComponent } from '../inicio-sesion/inicio-sesion.component';
 import { RouterLink } from '@angular/router';
 import { personaP } from '../personaP';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form',
@@ -43,8 +44,20 @@ export class FormComponent implements OnInit {
     
 
         this.usuarioservice.create(this.usuario).subscribe(
-          response => { this.usuario,this.router.navigate([''])}, 
-        )
+          response => { this.usuario/*,this.router.navigate([''])*/ 
+          //Swal.fire('Usuario Guardado','Te damos la bienvenida "'+this.usuario.persona?.nombres+'" te has registrado con exito','success')
+          Swal.fire({
+            title: '<strong>Usuario Guardado</strong>',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#012844',
+            icon: 'success',
+            html:
+              '<b>'+this.usuario.persona?.nombres+'</b><br>'+
+              'te has registrado con exito'
+          })
+          this.router.navigate([''])
+        }
+          )
 
         
   }
@@ -67,7 +80,7 @@ export class FormComponent implements OnInit {
       )
       console.log(this.personaP.cedula);
       if(this.personaP.cedula==undefined){
-        alert('Cedula no registrada')
+
         //this.router.navigate([''])
       }
     }

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { personaP } from '../personaP';
 import { bibliotecarioE } from '../bibliotecarioE';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-bibliotecario',
@@ -38,9 +39,17 @@ export class FormComponentb implements OnInit {
     console.log(this.bibliotecarios.persona)
     console.log(this.persona.rol)
     this.bibliotecarioservice.create(this.bibliotecarios).subscribe(
-      response => { this.bibliotecarios }
-
-
+      response => { this.bibliotecarios 
+      Swal.fire({
+        title: '<strong>Bibliotecario Guardado</strong>',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#012844',
+        icon: 'success',
+        html:
+          '<b>'+this.bibliotecarios.persona?.nombres+'</b><br>'+
+          'te has registrado con exito'
+      })
+    }
     ); login.reset();
   }
 
