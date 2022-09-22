@@ -41,7 +41,7 @@ export class FormComponentb implements OnInit {
     this.bibliotecarioservice.create(this.bibliotecarios).subscribe(
       response => { this.bibliotecarios 
       Swal.fire({
-        title: '<strong>Bibliotecario Guardado</strong>',
+        title: '<strong>¡Bibliotecario Guardado!</strong>',
         confirmButtonText: 'OK',
         confirmButtonColor: '#012844',
         icon: 'success',

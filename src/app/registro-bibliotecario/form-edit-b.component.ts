@@ -46,14 +46,14 @@ export class FormEditBComponent implements OnInit {
 
   actualizarBibliotecario(bibliotecarios: bibliotecarios) {
     Swal.fire({
-      title: '¿Esta seguro de modificar?',
-      text: "No puede revertir los datos!",
+      title: '¿Quieres guardar los cambios?',
+      text: "¡No puede revertir los datos!",
       icon: 'question',
       showCancelButton: true,
       confirmButtonColor: '#012844',
       cancelButtonText: 'Cancelar',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, modificalo!'
+      confirmButtonText: '¡Si, modificalo!'
     }).then((result) => {
       if (result.isConfirmed) {
         this.bibliotecarios.persona = this.persona
@@ -66,7 +66,7 @@ export class FormEditBComponent implements OnInit {
             this.bibliotecarios = data;
           })
           Swal.fire({
-            title: '<strong>Bibliotecario Actualizado</strong>',
+            title: '<strong>¡Bibliotecario Actualizado!</strong>',
               confirmButtonText: 'OK',
               confirmButtonColor: '#012844',
               icon: 'success',

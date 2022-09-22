@@ -47,7 +47,7 @@ export class FormComponent implements OnInit {
           response => { this.usuario/*,this.router.navigate([''])*/ 
           //Swal.fire('Usuario Guardado','Te damos la bienvenida "'+this.usuario.persona?.nombres+'" te has registrado con exito','success')
           Swal.fire({
-            title: '<strong>Usuario Guardado</strong>',
+            title: '<strong>¡Usuario Guardado!</strong>',
             confirmButtonText: 'OK',
             confirmButtonColor: '#012844',
             icon: 'success',

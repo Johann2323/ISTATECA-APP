@@ -38,14 +38,14 @@ export class FormEditComponent implements OnInit {
   actualizarUsuario(usuario: usuario) {
 
     Swal.fire({
-      title: '¿Esta seguro de modificar?',
-      text: "No puede revertir los datos!",
+      title: '¿Quieres guardar los cambios?',
+      text: "¡No puede revertir los datos!",
       icon: 'question',
       showCancelButton: true,
       confirmButtonColor: '#012844',
       cancelButtonText: 'Cancelar',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, modificalo!'
+      confirmButtonText: '¡Si, modificalo!'
     }).then((result) => {
       if (result.isConfirmed) {
         this.usuario.persona = this.persona
@@ -58,7 +58,7 @@ export class FormEditComponent implements OnInit {
             this.usuario = data
           })
         Swal.fire({
-          title: '<strong>Usuario Actualizado</strong>',
+          title: '<strong>¡Usuario Actualizado!</strong>',
             confirmButtonText: 'OK',
             confirmButtonColor: '#012844',
             icon: 'success',
