@@ -45,7 +45,7 @@ export class InicioSesionComponent implements OnInit {
                     
                   }
                 );
-              }else if(this.rol2==1){
+              }else if(this.rol2==1 || this.rol2==0){
                 this.personaservice.tipo_biblitecario(this.id_persona, this.rol2).subscribe(
                   data=>{
                     console.log("Bibliotecario");
