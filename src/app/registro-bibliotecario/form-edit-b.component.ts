@@ -19,11 +19,14 @@ export class FormEditBComponent implements OnInit {
   personaP: personaP = {};
   bibliotecarioE: bibliotecarioE = {};
   idb?: number;
+  public  estado?:string;
+  rols?:number;
+  public tipob?:string;
   RadioAdmin: any = document.getElementById('admin');
   RadioBibliotecario: any = document.getElementById('biblioteca');
 
 
-  constructor(private bibliotecarioservice: RegistroBibliotecarioService, private router: Router) { }
+  constructor(public bibliotecarioservice: RegistroBibliotecarioService, private router: Router) { }
 
   ngOnInit(): void {
     this.reporteV = localStorage.getItem('bibliotecario') + "";
@@ -60,6 +63,7 @@ export class FormEditBComponent implements OnInit {
         this.bibliotecarios.id_bibliotecario = this.bibliotecarioE.id_bibliotecario
         this.persona.id_persona = this.bibliotecarioE.persona?.id_persona
         this.persona.activo = true;
+
 
         this.bibliotecarioservice.update(bibliotecarios)
           .subscribe(data => {
@@ -99,9 +103,32 @@ export class FormEditBComponent implements OnInit {
       bibliotecarioE => {
         this.bibliotecarioE = bibliotecarioE, this.persona.cedula = bibliotecarioE.persona?.cedula, this.persona.nombres = bibliotecarioE.persona?.nombres, this.persona.celular = bibliotecarioE.persona?.celular
         , this.persona.correo = bibliotecarioE.persona?.correo, this.persona.usuario = bibliotecarioE.persona?.usuario, this.persona.clave = bibliotecarioE.persona?.clave, this.persona.rol = bibliotecarioE.persona?.rol
+        if(bibliotecarioE.activo_bibliotecario==true){
+          this.estado="Activo"
 
+
+        }else if(bibliotecarioE.activo_bibliotecario==false){
+          this.estado="Inactivo"
+
+        }
+
+        if(bibliotecarioE.persona?.rol==1){
+          this.tipob="Bibliotecario"
+          
+        }else if(bibliotecarioE.persona?.rol==0){
+          this.tipob="Administrador"
+          
+        }
       }
     )
+  }
+  tipoBibliotecario(rol:string){
+    this.rols=Number.parseInt(rol)
+    if(this.rols==0){
+      alert("Admin")
+    }else if(this.rols==1){
+      alert("bibliotecario")
+    }
   }
 
 }

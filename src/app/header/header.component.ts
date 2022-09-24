@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements DoCheck {
     reporteV: string = "";
+    reporteN: string = "";
     
     mostrar: boolean = false;
     mostrarr: boolean = false;
@@ -38,6 +39,8 @@ export class HeaderComponent implements DoCheck {
             this.mostrarr = false;
             this.mostrar3=false;
         }
+
+        this.reporteN= InicioSesionComponent.nomb
     }
 
     ngOnInit(): void {

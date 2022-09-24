@@ -38,6 +38,8 @@
      h2{
        text-align: center; 
        font-size:20px;
+       margin-top: 1%;
+     margin-inline-start: 20%;
  
  
      }
@@ -49,7 +51,7 @@
  
 
  
- <header> <h4><strong>Modificar Bibliotecario</strong></h4><br> </header>
+ <header> <h4><strong>Modificar {{tipob}}</strong></h4><br> </header>
  
  <body class="elemento" ba>
  <form #login="ngForm" style="text-align:center ;" ngNativeValidate class="row gy-2 gx-3 align-items-center" (ngSubmit)="actualizarBibliotecario(bibliotecarios)">  
@@ -115,20 +117,27 @@
  
        <div class="row mb-3">
          <label for="usuario" class="col-sm-3 col-form-label"><h3>Estado:</h3></label>
-         <div class="col-sm-6">
+         <div class="col-sm-5">
            
  
              <h2>
-               <input class="form-check-input" type="radio"  name="flexRadioDefault" value="true" id="activo" [(ngModel)]="bibliotecarios.activo_bibliotecario" required>
-               &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault1">
-                 Activo
-               </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-             
-             
-               <input class="form-check-input" type="radio" name="flexRadioDefault" value="false" id="inactivo" [(ngModel)]="bibliotecarios.activo_bibliotecario" required>
-               &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault2">
-                 Inactivo
-               </label>
+              <div class="input-group">
+                <input type="text" style="width : 10%; height: 30px; font-size: small;" class="row mb-8" value="Estado Anterior: {{estado}}" class="form-control text-center" placeholder="Estado"  name="tipoestado" readonly>&nbsp;&nbsp;
+
+
+
+                <input class="form-check-input" type="radio"  name="flexRadioDefault" value="true" id="activo" [(ngModel)]="bibliotecarios.activo_bibliotecario" required>
+                &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault1">
+                  Activo
+                </label>&nbsp;&nbsp;&nbsp;&nbsp;
+              
+              
+                <input class="form-check-input" type="radio" name="flexRadioDefault" value="false" id="inactivo" [(ngModel)]="bibliotecarios.activo_bibliotecario" required>
+                &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault2">
+                  Inactivo
+                </label>
+              </div>
+              
              </h2>  
             
  

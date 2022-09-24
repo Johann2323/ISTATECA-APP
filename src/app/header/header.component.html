@@ -55,23 +55,26 @@
               alt="" width="25" height="25">
           </a>
         </div>
+        
 
         &nbsp;&nbsp;
         <div class="dropdown">
           <a class="btn btn-primary dropdown-toggle" style="background:transparent ; border-color: white" href="#"
-            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">{{reporteN}}
             <img
               src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fsettings.png?alt=media&token=0778b34e-416f-4659-8b3c-37714afbf836"
               width="25" height="25">
           </a>
-
-          <ul class="dropdown-menu" style="background-color: whitesmoke;">
+          
+          <ul class="dropdown-menu dropdown-menu-end" style="background-color: whitesmoke;">
 
             <li *ngIf="mostrar && !mostrar2"><a class="dropdown-item" routerLink="/app-form-editUsuario"><img
                   src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fmodificar.png?alt=media&token=80f892de-c49a-4833-8019-1e8d7ec8ef06"
                   width=25 height=25 align="center">Modificar</a></li>
 
-            <li *ngIf="mostrar && mostrar2 "><a class="dropdown-item" routerLink="/app-form-editBibliotecario"><img
+            <li *ngIf="mostrar && mostrar2 ">
+              
+              <a class="dropdown-item" routerLink="/app-form-editBibliotecario"><img
                   src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fmodificar.png?alt=media&token=80f892de-c49a-4833-8019-1e8d7ec8ef06"
                   width=25 height=25 align="center">Modificar</a>
                   <hr class="dropdown-divider">
@@ -82,6 +85,9 @@
           </ul>
         </div>
         &nbsp;&nbsp;
+        
+
+          
 
         <button (click)="cerrarSesion()" class="boton btn btn-primary"
           style="background-color:#2E2F5E; font-size: small;">Cerrar
