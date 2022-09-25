@@ -4,13 +4,15 @@ import { ResolveEnd, Route, Router, Routes } from '@angular/router';
 import { RegistroLibroService } from './registro-libro.service';
 import { libro } from './libro';
 import { bibliotecarios } from '../registro-bibliotecario/bibliotecarios';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ListasService } from '../listas/listas.service';
 import { TiposLibros } from '../listas/tipos-libros';
 
 import { RegistroBibliotecarioService } from '../registro-bibliotecario/registro-bibliotecario.service';
 import { bibliotecarioE } from '../bibliotecarioE';
 import { persona } from '../persona';
+import Swal from 'sweetalert2';
+
 
 
 
@@ -30,6 +32,8 @@ export class RegistroLibroComponent implements OnInit {
   bibliotecarioE:bibliotecarioE={};
   persona:persona={};
   Tipoe: TiposLibros[]=[]
+  guardar:boolean=true;
+  form!: FormGroup;
 
   opcionSeleccionado: string  = '0';
   verSeleccion: string        = '';
@@ -42,7 +46,7 @@ export class RegistroLibroComponent implements OnInit {
   public PDF?: string
   public archivos: any = []
   constructor(private sanitizer: DomSanitizer, private libroservice: RegistroLibroService, private rutas: Router, private bibliotecarioservice: RegistroBibliotecarioService
-    , private ListaT: ListasService) { }
+    , private ListaT: ListasService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.reporteV=localStorage.getItem('bibliotecario')+"";
@@ -57,7 +61,7 @@ export class RegistroLibroComponent implements OnInit {
 
 
   }
-
+//Conseguir capturar tipo de Libro
   seleccionT(e : any){
     console.log(e.target.value);
      this.idT = e.target.value;
@@ -128,8 +132,10 @@ export class RegistroLibroComponent implements OnInit {
       console.log("Error al Subir Imagen")
     }
   })
+//Fin de capturar archivos
 
 
+//Capturar Persona
   buscar(idss:string){
  
     this.idb=Number.parseInt(idss)
@@ -142,13 +148,29 @@ export class RegistroLibroComponent implements OnInit {
       )
    }
 
+   //Validar URL
+
+   Validar() {
+    const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+    this.form = this.fb.group({
+      s_url: ['', [Validators.required, Validators.pattern(reg)]],
+    });
+  }
+
+  // Getter for easy access
+  get s_url() {
+    return this.form.get('s_url');
+  }
+
   //Guardar Libro
 
 
   public Libro: libro = new libro();
 
   disponible?: boolean = this.Libro.disponibilidad;
+
   public crearLibro(reg: NgForm): void {
+    
     console.log("Se ha realizado un click")
     this.Libro.tipo = this.tipo
     this.Libro.bibliotecario = this.bibliotecarios
@@ -158,16 +180,28 @@ export class RegistroLibroComponent implements OnInit {
 
     this.bibliotecarioE.id_bibliotecario = this.Libro.bibliotecario.id_bibliotecario
     this.Libro.tipo.id_tipo = this.idT
-    //this.Libro.imagen= this.previsualizacion
+    this.Libro.imagen= this.previsualizacion
     this.Libro.activo = true;
+    
 
    
-
     this.libroservice.create(this.Libro).subscribe(
-      Response => { this.Libro }
-
+      Response => { 
+        this.guardar=true
+          this.Libro
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: '<strong>Has registrado un Libro</strong>',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          console.log(this.libroservice);
+          
+        }
+       
+        
     ); reg.reset();
-    
 
   }
 
