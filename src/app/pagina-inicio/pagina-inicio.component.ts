@@ -2,6 +2,8 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 import { PaginaInicioService } from './pagina-inicio.service';
 import { PaginaInicio } from './pagina';
 import { Router, RouterLink } from '@angular/router';
+import { RegistroLibroComponent } from '../registro-libro/registro-libro.component';
+import { libro } from '../registro-libro/libro';
 
 import Swal from 'sweetalert2';
 
@@ -15,7 +17,11 @@ export class PaginaInicioComponent implements OnInit {
   public PaginaI: PaginaInicio = new PaginaInicio();
   paginas: PaginaInicio[]=[];
   mostrar:boolean=false;
-
+  libros : libro[] = [];
+  libs : PaginaInicio[]= [];
+  bus: boolean = true;
+  buscarval: boolean = false;
+  
   
   constructor(private paginainicioService: PaginaInicioService, private router: Router, private router1: Router) { }
   ngDoCheck(): void {
@@ -25,7 +31,26 @@ export class PaginaInicioComponent implements OnInit {
   ngOnInit(): void {
     this.paginainicioService.getLibros().subscribe(
       pagina => this.paginas=pagina
+      //libro => this.libros=libro
     );
+    this.buscarval = false;
+    this.bus = true;
+  }
+
+  onKeydownEvent(event: KeyboardEvent, titulo:String): void {
+    if(titulo==""){
+     this.ngOnInit();
+    }
+  }
+
+  buscarLibxNomb(nombre: String){
+    this.bus = false;
+    this.paginainicioService.buscarLibro(nombre).subscribe(
+      pagina =>{ this.libs=pagina
+        console.log(this.libs.length);
+        this.buscarval=true;
+      }
+    )
   }
   SolicitarLibro(){
     if(parseInt(this.reporteV)==9){

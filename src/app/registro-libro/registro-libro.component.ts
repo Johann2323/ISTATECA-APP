@@ -40,6 +40,11 @@ export class RegistroLibroComponent implements OnInit {
 
   idb?:number;
   idT?:number;
+
+  libros : libro[] = [];
+  lib: libro = new libro;
+  bus: boolean = true;
+  buscarval: boolean = false;
  
 
   public previsualizacion?: string
@@ -61,6 +66,21 @@ export class RegistroLibroComponent implements OnInit {
 
 
   }
+
+  onKeydownEvent(event: KeyboardEvent, titulo:String): void {
+    if(titulo==""){
+     this.ngOnInit();
+    }
+  }
+
+  buscarLibxNomb(nombre: String){
+    this.libroservice.obtenerLibro(nombre).subscribe(
+      data => {
+        this.libros = data;
+      }
+    )
+  }
+
 //Conseguir capturar tipo de Libro
   seleccionT(e : any){
     console.log(e.target.value);

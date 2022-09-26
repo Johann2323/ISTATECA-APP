@@ -9,6 +9,7 @@ import { libro } from './libro';
 export class RegistroLibroService {
   private urlendpoint:string='http://localhost:8080/api/crearlibro';
   private urlendpoint1:string='http://localhost:8080/api/listarlibros';
+  private urlBuscarLibro: string ='http://localhost:8080/api/listarlibrosxnombre';
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
   constructor(private http:HttpClient) { }
@@ -16,8 +17,14 @@ export class RegistroLibroService {
   create(libro:libro):Observable<libro>{
     return this.http.post<libro>(this.urlendpoint, libro, {headers: this.httpHeaders})
   }
-  // obtenerLibro(): Observable<libro[]> {
-  //   return this.http.get<libro[]>(this.urlendpoint1);
-  // }
+  obtenerLibro(nombre: String): Observable<libro[]> {
+   return this.http.get<libro[]>(this.urlendpoint1);
+  }
+
+  buscarLibro (nombre:String)
+  :Observable<libro>{
+    let res=this.urlBuscarLibro+'/'+nombre;
+    return this.http.get<libro>(res);
+  }
 }
 
