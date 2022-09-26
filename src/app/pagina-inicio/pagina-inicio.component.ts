@@ -2,7 +2,7 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 import { PaginaInicioService } from './pagina-inicio.service';
 import { PaginaInicio } from './pagina';
 import { Router, RouterLink } from '@angular/router';
-import { InicioSesionComponent } from '../inicio-sesion/inicio-sesion.component';
+
 import Swal from 'sweetalert2';
 
 @Component({
