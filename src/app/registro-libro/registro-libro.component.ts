@@ -4,7 +4,7 @@ import { ResolveEnd, Route, Router, Routes } from '@angular/router';
 import { RegistroLibroService } from './registro-libro.service';
 import { libro } from './libro';
 import { bibliotecarios } from '../registro-bibliotecario/bibliotecarios';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators, FormControl } from '@angular/forms';
 import { ListasService } from '../listas/listas.service';
 import { TiposLibros } from '../listas/tipos-libros';
 
@@ -51,7 +51,7 @@ export class RegistroLibroComponent implements OnInit {
   public PDF?: string
   public archivos: any = []
   constructor(private sanitizer: DomSanitizer, private libroservice: RegistroLibroService, private rutas: Router, private bibliotecarioservice: RegistroBibliotecarioService
-    , private ListaT: ListasService, private fb: FormBuilder) { }
+    , private ListaT: ListasService) { }
 
   ngOnInit(): void {
     this.reporteV=localStorage.getItem('bibliotecario')+"";
@@ -172,9 +172,9 @@ export class RegistroLibroComponent implements OnInit {
 
    Validar() {
     const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
-    this.form = this.fb.group({
-      s_url: ['', [Validators.required, Validators.pattern(reg)]],
-    });
+    // this.form = this.fb.group({
+    //   s_url: ['', [Validators.required, Validators.pattern(reg)]],
+    // });
   }
 
   // Getter for easy access

@@ -18,7 +18,7 @@ import { RegistroUsuarioService } from './registro-usuario/registro-usuario.serv
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 import { FormComponent } from './registro-usuario/form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import{PaginaInicioComponent}from './pagina-inicio/pagina-inicio.component';
 import { RegistroBibliotecarioComponent } from './registro-bibliotecario/registro-bibliotecario.component'
 import { PaginaInicioService } from './pagina-inicio/pagina-inicio.service';
@@ -59,6 +59,7 @@ import { FormEditBComponent } from './registro-bibliotecario/form-edit-b.compone
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {path: 'app-directiva', component: DirectivaComponent},
       {path: 'app-proveedor', component: ProveedorComponent},
