@@ -1,11 +1,12 @@
-<img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20normal.png?alt=media&token=5c5a4b10-135a-4467-a1cf-3347bbe58df5" class="rounded float-start" alt="" width="300" height="85">
+<img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20normal.png?alt=media&token=5c5a4b10-135a-4467-a1cf-3347bbe58df5"
+    class="rounded float-start" alt="" width="300" height="85">
 <header style="font-size:45px;"> <strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solicitud de un libro</strong></header><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solicitud de un libro</strong></header><br>
 
 <body class="elemento" ba>
-    
+
     <form ngNativeValidate style="text-align:center ;" method="post">
-        
+
         <div class="mb-3">
             <label class="destacado form-label">
                 <font size="4">Cédula del Estudiante:</font>
@@ -30,8 +31,26 @@
             <label class="destacado form-label">
                 <font size="4">Documento Habilitante:</font>
             </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input #email class="text-center" type="text" size="55" required><br><br>
-            <label class="destacado form-label">
+            <select name="TipoSelect" style="height: 27px;" class="col-sm-3" aria-label="Default select example">
+                <option selected disabled value="0">Seleccione</option>
+                <option #TSelect *ngFor="let tipo of names" value="{{tipo}}">{{tipo}}</option>
+
+            </select>
+            <button type="button" (click)="activarDoc()" class="col-sm" style="height: 30px;">Agregar</button>
+            <button type="button" (click)="desactivarDoc()" class="col-sm" style="width: 30px;">^</button><br>
+
+            <div *ngIf="mostrar">
+                <form #reg="ngForm" (ngSubmit)="guardarDoc(doc.value,reg)">
+
+                    <font size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Agregar documento habilitante</font>
+                    <hr>
+                    <input #doc name="docs" class="col-sm-2" type="text" size="120">
+                    <button type="submit" class="col-sm" style="height: 30px;">Nuevo documento</button>
+                
+                </form>
+            </div>
+
+            <br><label class="destacado form-label">
                 <font size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fecha de Entrega:</font>
             </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input class="col-sm-4" type="date" size="120" required>
@@ -52,35 +71,40 @@
                 <option value="value2" selected>Value 2</option>
                 <option value="value3">Value 3</option>
             </select><br><br>
-                <input class="form-check-input" type="radio" name="flexRadioDefault" value="true" id="activo" required>
-                &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault1">
-                    Préstamo Domiciliario
-                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input class="form-check-input" type="radio" name="flexRadioDefault" value="false" id="inactivo" required>
-                &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault2">
-                   Préstamo en las Instalaciones
-                </label>
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value="true" id="activo" required>
+            &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault1">
+                Préstamo Domiciliario
+            </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value="false" id="inactivo" required>
+            &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault2">
+                Préstamo en las Instalaciones
+            </label>
         </div>
         <div class="container overflow-hidden text-center col-sm-1 ">
             <div class="row gx-5">
-              <div class="col">
-                <button class="btn" style="background-color:transparent">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fguardar.png?alt=media&token=4325fe8d-024f-4aca-bd99-b5439360b821" width=30 height=30 align="center">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Guardar</button>
-              </div>
-              <div class="col">
-                <button class="btn" style="background-color:transparent">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fmodificar.png?alt=media&token=80f892de-c49a-4833-8019-1e8d7ec8ef06" width=30 height=30 align="center">
-                  &nbsp;&nbsp;Modificar</button>
-              </div>
-              <div class="col">
-                <button class="btn" style="background-color:transparent" routerLink="/app-lista-bibliotecarios">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Flistas.png?alt=media&token=97df573d-51ec-4d24-8b96-d68164b717ff" width=30 height=30 align="center" >
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lista</button>
-              </div>
+                <div class="col">
+                    <button class="btn" style="background-color:transparent">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fguardar.png?alt=media&token=4325fe8d-024f-4aca-bd99-b5439360b821"
+                            width=30 height=30 align="center">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Guardar</button>
+                </div>
+                <div class="col">
+                    <button class="btn" style="background-color:transparent">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fmodificar.png?alt=media&token=80f892de-c49a-4833-8019-1e8d7ec8ef06"
+                            width=30 height=30 align="center">
+                        &nbsp;&nbsp;Modificar</button>
+                </div>
+                <div class="col">
+                    <button class="btn" style="background-color:transparent" routerLink="/app-lista-bibliotecarios">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Flistas.png?alt=media&token=97df573d-51ec-4d24-8b96-d68164b717ff"
+                            width=30 height=30 align="center">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lista</button>
+                </div>
             </div>
-          </div>
+        </div>
     </form>
+
+
 
 
 </body>
