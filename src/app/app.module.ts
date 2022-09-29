@@ -32,6 +32,7 @@ import { RegistroLibroService } from './registro-libro/registro-libro.service';
 import { SolicitudLibroComponent } from './solicitud-libro/solicitud-libro.component';
 import { FormEditComponent } from './registro-usuario/form-edit.component';
 import { FormEditBComponent } from './registro-bibliotecario/form-edit-b.component';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { FormEditBComponent } from './registro-bibliotecario/form-edit-b.compone
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    AutocompleteLibModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       {path: 'app-directiva', component: DirectivaComponent},

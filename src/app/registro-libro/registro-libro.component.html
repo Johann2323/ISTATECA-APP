@@ -9,7 +9,7 @@
 <!--FORMULARIO-->
 
 <body class="elemento">
-    <form #reg="ngForm" (ngSubmit)="crearLibro(reg)">
+    <form #reg="ngForm"   (ngSubmit)="crearLibro(reg)">
         <div class="card" style="text-align:left">
             
                 <div class="row mb-3">
@@ -17,9 +17,25 @@
                         <h3>Código DEWEY:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="codigo-DEWEY"[(ngModel)]="Libro.codigo_dewey" required>
+                        <input type="text" class="form-control" name="codigo-DEWEY" [ngModel]="Libro.codigo_dewey" required>
+                        <!-- <div *ngIf="form.get('codigo_dewey')?.errors && form.get('codigo_dewey')?.touched">
+                            <small *ngIf="form.get('codigo_dewey')?.hasError('required')" style="color: red;">
+                                Este campo es obligatorio</small>
+                        </div> -->
                         
-                        <span style="color: red;">Este campo es obligatorio</span>
+                    </div>
+                </div>
+
+                <div class="row mb">
+                    <label for="Codigo-ISBN" class="col-sm col-form-label">
+                        <h3>Codigo ISBN:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" name="codigo-ISBN" [ngModel]="Libro.cod_ISBN" required>
+                        <!-- <div *ngIf="form.get('cod_ISBN')?.errors && form.get('cod_ISBN')?.touched">
+                            <small *ngIf="form.get('cod_ISBN')?.hasError('required')" style="color: red;">
+                                Este campo es obligatorio</small>
+                        </div> -->
                     </div>
                 </div>
 
@@ -28,7 +44,40 @@
                         <h3>Titulo del Libro:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="titulo-Libro" [(ngModel)]="Libro.titulo" required>
+                        <input type="text" class="form-control" name="titulo-Libro" [ngModel]="Libro.titulo" required>
+                        <!-- <div *ngIf="form.get('titulo')?.errors && form.get('titulo')?.touched">
+                            <small *ngIf="form.get('titulo')?.hasError('required')" style="color: red;">
+                                Este campo es obligatorio</small>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="row mb">
+                    <label for="Indice1" class="col-sm col-form-label">
+                        <h3>Indice 1:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" name="indice1" [(ngModel)]="Libro.indice_uno" required>
+                        
+                    </div>
+                </div>
+
+                <div class="row mb">
+                    <label for="Indice2" class="col-sm col-form-label">
+                        <h3>Indice 2:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" name="indice2" [(ngModel)]="Libro.indice_dos" required>
+                        
+                    </div>
+                </div>
+
+                <div class="row mb">
+                    <label for="Indice3" class="col-sm col-form-label">
+                        <h3>Indice 3:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" name="indice3" [(ngModel)]="Libro.indice_tres" required>
                         
                     </div>
                 </div>
@@ -48,8 +97,13 @@
                         <h3>Año de Publicación:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="number" class="form-control" name="año-Publicacion" [(ngModel)]="Libro.anio_publicacion" required>
-                        
+                        <input type="number" class="form-control" name="año-Publicacion" [ngModel]="Libro.anio_publicacion" required>
+                        <!-- <div *ngIf="form.get('anio_publicacion')?.errors && form.get('anio_publicacion')?.touched">
+                            <small *ngIf="form.get('anio_publicacion')?.hasError('required')" style="color: red;">
+                                Este campo es obligatorio</small>
+                                <small *ngIf="form.get('anio_publicacion')?.hasError('maxLength')" style="color: red;">
+                                    Maximo 4 digitos</small>
+                        </div> -->
                     </div>
                 </div>
 
@@ -121,15 +175,7 @@
                     </div>
                 </div>
 
-                <div class="row mb">
-                    <label for="Codigo-ISBN" class="col-sm col-form-label">
-                        <h3>Codigo ISBN:</h3>
-                    </label>
-                    <div class="col-sm">
-                        <input type="text" class="form-control" name="codigo-ISBN" [(ngModel)]="Libro.cod_ISBN" required>
-                        
-                    </div>
-                </div>
+              
 
 
                 <div class="row mb">
@@ -152,35 +198,7 @@
                     </div>
                 </div>
 
-                <div class="row mb">
-                    <label for="Indice1" class="col-sm col-form-label">
-                        <h3>Indice 1:</h3>
-                    </label>
-                    <div class="col-sm">
-                        <input type="text" class="form-control" name="indice1" [(ngModel)]="Libro.indice_uno" required>
-                        
-                    </div>
-                </div>
-
-                <div class="row mb">
-                    <label for="Indice2" class="col-sm col-form-label">
-                        <h3>Indice 2:</h3>
-                    </label>
-                    <div class="col-sm">
-                        <input type="text" class="form-control" name="indice2" [(ngModel)]="Libro.indice_dos" required>
-                        
-                    </div>
-                </div>
-
-                <div class="row mb">
-                    <label for="Indice3" class="col-sm col-form-label">
-                        <h3>Indice 3:</h3>
-                    </label>
-                    <div class="col-sm">
-                        <input type="text" class="form-control" name="indice3" [(ngModel)]="Libro.indice_tres" required>
-                        
-                    </div>
-                </div>
+               
 
                 <div class="row mb">
                     <label for="Dimensiones" class="col-sm col-form-label">
@@ -407,8 +425,23 @@
                 <h3>Nombre del Autor:</h3>
             </label>
             <div class="col-sm-8" style="margin-right: 2%; margin-top: 2%;">
-                <h6><input type="text" class="form-control" name="Autor" required rigth>
-                </h6>
+               <ng-autocomplete
+               [data]="dato | async"
+               [searchKeyword]="keyword"
+               [itemTemplate]="itemTemplate"
+               [notFoundTemplate]="notFoundTemplate"
+               placeholder="Ingrese el nombre del autor"
+               >
+
+               </ng-autocomplete>
+
+               <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item.nombre"></a>
+                </ng-template>
+                
+                <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+                </ng-template>
             </div>
         </div>
 
@@ -443,5 +476,10 @@
 
 
     </div>
+  <pre>
+    {{Libro}}
+  </pre>
+    
+   
 
 </body>

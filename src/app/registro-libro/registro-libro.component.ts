@@ -1,17 +1,19 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ResolveEnd, Route, Router, Routes } from '@angular/router';
+import {  Router } from '@angular/router';
 import { RegistroLibroService } from './registro-libro.service';
 import { libro } from './libro';
 import { bibliotecarios } from '../registro-bibliotecario/bibliotecarios';
 import { FormBuilder, FormGroup, NgForm, Validators, FormControl } from '@angular/forms';
 import { ListasService } from '../listas/listas.service';
 import { TiposLibros } from '../listas/tipos-libros';
-
+import { autor } from '../listas/autor';
 import { RegistroBibliotecarioService } from '../registro-bibliotecario/registro-bibliotecario.service';
 import { bibliotecarioE } from '../bibliotecarioE';
 import { persona } from '../persona';
 import Swal from 'sweetalert2';
+import { registerLocaleData } from '@angular/common';
+import { Observable } from 'rxjs';
 
 
 
@@ -41,17 +43,24 @@ export class RegistroLibroComponent implements OnInit {
   idb?:number;
   idT?:number;
 
+
   libros : libro[] = [];
   lib: libro = new libro;
   bus: boolean = true;
   buscarval: boolean = false;
+
+  public keyword = 'nombre';
+  
+ 
  
 
   public previsualizacion?: string
   public PDF?: string
   public archivos: any = []
   constructor(private sanitizer: DomSanitizer, private libroservice: RegistroLibroService, private rutas: Router, private bibliotecarioservice: RegistroBibliotecarioService
-    , private ListaT: ListasService) { }
+    , private ListaT: ListasService)
+     { //this.buildForm(); 
+    }
 
   ngOnInit(): void {
     this.reporteV=localStorage.getItem('bibliotecario')+"";
@@ -61,11 +70,45 @@ export class RegistroLibroComponent implements OnInit {
     this.buscar(this.reporteV+'')
     this.ListaT.obtenerTipos().subscribe(
       TipoS=>this.Tipoe=TipoS
+
+    
     );
 
+    this.obtenerAutor()
 
 
   }
+  public dato!: Observable<any['']>;
+ 
+
+  obtenerAutor(): void{
+    this.dato = this.libroservice.obtenerAutores();
+     console.log(this.dato+"Holii");
+     
+  
+  }
+
+  //Validar URL
+
+  // private buildForm() {
+  //   const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+  //   this.form = this.formBuilder.group({
+  //     codigo_dewey: ['',  [Validators.required]],
+  //     titulo: ['', [Validators.required]],
+  //     cod_ISBN: ['', [Validators.required]],
+  //     email: ['', [Validators.required, Validators.email]],
+  //     anio_publicacion: ['', [Validators.required, Validators.maxLength(4)]],
+  //     url_digital: ['', [Validators.required]],
+  //     gender: ['', [Validators.required]],
+  //   });
+
+  //   this.form.valueChanges
+  //   .subscribe(value => {
+  //     console.log(value);
+    
+  //   });
+  // }
+
 
   onKeydownEvent(event: KeyboardEvent, titulo:String): void {
     if(titulo==""){
@@ -168,14 +211,7 @@ export class RegistroLibroComponent implements OnInit {
       )
    }
 
-   //Validar URL
-
-   Validar() {
-    const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
-    // this.form = this.fb.group({
-    //   s_url: ['', [Validators.required, Validators.pattern(reg)]],
-    // });
-  }
+   
 
   // Getter for easy access
   get s_url() {
@@ -189,18 +225,18 @@ export class RegistroLibroComponent implements OnInit {
 
   disponible?: boolean = this.Libro.disponibilidad;
 
-  public crearLibro(reg: NgForm): void {
+  public crearLibro(reg:NgForm): void {
     
     console.log("Se ha realizado un click")
     this.Libro.tipo = this.tipo
     this.Libro.bibliotecario = this.bibliotecarios
     this.Libro.bibliotecario = this.bibliotecarioE
-
+    
     console.log(this.Libro.bibliotecario)
 
     this.bibliotecarioE.id_bibliotecario = this.Libro.bibliotecario.id_bibliotecario
     this.Libro.tipo.id_tipo = this.idT
-    this.Libro.imagen= this.previsualizacion
+    //this.Libro.imagen= this.previsualizacion
     this.Libro.activo = true;
     
 
