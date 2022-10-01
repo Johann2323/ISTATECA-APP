@@ -243,7 +243,7 @@ export class RegistroLibroComponent implements OnInit {
    
     this.libroservice.create(this.Libro).subscribe(
       Response => { 
-        this.guardar=true
+        
           this.Libro
           Swal.fire({
             position: 'center',

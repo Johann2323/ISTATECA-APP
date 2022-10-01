@@ -17,7 +17,7 @@
                         <h3>Código DEWEY:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="codigo-DEWEY" [ngModel]="Libro.codigo_dewey" required>
+                        <input type="text" class="form-control" name="codigo-DEWEY" [(ngModel)]="Libro.codigo_dewey" required>
                         <!-- <div *ngIf="form.get('codigo_dewey')?.errors && form.get('codigo_dewey')?.touched">
                             <small *ngIf="form.get('codigo_dewey')?.hasError('required')" style="color: red;">
                                 Este campo es obligatorio</small>
@@ -31,7 +31,7 @@
                         <h3>Codigo ISBN:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="codigo-ISBN" [ngModel]="Libro.cod_ISBN" required>
+                        <input type="text" class="form-control" name="codigo-ISBN" [(ngModel)]="Libro.cod_ISBN" required>
                         <!-- <div *ngIf="form.get('cod_ISBN')?.errors && form.get('cod_ISBN')?.touched">
                             <small *ngIf="form.get('cod_ISBN')?.hasError('required')" style="color: red;">
                                 Este campo es obligatorio</small>
@@ -44,7 +44,7 @@
                         <h3>Titulo del Libro:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="titulo-Libro" [ngModel]="Libro.titulo" required>
+                        <input type="text" class="form-control" name="titulo-Libro" [(ngModel)]="Libro.titulo" required>
                         <!-- <div *ngIf="form.get('titulo')?.errors && form.get('titulo')?.touched">
                             <small *ngIf="form.get('titulo')?.hasError('required')" style="color: red;">
                                 Este campo es obligatorio</small>
@@ -97,7 +97,7 @@
                         <h3>Año de Publicación:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="number" class="form-control" name="año-Publicacion" [ngModel]="Libro.anio_publicacion" required>
+                        <input type="number" class="form-control" name="año-Publicacion" [(ngModel)]="Libro.anio_publicacion" required>
                         <!-- <div *ngIf="form.get('anio_publicacion')?.errors && form.get('anio_publicacion')?.touched">
                             <small *ngIf="form.get('anio_publicacion')?.hasError('required')" style="color: red;">
                                 Este campo es obligatorio</small>
