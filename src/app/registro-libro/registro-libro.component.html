@@ -17,7 +17,7 @@
                         <h3>Código DEWEY:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="codigo-DEWEY" [(ngModel)]="Libro.codigo_dewey" required>
+                        <input type="text"  class="form-control" name="codigo-DEWEY" [(ngModel)]="Libro.codigo_dewey" required>
                         <!-- <div *ngIf="form.get('codigo_dewey')?.errors && form.get('codigo_dewey')?.touched">
                             <small *ngIf="form.get('codigo_dewey')?.hasError('required')" style="color: red;">
                                 Este campo es obligatorio</small>
@@ -44,7 +44,7 @@
                         <h3>Titulo del Libro:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="titulo-Libro" [(ngModel)]="Libro.titulo" required>
+                        <input type="text" #titulos="ngModel" class="form-control" name="titulo-Libro" [(ngModel)]="Libro.titulo" required>
                         <!-- <div *ngIf="form.get('titulo')?.errors && form.get('titulo')?.touched">
                             <small *ngIf="form.get('titulo')?.hasError('required')" style="color: red;">
                                 Este campo es obligatorio</small>
@@ -97,7 +97,7 @@
                         <h3>Año de Publicación:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="number" class="form-control" name="año-Publicacion" [(ngModel)]="Libro.anio_publicacion" required>
+                        <input type="number" class="form-control" #publi="ngModel" name="año-Publicacion" [(ngModel)]="Libro.anio_publicacion" required>
                         <!-- <div *ngIf="form.get('anio_publicacion')?.errors && form.get('anio_publicacion')?.touched">
                             <small *ngIf="form.get('anio_publicacion')?.hasError('required')" style="color: red;">
                                 Este campo es obligatorio</small>
@@ -112,7 +112,7 @@
                         <h3>Editor:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="editor" [(ngModel)]="Libro.editor" required>
+                        <input type="text"  #edi="ngModel" class="form-control" name="editor" [(ngModel)]="Libro.editor" required>
                         
                     </div>
                 </div>
@@ -160,7 +160,7 @@
                         <h3>N° de Paginas:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="number" class="form-control" name="num-Paginas" [(ngModel)]="Libro.num_paginas" required>
+                        <input type="number" class="form-control" #pag="ngModel" name="num-Paginas" [(ngModel)]="Libro.num_paginas" required>
                         
                     </div>
                 </div>
@@ -170,7 +170,7 @@
                         <h3>Area:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="area" [(ngModel)]="Libro.area" required>
+                        <input type="text" class="form-control" #area="ngModel" name="area" [(ngModel)]="Libro.area" required>
                         
                     </div>
                 </div>
@@ -193,11 +193,20 @@
                         <h3>Descripción:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="descripcion" [(ngModel)]="Libro.descripcion" required>
+                        <input type="text" class="form-control" #des="ngModel" name="descripcion" [(ngModel)]="Libro.descripcion" required>
                         
                     </div>
                 </div>
 
+                <div class="row mb">
+                    <label for="estado" class="col-sm col-form-label">
+                        <h3>Estado:</h3>
+                    </label>
+                    <div class="col-sm">
+                        <input type="text" id="estado" #est="ngModel" class="form-control" name="estado" [(ngModel)]="Libro.estado_libro" required>
+                        
+                    </div>
+                </div>
                
 
                 <div class="row mb">
@@ -277,7 +286,7 @@
 
                 <div class="col">
 
-                    <button class="btn" type="button" style="background-color:transparent">
+                    <button class="btn" type="button" style="background-color:transparent" (click)="OnImprimir(titulos,publi,pag,des,est,edi,area)">
                         <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fimpresora.png?alt=media&token=a45ef1f8-6983-4e43-8adf-e31a2f1b6928"
                             width=30 height=25 align="center">
                         Imprimir</button>

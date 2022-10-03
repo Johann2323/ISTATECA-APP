@@ -4,7 +4,7 @@ import {  Router } from '@angular/router';
 import { RegistroLibroService } from './registro-libro.service';
 import { libro } from './libro';
 import { bibliotecarios } from '../registro-bibliotecario/bibliotecarios';
-import { FormBuilder, FormGroup, NgForm, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators, FormControl, NgModel } from '@angular/forms';
 import { ListasService } from '../listas/listas.service';
 import { TiposLibros } from '../listas/tipos-libros';
 import { autor } from '../listas/autor';
@@ -14,6 +14,7 @@ import { persona } from '../persona';
 import Swal from 'sweetalert2';
 import { registerLocaleData } from '@angular/common';
 import { Observable } from 'rxjs';
+import { ActaDonacionService } from './acta-donacion.service';
 
 
 
@@ -57,8 +58,12 @@ export class RegistroLibroComponent implements OnInit {
   public previsualizacion?: string
   public PDF?: string
   public archivos: any = []
-  constructor(private sanitizer: DomSanitizer, private libroservice: RegistroLibroService, private rutas: Router, private bibliotecarioservice: RegistroBibliotecarioService
-    , private ListaT: ListasService)
+  constructor(private sanitizer: DomSanitizer, 
+    private libroservice: RegistroLibroService, 
+    private rutas: Router, 
+    private bibliotecarioservice: RegistroBibliotecarioService,
+    private ListaT: ListasService,
+    private ActaDonacionService : ActaDonacionService)
      { //this.buildForm(); 
     }
 
@@ -87,6 +92,27 @@ export class RegistroLibroComponent implements OnInit {
      
   
   }
+
+  OnImprimir(tit: NgModel, publi: NgModel, pag:NgModel, des:NgModel, est:NgModel, edi:NgModel, area:NgModel){
+    const  encabezado = ["Titulo","N° Pag","Descripcion","Editor","Publcacion","Tipo","Estado"]
+
+    console.log(tit.value);
+    
+    const cuerpo = [
+      tit.value,
+      pag.value,
+      des.value, 
+      edi.value,
+      publi.value,
+      area.value,
+      est.value
+     ]
+
+    
+    
+    this.ActaDonacionService.imprimir(encabezado, cuerpo, "Acta de Donacion", false)
+  }
+
 
   //Validar URL
 
