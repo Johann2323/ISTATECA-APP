@@ -57,7 +57,8 @@ export class PaginaInicioComponent implements OnInit {
   ngDoCheck(): void {
     this.reporteV = JSON.parse(localStorage.getItem('rol') + "");
     console.log("Rol del Usuario: " + this.reporteV + "")
-    if (parseInt(this.reporteV) == 0) {
+    if (parseInt(this.reporteV) == 0 || parseInt(this.reporteV) == 1) {
+      
       this.mostrar = true;
     }
   }
@@ -68,6 +69,7 @@ export class PaginaInicioComponent implements OnInit {
     );
     this.buscarval = false;
     this.bus = true;
+    
   }
 
   onKeydownEvent(event: KeyboardEvent, titulo: String): void {
