@@ -345,7 +345,7 @@
 
             <div *ngIf="previsualizacion" style="align-content: center;">
                 <img width="230px" [src]="previsualizacion" alt="">
-                {{previsualizacion }}
+               
             </div>
             <label id="boton">
 
@@ -363,14 +363,7 @@
 
 
         </div>
-        <script type="application/javascript">
-
-            document.getElementById("boton").addEventListener('click', function () {
-                document.getElementById("subir").click();
-            });
-
-
-        </script>
+        
         <!--FIN SUBIR FOTO-->
 
         <!--REGISTRAR DONANTE-->
@@ -396,7 +389,7 @@
                        
                     </h6>
 
-                    {{Libro.nombre_donante}}
+                    }
                 </div>
             </div>
 
@@ -485,10 +478,15 @@
 
 
     </div>
-  <pre>
-    {{Libro}}
-  </pre>
-    
+ 
+    <script type="application/javascript">
+
+        document.getElementById("boton").addEventListener('click', function () {
+            document.getElementById("subir").click();
+        });
+
+
+    </script>
    
 
 </body>
