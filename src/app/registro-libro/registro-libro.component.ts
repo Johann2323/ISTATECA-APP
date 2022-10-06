@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import {  Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { RegistroLibroService } from './registro-libro.service';
 import { libro } from './libro';
 import { bibliotecarios } from '../registro-bibliotecario/bibliotecarios';
@@ -28,55 +28,56 @@ import { ActaDonacionService } from './acta-donacion.service';
 })
 export class RegistroLibroComponent implements OnInit {
   bibliotecarios: bibliotecarios = {};
-  tipo: TiposLibros={};
+  tipo: TiposLibros = {};
   file: any;
-  reporteV:String="";
-  reporteV2:String="";
-  bibliotecarioE:bibliotecarioE={};
-  persona:persona={};
-  Tipoe: TiposLibros[]=[]
-  guardar:boolean=true;
+  reporteV: String = "";
+  reporteV2: String = "";
+  bibliotecarioE: bibliotecarioE = {};
+  persona: persona = {};
+  Tipoe: TiposLibros[] = []
+  guardar: boolean = true;
   form!: FormGroup;
 
-  opcionSeleccionado: string  = '0';
-  verSeleccion: string        = '';
+  opcionSeleccionado: string = '0';
+  verSeleccion: string = '';
 
-  idb?:number;
-  idT?:number;
+  idb?: number;
+  idT?: number;
 
 
-  libros : libro[] = [];
+  libros: libro[] = [];
   lib: libro = new libro;
   bus: boolean = true;
   buscarval: boolean = false;
 
   public keyword = 'nombre';
-  
- 
- 
+
+
+
 
   public previsualizacion?: string
   public PDF?: string
   public archivos: any = []
-  constructor(private sanitizer: DomSanitizer, 
-    private libroservice: RegistroLibroService, 
-    private rutas: Router, 
+  constructor(
+    private sanitizer: DomSanitizer,
+    private libroservice: RegistroLibroService,
+    private rutas: Router,
     private bibliotecarioservice: RegistroBibliotecarioService,
     private ListaT: ListasService,
-    private ActaDonacionService : ActaDonacionService)
-     { //this.buildForm(); 
-    }
+    private ActaDonacionService: ActaDonacionService
+  ) { //this.buildForm(); 
+  }
 
   ngOnInit(): void {
-    this.reporteV=localStorage.getItem('bibliotecario')+"";
-    this.reporteV2=localStorage.getItem('nombrebibliotecario')+"";
-    console.log("Bibliotecario: "+this.reporteV+" Nombre:"+ this.reporteV2);
+    this.reporteV = localStorage.getItem('bibliotecario') + "";
+    this.reporteV2 = localStorage.getItem('nombrebibliotecario') + "";
+    console.log("Bibliotecario: " + this.reporteV + " Nombre:" + this.reporteV2);
 
-    this.buscar(this.reporteV+'')
+    this.buscar(this.reporteV + '')
     this.ListaT.obtenerTipos().subscribe(
-      TipoS=>this.Tipoe=TipoS
+      TipoS => this.Tipoe = TipoS
 
-    
+
     );
 
     this.obtenerAutor()
@@ -84,32 +85,32 @@ export class RegistroLibroComponent implements OnInit {
 
   }
   public dato!: Observable<any['']>;
- 
 
-  obtenerAutor(): void{
+
+  obtenerAutor(): void {
     this.dato = this.libroservice.obtenerAutores();
-     console.log(this.dato+"Holii");
-     
-  
+    console.log(this.dato + "Holii");
+
+
   }
 
-  OnImprimir(tit: NgModel, publi: NgModel, pag:NgModel, des:NgModel, est:NgModel, edi:NgModel, area:NgModel){
-    const  encabezado = ["Titulo","N° Pag","Descripcion","Editor","Publcacion","Tipo","Estado"]
+  OnImprimir(tit: NgModel, publi: NgModel, pag: NgModel, des: NgModel, est: NgModel, edi: NgModel, area: NgModel) {
+    const encabezado = ["Titulo", "N° Pag", "Descripcion", "Editor", "Publcacion", "Tipo", "Estado"]
 
     console.log(tit.value);
-    
+
     const cuerpo = [
       tit.value,
       pag.value,
-      des.value, 
+      des.value,
       edi.value,
       publi.value,
       area.value,
       est.value
-     ]
+    ]
 
-    
-    
+
+
     this.ActaDonacionService.imprimir(encabezado, cuerpo, "Acta de Donacion", false)
   }
 
@@ -131,18 +132,18 @@ export class RegistroLibroComponent implements OnInit {
   //   this.form.valueChanges
   //   .subscribe(value => {
   //     console.log(value);
-    
+
   //   });
   // }
 
 
-  onKeydownEvent(event: KeyboardEvent, titulo:String): void {
-    if(titulo==""){
-     this.ngOnInit();
+  onKeydownEvent(event: KeyboardEvent, titulo: String): void {
+    if (titulo == "") {
+      this.ngOnInit();
     }
   }
 
-  buscarLibxNomb(nombre: String){
+  buscarLibxNomb(nombre: String) {
     this.libroservice.obtenerLibro(nombre).subscribe(
       data => {
         this.libros = data;
@@ -150,15 +151,15 @@ export class RegistroLibroComponent implements OnInit {
     )
   }
 
-//Conseguir capturar tipo de Libro
-  seleccionT(e : any){
+  //Conseguir capturar tipo de Libro
+  seleccionT(e: any) {
     console.log(e.target.value);
-     this.idT = e.target.value;
- 
+    this.idT = e.target.value;
+
   }
 
 
-  
+
 
 
   capturarArchivo(event: any): any {
@@ -175,28 +176,21 @@ export class RegistroLibroComponent implements OnInit {
     const archivocapturado = event.target.files[0]
     this.extraerBase64(archivocapturado).then((imagen: any) => {
       this.previsualizacion = imagen.base;
-      
+
+
+
+
+
 
       
-      
-      
 
-      // const data = imagen.base
-      // const libre = atob(data.split(",")[1]);
-
-      // this.file = libre;
-      
-      // this.Libro.imagen = this.file
-      // console.log(this.Libro.imagen);
-
-    })   
-    //this.archivos.push(archivocapturado)
-    //console.log(event.target.files)
+    })
+    
   }
 
-  
 
- 
+
+
 
 
   extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
@@ -221,23 +215,24 @@ export class RegistroLibroComponent implements OnInit {
       console.log("Error al Subir Imagen")
     }
   })
-//Fin de capturar archivos
+  //Fin de capturar archivos
 
 
-//Capturar Persona
-  buscar(idss:string){
- 
-    this.idb=Number.parseInt(idss)
-   
-      this.bibliotecarioservice.obtenerBibliotecarioId(this.idb).subscribe(
-        bibliotecarioE=> {this.bibliotecarioE=bibliotecarioE,this.persona.cedula=bibliotecarioE.persona?.cedula,this.persona.nombres=bibliotecarioE.persona?.nombres,this.persona.celular=bibliotecarioE.persona?.celular
-          ,this.persona.correo=bibliotecarioE.persona?.correo,this.persona.usuario=bibliotecarioE.persona?.usuario,this.persona.clave=bibliotecarioE.persona?.clave, this.persona.rol=bibliotecarioE.persona?.rol
-       
-        }
-      )
-   }
+  //Capturar Persona
+  buscar(idss: string) {
 
-   
+    this.idb = Number.parseInt(idss)
+
+    this.bibliotecarioservice.obtenerBibliotecarioId(this.idb).subscribe(
+      bibliotecarioE => {
+        this.bibliotecarioE = bibliotecarioE, this.persona.cedula = bibliotecarioE.persona?.cedula, this.persona.nombres = bibliotecarioE.persona?.nombres, this.persona.celular = bibliotecarioE.persona?.celular
+        , this.persona.correo = bibliotecarioE.persona?.correo, this.persona.usuario = bibliotecarioE.persona?.usuario, this.persona.clave = bibliotecarioE.persona?.clave, this.persona.rol = bibliotecarioE.persona?.rol
+
+      }
+    )
+  }
+
+
 
   // Getter for easy access
   get s_url() {
@@ -251,38 +246,38 @@ export class RegistroLibroComponent implements OnInit {
 
   disponible?: boolean = this.Libro.disponibilidad;
 
-  public crearLibro(reg:NgForm): void {
-    
+  public crearLibro(reg: NgForm): void {
+
     console.log("Se ha realizado un click")
     this.Libro.tipo = this.tipo
     this.Libro.bibliotecario = this.bibliotecarios
     this.Libro.bibliotecario = this.bibliotecarioE
-    
+
     console.log(this.Libro.bibliotecario)
 
     this.bibliotecarioE.id_bibliotecario = this.Libro.bibliotecario.id_bibliotecario
     this.Libro.tipo.id_tipo = this.idT
     //this.Libro.imagen= this.previsualizacion
     this.Libro.activo = true;
-    
 
-   
+
+
     this.libroservice.create(this.Libro).subscribe(
-      Response => { 
-        
-          this.Libro
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: '<strong>Has registrado un Libro</strong>',
-            showConfirmButton: false,
-            timer: 1500
-          })
-          console.log(this.libroservice);
-          
-        }
-       
-        
+      Response => {
+
+        this.Libro
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: '<strong>Has registrado un Libro</strong>',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        console.log(this.libroservice);
+
+      }
+
+
     ); reg.reset();
 
   }
