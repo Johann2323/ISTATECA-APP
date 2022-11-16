@@ -1,76 +1,90 @@
 <div class="contenedor">
   <div class="card">
     <div class="card-header">
-      <div class="imagen">
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20normal.png?alt=media&token=5c5a4b10-135a-4467-a1cf-3347bbe58df5"
-          height="80"
-          width="350"
-        />
+
+
+      <h5 class="text-center h5"><strong></strong></h5>
+
+      <div class="card-header">
+        <div class="imagen">
+          <img tag
+            src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20normal.png?alt=media&token=5c5a4b10-135a-4467-a1cf-3347bbe58df5"
+            height="80" width="350" />
+        </div>
+        <div>
+          <div style="position: absolute; left: 40px; top: 17%;">
+            
+          </div>
+
+          <button type="button" class=" btn-outline-light solicitud" (click)="SolicitarLibro()">
+            Solicitar libro
+          </button>
+
+        </div><br>
+        <div *ngIf="mostrar">
+          <button type="button" class=" btn-outline-light solicitud" (click)="downloadPDF()">
+            <img
+            src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fimpresora.png?alt=media&token=a45ef1f8-6983-4e43-8adf-e31a2f1b6928" />
+            Imprimir
+          </button>
+
+        </div>
       </div>
 
-      <h5 class="text-center h5"><strong>Listado de Libros</strong></h5>
 
-      <form class="d-flex buscar" role="search">
-        <input
-          class="form-control me-2"
-          (keyup)="onKeydownEvent($event, buscaer.value)"
-          #buscaer
-          type="search"
-          placeholder="Buscar"
-          aria-label="Buscar"
-          style="background-color: #e5e7e8; border-color: #2e2f5e"
-        />
-        <button (click)="buscarLibxNomb(buscaer.value)" class="btn" type="submit">
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fbusqueda.png?alt=media&token=2b59078d-0ef5-4fa4-85c6-396ea7c1c97c"
-          />
-        </button>
-      </form>
 
-      <button
-        type="button"
-        class="btn btn-outline-light solicitud"
-        (click)="SolicitarLibro()"
-      >
-        Solicitar libro
-      </button>
+
+
+
     </div>
 
     <div class="card-body text-primary libros">
-      <table class="table table-bordered table-stripped libros">
-        <thead class="text-center cabezera">
-          <tr>
-            <th>Código</th>
-            <th>Título del Libro</th>
-            <th>Categoría</th>
-            <th>Año de <br />Publicación</th>
-            <th>Descripción</th>
-            <th>Disponible</th>
-          </tr>
-        </thead>
+      <div id="htmlData">
+        <h5 class="text-center h5" style="color: #2E2F5E;"><strong>Listado de Libros</strong></h5>
+        <form class="d-flex buscar" role="search">
+          <input class="form-control me-2" (keyup)="onKeydownEvent($event, buscaer.value)" #buscaer type="search"
+            placeholder="Buscar" aria-label="Buscar" style="background-color: #e5e7e8; border-color: #2e2f5e" />
+          <button (click)="buscarLibxNomb(buscaer.value)" class="btn" type="submit">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fbusqueda.png?alt=media&token=2b59078d-0ef5-4fa4-85c6-396ea7c1c97c" />
+          </button>
+        </form><br>
+        <table class="table table-bordered table-stripped libros">
+          <thead class="text-center cabezera">
+            <tr>
+              <th>Código</th>
+              <th>Título del Libro</th>
+              <th>Categoría</th>
+              <th>Año de <br />Publicación</th>
+              <th>Descripción</th>
+              <th>Disponible</th>
+            </tr>
+          </thead>
 
-        <tbody class="text-center" *ngIf=bus>
-          <tr *ngFor="let pagina of paginas">
-            <td>{{ pagina.id_libro }}</td>  
-            <td>{{ pagina.titulo }}</td>
-            <td>{{ pagina.area }}</td>
-            <td>{{ pagina.anio_publicacion }}</td>
-            <td>{{ pagina.descripcion }}</td>
-            <td>{{ pagina.disponibilidad }}</td>
-          </tr>
-        </tbody>
-
-        <tbody class="text-center" *ngIf=buscarval>
-            <tr *ngFor="let lib of libs">
-              <td>{{ lib.id_libro }}</td>  
-              <td>{{ lib.titulo }}</td>
-              <td>{{ lib.area }}</td>
-              <td>{{ lib.anio_publicacion }}</td>
-              <td>{{ lib.descripcion }}</td>
-              <td>{{ lib.disponibilidad }}</td>
+          <tbody class="text-center" *ngIf=bus>
+            <tr *ngFor="let pagina of paginas">
+              <td>{{ pagina.id_libro }}</td>
+              <td>{{ pagina.titulo }}</td>
+              <td>{{ pagina.area }}</td>
+              <td>{{ pagina.anio_publicacion }}</td>
+              <td>{{ pagina.descripcion }}</td>
+              <td>{{ pagina.disponibilidad }}</td>
             </tr>
           </tbody>
+        </table>
+      </div>
+
+      <table class="table table-bordered table-stripped libros" *ngIf=buscarval>
+        <tbody class="text-center">
+          <tr *ngFor="let lib of libs">
+            <td>{{ lib.id_libro }}</td>
+            <td>{{ lib.titulo }}</td>
+            <td>{{ lib.area }}</td>
+            <td>{{ lib.anio_publicacion }}</td>
+            <td>{{ lib.descripcion }}</td>
+            <td>{{ lib.disponibilidad }}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>
@@ -80,12 +94,7 @@
     <div class="popup" id="popup">
       <h3>Solicitud Aceptada</h3>
       <h4>Toma una captura y facilita la busqueda de tu solicitud</h4>
-      <button
-        id="cerrarpopup"
-        (click)="cerrarpopup()"
-        class="boton btn btn-primary"
-        style="background-color: #2e2f5e"
-      >
+      <button id="cerrarpopup" (click)="cerrarpopup()" class="boton btn btn-primary" style="background-color: #2e2f5e">
         <FONT COLOR="white">Aceptar</FONT>
       </button>
     </div>
