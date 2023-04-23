@@ -39,14 +39,7 @@
                 alt="" width="25" height="25"></a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar"
-            style="background-color: #012844; color: white; font-size: small;">
-          <button class="btn">
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fbusqueda.png?alt=media&token=2b59078d-0ef5-4fa4-85c6-396ea7c1c97c"
-              width="25" height="25"></button>
-        </form>
+        
 
         <div *ngIf="mostrar2">
           <a class="nav-link active" href="#" routerLink="/app-lista-solicitudes-pendientes">
@@ -59,7 +52,7 @@
 
         &nbsp;&nbsp;
         <div class="dropdown" *ngIf="mostrar && !mostrar2">
-          <a class="btn btn-primary dropdown-toggle" style="background:transparent ; border-color: white"  routerLink="/app-form-editUsuario">
+          <a class="btn btn-primary dropdown-item" style="background:transparent ; border-color: white"  routerLink="/app-form-editUsuario">
             
             <img
               src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fsettings.png?alt=media&token=0778b34e-416f-4659-8b3c-37714afbf836"
@@ -82,7 +75,7 @@
           </ul> -->
         </div>
         <div class="dropdown" *ngIf="mostrar && mostrar2 ">
-          <a class="btn btn-primary dropdown-toggle" style="background:transparent ; border-color: white" routerLink="/app-form-editBibliotecario">
+          <a class="btn btn-primary dropdown-item" style="background:transparent ; border-color: white" routerLink="/app-form-editBibliotecario">
             
             <img
               src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fsettings.png?alt=media&token=0778b34e-416f-4659-8b3c-37714afbf836"
@@ -107,3 +100,4 @@
     </div>
   </div>
 </nav>
+
