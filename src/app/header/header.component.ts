@@ -2,6 +2,7 @@ import { Component, OnInit, DoCheck, Input } from "@angular/core";
 import { PaginaInicioComponent } from "../pagina-inicio/pagina-inicio.component";
 import { InicioSesionComponent } from "../inicio-sesion/inicio-sesion.component";
 import { Router } from '@angular/router';
+import { NotificacionesService } from "../NotificacionesService";
 
 @Component({
     selector: 'app-header',
@@ -16,7 +17,10 @@ export class HeaderComponent implements DoCheck {
     mostrar1: boolean = false;
     mostrar2: boolean = false;
     mostrar3: boolean = false;
-    constructor(private router1: Router) { }
+    constructor(private router1: Router,private notificacionesService: NotificacionesService) { }
+    get nuevosRegistros() {
+        return this.notificacionesService.nuevosRegistros;
+      }
     ngDoCheck(): void {
         this.reporteV=JSON.parse(localStorage.getItem('rol')+"");
         console.log("Rol del Usuario: "+this.reporteV+"")

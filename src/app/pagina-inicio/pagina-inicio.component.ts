@@ -10,6 +10,10 @@ import html2canvas from 'html2canvas';
 
 import Swal from 'sweetalert2';
 import { NgModel } from '@angular/forms';
+import { prestamo } from '../lista-solicitudes-pendientes/prestamo';
+import { prestamoService } from '../lista-solicitudes-pendientes/prestamo.service';
+import { NotificacionesService } from '../NotificacionesService';
+import { usuarioSolicitud } from '../usuarioSolicitud';
 
 @Component({
   selector: 'app-pagina-inicio',
@@ -19,15 +23,19 @@ import { NgModel } from '@angular/forms';
 export class PaginaInicioComponent implements OnInit {
   reporteV: string = "";
   public PaginaI: PaginaInicio = new PaginaInicio();
+  public prestamos: prestamo = new prestamo();
   paginas: PaginaInicio[] = [];
+  public paginacrear: PaginaInicio = new PaginaInicio();
   mostrar: boolean = false;
   libros: libro[] = [];
   libs: PaginaInicio[] = [];
   bus: boolean = true;
   buscarval: boolean = false;
 
+  
 
-  constructor(private paginainicioService: PaginaInicioService, private router: Router, private router1: Router, private impInvServ: ImprimirInventarioService) { }
+
+  constructor(private prestamoService: prestamoService, private paginainicioService: PaginaInicioService, private router: Router, private router1: Router, private impInvServ: ImprimirInventarioService,private notificacionesService: NotificacionesService) { }
 
   downloadPDF() {
     // Extraemos el
@@ -69,14 +77,36 @@ export class PaginaInicioComponent implements OnInit {
     );
     this.buscarval = false;
     this.bus = true;
+
+    
+
     
   }
+  id?: number;
+  buscar(idss: string) {
+
+    this.id = Number.parseInt(idss)
+
+    this.paginainicioService.obtenerUsuariosId(this.id).subscribe(
+      usuarioSolicitud => {
+        this.prestamos.usuario = usuarioSolicitud
+        
+      }
+    )
+  }
+
 
   onKeydownEvent(event: KeyboardEvent, titulo: String): void {
     if (titulo == "") {
       this.ngOnInit();
     }
   }
+
+  // seleccionarElemento(lib: any) {
+  //   // Haz algo con el elemento seleccionado, por ejemplo, muestra sus detalles o abre un formulario para editarlo.
+  //   console.log('Elemento seleccionado:', lib);
+  //   alert('Elemento seleccionado: '+lib.titulo)
+  // }
 
   buscarLibxNomb(nombre: String) {
     this.bus = false;
@@ -88,7 +118,7 @@ export class PaginaInicioComponent implements OnInit {
       }
     )
   }
-  SolicitarLibro() {
+  SolicitarLibro(paginacrear:any) {
     if (parseInt(this.reporteV) == 9) {
       console.log('no ha entrado');
       Swal.fire({
@@ -101,14 +131,51 @@ export class PaginaInicioComponent implements OnInit {
       })
       this.router.navigate(['/']);
     } else {
+      alert(paginacrear.titulo)
       var overlay = document.getElementById('overlay');
       overlay?.classList.add('active');
+      this.createbibliotecario(paginacrear);
+      this.reporteV = localStorage.getItem('usuario') + "";
+      console.log("Usuario: " + this.reporteV + "");
+      this.buscar(this.reporteV + "")
+
+
+      
 
     }
   }
   cerrarpopup() {
     var overlay = document.getElementById('overlay');
     overlay?.classList.remove('active');
+  }
+
+  
+
+  public createbibliotecario(paginacrear: any) {
+
+    console.log("ha realizado un clic")
+    this.prestamos.libro = paginacrear
+
+    console.log(this.prestamos.libro?.titulo)
+    console.log(this.prestamos.usuario?.persona?.nombres)
+    alert(this.prestamos.libro?.titulo)
+    alert(this.prestamos.usuario?.persona?.nombres)
+
+    this.prestamoService.create(this.prestamos).subscribe(
+      response => { this.prestamos 
+      Swal.fire({
+        title: '<strong>Libro Solicitado!</strong>',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#012844',
+        icon: 'success',
+        html:
+          '<b>'+this.prestamos.libro?.titulo+'</b><br>'+
+          'Se ha solicitado con exito'
+      })
+      this.notificacionesService.actualizarConteo(1)
+      
+    }
+    );
   }
 
 }

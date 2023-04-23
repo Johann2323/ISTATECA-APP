@@ -19,19 +19,23 @@
 </form>
 
 <div class="card-body text-primary libros col-sm-11 destacado" >
-  <table class="table table-bordered table-stripped scroll table-hover" >
-      <thead class="text-center cabezera">
-          <tr>
-              <th>Cédula</th>
-              <th>Libro</th>
-          </tr>    
+  <table class="table table-bordered table-stripped libros" >
+    <thead class="text-center cabezera">
+      <tr>
+        <th>Cedula</th>
+        <th>Título del Libro</th>
 
-      </thead>
-      
-      <tbody class="text-center" >
-         
-         
-      </tbody>
+      </tr>
+    </thead>
+
+
+    <tbody class="text-center">
+      <tr *ngFor="let pagina of prestamos">
+        <td>{{pagina.usuario?.persona?.cedula}}</td>
+        <td>{{pagina.libro?.titulo}}</td>
+
+      </tr>
+    </tbody>
   </table>
 </div>
 </body>
