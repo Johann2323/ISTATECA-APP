@@ -33,6 +33,7 @@ import { SolicitudLibroComponent } from './solicitud-libro/solicitud-libro.compo
 import { FormEditComponent } from './registro-usuario/form-edit.component';
 import { FormEditBComponent } from './registro-bibliotecario/form-edit-b.component';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+import { DevolverLibroComponent } from './devolver-libro/devolver-libro.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
     SolicitudLibroComponent,
     FormEditComponent,
     FormEditBComponent,
+    DevolverLibroComponent,
 
   ],
   imports: [
@@ -64,6 +66,7 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
     ReactiveFormsModule,
     RouterModule.forRoot([
       {path: 'app-directiva', component: DirectivaComponent},
+      {path: 'app-devolver-libro', component: DevolverLibroComponent},
       {path: 'app-proveedor', component: ProveedorComponent},
       {path: 'app-registro-usuario', component: RegistroUsuarioComponent},
       {path: '', component: InicioSesionComponent,pathMatch:'full'},
