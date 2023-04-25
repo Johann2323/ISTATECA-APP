@@ -41,13 +41,21 @@
         </ul>
         
 
-        <div *ngIf="mostrar2">
-          <a class="nav-link active" href="#" routerLink="/app-lista-solicitudes-pendientes">
+        <div *ngIf="mostrar2" >
+          <button style="background-color: transparent; border: transparent;" type="button" class="btn btn-dark position-relative" routerLink="/app-lista-solicitudes-pendientes">
+
             <img
-              src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fnotificacion.png?alt=media&token=d3afd330-3414-4ed6-b131-a498de2ba691"
-              alt="" width="25" height="25">
-          </a>
+                src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fnotificacion.png?alt=media&token=d3afd330-3414-4ed6-b131-a498de2ba691"
+                alt="" width="25" height="25">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              {{nuevosRegistros}}
+              <span class="visually-hidden">unread messages</span>
+            </span>
+          </button>
         </div>
+        
+
+        
         
 
         &nbsp;&nbsp;

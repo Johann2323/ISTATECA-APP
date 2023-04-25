@@ -47,6 +47,10 @@ export class InicioSesionComponent implements OnInit {
                   data=>{
                    console.log("Usuario"+data.id_usuario);
                    localStorage.setItem('usuario',data.id_usuario+"");
+                   let usuarioJSON = JSON.stringify(data);
+
+                   localStorage.setItem('usuariopag', usuarioJSON);
+                   
                    localStorage.setItem('nombrebibliotecario',data.persona?.nombres+"");
                    InicioSesionComponent.nomb = localStorage.getItem('nombrebibliotecario') + "";
 

@@ -14,6 +14,7 @@ import { prestamo } from '../lista-solicitudes-pendientes/prestamo';
 import { prestamoService } from '../lista-solicitudes-pendientes/prestamo.service';
 import { NotificacionesService } from '../NotificacionesService';
 import { usuarioSolicitud } from '../usuarioSolicitud';
+import { usuarioE } from '../usuarioE';
 
 @Component({
   selector: 'app-pagina-inicio',
@@ -23,6 +24,7 @@ import { usuarioSolicitud } from '../usuarioSolicitud';
 export class PaginaInicioComponent implements OnInit {
   reporteV: string = "";
   public PaginaI: PaginaInicio = new PaginaInicio();
+  public usuarioe: usuarioE = new usuarioE();
   public prestamos: prestamo = new prestamo();
   paginas: PaginaInicio[] = [];
   public paginacrear: PaginaInicio = new PaginaInicio();
@@ -69,6 +71,7 @@ export class PaginaInicioComponent implements OnInit {
       
       this.mostrar = true;
     }
+    
   }
   ngOnInit(): void {
     this.paginainicioService.getLibros().subscribe(
@@ -77,23 +80,12 @@ export class PaginaInicioComponent implements OnInit {
     );
     this.buscarval = false;
     this.bus = true;
-
+    
     
 
     
   }
-  id?: number;
-  buscar(idss: string) {
-
-    this.id = Number.parseInt(idss)
-
-    this.paginainicioService.obtenerUsuariosId(this.id).subscribe(
-      usuarioSolicitud => {
-        this.prestamos.usuario = usuarioSolicitud
-        
-      }
-    )
-  }
+  
 
 
   onKeydownEvent(event: KeyboardEvent, titulo: String): void {
@@ -119,6 +111,7 @@ export class PaginaInicioComponent implements OnInit {
     )
   }
   SolicitarLibro(paginacrear:any) {
+    
     if (parseInt(this.reporteV) == 9) {
       console.log('no ha entrado');
       Swal.fire({
@@ -135,9 +128,7 @@ export class PaginaInicioComponent implements OnInit {
       var overlay = document.getElementById('overlay');
       overlay?.classList.add('active');
       this.createbibliotecario(paginacrear);
-      this.reporteV = localStorage.getItem('usuario') + "";
-      console.log("Usuario: " + this.reporteV + "");
-      this.buscar(this.reporteV + "")
+      
 
 
       
@@ -148,13 +139,19 @@ export class PaginaInicioComponent implements OnInit {
     var overlay = document.getElementById('overlay');
     overlay?.classList.remove('active');
   }
-
+ 
   
 
   public createbibliotecario(paginacrear: any) {
+    this.reporteV = localStorage.getItem('usuariopag') + "";
+      console.log("Usuario: " + this.reporteV + "");
+
+      let usuarioJSON = localStorage.getItem('usuariopag')+"";
+      let persona = JSON.parse(usuarioJSON);
 
     console.log("ha realizado un clic")
     this.prestamos.libro = paginacrear
+    this.prestamos.usuario=persona
 
     console.log(this.prestamos.libro?.titulo)
     console.log(this.prestamos.usuario?.persona?.nombres)

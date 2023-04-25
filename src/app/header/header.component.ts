@@ -19,7 +19,9 @@ export class HeaderComponent implements DoCheck {
     mostrar3: boolean = false;
     constructor(private router1: Router,private notificacionesService: NotificacionesService) { }
     get nuevosRegistros() {
+
         return this.notificacionesService.nuevosRegistros;
+        
       }
     ngDoCheck(): void {
         this.reporteV=JSON.parse(localStorage.getItem('rol')+"");
