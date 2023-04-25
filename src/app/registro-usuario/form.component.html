@@ -1,133 +1,103 @@
-<style>
-    .vl {
-  border-left: 6px solid rgb(0, 0, 0);
-  height: 617px;
-  position: absolute;
-  left: 50%;
-  margin-left: -1px;
-  margin-top: 86px;
-  top: 0;
-}
-   h3 {
-        text-align: center; 
-        margin-inline-start: 40%;
-    
-    }
-    
-    h4 {
-    font-size:45px;
-margin-top: 1%;
-    text-align: left; 
-    margin-inline-start: 11%;
-    }
-    h5 {
-margin-top: 0%;
-font-size: 0px;
-    text-align: left; 
-    margin-inline-start: 26%;
+<body>
 
-    }
-
-    h6 {
-margin-top: 0%;
-font-size: 0px;
-    text-align: left; 
-    margin-inline-start: 21%;
-
-    }
-
-    h1 {
-       margin-top: -4%;
-        text-align: right; 
-        margin-inline-start: 5%;
-    
-    }
-
-    h2 {
-      position: absolute;
-  left: 500px;
-  margin-left: -1px;
-  margin-top: 172px;
-  top: 0;
-
-    }
-    
-</style>
-
-<h4><strong>Crear nueva cuenta</strong></h4><br>
-
-<form #registro="ngForm" ngNativeValidate class="row gy-2 gx-3 align-items-center" (ngSubmit)="create()" >
-    <div class="row mb-3">
-      <label for="cedula" class="col-sm-2 col-form-label"> <h3>Cédula:</h3></label>
-      <div class="col-sm-3">
-        <h6><input #cedula type="text" class="form-control text-center" placeholder="Verifique su cedula" [(ngModel)]="personaP.cedula"  name="cedula" required>
-        
-        </h6>
-        </div>
-    </div>
-    <div class="row mb-3">
-      <label for="nombres" class="col-sm-2 col-form-label"><h3>Nombres:</h3></label>
-      <div class="col-sm-3">
-        <h6><input type="text" class="form-control text-center" placeholder="Aqui apareceran sus datos" [(ngModel)]="personaP.nombres" value="{{personaP.nombres}}" name="nombres"  required> 
-            </h6>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-      <label for="celular" class="col-sm-2 col-form-label"><h3>Celular:</h3></label>
-      <div class="col-sm-3">
-        <h6><input type="text" class="form-control text-center" placeholder="Aqui apareceran sus datos" [(ngModel)]="personaP.celular" value="{{personaP.celular}}"  name="celular"  required>
-          </h6>
-      </div>
-    </div>
-  <div class="row mb-3">
-    <label for="correo" class="col-sm-2 col-form-label"><h3>Email:</h3></label>
-    <div class="col-sm-3">
-      <h6><input type="email" class="form-control text-center" placeholder="Aqui apareceran sus datos" [(ngModel)]="personaP.correo" value="{{personaP.correo}}"  name="correo"  required>
-          </h6>
-      </div>
-  </div>
-
-
-
-    <div class="row mb-3">
-        <label for="usuario" class="col-sm-2 col-form-label"><h3>Usuario:</h3></label>
-        <div class="col-sm-3">
-          <h6><input type="text" class="form-control text-center" placeholder="Ingrese su usuario" [(ngModel)]="persona.usuario" name="usuario" required>
-            </h6>
-        </div>
-      </div>
   
-      
-    <div class="row mb-3">
-        <label for="clave" class="col-sm-2 col-form-label"><h3>Contraseña:</h3></label>
-        <div class="col-sm-3">
-          <h6><input type="password" class="form-control text-center" placeholder="Ingrese una contraseña" [(ngModel)]="persona.clave" name="clave" required>
-            </h6>
-        </div>
+  <div style="width: 100%; margin-left: 1px;">
+    <h4 style="font-family: 'Times New Roman', Times, serif; font-size: 400%;  display: flex;justify-content: center; align-items: center;"><strong>Crear nueva cuenta</strong></h4><br>
+    <form #registro="ngForm" ngNativeValidate class="row gy-2 gx-3 align-items-center" (ngSubmit)="create()" (submit)="validar()"
+      style="width: 100%; ">
+
+      <div style="display: flex;  align-items: center;">
+        <label for="cedula" class="col-sm-2 col-form-label" style="font-size: 21px;"> <strong>Cédula:</strong></label>
+        <input #cedula type="text" class="form-control text-center" placeholder="Verifique su cedula"
+          [(ngModel)]="personaP.cedula" name="cedula" required style="height: 30%; margin-right: 10px; display: flex;">
+          <button type="button" (click)="buscarFenix(cedula.value)" class="btn btn-outline-secondary" style=" width: 70px;">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fbusqueda.png?alt=media&token=2b59078d-0ef5-4fa4-85c6-396ea7c1c97c"
+              alt="" width="20" height="20"></button>
       </div>
 
-      <h5>
-        <button type="submit" class="btn btn-outline-secondary" >Registrarse</button>
-           
-      </h5>
-      <h2>
-        <button type="button" (click)="buscarFenix(cedula.value)" class="btn btn-outline-secondary">
-          <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fbusqueda.png?alt=media&token=2b59078d-0ef5-4fa4-85c6-396ea7c1c97c" alt="" width="20" height="20"></button>
-      </h2>
       
+        
+      
+
+      <div style="display: flex;  align-items: center;">
+        <label for="nombres" class="col-sm-2 col-form-label" style="font-size: 21px;">
+          <strong>Nombres:</strong>
+        </label><input type="text" class="form-control text-center" placeholder="Aqui apareceran sus datos"
+          [(ngModel)]="personaP.nombres" value="{{personaP.nombres}}" name="nombres" required style=" height: 0%;">
+      </div>
+
+      <div style="display: flex;  align-items: center;">
+        <label for="celular" class="col-sm-2 col-form-label" style="font-size: 21px;">
+          <strong>Celular:</strong>
+        </label>
+
+        <input type="text" class="form-control text-center" placeholder="Aqui apareceran sus datos"
+          [(ngModel)]="personaP.celular" value="{{personaP.celular}}" name="celular" required style=" height: 0%;">
+
+
+      </div>
+
+
+      <div style="display: flex;  align-items: center;">
+        <label for="correo" class="col-sm-2 col-form-label" style="font-size: 21px;">
+          <strong>Email:</strong>
+        </label>
+
+        <input type="email" class="form-control text-center" placeholder="Aqui apareceran sus datos"
+          [(ngModel)]="personaP.correo" value="{{personaP.correo}}" name="correo" required style=" height: 0%;">
+
+
+      </div>
+
+
+
+      <div style="display: flex;  align-items: center;">
+        <label for="usuario" class="col-sm-2 col-form-label" style="font-size: 21px;">
+          <strong>Usuario:</strong>
+        </label>
+        <input type="text" class="form-control text-center" placeholder="Ingrese su usuario"
+          [(ngModel)]="persona.usuario" name="usuario" required style=" height: 0%;">
+
+      </div>
+
+
+      <div style="display: flex;  align-items: center;">
+        <label for="clave" class="col-sm-2 col-form-label"style="font-size: 21px; display: flex;">
+          <strong>Contraseña:</strong>
+        </label>
+        <input type="password" id="clave1" class="form-control text-center" placeholder="Ingrese una contraseña"
+          [(ngModel)]="persona.clave" name="clave" required style=" height: 0%; margin-left: 30px; margin-right: 250px;" (input)="validar()">
+          
+        </div>
+        <span id="alertaClave1" style="color: red; font-size: 12px; display: flex;"></span>
+
+      <div style="display: flex;  align-items: center;">
+        <label for="clave" class="col-sm-2 col-form-label"style="font-size: 21px; display: flex;">
+          <strong>Verifique:</strong>
+        </label>
+        <input type="password" class="form-control text-center" placeholder="Repita la contraseña" id="clave2" required style=" height: 0%; margin-left: 30px; margin-right: 122px;" (input)="validar()">
+          <div class="row" >
+            <button type="submit" id="botonEnviar" class="btn btn-outline-primary" style="width: 150px; margin-left: -40%; margin-top: -45%;" >Registrarse</button>
+            
+          </div>   
+        </div>
+        
+        <span id="alertaClave2" style="color: red; font-size: 12px;"></span>
+
+         
+        
+
+      
+      
+
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo.png?alt=media&token=7b1381e0-7e13-4705-bc6b-5cb0d87bf02b"
+          class="rounded float-start" alt=""   style="margin-top: -1%; height: 100px; width: 100px; margin-left: 45%; filter: blur(4px);opacity: 0.8; "> 
+
+    
+
 
     </form>
-    
-    
-      
-    <h1>
-    <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20fondo%20borroso%20peque%C3%B1o.jpg?alt=media&token=8a7bcc9b-f7e0-4757-b3eb-2a20e389ffae" class="rounded float-start" alt="" width="200" height="100">
-    </h1>
-    
-    <div class="vl"></div>
-    
-
-    
-
-  
+  </div>
+</body>

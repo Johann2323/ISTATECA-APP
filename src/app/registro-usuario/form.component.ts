@@ -25,6 +25,22 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  public validar(): void {
+    const clave1 = document.getElementById('clave1') as HTMLInputElement;
+    const clave2 = document.getElementById('clave2') as HTMLInputElement;
+    const alertaClave1 = document.getElementById('alertaClave1') as HTMLSpanElement;
+    const alertaClave2 = document.getElementById('alertaClave2') as HTMLSpanElement;
+    const botonEnviar = document.getElementById('botonEnviar') as HTMLButtonElement;
+    if (clave1.value === clave2.value) {
+      alertaClave1.innerText = '';
+      alertaClave2.innerText = '';
+      botonEnviar.disabled = false;
+    } else {
+      alertaClave1.innerText = 'Las contraseñas no coinciden';
+      alertaClave2.innerText = 'Las contraseñas no coinciden';
+      botonEnviar.disabled = true;
+    }
+  }
 
 
 
