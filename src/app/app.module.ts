@@ -34,6 +34,7 @@ import { FormEditComponent } from './registro-usuario/form-edit.component';
 import { FormEditBComponent } from './registro-bibliotecario/form-edit-b.component';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { DevolverLibroComponent } from './devolver-libro/devolver-libro.component';
+import { VistaRegistroNewComponent } from './vista-registro-new/vista-registro-new.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { DevolverLibroComponent } from './devolver-libro/devolver-libro.componen
     FormEditComponent,
     FormEditBComponent,
     DevolverLibroComponent,
+    VistaRegistroNewComponent,
 
   ],
   imports: [
@@ -81,6 +83,7 @@ import { DevolverLibroComponent } from './devolver-libro/devolver-libro.componen
       {path: 'registro-libro', component: RegistroLibroComponent},
       {path: 'app-lista-solicitudes-pendientes', component: ListaSolicitudesPendientesComponent},
       {path: 'app-solicitud-libro', component: SolicitudLibroComponent},
+      {path: 'app-vista-registro-new', component: VistaRegistroNewComponent},
       
     ]),
   ],
