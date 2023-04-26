@@ -42,12 +42,12 @@
         
 
         <div *ngIf="mostrar2" >
-          <button style="background-color: transparent; border: transparent;" type="button" class="btn btn-dark position-relative" routerLink="/app-lista-solicitudes-pendientes">
+          <button  style="background-color: transparent; border: transparent; width: 45px;"  type="button" class="btn btn-dark position-relative" (click)="ocultar()"  routerLink="/app-lista-solicitudes-pendientes">
 
             <img
                 src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fnotificacion.png?alt=media&token=d3afd330-3414-4ed6-b131-a498de2ba691"
                 alt="" width="25" height="25">
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" *ngIf="nuevosRegistros > 0">
               {{nuevosRegistros}}
               <span class="visually-hidden">unread messages</span>
             </span>
@@ -63,24 +63,10 @@
           <a class="btn btn-primary dropdown-item" style="background:transparent ; border-color: white"  routerLink="/app-form-editUsuario">
             
             <img
-              src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fsettings.png?alt=media&token=0778b34e-416f-4659-8b3c-37714afbf836"
+              src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fconfiguracion.png?alt=media&token=300f3996-9d7f-4d7b-8bd5-3641c4e53031"
               width="25" height="25">
           </a>
-<!--           
-          <ul class="dropdown-menu dropdown-menu-end" style="background-color: whitesmoke;">
 
-            <li *ngIf="mostrar && !mostrar2"><a class="dropdown-item" routerLink="/app-form-editUsuario"><img
-                  src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fmodificar.png?alt=media&token=80f892de-c49a-4833-8019-1e8d7ec8ef06"
-                  width=25 height=25 align="center">Modificar</a></li>
-
-            <li *ngIf="mostrar && mostrar2 ">
-              
-              <a class="dropdown-item" routerLink="/app-form-editBibliotecario"><img
-                  src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fmodificar.png?alt=media&token=80f892de-c49a-4833-8019-1e8d7ec8ef06"
-                  width=25 height=25 align="center">Modificar</a>
-                
-                </li>
-          </ul> -->
         </div>
         <div class="dropdown" *ngIf="mostrar && mostrar2 ">
           <a class="btn btn-primary dropdown-item" style="background:transparent ; border-color: white" routerLink="/app-form-editBibliotecario">
