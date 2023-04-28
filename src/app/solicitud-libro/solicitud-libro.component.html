@@ -1,111 +1,101 @@
-<img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20normal.png?alt=media&token=5c5a4b10-135a-4467-a1cf-3347bbe58df5"
-    class="rounded float-start" alt="" width="300" height="85">
-<header style="font-size:45px;"> <strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solicitud de un libro</strong></header><br>
+<header>
+    <h4 class="text-center"><strong></strong><br></h4>
+</header>
 
-<body class="elemento" ba>
+<div class="imagen">
+    <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20normal%20peque%C3%B1o.png?alt=media&token=59a16c73-3229-4ba7-81be-567aae799d61"
+        height="80" width="350">
+</div>
 
-    <form ngNativeValidate style="text-align:center ;" method="post">
+<!--FORMULARIO-->
 
-        <div class="mb-3">
-            <label class="destacado form-label">
-                <font size="4">Cédula del Estudiante:</font>
-            </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input #email class="text-center" type="text" size="55" required>
-            <br><br>
-            <label class="destacado form-label">
-                <font size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Código DEWEY:</font>
-            </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input #email class="text-center" type="text" size="55" required>
-            <br><br>
-            <label class="destacado form-label">
-                <font size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Titulo del Libro:</font>
-            </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input #email class="text-center" type="text" size="55" required>
-            <br><br>
-            <label class="destacado form-label">
-                <font size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Estado del Libro:</font>
-            </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input #email class="text-center" type="text" size="55" required>
-            <br><br>
-            <label class="destacado form-label">
-                <font size="4">Documento Habilitante:</font>
-            </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <select name="TipoSelect" style="height: 27px;" class="col-sm-3" aria-label="Default select example">
-                <option selected disabled value="0">Seleccione</option>
-                <option #TSelect *ngFor="let tipo of names" value="{{tipo}}">{{tipo}}</option>
+<body class="elemento" >
+    <div class="container" >
+        <div class="title">Ficha de Prestamo a Domicilio</div>
+        <div class="content">
+            <form (ngSubmit)="crear()">
+                <div class="user-details" *ngIf="step === 1">
+                    <div class="input-box">
+                        <span class="details">Cantidad:</span>
+                        <input type="number" class="form-control" name="cantidad"
+                            required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Carrera:</span>
+                        <input type="text" class="form-control" name="carrera"
+                            required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Nombres:</span>
+                        <input type="text" class="form-control" name="nombre"
+                            required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Apellidos:</span>
+                        <input type="text" class="form-control" name="apellido"
+                            required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Domicilio</span>
+                        <input type="text" class="form-control" name="domicilio"
+                            required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Telefono:</span>
+                        <input type="number" class="form-control" name="telefono"
+                            required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Correo Electronico:</span>
+                        <input type="email" class="form-control" name="correo"
+                            required>
+                    </div>
+                </div>
 
-            </select>
-            <button type="button" (click)="activarDoc()" class="col-sm" style="height: 30px;">Agregar</button>
-            <button type="button" (click)="desactivarDoc()" class="col-sm" style="width: 30px;">^</button><br>
+                <div class="user-details" *ngIf="step === 2">
+                    <div class="input-box">
+                        <span class="details">Titulo:</span>
+                        <input type="text" class="form-control" name="titulo" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Codigo:</span>
+                        <input type="number" class="form-control" name="codigo" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Fecha de Prestamo:</span>
+                        <input type="date" class="form-control" name="fecha-prestamo" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Fecha de Devolucion:</span>
+                        <input type="date" class="form-control" name="fecha-devolucion" required>
+                    </div>
+                </div>
 
-            <div *ngIf="mostrar">
-                <form #reg="ngForm" (ngSubmit)="guardarDoc(doc.value,reg)">
 
-                    <font size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Agregar documento habilitante</font>
-                    <hr>
-                    <input #doc name="docs" class="col-sm-2" type="text" size="120">
-                    <button type="submit" class="col-sm" style="height: 30px;">Nuevo documento</button>
-                
-                </form>
-            </div>
 
-            <br><label class="destacado form-label">
-                <font size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fecha de Entrega:</font>
-            </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input class="col-sm-4" type="date" size="120" required>
-            <br><br>
-            <label class="destacado form-label">
-                <font size="4">Bibliotecario Responsable:</font>
-            </label> &nbsp;&nbsp;&nbsp;&nbsp;
-            <input #email class="text-center" type="text" size="55" required><br><br>
-            <label class="destacado form-label">
-                <font size="4">&nbsp;&nbsp;&nbsp;Fechade de Devolución:</font><br>
-            </label> &nbsp;&nbsp;&nbsp;&nbsp;
-            <input class="col-sm-4" type="date" size="120" required><br><br>
-            <label class="destacado form-label">
-                <font size="4">&nbsp;&nbsp;&nbsp;&nbsp;Estado del Libro:</font>
-            </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <select name="select" class="col-sm-4">
-                <option value="" selected disabled>Seleccione un estado</option>
-                <option value="value1">Excelente</option>
-                <option value="value2" >Regular</option>
-                <option value="value3">Malo</option>
-            </select><br><br>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" value="true" id="activo" required>
-            &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault1">
-                Préstamo Domiciliario
-            </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input class="form-check-input" type="radio" name="flexRadioDefault" value="false" id="inactivo" required>
-            &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault2">
-                Préstamo en las Instalaciones
-            </label>
+
+
+
+                <div class="button text-center">
+                    <button type="button" class="btn btn-outline-secondary btn-lg mx-3" (click)="retroceder1()"
+                        *ngIf="step > 1">
+                        <i class="fas fa-arrow-left"></i> Retroceder
+                    </button>
+                    <button type="button" class="btn btn-outline-primary btn-lg mx-3" (click)="avanzar1()"
+                        *ngIf="step < 2">
+                        Siguiente <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button type="submit" class="btn btn-outline-success btn-lg mx-3" *ngIf="step === 2"
+                        >
+                        Guardar <i class="fas fa-paper-plane">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar%20libro.png?alt=media&token=b7f639da-1aaa-4d12-8133-a59742d32d87"
+                            width=25 height=25 align="center"></i>
+                    </button>
+                </div>
+
+
+            </form>
         </div>
-        <div class="container overflow-hidden text-center col-sm-1 ">
-            <div class="row gx-5">
-                <div class="col">
-                    <button class="btn" style="background-color:transparent">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fguardar.png?alt=media&token=4325fe8d-024f-4aca-bd99-b5439360b821"
-                            width=30 height=30 align="center">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Guardar</button>
-                </div>
-                <div class="col">
-                    <button class="btn" style="background-color:transparent">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fmodificar.png?alt=media&token=80f892de-c49a-4833-8019-1e8d7ec8ef06"
-                            width=30 height=30 align="center">
-                        &nbsp;&nbsp;Modificar</button>
-                </div>
-                <div class="col">
-                    <button class="btn" style="background-color:transparent" routerLink="/app-lista-bibliotecarios">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Flistas.png?alt=media&token=97df573d-51ec-4d24-8b96-d68164b717ff"
-                            width=30 height=30 align="center">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lista</button>
-                </div>
-            </div>
-        </div>
-    </form>
-
-
-
+    </div>
 
 </body>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { doch } from './doch';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-solicitud-libro',
@@ -14,6 +16,25 @@ variable?:number
 
 documentos:doch=new doch;
 names?:string[]=[];
+
+step = 1;
+retroceder1() {
+  this.step--;
+}
+avanzar1() {
+  this.step++;
+}
+
+crear(){
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: '<strong>Guardado correctamente</strong>',
+    showConfirmButton: false,
+    timer: 1500
+  })
+}
+
 
   constructor() { }
 
