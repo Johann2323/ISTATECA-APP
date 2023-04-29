@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 import { registerLocaleData } from '@angular/common';
 import { Observable } from 'rxjs';
 import { ActaDonacionService } from './acta-donacion.service';
-import { RegistroLibroService } from './registro-libro.service'; 
+import { RegistroLibroService } from './registro-libro.service';
 
 
 @Component({
@@ -50,85 +50,20 @@ export class VistaRegistroNewComponent implements OnInit {
   public keyword = 'nombre';
 
 
-
   step = 1;
-  retroceder1() {
-    this.step--;
-  }
+  totalSteps = 8;
   avanzar1() {
-    this.step++;
+    if (this.step < this.totalSteps) {
+      this.step++;
+    }
   }
-
-/* edittt byron*/
-
-  seccionAdquisicionCompleta = false;
-  seccionDescripcionCompleta = false;
-  seccionDimensionesCompleta = false;
-  seccionNumPaginasCompleta = false;
-  seccionIdiomaCompleta = false;
-  seccionEstadoCompleta = false;
-  seccionCompleta = false;
-
-
-  avanzar() {
-    if (!this.seccionAdquisicionCompleta) {
-      this.seccionAdquisicionCompleta = true;
-    } else if (!this.seccionDescripcionCompleta) {
-      this.seccionDescripcionCompleta = true;
-    } else if (!this.seccionDimensionesCompleta) {
-      this.seccionDimensionesCompleta = true;
-    } else if (!this.seccionNumPaginasCompleta) {
-      this.seccionNumPaginasCompleta = true;
-    } else if (!this.seccionIdiomaCompleta) {
-      this.seccionIdiomaCompleta = true;
-    } else if (!this.seccionEstadoCompleta) {
-      this.seccionEstadoCompleta = true;
-
-      this.seccionCompleta = false; 
-      this.EspecificacionesCompletadas(); 
+  retroceder1() {
+    if (this.step > 1) {
+      this.step--;
     }
   }
 
-  EspecificacionesCompletadas() {
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: '<strong>Especificaciones Guardadas</strong>',
-      showConfirmButton: false,
-      timer: 1500
-    })
-  }
-
-
-  retroceder() {
-    if (this.seccionEstadoCompleta) {
-      this.seccionEstadoCompleta = false;
-      this.seccionIdiomaCompleta = true;
-    } else if (this.seccionIdiomaCompleta) {
-      this.seccionIdiomaCompleta = false;
-      this.seccionNumPaginasCompleta = true;
-    } else if (this.seccionNumPaginasCompleta) {
-      this.seccionNumPaginasCompleta = false;
-      this.seccionDimensionesCompleta = true;
-    } else if (this.seccionDimensionesCompleta) {
-      this.seccionDimensionesCompleta = false;
-      this.seccionDescripcionCompleta = true;
-    } else if (this.seccionDescripcionCompleta) {
-      this.seccionDescripcionCompleta = false;
-      this.seccionAdquisicionCompleta = true;
-    } else if (this.seccionAdquisicionCompleta) {
-      this.seccionAdquisicionCompleta = false;
-    }
-  }
-
-
-/* end editt*/
-
-
-
-
-
-
+  
 
   public previsualizacion?: string
   public PDF?: string
@@ -151,7 +86,6 @@ export class VistaRegistroNewComponent implements OnInit {
     this.buscar(this.reporteV + '')
     this.ListaT.obtenerTipos().subscribe(
       TipoS => this.Tipoe = TipoS
-
 
     );
 
@@ -323,6 +257,7 @@ export class VistaRegistroNewComponent implements OnInit {
 
   public crearLibro(reg: NgForm): void {
 
+
     console.log("Se ha realizado un click")
     this.Libro.tipo = this.tipo
     this.Libro.bibliotecario = this.bibliotecarios
@@ -336,24 +271,94 @@ export class VistaRegistroNewComponent implements OnInit {
     this.Libro.activo = true;
 
 
+    let campoFaltante = this.validarCampos();
+    if (campoFaltante === '') {
+      this.libroservice.create(this.Libro).subscribe(
+        Response => {
 
-    this.libroservice.create(this.Libro).subscribe(
-      Response => {
+          this.Libro
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: '<strong>Has registrado un Libro</strong>',
+            showConfirmButton: false,
+            timer: 1500
+          }) 
+          console.log(this.libroservice);
 
-        this.Libro
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: '<strong>Has registrado un Libro</strong>',
-          showConfirmButton: false,
-          timer: 1500
-        })
-        console.log(this.libroservice);
-
-      }
+        }
+        
 
 
-    ); reg.reset();
+      );
+    } else {
+      Swal.fire({
+        position: 'center',
+        icon: 'info',
+        title: `El campo ${campoFaltante} es requerido`,
+        showConfirmButton: false,
+        timer: 2000
+      });
+    }
+
+
+    reg.reset();
 
   }
+
+
+
+  validarCampos() {
+    if (!this.Libro.codigo_dewey) {
+      return 'Código Dewey';
+    } else if (!this.Libro.cod_ISBN) {
+      return 'Código ISBN';
+    } else if (!this.Libro.indice_uno) {
+      return 'Indice 1';
+    } else if (!this.Libro.indice_dos) {
+      return 'Indice 2';
+    } else if (!this.Libro.indice_tres) {
+      return 'Indice 3';
+    } else if (!this.Libro.adquisicion) {
+      return 'Adquisicion';
+    } else if (!this.Libro.descripcion) {
+      return 'Descripción';
+    } else if (!this.Libro.dimensiones) {
+      return 'Dimensiones';
+    } else if (!this.Libro.num_paginas) {
+      return 'N° de Paginas';
+    } else if (!this.Libro.idioma) {
+      return 'Idioma';
+    } else if (!this.Libro.estado_libro) {
+      return 'Estado libro';
+    } else if (!this.Libro.titulo) {
+      return 'Titulo del Libro';
+    } else if (!this.Libro.editor) {
+      return 'Editor';
+    } else if (!this.Libro.area) {
+      return 'Area';
+    } else if (!this.Libro.anio_publicacion) {
+      return 'Año de Publicación';
+/*     } else if (!this.Libro.autor) {
+      return 'Autor'; */
+/*     } else if (!this.Libro.tipo) {
+      return 'Tipo libro'; */
+/*     } else if (!this.Libro.imagen) {
+      return 'Imagen'; */
+    } else if (!this.Libro.fecha_creacion) {
+      return 'Fecha de Creación';
+    }else if (!this.Libro.url_digital) {
+      return 'URL Digital';
+    }else if (!this.Libro.ciudad) {
+      return 'Ciudad';
+    }else if (!this.Libro.disponibilidad) {
+      return 'disponible'; 
+    }else if (!this.Libro.nombre_donante) {
+      return 'Nombre Donante';
+    }else {
+      return '';
+    }
+  }
+
+
 }

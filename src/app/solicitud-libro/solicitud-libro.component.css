@@ -21,10 +21,11 @@ body{
   background-image: url(https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Ffondo-blanco.jpg?alt=media&token=c8998dec-d6d9-4e39-a6f4-7aff45ede80d);
   background-repeat: no-repeat;
   background-position: 100%;
+  display: flex;
 }
 .container{
-  max-width: 700px;
-  width: 100%;
+  max-width: 600px;
+  width: 50%;
   background-color: #ffffff;
   padding: 25px 30px;
   border-radius: 5px;
@@ -159,5 +160,3 @@ form .user-details .input-box{
     flex-direction: column;
   }
 }
-
-

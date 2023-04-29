@@ -9,65 +9,61 @@
 
 <!--FORMULARIO-->
 
-<body class="elemento" >
-    <div class="container" >
+<body class="elemento">
+    <div class="container">
         <div class="title">Ficha de Prestamo a Domicilio</div>
         <div class="content">
             <form (ngSubmit)="crear()">
-                <div class="user-details" *ngIf="step === 1">
-                    <div class="input-box">
-                        <span class="details">Cantidad:</span>
-                        <input type="number" class="form-control" name="cantidad"
-                            required>
+                <div class="step-counter">
+                    Paso {{ step }} de {{ totalSteps }} 
+                    <div class="user-details" *ngIf="step === 1">
+                        <div class="input-box">
+                            <span class="details">Cantidad:</span>
+                            <input type="number" class="form-control" name="cantidad" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Carrera:</span>
+                            <input type="text" class="form-control" name="carrera" required >
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Nombres:</span>
+                            <input type="text" class="form-control" name="nombre" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Apellidos:</span>
+                            <input type="text" class="form-control" name="apellido" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Domicilio</span>
+                            <input type="text" class="form-control" name="domicilio" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Telefono:</span>
+                            <input type="number" class="form-control" name="telefono" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Correo Electronico:</span>
+                            <input type="email" class="form-control" name="correo" required>
+                        </div>
                     </div>
-                    <div class="input-box">
-                        <span class="details">Carrera:</span>
-                        <input type="text" class="form-control" name="carrera"
-                            required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Nombres:</span>
-                        <input type="text" class="form-control" name="nombre"
-                            required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Apellidos:</span>
-                        <input type="text" class="form-control" name="apellido"
-                            required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Domicilio</span>
-                        <input type="text" class="form-control" name="domicilio"
-                            required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Telefono:</span>
-                        <input type="number" class="form-control" name="telefono"
-                            required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Correo Electronico:</span>
-                        <input type="email" class="form-control" name="correo"
-                            required>
-                    </div>
-                </div>
 
-                <div class="user-details" *ngIf="step === 2">
-                    <div class="input-box">
-                        <span class="details">Titulo:</span>
-                        <input type="text" class="form-control" name="titulo" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Codigo:</span>
-                        <input type="number" class="form-control" name="codigo" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Fecha de Prestamo:</span>
-                        <input type="date" class="form-control" name="fecha-prestamo" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Fecha de Devolucion:</span>
-                        <input type="date" class="form-control" name="fecha-devolucion" required>
+                    <div class="user-details" *ngIf="step === 2">
+                        <div class="input-box">
+                            <span class="details">Titulo:</span>
+                            <input type="text" class="form-control" name="titulo" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Codigo:</span>
+                            <input type="number" class="form-control" name="codigo" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Fecha de Prestamo:</span>
+                            <input type="date" class="form-control" name="fecha-prestamo" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Fecha de Devolucion:</span>
+                            <input type="date" class="form-control" name="fecha-devolucion" required>
+                        </div>
                     </div>
                 </div>
 
@@ -85,11 +81,10 @@
                         *ngIf="step < 2">
                         Siguiente <i class="fas fa-arrow-right"></i>
                     </button>
-                    <button type="submit" class="btn btn-outline-success btn-lg mx-3" *ngIf="step === 2"
-                        >
+                    <button type="submit" class="btn btn-outline-success btn-lg mx-3" *ngIf="step === 2">
                         Guardar <i class="fas fa-paper-plane">
                             <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar%20libro.png?alt=media&token=b7f639da-1aaa-4d12-8133-a59742d32d87"
-                            width=25 height=25 align="center"></i>
+                                width=25 height=25 align="center"></i>
                     </button>
                 </div>
 

@@ -13,6 +13,8 @@
         <div class="title">Registro de Libros</div>
         <div class="content">
             <form #reg="ngForm" (ngSubmit)="crearLibro(reg)">
+                <div class="step-counter">
+                    Paso {{ step }} de {{ totalSteps }} 
                 <div class="user-details" *ngIf="step === 1">
                     <div class="input-box">
                         <span class="details">Codigo DEWEY:</span>
@@ -211,23 +213,7 @@
 
 
                 <div class="user-details" *ngIf="step === 8">
-                    <div class="row mb-3">
-                        <label for="disponibilidad" class="col-sm-6 col-form-label">
-                            <h2 class="mb-0">Disponible:</h2>
-                        </label>
-                        <div class="col-sm-6">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" value="true"
-                                    id="Disponible" [(ngModel)]="Libro.disponibilidad" required>
-                                <label class="form-check-label" for="flexRadioDefault1">Disponible</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" value="false"
-                                    id="NoDisponible" [(ngModel)]="Libro.disponibilidad" required>
-                                <label class="form-check-label" for="flexRadioDefault2">No Disponible</label>
-                            </div>
-                        </div>
-                    </div>
+
 
 
 
@@ -243,21 +229,32 @@
                         </div>
                         <br>
 
-                        <div class="row mb" style="align-content: center;">
-                            <label for="Donante" class="col-sm col-form-label">
+                        <div class="input-box">
                                 <span class="details">Nombre Donante:</span>
-                            </label>
-                            <div class="col-sm-8" style="margin-right: 2%; margin-top: 2%;">
-                                <h6><input type="text" class="form-control" name="donante"
+                                <input type="text" class="form-control" name="donante"
                                         [(ngModel)]="Libro.nombre_donante" required rigth>
-                                </h6>
                             </div>
-                        </div>
+
                     </div>
                     <!--FIN REGISTRAR DONANTE-->
 
+                    <div class="input-box">
+                        <span class="details">Disponibilidad:</span>
+                        <div class="form-group">
+                          <select class="form-select" name="disponibilidad" [(ngModel)]="Libro.disponibilidad" required>
+                            <option value="true">Disponible</option>
+                            <option value="false">No Disponible</option>
+                          </select>
+                        </div>
+                      </div>
+                      
+                      
+                      
+                    
 
                 </div>
+                
+            </div>
 
 
 

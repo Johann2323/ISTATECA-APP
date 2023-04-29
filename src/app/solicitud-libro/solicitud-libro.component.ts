@@ -18,12 +18,18 @@ documentos:doch=new doch;
 names?:string[]=[];
 
 step = 1;
-retroceder1() {
-  this.step--;
-}
+totalSteps = 2;
 avanzar1() {
-  this.step++;
+  if (this.step < this.totalSteps) {
+    this.step++;
+  }
 }
+retroceder1() {
+  if (this.step > 1) {
+    this.step--;
+  }
+}
+
 
 crear(){
   Swal.fire({
