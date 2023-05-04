@@ -39,6 +39,9 @@ crear(){
     showConfirmButton: false,
     timer: 1500
   })
+  setTimeout(() => {
+    location.reload();
+  }, 1000);
 }
 
 

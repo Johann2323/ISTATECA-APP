@@ -275,7 +275,6 @@ export class VistaRegistroNewComponent implements OnInit {
     if (campoFaltante === '') {
       this.libroservice.create(this.Libro).subscribe(
         Response => {
-
           this.Libro
           Swal.fire({
             position: 'center',
@@ -285,6 +284,9 @@ export class VistaRegistroNewComponent implements OnInit {
             timer: 1500
           }) 
           console.log(this.libroservice);
+          setTimeout(() => {
+            location.reload();
+          }, 1000);
 
         }
         
@@ -352,7 +354,7 @@ export class VistaRegistroNewComponent implements OnInit {
     }else if (!this.Libro.ciudad) {
       return 'Ciudad';
     }else if (!this.Libro.disponibilidad) {
-      return 'disponible'; 
+      return 'Disponibilidad'; 
     }else if (!this.Libro.nombre_donante) {
       return 'Nombre Donante';
     }else {
