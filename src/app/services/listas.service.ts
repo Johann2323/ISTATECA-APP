@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { autor } from './autor';
-import { TiposLibros } from './tipos-libros';
+import { Autor } from '../models/Autor';
+import { Tipo } from '../models/Tipo';
 import { Observable} from 'rxjs';
 
 @Injectable({
@@ -14,11 +14,11 @@ export class ListasService {
 
   constructor(private http:HttpClient) { }
 
-  obtenerAutores(): Observable<autor[]> {
-    return this.http.get<autor[]>(this.urlendpoint);
+  obtenerAutores(): Observable<Autor[]> {
+    return this.http.get<Autor[]>(this.urlendpoint);
   }
-  obtenerTipos(): Observable<TiposLibros[]> {
-    return this.http.get<TiposLibros[]>(this.urlendpoint1);
+  obtenerTipos(): Observable<Tipo[]> {
+    return this.http.get<Tipo[]>(this.urlendpoint1);
   }
 
 }

@@ -1,12 +1,12 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PersonaService } from './persona.service';
-import { persona } from '../persona';
-import { usuario } from '../registro-usuario/usuario';
-import { bibliotecarios } from '../registro-bibliotecario/bibliotecarios';
+import { PersonaService } from '../services/persona.service';
+import { Persona } from '../models/Persona';
+import { Usuario } from '../models/Usuario';
+import { Bibliotecario } from '../models/Bibliotecario';
 import Swal from 'sweetalert2';
 import { NgForm } from '@angular/forms';
-import { RegistroBibliotecarioService } from '../registro-bibliotecario/registro-bibliotecario.service';
+import { RegistroBibliotecarioService } from '../services/registro-bibliotecario.service';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -17,11 +17,11 @@ import { RegistroBibliotecarioService } from '../registro-bibliotecario/registro
 export class InicioSesionComponent implements OnInit {
   public reporteVN?:string
   respuesta: boolean = false;
-  Persona: persona = new persona;
-  usuarioo: usuario = new usuario;
+  Persona: Persona = new Persona;
+  usuarioo: Usuario = new Usuario;
   public static rol: number = 9;
-  public static usu_id:usuario;
-  public static bibli_id:bibliotecarios;
+  public static usu_id:Usuario;
+  public static bibli_id:Bibliotecario;
   public static nomb:string;
   id_persona:number=0;
   rol2:number=9;

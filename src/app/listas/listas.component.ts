@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ListasService } from './listas.service';
-import { autor } from './autor';
-import { TiposLibros } from './tipos-libros';
+import { ListasService } from '../services/listas.service';
+import { Autor } from '../models/Autor';
+import { Tipo } from '../models/Tipo';
 
 @Component({
   selector: 'app-listas',
@@ -9,8 +9,8 @@ import { TiposLibros } from './tipos-libros';
   styleUrls: ['./listas.component.css']
 })
 export class ListasComponent implements OnInit {
-  Autores:autor[]=[];
-  ttipos:TiposLibros[]=[];
+  Autores:Autor[]=[];
+  ttipos:Tipo[]=[];
 
   constructor(private  listaservice: ListasService) { }
 

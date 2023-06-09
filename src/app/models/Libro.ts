@@ -1,12 +1,12 @@
 
-import { bibliotecarios } from "../registro-bibliotecario/bibliotecarios";
-import { TiposLibros } from '../listas/tipos-libros';
+import { Bibliotecario } from "./Bibliotecario";
+import { Tipo } from "./Tipo";
 
-export class libro{
+export class Libro{
     idLibro?: number;
     codigo_dewey?: string;
     titulo?: string;
-    tipo?:TiposLibros;
+    tipo?:Tipo;
     adquisicion?: string;
     anio_publicacion?: number;
     editor?: string;
@@ -24,7 +24,7 @@ export class libro{
     activo?:boolean;
     imagen?: string;
     url_digital?: string;
-    bibliotecario?: bibliotecarios;
+    bibliotecario?: Bibliotecario;
     fecha_creacion?: Date;
     disponibilidad?: boolean;
     nombre_donante?: string;

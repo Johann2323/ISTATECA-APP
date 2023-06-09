@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { RegistroUsuarioService } from './registro-usuario.service';
+import { RegistroUsuarioService } from '../services/registro-usuario.service';
 import { Router } from '@angular/router';
-import { usuario } from './usuario';
-import { persona } from '../persona';
-import { personaP } from '../personaP';
+import { Usuario } from '../models/Usuario';
+import { Persona } from '../models/Persona';
+import { PersonaP } from '../models/PersonaP';
 import { ErrorHandler } from '@angular/core';
-import { usuarioE } from '../usuarioE';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,10 +14,10 @@ import Swal from 'sweetalert2';
 })
 export class FormEditComponent implements OnInit {
   reporteV: String = "";
-  public usuario: usuario = new usuario();
-  persona: persona = {};
-  personaP: personaP = {};
-  usuarioE: usuarioE = {};
+  public usuario: Usuario = new Usuario();
+  persona: Persona = {};
+  personaP: PersonaP = {};
+  usuarioE: Usuario = {};
   id?: number;
 
 
@@ -35,7 +34,7 @@ export class FormEditComponent implements OnInit {
 
 
 
-  actualizarUsuario(usuario: usuario) {
+  actualizarUsuario(usuario: Usuario) {
 
     Swal.fire({
       title: '¿Quieres guardar los cambios?',

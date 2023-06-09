@@ -1,8 +1,8 @@
-import { libro } from "../registro-libro/libro";
-import { usuario } from "../registro-usuario/usuario";
+import { Libro } from "./Libro";
+import { Usuario } from "./Usuario";
 
 
-export class prestamo {
+export class Prestamo {
     id_prestamo?: number;
     activo?: boolean;
     documento_habilitante?: string;
@@ -14,6 +14,6 @@ export class prestamo {
     fecha_recibido?: Date;
     id_bibliotecario_entrega?: number;
     id_bibliotecario_recibido?: number;
-    libro?: libro;
-    usuario?: usuario;
+    libro?: Libro;
+    usuario?: Usuario;
 }

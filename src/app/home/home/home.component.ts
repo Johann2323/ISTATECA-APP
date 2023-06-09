@@ -1,43 +1,41 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
-import { PaginaInicioService } from './pagina-inicio.service';
-import { PaginaInicio } from './pagina';
+import { PaginaInicioService } from 'src/app/services/pagina-inicio.service';
 import { Router, RouterLink } from '@angular/router';
-import { RegistroLibroComponent } from '../registro-libro/registro-libro.component';
-import { libro } from '../registro-libro/libro';
-import { ImprimirInventarioService } from './imprimirInventario.service';
+import { RegistroLibroComponent } from 'src/app/registro-libro/registro-libro.component';
+import { Libro } from 'src/app/models/Libro';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
 import Swal from 'sweetalert2';
 import { NgModel } from '@angular/forms';
-import { prestamo } from '../lista-solicitudes-pendientes/prestamo';
-import { prestamoService } from '../lista-solicitudes-pendientes/prestamo.service';
-import { NotificacionesService } from '../NotificacionesService';
-import { usuarioSolicitud } from '../usuarioSolicitud';
-import { usuarioE } from '../usuarioE';
+import { Prestamo } from 'src/app/models/Prestamo';
+import { prestamoService } from 'src/app/services/prestamo.service';
+import { NotificacionesService } from 'src/app/services/notificaciones.service';
+import { Usuario } from 'src/app/models/Usuario';
 
 @Component({
-  selector: 'app-pagina-inicio',
-  templateUrl: './pagina-inicio.component.html',
-  styleUrls: ['./pagina-inicio.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class PaginaInicioComponent implements OnInit {
+export class HomeComponent implements OnInit {
+
   reporteV: string = "";
-  public PaginaI: PaginaInicio = new PaginaInicio();
-  public usuarioe: usuarioE = new usuarioE();
-  public prestamos: prestamo = new prestamo();
-  paginas: PaginaInicio[] = [];
-  public paginacrear: PaginaInicio = new PaginaInicio();
+  public PaginaI: Libro = new Libro();
+  public usuarioe: Usuario = new Usuario();
+  public prestamos: Prestamo = new Prestamo();
+  paginas: Libro[] = [];
+  public paginacrear: Libro = new Libro();
   mostrar: boolean = false;
-  libros: libro[] = [];
-  libs: PaginaInicio[] = [];
+  libros: Libro[] = [];
+  libs: Libro[] = [];
   bus: boolean = true;
   buscarval: boolean = false;
 
   
 
 
-  constructor(private prestamoService: prestamoService, private paginainicioService: PaginaInicioService, private router: Router, private router1: Router, private impInvServ: ImprimirInventarioService,private notificacionesService: NotificacionesService) { }
+  constructor(private prestamoService: prestamoService, private paginainicioService: PaginaInicioService, private router: Router, private router1: Router,private notificacionesService: NotificacionesService) { }
 
   downloadPDF() {
     // Extraemos el
@@ -174,5 +172,4 @@ export class PaginaInicioComponent implements OnInit {
     }
     );
   }
-
 }

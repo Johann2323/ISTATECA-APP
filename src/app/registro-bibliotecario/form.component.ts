@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { RegistroBibliotecarioService } from './registro-bibliotecario.service';
-import { bibliotecarios } from './bibliotecarios';
-import { persona } from '../persona';
+import { RegistroBibliotecarioService } from '../services/registro-bibliotecario.service';
+import { Bibliotecario } from '../models/Bibliotecario';
+import { Persona } from '../models/Persona';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { personaP } from '../personaP';
-import { bibliotecarioE } from '../bibliotecarioE';
+import { PersonaP } from '../models/PersonaP';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,10 +13,10 @@ import Swal from 'sweetalert2';
   styleUrls: ['./form.component.css']
 })
 export class FormComponentb implements OnInit {
-  public bibliotecarios: bibliotecarios = new bibliotecarios();
-  persona: persona = {};
-  personaP: personaP = {};
-  bibliotecarioE:bibliotecarioE={};
+  public bibliotecarios: Bibliotecario = new Bibliotecario();
+  persona: Persona = {};
+  personaP: PersonaP = {};
+  bibliotecarioE:Bibliotecario={};
   idb?:number;
 
   constructor(private bibliotecarioservice: RegistroBibliotecarioService, private router: Router) { }

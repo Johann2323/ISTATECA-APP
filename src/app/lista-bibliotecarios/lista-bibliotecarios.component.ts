@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { RegistroBibliotecarioService } from '../registro-bibliotecario/registro-bibliotecario.service';
-import { bibliotecarios } from '../registro-bibliotecario/bibliotecarios';
-import { persona } from '../persona';
+import { RegistroBibliotecarioService } from '../services/registro-bibliotecario.service';
+import { Bibliotecario } from '../models/Bibliotecario';
+import { Persona } from '../models/Persona';
 @Component({
   selector: 'app-lista-bibliotecarios',
   templateUrl: './lista-bibliotecarios.component.html',
   styleUrls: ['./lista-bibliotecarios.component.css']
 })
 export class ListaBibliotecariosComponent implements OnInit {
-  bibliotecarios: bibliotecarios[] = [];
-  bibli: bibliotecarios = new bibliotecarios;
+  bibliotecarios: Bibliotecario[] = [];
+  bibli: Bibliotecario = new Bibliotecario;
   val: String = "";
   bus: boolean = true;
   buscarval: boolean = false;

@@ -1,4 +1,4 @@
-export class personaP {
+export class PersonaP {
     id?: number;
     cedula?: string;
     celular?: string;

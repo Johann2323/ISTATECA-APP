@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { PaginaInicio } from './pagina';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { libro } from '../registro-libro/libro'; 
+import { Libro } from '../models/Libro'; 
 
-import { usuarioSolicitud } from '../usuarioSolicitud';
+import { Usuario } from '../models/Usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -16,17 +15,17 @@ export class PaginaInicioService {
   private urlBuscarUsuario: string ='http://localhost:8080/api/usuario';
   constructor(private http: HttpClient ) { }
 
-  getLibros(): Observable <PaginaInicio[]>{
-    return this.http.get<PaginaInicio[]>(this.urlEndPoint);
+  getLibros(): Observable <Libro[]>{
+    return this.http.get<Libro[]>(this.urlEndPoint);
   }
 
   buscarLibro (nombre:String)
-  :Observable<PaginaInicio[]>{
+  :Observable<Libro[]>{
     let res=this.urlBuscarLibro+'/'+nombre;
-    return this.http.get<PaginaInicio[]>(res);
+    return this.http.get<Libro[]>(res);
   }
   obtenerUsuariosId(id:number){
-    return this.http.get<usuarioSolicitud>(this.urlBuscarUsuario+"/"+id)
+    return this.http.get<Usuario>(this.urlBuscarUsuario+"/"+id)
   }
 
   

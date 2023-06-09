@@ -1,8 +1,7 @@
 import { Component, OnInit, DoCheck, Input } from "@angular/core";
-import { PaginaInicioComponent } from "../pagina-inicio/pagina-inicio.component";
 import { InicioSesionComponent } from "../inicio-sesion/inicio-sesion.component";
 import { Router } from '@angular/router';
-import { NotificacionesService } from "../NotificacionesService";
+import { NotificacionesService } from "../services/notificaciones.service";
 
 @Component({
     selector: 'app-header',

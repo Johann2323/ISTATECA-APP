@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { usuario } from '../registro-usuario/usuario';
-import { prestamo } from './prestamo';
-import { prestamoService } from './prestamo.service';
+import { Usuario } from '../models/Usuario';
+import { Prestamo } from '../models/Prestamo';
+import { prestamoService } from '../services/prestamo.service';
 
 @Component({
   selector: 'app-lista-solicitudes-pendientes',
@@ -10,8 +10,8 @@ import { prestamoService } from './prestamo.service';
   styleUrls: ['./lista-solicitudes-pendientes.component.css']
 })
 export class ListaSolicitudesPendientesComponent implements OnInit {
-  prestamos: prestamo[] = [];
-  public crearprestamo: prestamo = new prestamo();
+  prestamos: Prestamo[] = [];
+  public crearprestamo: Prestamo = new Prestamo();
   
   
 

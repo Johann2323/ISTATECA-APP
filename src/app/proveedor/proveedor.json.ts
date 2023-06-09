@@ -1,4 +1,4 @@
-import{Proveedor}from './proveedor';
+import{Proveedor}from '../models/Proveedor';
 export const PROVEEDOR:Proveedor[]=[
     {
       id:1,

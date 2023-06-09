@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { bibliotecarios } from './bibliotecarios';
+import { Bibliotecario } from '../models/Bibliotecario';
 import { Observable,of } from 'rxjs';
-import { personaP } from '../personaP';
+import { PersonaP } from '../models/PersonaP';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { bibliotecarioE } from '../bibliotecarioE';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,30 +18,30 @@ export class RegistroBibliotecarioService {
 
   constructor(private http:HttpClient) { }
 
-  create(bibliotecario:bibliotecarios):Observable<bibliotecarios>{
-    return this.http.post<bibliotecarios>(this.urlendpoint, bibliotecario, {headers: this.httpHeaders})
+  create(bibliotecario:Bibliotecario):Observable<Bibliotecario>{
+    return this.http.post<Bibliotecario>(this.urlendpoint, bibliotecario, {headers: this.httpHeaders})
   }
-  obtenerBibliotecarios(): Observable<bibliotecarios[]> {
+  obtenerBibliotecarios(): Observable<Bibliotecario[]> {
     //return of(CLIENTES)
-    return this.http.get<bibliotecarios[]>(this.urlendpoint1);
+    return this.http.get<Bibliotecario[]>(this.urlendpoint1);
   }
 
-  obtenerPersonasId(ced:string) : Observable<personaP>{
+  obtenerPersonasId(ced:string) : Observable<PersonaP>{
     //return of(CLIENTES)
-    return this.http.get<personaP>(this.urlendpoint4+"?ced="+ced);
+    return this.http.get<PersonaP>(this.urlendpoint4+"?ced="+ced);
   }
 
-  buscarBibliotecarios(cedula:String):Observable<bibliotecarios>{
+  buscarBibliotecarios(cedula:String):Observable<Bibliotecario>{
     let res=this.urlendpoint2+"?ced="+cedula;
-    return this.http.get<bibliotecarios>(res);
+    return this.http.get<Bibliotecario>(res);
   }
 
-  update(bibliotecario:bibliotecarios){
-    return this.http.put<bibliotecarios>(this.urlendpoint5+"/"+bibliotecario.id_bibliotecario,bibliotecario);
+  update(bibliotecario:Bibliotecario){
+    return this.http.put<Bibliotecario>(this.urlendpoint5+"/"+bibliotecario.id_bibliotecario,bibliotecario);
       
   }
 
   obtenerBibliotecarioId(id:number){
-    return this.http.get<bibliotecarioE>(this.urlendpoint6+"/"+id)
+    return this.http.get<Bibliotecario>(this.urlendpoint6+"/"+id)
   }
 }

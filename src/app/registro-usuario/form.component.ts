@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { RegistroUsuarioService } from './registro-usuario.service';
-import { usuario } from './usuario';
-import { persona } from '../persona';
+import { RegistroUsuarioService } from '../services/registro-usuario.service';
+import { Usuario } from '../models/Usuario';
+import { Persona } from '../models/Persona';
 import { InicioSesionComponent } from '../inicio-sesion/inicio-sesion.component';
 import { RouterLink } from '@angular/router';
-import { personaP } from '../personaP';
+import { PersonaP } from '../models/PersonaP';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,9 +15,9 @@ import Swal from 'sweetalert2';
 })
 export class FormComponent implements OnInit {
 
-  public usuario: usuario = new usuario();
-  persona: persona = {};
-  personaP:personaP={};
+  public usuario: Usuario = new Usuario();
+  persona: Persona = {};
+  personaP:PersonaP={};
 
 
   constructor(private usuarioservice: RegistroUsuarioService, private router: Router) { }

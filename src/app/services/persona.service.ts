@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpBackend, HttpClient, HttpEvent, HttpHeaders, HttpParams, HttpResponse, HttpUserEvent } from '@angular/common/http';
-import { persona } from "../persona";
+import { Persona } from "../models/Persona";
 import { map, Observable } from 'rxjs';
-import { usuario } from '../registro-usuario/usuario';
-import { bibliotecarios } from '../registro-bibliotecario/bibliotecarios';
+import { Usuario } from '../models/Usuario';
+import { Bibliotecario } from '../models/Bibliotecario';
 
 @Injectable({
   providedIn: 'root'
@@ -23,17 +23,17 @@ export class PersonaService {
     let res=this.urlendpoint1+"?usuario="+usuario;
     return this.http.get<number>(res);
   }
-  val_persona(usuario:String, clave:String):Observable<persona>{
+  val_persona(usuario:String, clave:String):Observable<Persona>{
     let res=this.urlendpoint2+"?usuario="+usuario+"&clave="+clave;
-    return this.http.get<persona>(res);
+    return this.http.get<Persona>(res);
   }
-  tipo_usuario(id_persona:number, rol:number):Observable<usuario>{
+  tipo_usuario(id_persona:number, rol:number):Observable<Usuario>{
     let res=this.urlendpoint3+"?id_persona="+id_persona+"&rol="+rol;
-    return this.http.get<usuario>(res);
+    return this.http.get<Usuario>(res);
   }
-  tipo_biblitecario(id_persona:number, rol:number):Observable<bibliotecarios>{
+  tipo_biblitecario(id_persona:number, rol:number):Observable<Bibliotecario>{
     let res=this.urlendpoint3+"?id_persona="+id_persona+"&rol="+rol;
-    return this.http.get<bibliotecarios>(res);
+    return this.http.get<Bibliotecario>(res);
   }
   
 }

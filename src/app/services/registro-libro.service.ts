@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { map, Observable,of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { libro } from './libro';
-import { autor } from '../listas/autor';
+import { Libro } from '../models/Libro';
+import { Autor } from '../models/Autor';
 
 @Injectable({
   providedIn: 'root'
@@ -16,20 +16,21 @@ export class RegistroLibroService {
 
   constructor(private http:HttpClient) { }
 
-  create(libro:libro):Observable<libro>{
-    return this.http.post<libro>(this.urlendpoint, libro, {headers: this.httpHeaders})
+  create(libro:Libro):Observable<Libro>{
+    return this.http.post<Libro>(this.urlendpoint, libro, {headers: this.httpHeaders})
   }
 
-  obtenerAutores(): Observable<autor[]> {
-    return this.http.get<autor[]>(this.urlListarAutor);
+  obtenerAutores(): Observable<Autor[]> {
+    return this.http.get<Autor[]>(this.urlListarAutor);
   }
-  obtenerLibro(nombre: String): Observable<libro[]> {
-   return this.http.get<libro[]>(this.urlendpoint1);
+  obtenerLibro(nombre: String): Observable<Libro[]> {
+   return this.http.get<Libro[]>(this.urlendpoint1);
   }
 
   buscarLibro (nombre:String)
-  :Observable<libro>{
+  :Observable<Libro>{
     let res=this.urlBuscarLibro+'/'+nombre;
-    return this.http.get<libro>(res);
+    return this.http.get<Libro>(res);
   }
 }
+

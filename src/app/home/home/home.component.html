@@ -69,7 +69,7 @@
   
             <tbody class="text-center" *ngIf=bus>
               <tr *ngFor="let pagina of paginas">
-                <td>{{ pagina.id_libro }}</td>
+                <td>{{ pagina.idLibro }}</td>
                 <td>{{ pagina.titulo }}</td>
                 <td>{{ pagina.area }}</td>
                 <td>{{ pagina.anio_publicacion }}</td>
@@ -97,7 +97,7 @@
           </thead>
           <tbody class="text-center">
             <tr *ngFor="let lib of libs">
-              <td>{{ lib.id_libro }}</td>
+              <td>{{ lib.idLibro }}</td>
               <td>{{ lib.titulo }}</td>
               <td>{{ lib.area }}</td>
               <td>{{ lib.anio_publicacion }}</td>

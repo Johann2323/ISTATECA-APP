@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Proveedor } from './proveedor';
-import { ProveedorService } from './proveedor.service';
+import { Proveedor } from '../models/Proveedor';
+import { ProveedorService } from '../services/proveedor.service';
 @Component({
   selector: 'app-proveedor',
   templateUrl: './proveedor.component.html'

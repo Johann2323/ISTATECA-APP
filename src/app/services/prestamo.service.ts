@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { prestamo } from './prestamo';
+import { Prestamo } from '../models/Prestamo';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { libro } from '../registro-libro/libro'; 
+import { Libro } from '../models/Libro'; 
 
 @Injectable({
   providedIn: 'root'
@@ -16,18 +16,18 @@ export class prestamoService {
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
   constructor(private http: HttpClient ) { }
 
-  getPrestamos(): Observable <prestamo[]>{
-    return this.http.get<prestamo[]>(this.urlEndPoint);
+  getPrestamos(): Observable <Prestamo[]>{
+    return this.http.get<Prestamo[]>(this.urlEndPoint);
   }
 
   buscarPrestamo (estado_prestamo:String)
-  :Observable<prestamo[]>{
+  :Observable<Prestamo[]>{
     let res=this.urlBuscarLibro+'/'+estado_prestamo;
-    return this.http.get<prestamo[]>(res);
+    return this.http.get<Prestamo[]>(res);
   }
 
-  create(prestamos:prestamo):Observable<prestamo>{
-    return this.http.post<prestamo>(this.urlendpoint, prestamos, {headers: this.httpHeaders})
+  create(prestamos:Prestamo):Observable<Prestamo>{
+    return this.http.post<Prestamo>(this.urlendpoint, prestamos, {headers: this.httpHeaders})
   }
   
 

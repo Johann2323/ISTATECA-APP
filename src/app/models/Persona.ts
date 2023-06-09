@@ -1,4 +1,4 @@
-export class persona {
+export class Persona {
     id_persona?: number;
     activo?: boolean;
     cedula?: string;

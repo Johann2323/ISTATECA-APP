@@ -1,20 +1,19 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { libro } from './libro';
-import { bibliotecarios } from '../registro-bibliotecario/bibliotecarios';
+import { Libro } from '../models/Libro';
+import { Bibliotecario } from '../models/Bibliotecario';
 import { FormBuilder, FormGroup, NgForm, Validators, FormControl, NgModel } from '@angular/forms';
-import { ListasService } from '../listas/listas.service';
-import { TiposLibros } from '../listas/tipos-libros';
-import { autor } from '../listas/autor';
-import { RegistroBibliotecarioService } from '../registro-bibliotecario/registro-bibliotecario.service';
-import { bibliotecarioE } from '../bibliotecarioE';
-import { persona } from '../persona';
+import { ListasService } from '../services/listas.service';
+import { Tipo } from '../models/Tipo';
+import { Autor } from '../models/Autor';
+import { RegistroBibliotecarioService } from '../services/registro-bibliotecario.service';
+import { Persona } from '../models/Persona';
 import Swal from 'sweetalert2';
 import { registerLocaleData } from '@angular/common';
 import { Observable } from 'rxjs';
-import { ActaDonacionService } from './acta-donacion.service';
-import { RegistroLibroService } from './registro-libro.service';
+import { ActaDonacionService } from '../services/acta-donacion.service';
+import { RegistroLibroService } from '../services/registro-libro.service';
 
 
 @Component({
@@ -24,14 +23,14 @@ import { RegistroLibroService } from './registro-libro.service';
 })
 export class VistaRegistroNewComponent implements OnInit {
 
-  bibliotecarios: bibliotecarios = {};
-  tipo: TiposLibros = {};
+  bibliotecarios: Bibliotecario = {};
+  tipo: Tipo = {};
   file: any;
   reporteV: String = "";
   reporteV2: String = "";
-  bibliotecarioE: bibliotecarioE = {};
-  persona: persona = {};
-  Tipoe: TiposLibros[] = []
+  bibliotecarioE: Bibliotecario = {};
+  persona: Persona = {};
+  Tipoe: Tipo[] = []
   guardar: boolean = true;
   form!: FormGroup;
 
@@ -42,8 +41,8 @@ export class VistaRegistroNewComponent implements OnInit {
   idT?: number;
 
 
-  libros: libro[] = [];
-  lib: libro = new libro;
+  libros: Libro[] = [];
+  lib: Libro = new Libro;
   bus: boolean = true;
   buscarval: boolean = false;
 
@@ -251,7 +250,7 @@ export class VistaRegistroNewComponent implements OnInit {
   //Guardar Libro
 
 
-  public Libro: libro = new libro();
+  public Libro: Libro = new Libro();
 
   disponible?: boolean = this.Libro.disponibilidad;
 
