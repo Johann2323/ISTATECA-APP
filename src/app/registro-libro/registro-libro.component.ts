@@ -224,9 +224,9 @@ export class RegistroLibroComponent implements OnInit {
 
     this.bibliotecarioservice.obtenerBibliotecarioId(this.idb).subscribe(
       bibliotecarioE => {
-        this.bibliotecarioE = bibliotecarioE, this.persona.cedula = bibliotecarioE.persona?.cedula, this.persona.nombres = bibliotecarioE.persona?.nombres, this.persona.celular = bibliotecarioE.persona?.celular
+       /* this.bibliotecarioE = bibliotecarioE, this.persona.cedula = bibliotecarioE.persona?.cedula, this.persona.nombres = bibliotecarioE.persona?.nombres, this.persona.celular = bibliotecarioE.persona?.celular
         , this.persona.correo = bibliotecarioE.persona?.correo, this.persona.usuario = bibliotecarioE.persona?.usuario, this.persona.clave = bibliotecarioE.persona?.clave, this.persona.rol = bibliotecarioE.persona?.rol
-
+*/
       }
     )
   }
@@ -243,12 +243,12 @@ export class RegistroLibroComponent implements OnInit {
 
   public Libro: Libro = new Libro();
 
-  disponible?: boolean = this.Libro.disponibilidad;
+  disponible?: boolean = this.Libro.lib_disponibilidad;
 
   public crearLibro(reg: NgForm): void {
 
     console.log("Se ha realizado un click")
-    this.Libro.tipo = this.tipo
+    /*this.Libro.tipo = this.tipo
     this.Libro.bibliotecario = this.bibliotecarios
     this.Libro.bibliotecario = this.bibliotecarioE
 
@@ -278,7 +278,7 @@ export class RegistroLibroComponent implements OnInit {
 
 
     ); reg.reset();
-
+*/
   }
 
 

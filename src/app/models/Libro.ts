@@ -5,7 +5,7 @@ import { Tipo } from "./Tipo";
 export class Libro{
     lib_id?: number;
     lib_codigo_dewey?: string;
-    lip_titulo?: string;
+    lib_titulo?: string;
     tip_id?:Tipo;
     lib_adquisicion?: string;
     lib_anio_publicacion?: number;

@@ -3,8 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Libro } from '../models/Libro'; 
 
-import { Usuario } from '../models/Usuario';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -24,9 +22,9 @@ export class PaginaInicioService {
     let res=this.urlBuscarLibro+'/'+nombre;
     return this.http.get<Libro[]>(res);
   }
-  obtenerUsuariosId(id:number){
+ /* obtenerUsuariosId(id:number){
     return this.http.get<Usuario>(this.urlBuscarUsuario+"/"+id)
   }
-
+*/
   
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Usuario } from '../models/Usuario';
 import { Prestamo } from '../models/Prestamo';
 import { prestamoService } from '../services/prestamo.service';
 
@@ -11,7 +10,6 @@ import { prestamoService } from '../services/prestamo.service';
 })
 export class ListaSolicitudesPendientesComponent implements OnInit {
   prestamos: Prestamo[] = [];
-  public crearprestamo: Prestamo = new Prestamo();
   
   
 
@@ -20,10 +18,20 @@ export class ListaSolicitudesPendientesComponent implements OnInit {
 
   ngOnInit(): void {
     this.prestamoService.getPrestamos().subscribe(
-      prestamo => this.prestamos = prestamo
-      //libro => this.libros=libro
+      response =>{
+        response.forEach(element => {
+          if (element.pre_estado_prestamo== 1) {
+            this.prestamos.push(element);
+          }
+        });
+      }
     );
   }
 
+  aceptar(prestamo:Prestamo){
+    const objetoString = JSON.stringify(prestamo);
+    localStorage.setItem("AceptarSolicitud", objetoString);
+    this.router.navigate(['/app-solicitud-libro']);
+  }
 
 }

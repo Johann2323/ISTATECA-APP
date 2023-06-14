@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Usuario } from '../models/Usuario';
 import { Persona } from '../models/Persona';
 import { Observable,of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -15,7 +14,7 @@ export class RegistroUsuarioService {
   private urlendpoint4:string='http://localhost:8080/api/usuario';
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
   constructor(private http:HttpClient) { }
-  
+  /*
   create(usuario:Usuario):Observable<Usuario>{
     return this.http.post<Usuario>(this.urlendpoint, usuario, {headers: this.httpHeaders})
   }
@@ -34,5 +33,5 @@ return this.http.put<Usuario>(this.urlendpoint3+"/"+usuario.id_usuario,usuario);
   }
   obtenerUsuariosId(id:number){
     return this.http.get<Usuario>(this.urlendpoint4+"/"+id)
-  }
+  }*/
 }

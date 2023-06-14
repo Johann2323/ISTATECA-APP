@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpBackend, HttpClient, HttpEvent, HttpHeaders, HttpParams, HttpResponse, HttpUserEvent } from '@angular/common/http';
 import { Persona } from "../models/Persona";
 import { map, Observable } from 'rxjs';
-import { Usuario } from '../models/Usuario';
 import { Bibliotecario } from '../models/Bibliotecario_Cargo';
 
 @Injectable({
@@ -27,13 +26,13 @@ export class PersonaService {
     let res=this.urlendpoint2+"?usuario="+usuario+"&clave="+clave;
     return this.http.get<Persona>(res);
   }
-  tipo_usuario(id_persona:number, rol:number):Observable<Usuario>{
+ /* tipo_usuario(id_persona:number, rol:number):Observable<Usuario>{
     let res=this.urlendpoint3+"?id_persona="+id_persona+"&rol="+rol;
     return this.http.get<Usuario>(res);
   }
   tipo_biblitecario(id_persona:number, rol:number):Observable<Bibliotecario>{
     let res=this.urlendpoint3+"?id_persona="+id_persona+"&rol="+rol;
     return this.http.get<Bibliotecario>(res);
-  }
+  }*/
   
 }

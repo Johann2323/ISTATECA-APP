@@ -233,9 +233,9 @@ export class VistaRegistroNewComponent implements OnInit {
 
     this.bibliotecarioservice.obtenerBibliotecarioId(this.idb).subscribe(
       bibliotecarioE => {
-        this.bibliotecarioE = bibliotecarioE, this.persona.cedula = bibliotecarioE.persona?.cedula, this.persona.nombres = bibliotecarioE.persona?.nombres, this.persona.celular = bibliotecarioE.persona?.celular
+        /*this.bibliotecarioE = bibliotecarioE, this.persona.cedula = bibliotecarioE.persona?.cedula, this.persona.nombres = bibliotecarioE.persona?.nombres, this.persona.celular = bibliotecarioE.persona?.celular
           , this.persona.correo = bibliotecarioE.persona?.correo, this.persona.usuario = bibliotecarioE.persona?.usuario, this.persona.clave = bibliotecarioE.persona?.clave, this.persona.rol = bibliotecarioE.persona?.rol
-
+*/
       }
     )
   }
@@ -252,10 +252,10 @@ export class VistaRegistroNewComponent implements OnInit {
 
   public Libro: Libro = new Libro();
 
-  disponible?: boolean = this.Libro.disponibilidad;
+  /*disponible?: boolean = this.Libro.disponibilidad;*/
 
   public crearLibro(reg: NgForm): void {
-
+/*
 
     console.log("Se ha realizado un click")
     this.Libro.tipo = this.tipo
@@ -304,13 +304,13 @@ export class VistaRegistroNewComponent implements OnInit {
 
 
     reg.reset();
-
+*/
   }
 
 
 
   validarCampos() {
-    if (!this.Libro.codigo_dewey) {
+  /*  if (!this.Libro.codigo_dewey) {
       return 'Código Dewey';
     } else if (!this.Libro.cod_ISBN) {
       return 'Código ISBN';
@@ -345,7 +345,7 @@ export class VistaRegistroNewComponent implements OnInit {
 /*     } else if (!this.Libro.tipo) {
       return 'Tipo libro'; */
 /*     } else if (!this.Libro.imagen) {
-      return 'Imagen'; */
+      return 'Imagen'; *//*
     } else if (!this.Libro.fecha_creacion) {
       return 'Fecha de Creación';
     }else if (!this.Libro.url_digital) {
@@ -359,7 +359,7 @@ export class VistaRegistroNewComponent implements OnInit {
     }else {
       return '';
     }
-  }
+  */}
 
 
 }
