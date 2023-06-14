@@ -8,7 +8,7 @@ export class Prestamo {
     pre_documento_habilitante?: string;
     pre_escaneo_matriz?:string;
     pre_estado_libro?: string;
-    pre_estado_prestamo?: string;
+    pre_estado_prestamo?: number;
     pre_fecha_entrega?: Date;
     pre_fecha_maxima?: Date;
     pre_fecha_devolucion?: Date;

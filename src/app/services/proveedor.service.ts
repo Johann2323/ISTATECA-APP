@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Proveedor } from '../models/Proveedor';
 import{PROVEEDOR} from '../proveedor/proveedor.json';
 
 @Injectable({
@@ -8,7 +7,7 @@ import{PROVEEDOR} from '../proveedor/proveedor.json';
 export class ProveedorService {
 
   constructor() { }
-  obtenerProveedor():Proveedor[]{
+ /* obtenerProveedor():Proveedor[]{
     return PROVEEDOR;
-  }
+  }*/
 }

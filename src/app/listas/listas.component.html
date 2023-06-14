@@ -26,13 +26,15 @@
                     </tr>
                 </thead>
                 <thead class="text-center subcabezera">
-                    <tr>
-                        <th>Nombres de Autores</th>
+                    <tr> 
+                        <th>ID</th>
+                        <th>Nombres</th>
                     </tr>
                 </thead>
                 <tbody class="text-center" >
                     <tr *ngFor="let autor of Autores">
-                        <td>{{autor.nombre}}</td>
+                        <td>{{autor.ato_id}}</td>
+                        <td>{{autor.ato_nombre}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -64,12 +66,16 @@
                 </thead>
                 <thead class="text-center subcabezera">
                     <tr>
-                        <th>Tipos</th>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
                     </tr>
                 </thead>
                 <tbody class="text-center">
-                    <tr *ngFor="let tiposs of ttipos">
-                        <td>{{tiposs.nombre}}</td>
+                    <tr *ngFor="let tipo of ttipos">
+                        <td>{{tipo.tip_id}}</td>
+                        <td>{{tipo.tip_nombre}}</td>
+                        <td>{{tipo.tip_activo}}</td>
                     </tr>
                 </tbody>
             </table>
