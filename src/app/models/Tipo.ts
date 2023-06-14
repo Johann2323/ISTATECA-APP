@@ -1,4 +1,5 @@
 export class Tipo {
-    id_tipo?:Number;
-    nombre?:String;
+    tip_id?:Number;
+    tip_nombre?:string;
+    tip_activo?:boolean;
 }

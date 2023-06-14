@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { PersonaService } from '../services/persona.service';
 import { Persona } from '../models/Persona';
 import { Usuario } from '../models/Usuario';
-import { Bibliotecario } from '../models/Bibliotecario';
+import { Bibliotecario } from '../models/Bibliotecario_Cargo';
 import Swal from 'sweetalert2';
 import { NgForm } from '@angular/forms';
 import { RegistroBibliotecarioService } from '../services/registro-bibliotecario.service';

@@ -3,7 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { RegistroLibroService } from '../services/registro-libro.service';
 import { Libro } from '../models/Libro';
-import { Bibliotecario} from '../models/Bibliotecario';
+import { Bibliotecario} from '../models/Bibliotecario_Cargo';
 import { FormBuilder, FormGroup, NgForm, Validators, FormControl, NgModel } from '@angular/forms';
 import { ListasService } from '../services/listas.service';
 import { Tipo } from '../models/Tipo';

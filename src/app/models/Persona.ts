@@ -1,11 +1,13 @@
+import { PersonaP } from "./PersonaP";
 export class Persona {
-    id_persona?: number;
-    activo?: boolean;
-    cedula?: string;
-    celular?: string;
-    clave?: string;
-    correo?: string;
-    nombres?: string;
-    rol?: number;
-    usuario?: string;
+    per_id?: number;
+    per_activo?: boolean;
+    per_cedula?: string;
+    per_celular?: string;
+    per_correo?: string;
+    per_nombres?: string;
+    per_apellidos?:string;
+    per_calificacion?:string;
+    per_tipo?:number;
+    per_fenix_id?: PersonaP;
 }

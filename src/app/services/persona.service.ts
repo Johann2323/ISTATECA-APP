@@ -3,7 +3,7 @@ import { HttpBackend, HttpClient, HttpEvent, HttpHeaders, HttpParams, HttpRespon
 import { Persona } from "../models/Persona";
 import { map, Observable } from 'rxjs';
 import { Usuario } from '../models/Usuario';
-import { Bibliotecario } from '../models/Bibliotecario';
+import { Bibliotecario } from '../models/Bibliotecario_Cargo';
 
 @Injectable({
   providedIn: 'root'

@@ -3,7 +3,7 @@ import { Usuario } from '../models/Usuario';
 import { Persona } from '../models/Persona';
 import { Observable,of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Bibliotecario } from '../models/Bibliotecario';
+import { Bibliotecario } from '../models/Bibliotecario_Cargo';
 import { PersonaP } from '../models/PersonaP';;
 @Injectable({
   providedIn: 'root'

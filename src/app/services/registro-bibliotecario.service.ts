@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Bibliotecario } from '../models/Bibliotecario';
+import { Bibliotecario } from '../models/Bibliotecario_Cargo';
 import { Observable,of } from 'rxjs';
 import { PersonaP } from '../models/PersonaP';
 import { HttpClient, HttpHeaders } from '@angular/common/http';

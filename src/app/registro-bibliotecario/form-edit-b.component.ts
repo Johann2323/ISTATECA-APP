@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Bibliotecario } from '../models/Bibliotecario';
+import { Bibliotecario } from '../models/Bibliotecario_Cargo';
 import { RegistroBibliotecarioService } from '../services/registro-bibliotecario.service';
 import { Router } from '@angular/router';
 import { Persona } from '../models/Persona';

@@ -1,4 +1,4 @@
 export class Autor {
-    id_autor?:Number;
-    nombre?:String;
+    ato_id?:Number;
+    ato_nombre?:String;
 }
