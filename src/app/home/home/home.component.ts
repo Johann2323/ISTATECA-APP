@@ -146,7 +146,7 @@ export class HomeComponent implements OnInit {
 
       let usuarioJSON = localStorage.getItem('usuariopag')+"";
       let persona = JSON.parse(usuarioJSON);
-
+/*
     console.log("ha realizado un clic")
     this.prestamos.libro = paginacrear
     this.prestamos.usuario=persona
@@ -170,6 +170,6 @@ export class HomeComponent implements OnInit {
       this.notificacionesService.actualizarConteo(1)
       
     }
-    );
+    );*/
   }
 }

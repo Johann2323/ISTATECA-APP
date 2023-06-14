@@ -5,8 +5,6 @@ import { HeaderComponent } from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import { DirectivaComponent } from './directiva/directiva.component';
 import { RouterModule } from '@angular/router';
-import { ProveedorComponent } from './proveedor/proveedor.component';
-import { ProveedorService } from './services/proveedor.service';
 import{HttpClientModule} from '@angular/common/http';
 import { RegistroUsuarioService } from './services/registro-usuario.service';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
@@ -36,7 +34,6 @@ import { HomeComponent } from './home/home/home.component';
     FooterComponent,
     DirectivaComponent,
     HeaderComponent,
-    ProveedorComponent,
     RegistroUsuarioComponent,
     InicioSesionComponent,
     FormComponent,
@@ -63,7 +60,6 @@ import { HomeComponent } from './home/home/home.component';
     RouterModule.forRoot([
       {path: 'app-directiva', component: DirectivaComponent},
       {path: 'app-devolver-libro', component: DevolverLibroComponent},
-      {path: 'app-proveedor', component: ProveedorComponent},
       {path: 'app-registro-usuario', component: RegistroUsuarioComponent},
       {path: '', component: InicioSesionComponent,pathMatch:'full'},
       {path: 'app-form', component: FormComponent},

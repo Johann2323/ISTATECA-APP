@@ -69,12 +69,12 @@
   
             <tbody class="text-center" *ngIf=bus>
               <tr *ngFor="let pagina of paginas">
-                <td>{{ pagina.idLibro }}</td>
-                <td>{{ pagina.titulo }}</td>
-                <td>{{ pagina.area }}</td>
-                <td>{{ pagina.anio_publicacion }}</td>
-                <td>{{ pagina.descripcion }}</td>
-                <td>{{ pagina.disponibilidad ? 'Disponible' : 'No disponible' }}</td>
+                <td>{{ pagina.lib_id }}</td>
+                <td>{{ pagina.lib_titulo }}</td>
+                <td>{{ pagina.lib_area }}</td>
+                <td>{{ pagina.lib_anio_publicacion }}</td>
+                <td>{{ pagina.lib_descripcion }}</td>
+                <td>{{ pagina.lib_disponibilidad ? 'Disponible' : 'No disponible' }}</td>
                 <td>
                   <button (click)="SolicitarLibro(pagina)">Solicitar</button>
                 </td>
@@ -97,12 +97,12 @@
           </thead>
           <tbody class="text-center">
             <tr *ngFor="let lib of libs">
-              <td>{{ lib.idLibro }}</td>
-              <td>{{ lib.titulo }}</td>
-              <td>{{ lib.area }}</td>
-              <td>{{ lib.anio_publicacion }}</td>
-              <td>{{ lib.descripcion }}</td>
-              <td>{{ lib.disponibilidad ? 'Disponible' : 'No disponible' }}</td>
+              <td>{{ lib.lib_id }}</td>
+              <td>{{ lib.lib_titulo }}</td>
+              <td>{{ lib.lib_area }}</td>
+              <td>{{ lib.lib_anio_publicacion }}</td>
+              <td>{{ lib.lib_descripcion }}</td>
+              <td>{{ lib.lib_disponibilidad ? 'Disponible' : 'No disponible' }}</td>
               <td>
                 <button (click)="SolicitarLibro(lib)">Solicitar</button>
               </td>

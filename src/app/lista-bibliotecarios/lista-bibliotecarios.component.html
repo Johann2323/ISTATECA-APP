@@ -35,7 +35,7 @@
 
       </thead>
         <tbody class="text-center" *ngIf=bus>
-          <tr *ngFor="let bibliotecario of bibliotecarios">
+         <!-- <tr *ngFor="let bibliotecario of bibliotecarios">
             <td><input class="form-check-input" type="checkbox" role="switch" ></td>
             <td #cedula>{{bibliotecario.persona?.cedula}}</td>
             <td #cedula>{{bibliotecario.persona?.nombres}}</td>
@@ -43,17 +43,17 @@
             <ng-template #menor>
               <p>Bibliotecario</p>
             </ng-template>
-            <td #fechainic >{{bibliotecario.fecha_inicio | date:'shortDate'}}</td>
-            <td #fechafin>{{bibliotecario.fecha_fin| date:'shortDate'}}</td>
+            <td #fechainic >{{bibliotecario.fecha_inicio }}</td>
+            <td #fechafin>{{bibliotecario.fecha_fin}}</td>
             <td #activo *ngIf="bibliotecario.activo_bibliotecario else mm">Activo</td>
             <ng-template #mm>
               <p>Inactivo</p>
             </ng-template>
-          </tr>
+          </tr>-->
         </tbody>
         
         <tbody class="text-center" *ngIf="buscarval">
-          
+          <!--
           <tr id="">
             <td><input class="form-check-input" type="checkbox" role="switch"></td>
             <td>{{bibli.persona?.cedula}}</td>
@@ -62,13 +62,13 @@
             <ng-template #menor>
               <p>Bibliotecario</p>
             </ng-template>
-            <td>{{bibli.fecha_inicio | date:'shortDate'}}</td>
+            <td>{{bibli.fecha_inicio}}</td>
             <td>{{bibli.fecha_fin| date:'shortDate'}}</td>
             <td *ngIf="bibli.activo_bibliotecario else mm">Activo</td>
             <ng-template #mm>
               <p>Inactivo</p>
             </ng-template>
-          </tr>
+          </tr>-->
         </tbody>
     </table>
   </div>

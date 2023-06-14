@@ -92,7 +92,7 @@ export class RegistroLibroComponent implements OnInit {
 
 
   }
-
+/*  
   OnImprimir(tit: NgModel, publi: NgModel, pag: NgModel, des: NgModel, est: NgModel, edi: NgModel, area: NgModel) {
     const encabezado = ["Titulo", "N° Pag", "Descripcion", "Editor", "Publcacion", "Tipo", "Estado"]
 
@@ -112,7 +112,7 @@ export class RegistroLibroComponent implements OnInit {
 
     this.ActaDonacionService.imprimir(encabezado, cuerpo, "Acta de Donacion", false)
   }
-
+*/
 
   //Validar URL
 
@@ -245,7 +245,7 @@ export class RegistroLibroComponent implements OnInit {
 
   disponible?: boolean = this.Libro.lib_disponibilidad;
 
-  public crearLibro(reg: NgForm): void {
+  public crearLibro(/*reg: NgForm*/): void {
 
     console.log("Se ha realizado un click")
     /*this.Libro.tipo = this.tipo

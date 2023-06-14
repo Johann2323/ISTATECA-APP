@@ -9,7 +9,7 @@
 <!--FORMULARIO-->
 
 <body class="elemento">
-    <form #reg="ngForm"   (ngSubmit)="crearLibro(reg)">
+    <form   (ngSubmit)="crearLibro()">
         <div class="card" style="text-align:left">
             
                 <div class="row mb-3">
@@ -17,7 +17,7 @@
                         <h3>Código DEWEY:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text"  class="form-control" name="codigo-DEWEY" [(ngModel)]="Libro.lib_codigo_dewey" required>
+                        <input type="text"  class="form-control" name="codigo-DEWEY" (ngModel)="Libro.lib_codigo_dewey" required>
                         <!-- <div *ngIf="form.get('codigo_dewey')?.errors && form.get('codigo_dewey')?.touched">
                             <small *ngIf="form.get('codigo_dewey')?.hasError('required')" style="color: red;">
                                 Este campo es obligatorio</small>
@@ -31,7 +31,7 @@
                         <h3>Codigo ISBN:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="codigo-ISBN" [(ngModel)]="Libro.lib_cod_isbn" required>
+                        <input type="text" class="form-control" name="codigo-ISBN" (ngModel)="Libro.lib_cod_isbn" required>
                         <!-- <div *ngIf="form.get('cod_ISBN')?.errors && form.get('cod_ISBN')?.touched">
                             <small *ngIf="form.get('cod_ISBN')?.hasError('required')" style="color: red;">
                                 Este campo es obligatorio</small>
@@ -44,7 +44,7 @@
                         <h3>Titulo del Libro:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" #titulos="ngModel" class="form-control" name="titulo-Libro" [(ngModel)]="Libro.lib_titulo" required>
+                        <input type="text"  class="form-control" name="titulo-Libro" (ngModel)="Libro.lib_titulo" required>
                         <!-- <div *ngIf="form.get('titulo')?.errors && form.get('titulo')?.touched">
                             <small *ngIf="form.get('titulo')?.hasError('required')" style="color: red;">
                                 Este campo es obligatorio</small>
@@ -57,7 +57,7 @@
                         <h3>Indice 1:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="indice1" [(ngModel)]="Libro.lib_indice_uno" required>
+                        <input type="text" class="form-control" name="indice1" (ngModel)]="Libro.lib_indice_uno" required>
                         
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                         <h3>Indice 2:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="indice2" [(ngModel)]="Libro.lib_indice_dos" required>
+                        <input type="text" class="form-control" name="indice2" (ngModel)="Libro.lib_indice_dos" required>
                         
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                         <h3>Indice 3:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="indice3" [(ngModel)]="Libro.lib_indice_tres" required>
+                        <input type="text" class="form-control" name="indice3" (ngModel)="Libro.lib_indice_tres" required>
                         
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                         <h3>Adquisicion del Libro:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="adquisicion-libro" [(ngModel)]="Libro.lib_adquisicion" required>
+                        <input type="text" class="form-control" name="adquisicion-libro" (ngModel)="Libro.lib_adquisicion" required>
                         
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                         <h3>Año de Publicación:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="number" class="form-control" #publi="ngModel" name="año-Publicacion" [(ngModel)]="Libro.lib_anio_publicacion" required>
+                        <input type="number" class="form-control"  name="año-Publicacion" (ngModel)="Libro.lib_anio_publicacion" required>
                         <!-- <div *ngIf="form.get('anio_publicacion')?.errors && form.get('anio_publicacion')?.touched">
                             <small *ngIf="form.get('anio_publicacion')?.hasError('required')" style="color: red;">
                                 Este campo es obligatorio</small>
@@ -112,7 +112,7 @@
                         <h3>Editor:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text"  #edi="ngModel" class="form-control" name="editor" [(ngModel)]="Libro.lib_editor" required>
+                        <input type="text"   class="form-control" name="editor" (ngModel)="Libro.lib_editor" required>
                         
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                         <h3>Tipo:</h3>
                     </label>
                     <div class="col-sm-6"  >
-                        <select  [(ngModel)]="opcionSeleccionado" name="TipoSelect" (change)="seleccionT($event)" class="form-select" aria-label="Default select example">
+                        <select  (ngModel)="opcionSeleccionado" name="TipoSelect" (change)="seleccionT($event)" class="form-select" aria-label="Default select example">
                             <option selected disabled value="0">Seleccione</option>
                             <option #TSelect *ngFor="let tipo of Tipoe" value="{{tipo.tip_id}}">{{tipo.tip_nombre}}</option>
                             
@@ -150,7 +150,7 @@
                         <h3>Ciudad:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="ciudad" [(ngModel)]="Libro.lib_ciudad" required>
+                        <input type="text" class="form-control" name="ciudad" (ngModel)="Libro.lib_ciudad" required>
                         
                     </div>
                 </div>
@@ -160,7 +160,7 @@
                         <h3>N° de Paginas:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="number" class="form-control" #pag="ngModel" name="num-Paginas" [(ngModel)]="Libro.lib_num_paginas" required>
+                        <input type="number" class="form-control"  name="num-Paginas" (ngModel)="Libro.lib_num_paginas" required>
                         
                     </div>
                 </div>
@@ -170,7 +170,7 @@
                         <h3>Area:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" #area="ngModel" name="area" [(ngModel)]="Libro.lib_area" required>
+                        <input type="text" class="form-control" name="area" (ngModel)="Libro.lib_area" required>
                         
                     </div>
                 </div>
@@ -183,7 +183,7 @@
                         <h3>Idioma:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="idioma" [(ngModel)]="Libro.lib_idioma" required>
+                        <input type="text" class="form-control" name="idioma" (ngModel)="Libro.lib_idioma" required>
                         
                     </div>
                 </div>
@@ -193,7 +193,7 @@
                         <h3>Descripción:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" #des="ngModel" name="descripcion" [(ngModel)]="Libro.lib_descripcion" required>
+                        <input type="text" class="form-control"  name="descripcion" (ngModel)="Libro.lib_descripcion" required>
                         
                     </div>
                 </div>
@@ -203,7 +203,7 @@
                         <h3>Estado:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" id="estado" #est="ngModel" class="form-control" name="estado" [(ngModel)]="Libro.lib_estado_libro" required>
+                        <input type="text" id="estado"  class="form-control" name="estado" (ngModel)="Libro.lib_estado_libro" required>
                         
                     </div>
                 </div>
@@ -214,7 +214,7 @@
                         <h3>Dimensiones:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="dimensiones" [(ngModel)]="Libro.lib_dimenciones" required>
+                        <input type="text" class="form-control" name="dimensiones" (ngModel)="Libro.lib_dimenciones" required>
                         
                     </div>
                 </div>
@@ -235,7 +235,7 @@
                         <h3>URL Digital:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="text" class="form-control" name="url" [(ngModel)]="Libro.lib_url_digital" required>
+                        <input type="text" class="form-control" name="url" (ngModel)="Libro.lib_url_digital" required>
                         
                     </div>
                 </div>
@@ -245,7 +245,7 @@
                         <h3>Fecha de Creación:</h3>
                     </label>
                     <div class="col-sm">
-                        <input type="date" class="form-control" name="fecha-Creacion" [(ngModel)]="Libro.lib_fecha_creacion" required>
+                        <input type="date" class="form-control" name="fecha-Creacion" (ngModel)="Libro.lib_fecha_creacion" required>
                         
                     </div>
                 </div>
@@ -256,13 +256,13 @@
                     </label>
                     <div class="col-sm-6">
                         <h2>
-                            <input class="form-check-input" type="radio"  name="flexRadioDefault" value="true" id="Disponible" [(ngModel)]="Libro.lib_disponibilidad" required>
+                            <input class="form-check-input" type="radio"  name="flexRadioDefault" value="true" id="Disponible" (ngModel)="Libro.lib_disponibilidad" required>
                             &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault1">
                               Disponible
                             </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           
                           
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" value="false" id="No Disponible" [(ngModel)]="Libro.lib_disponibilidad" required>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" value="false" id="No Disponible" (ngModel)="Libro.lib_disponibilidad" required>
                             &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault2">
                               No Disponible
                             </label>
@@ -286,7 +286,7 @@
 
                 <div class="col">
 
-                    <button class="btn" type="button" style="background-color:transparent" (click)="OnImprimir(titulos,publi,pag,des,est,edi,area)">
+                    <button class="btn" type="button" style="background-color:transparent" >
                         <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fimpresora.png?alt=media&token=a45ef1f8-6983-4e43-8adf-e31a2f1b6928"
                             width=30 height=25 align="center">
                         Imprimir</button>
@@ -356,7 +356,7 @@
             </label>
 
 
-            <input id="subir" accept="image/*"  (change)="capturarImagen($event)" [(ngModel)]="Libro.lib_url_imagen"  type="file"  name="Image">
+            <input id="subir" accept="image/*"  (change)="capturarImagen($event)" (ngModel)="Libro.lib_url_imagen"  type="file"  name="Image">
 
 
 
@@ -385,7 +385,7 @@
                     <h3>Nombre Donante:</h3>
                 </label>
                 <div class="col-sm-8" style="margin-right: 2%; margin-top: 2%;">
-                    <h6><input type="text" class="form-control" name="donante" [(ngModel)]="Libro.lib_nombre_donante" required rigth>
+                    <h6><input type="text" class="form-control" name="donante" (ngModel)="Libro.lib_nombre_donante" required rigth>
                        
                     </h6>
 
@@ -427,7 +427,7 @@
                 <h3>Nombre del Autor:</h3>
             </label>
             <div class="col-sm-8" style="margin-right: 2%; margin-top: 2%;">
-               <ng-autocomplete
+              <!-- <ng-autocomplete
                [data]="dato | async"
                [searchKeyword]="keyword"
                [itemTemplate]="itemTemplate"
@@ -443,7 +443,7 @@
                 
                 <ng-template #notFoundTemplate let-notFound>
                 <div [innerHTML]="notFound"></div>
-                </ng-template>
+                </ng-template>-->
             </div>
         </div>
 

@@ -254,7 +254,7 @@ export class VistaRegistroNewComponent implements OnInit {
 
   /*disponible?: boolean = this.Libro.disponibilidad;*/
 
-  public crearLibro(reg: NgForm): void {
+  public crearLibro(/*reg: NgForm*/): void {
 /*
 
     console.log("Se ha realizado un click")
