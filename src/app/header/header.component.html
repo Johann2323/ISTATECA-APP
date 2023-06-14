@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg" style="background-color: #012844;">
+<nav class="navbar navbar-expand-lg" style="background-image: linear-gradient(90deg,#004f9f,#023b76);">
   <div class="container-fluid">
     <a class="navbar-brand" href="#" style="color: #e3eaef" routerLink="/app-home"> <img
         src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20blanco.png?alt=media&token=0fd4deda-5a8c-4db7-89eb-05e8c1e1643c"
@@ -7,10 +7,10 @@
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="container-fluid" *ngIf="mostrar">
+    <div class="container-fluid" >
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="mostrar2">
-          <div *ngIf="mostrarr">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+          <div >
             <li class="nav-item ">
               <a class="nav-link active" href="#" routerLink="/app-registro-bibliotecario">
                 <img
@@ -41,7 +41,7 @@
         </ul>
         
 
-        <div *ngIf="mostrar2" >
+        <div >
           <button  style="background-color: transparent; border: transparent; width: 45px;"  type="button" class="btn btn-dark position-relative" (click)="ocultar()"  routerLink="/app-lista-solicitudes-pendientes">
 
             <img
@@ -59,7 +59,7 @@
         
 
         &nbsp;&nbsp;
-        <div class="dropdown" *ngIf="mostrar && !mostrar2">
+        <div class="dropdown" >
           <a class="btn btn-primary dropdown-item" style="background:transparent ; border-color: white"  routerLink="/app-form-editUsuario">
             
             <img
@@ -68,7 +68,7 @@
           </a>
 
         </div>
-        <div class="dropdown" *ngIf="mostrar && mostrar2 ">
+        <div class="dropdown" >
           <a class="btn btn-primary dropdown-item" style="background:transparent ; border-color: white" routerLink="/app-form-editBibliotecario">
             
             <img
@@ -87,9 +87,9 @@
 
       </div>
     </div>
-    <div *ngIf="mostrar3">
-      <button (click)="iniciarSesion()" class="boton btn btn-primary"
-        style="background-color:#2E2F5E; font-size: small; border: 1px solid white;">Iniciar
+    <div >
+      <button (click)="iniciarSesion()" class="button2"
+        style="background-color:#0C3769; font-size: small; border: 1px solid white;">Iniciar
         Sesión</button>
     </div>
   </div>

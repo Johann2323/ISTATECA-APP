@@ -6,6 +6,8 @@
   background-image: url(https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Ffondo-blanco.jpg?alt=media&token=c8998dec-d6d9-4e39-a6f4-7aff45ede80d);
   background-repeat: no-repeat;
   background-position: right;
+  display: flex;
+  justify-content: center;
 }
 
 .container-all{
@@ -22,4 +24,35 @@
   top: 50%;
   left: 50%;
   transform:  translate(-50%,-50%);
+}
+
+
+
+button {
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 17px;
+  padding: 0.8em 1.3em 0.8em 0.9em;
+  color: white;
+  background: linear-gradient(90deg,#004f9f,#023b76);
+  letter-spacing: 0.05em;
+  border-radius: 16px;
+}
+
+button svg {
+  margin-right: 3px;
+  transform: rotate(30deg);
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+button span {
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+button:hover svg {
+  transform: translateX(2px) rotate(-10deg);
+}
+
+button:hover span {
+  transform: translateX(7px);
 }

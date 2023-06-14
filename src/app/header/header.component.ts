@@ -5,7 +5,8 @@ import { NotificacionesService } from "../services/notificaciones.service";
 
 @Component({
     selector: 'app-header',
-    templateUrl: './header.component.html'
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements DoCheck {
     reporteV: string = "";
@@ -30,7 +31,7 @@ export class HeaderComponent implements DoCheck {
 
     }
     ngDoCheck(): void {
-        this.reporteV=JSON.parse(localStorage.getItem('rol')+"");
+       /* this.reporteV=JSON.parse(localStorage.getItem('rol')+"");
         console.log("Rol del Usuario: "+this.reporteV+"")
         if (parseInt(this.reporteV) == 0) {
             this.mostrar = true;
@@ -53,6 +54,7 @@ export class HeaderComponent implements DoCheck {
         }
 
         this.reporteN= InicioSesionComponent.nomb
+        */
     }
 
     ngOnInit(): void {
