@@ -52,10 +52,10 @@ export class FormEditComponent implements OnInit {
         this.persona.per_id 
         this.persona.per_activo = true;
         this.persona.per_tipo = 2;
-        this.usuarioservice.update(usuario)
+        /*this.usuarioservice.update(usuario)
           .subscribe(data => {
             this.usuario = data
-          })
+          })*/
         Swal.fire({
           title: '<strong>¡Usuario Actualizado!</strong>',
             confirmButtonText: 'OK',

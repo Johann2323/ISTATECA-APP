@@ -57,10 +57,10 @@ export class FormComponent implements OnInit {
 
     
 
-        this.usuarioservice.createPersona(this.persona).subscribe(
+       /* this.usuarioservice.createPersona(this.persona).subscribe(
           response => { this.persona/*,this.router.navigate([''])*/ 
           //Swal.fire('Usuario Guardado','Te damos la bienvenida "'+this.usuario.persona?.nombres+'" te has registrado con exito','success')
-          Swal.fire({
+         /*  Swal.fire({
             title: '<strong>¡Usuario Guardado!</strong>',
             confirmButtonText: 'OK',
             confirmButtonColor: '#012844',
@@ -73,7 +73,7 @@ export class FormComponent implements OnInit {
         }
           )
 
-        
+        */
   }
 
   
@@ -81,7 +81,7 @@ export class FormComponent implements OnInit {
   
 
    buscarFenix(cedula:string){
-    
+    /*
 
     if(cedula==""){
       alert('INGRESE UNA CEDULA')
@@ -100,7 +100,7 @@ export class FormComponent implements OnInit {
     }
     
    
-   
+   */
   }
 
-}
+  }
