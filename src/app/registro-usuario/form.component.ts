@@ -46,21 +46,19 @@ export class FormComponent implements OnInit {
 
   public create(): void {
     console.log("ha realizado un clic")
-    this.usuario.persona=this.persona
-    this.persona.activo=true;
-    this.persona.rol=2;
+    this.usuario=this.persona
+    this.persona.per_activo=true;
+    this.persona.per_tipo=2;
 
-    this.persona.cedula=this.personaP.cedula
-    this.persona.nombres=this.personaP.nombres
-    this.persona.correo=this.personaP.correo
-    this.persona.celular=this.personaP.celular
+    this.persona.per_nombres=this.personaP.nombres
+    this.persona.per_correo=this.personaP.correo
+    this.persona.per_celular=this.personaP.celular
 
-    console.log(this.persona.cedula)
-    console.log(this.usuario.observaciones)
+
     
 
-        this.usuarioservice.create(this.usuario).subscribe(
-          response => { this.usuario/*,this.router.navigate([''])*/ 
+        this.usuarioservice.createPersona(this.persona).subscribe(
+          response => { this.persona/*,this.router.navigate([''])*/ 
           //Swal.fire('Usuario Guardado','Te damos la bienvenida "'+this.usuario.persona?.nombres+'" te has registrado con exito','success')
           Swal.fire({
             title: '<strong>¡Usuario Guardado!</strong>',
@@ -68,7 +66,7 @@ export class FormComponent implements OnInit {
             confirmButtonColor: '#012844',
             icon: 'success',
             html:
-              '<b>'+this.usuario.persona?.nombres+'</b><br>'+
+              '<b>'+this.persona?.per_nombres+'</b><br>'+
               'te has registrado con exito'
           })
           this.router.navigate([''])

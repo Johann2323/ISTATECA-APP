@@ -37,7 +37,7 @@ export class RegistroBibliotecarioService {
   }
 
   update(bibliotecario:Bibliotecario){
-    return this.http.put<Bibliotecario>(this.urlendpoint5+"/"+bibliotecario.id_bibliotecario,bibliotecario);
+    return this.http.put<Bibliotecario>(this.urlendpoint5+"/"+bibliotecario.cgo_id,bibliotecario);
       
   }
 

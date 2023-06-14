@@ -58,7 +58,7 @@
   <div class="row mb-3">
        <label for="cedula" class="col-sm-3 col-form-label"> <h3>Cédula:</h3></label>
        <div class="col-sm-5">
-         <h6><input type="number" class="form-control text-center" [(ngModel)]="persona.cedula" placeholder="Ingrese un numero de cedula" name="cedula" readonly required>
+         <h6><input type="number" class="form-control text-center" [(ngModel)]="persona.per_cedula" placeholder="Ingrese un numero de cedula" name="cedula" readonly required>
         </h6>
          </div>
      </div>
@@ -68,7 +68,7 @@
      <div class="row mb-3">
        <label for="nombres" class="col-sm-3 col-form-label"><h3>Nombres:</h3></label>
        <div class="col-sm-5">
-         <h6><input  type="text" o class="form-control text-center" [(ngModel)]="persona.nombres"  placeholder="Aqui apareceran sus datos" name="nombre" readonly  required>
+         <h6><input  type="text" o class="form-control text-center" [(ngModel)]="persona.per_nombres"  placeholder="Aqui apareceran sus datos" name="nombre" readonly  required>
              </h6>
          </div>
      </div>
@@ -78,35 +78,20 @@
      <div class="row mb-3">
        <label for="celular" class="col-sm-3 col-form-label"><h3>Celular:</h3></label>
        <div class="col-sm-5">
-         <h6><input type="number" class="form-control text-center" [(ngModel)]="persona.celular"  placeholder="Aqui apareceran sus datos"   name="celular"  required>
+         <h6><input type="number" class="form-control text-center" [(ngModel)]="persona.per_celular"  placeholder="Aqui apareceran sus datos"   name="celular"  required>
            </h6>
        </div>
      </div>
    <div class="row mb-3">
      <label for="correo" class="col-sm-3 col-form-label"><h3>Email:</h3></label>
      <div class="col-sm-5">
-       <h6><input type="email" class="form-control text-center" [(ngModel)]="persona.correo"  placeholder="Aqui apareceran sus datos"  name="correo"  required>
+       <h6><input type="email" class="form-control text-center" [(ngModel)]="persona.per_correo"  placeholder="Aqui apareceran sus datos"  name="correo"  required>
            </h6>
        </div>
    </div>
 
        
-     <div class="row mb-3">
-         <label for="usuario" class="col-sm-3 col-form-label"><h3>Usuario:</h3></label>
-         <div class="col-sm-5">
-           <h6><input type="text" class="form-control text-center" [(ngModel)]="persona.usuario"  placeholder="Ingrese un nombre de usuario"  name="usuario" required>
-             </h6>
-         </div>
-       </div>
- 
-       
-     <div class="row mb-3">
-         <label for="clave" class="col-sm-3 col-form-label"><h3>Contraseña:</h3></label>
-         <div class="col-sm-5">
-           <h6><input type="password" class="form-control text-center" [(ngModel)]="persona.clave"  placeholder="Ingrese una contraseña"  name="clave" required>
-             </h6>
-         </div>
-       </div>
+    
        
        <div class="container overflow-hidden text-center col-sm-1 ">
          <div class="row gx-5">

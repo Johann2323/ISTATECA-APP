@@ -47,11 +47,11 @@ export class FormEditComponent implements OnInit {
       confirmButtonText: '¡Si, modificalo!'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.usuario.persona = this.persona
-        this.usuario.id_usuario = this.usuarioE.id_usuario
-        this.persona.id_persona = this.usuarioE.persona?.id_persona
-        this.persona.activo = true;
-        this.persona.rol = 2;
+        this.usuario = this.persona
+        this.usuario.per_id 
+        this.persona.per_id 
+        this.persona.per_activo = true;
+        this.persona.per_tipo = 2;
         this.usuarioservice.update(usuario)
           .subscribe(data => {
             this.usuario = data
@@ -63,7 +63,7 @@ export class FormEditComponent implements OnInit {
             icon: 'success',
             html:
             
-              'El usuario<br><b>'+this.usuario.persona?.nombres+'</b><br>'+
+              'El usuario<br><b>'+this.usuario.per_nombres+'</b><br>'+
               'ha sido actualizado correctamente'
           
          }
@@ -81,13 +81,13 @@ export class FormEditComponent implements OnInit {
 
     this.id = Number.parseInt(idss)
 
-    this.usuarioservice.obtenerUsuariosId(this.id).subscribe(
-      usuarioE => {
-        this.usuarioE = usuarioE, this.persona.cedula = usuarioE.persona?.cedula, this.persona.nombres = usuarioE.persona?.nombres, this.persona.celular = usuarioE.persona?.celular
-        , this.persona.correo = usuarioE.persona?.correo, this.persona.usuario = usuarioE.persona?.usuario, this.persona.clave = usuarioE.persona?.clave
+    // this.usuarioservice.obtenerUsuariosId(this.id).subscribe(
+    //   usuarioE => {
+    //     this.usuarioE = usuarioE, this.persona.per_cedula = usuarioE.persona?.cedula, this.persona.nombres = usuarioE.persona?.nombres, this.persona.celular = usuarioE.persona?.celular
+    //     , this.persona.per_correo = usuarioE.persona?.correo, this.persona.usuario = usuarioE.persona?.usuario, this.persona.clave = usuarioE.persona?.clave
 
-      }
-    )
+    //   }
+    // )
   }
 
 }

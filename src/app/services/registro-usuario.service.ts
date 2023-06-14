@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Usuario } from '../models/Usuario';
+//import { Usuario } from '../models/Usuario';
 import { Persona } from '../models/Persona';
 import { Observable,of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Bibliotecario } from '../models/Bibliotecario_Cargo';
-import { PersonaP } from '../models/PersonaP';;
+import { PersonaP } from '../models/PersonaP';import { Usuario } from '../models/Usuario';
+;
 @Injectable({
   providedIn: 'root'
 })
 export class RegistroUsuarioService {
   private urlendpoint:string='http://localhost:8080/api/crearusuario';
+  private urlendpointcrearpers:string='http://localhost:8080/api/crearpersona';
   private urlendpoint2:string='http://localhost:8080/api/fenix_alumno';
   private urlendpoint3:string='http://localhost:8080/api/editarusuario';
   private urlendpoint4:string='http://localhost:8080/api/usuario';
@@ -18,6 +20,9 @@ export class RegistroUsuarioService {
   
   create(usuario:Usuario):Observable<Usuario>{
     return this.http.post<Usuario>(this.urlendpoint, usuario, {headers: this.httpHeaders})
+  }
+  createPersona(persona:Persona):Observable<Persona>{
+    return this.http.post<Persona>(this.urlendpointcrearpers, persona, {headers: this.httpHeaders})
   }
   obtenerPersonasId(ced:string) : Observable<PersonaP>{
     //return of(CLIENTES)
@@ -30,7 +35,7 @@ export class RegistroUsuarioService {
   }
 
   update(usuario:Usuario){
-return this.http.put<Usuario>(this.urlendpoint3+"/"+usuario.id_usuario,usuario);
+return this.http.put<Usuario>(this.urlendpoint3+"/"+usuario.per_id,usuario);
   }
   obtenerUsuariosId(id:number){
     return this.http.get<Usuario>(this.urlendpoint4+"/"+id)

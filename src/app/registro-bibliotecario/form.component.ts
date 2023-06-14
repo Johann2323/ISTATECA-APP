@@ -27,16 +27,16 @@ export class FormComponentb implements OnInit {
   public createbibliotecario(login: NgForm) {
 
     console.log("ha realizado un clic")
-    this.bibliotecarios.persona = this.persona
-    this.persona.activo = true;
+    this.bibliotecarios.per_id = this.persona
+    this.persona.per_activo = true;
 
-    this.persona.cedula = this.personaP.cedula
-    this.persona.nombres = this.personaP.nombres
-    this.persona.correo = this.personaP.correo
-    this.persona.celular = this.personaP.celular
+    this.persona.per_cedula = this.personaP.cedula
+    this.persona.per_nombres = this.personaP.nombres
+    this.persona.per_correo = this.personaP.correo
+    this.persona.per_celular = this.personaP.celular
 
-    console.log(this.bibliotecarios.persona)
-    console.log(this.persona.rol)
+    console.log(this.bibliotecarios.per_id)
+    console.log(this.persona.per_tipo)
     this.bibliotecarioservice.create(this.bibliotecarios).subscribe(
       response => { this.bibliotecarios 
       Swal.fire({
@@ -45,7 +45,7 @@ export class FormComponentb implements OnInit {
         confirmButtonColor: '#012844',
         icon: 'success',
         html:
-          '<b>'+this.bibliotecarios.persona?.nombres+'</b><br>'+
+          '<b>'+this.bibliotecarios.per_id?.per_nombres+'</b><br>'+
           'te has registrado con exito'
       })
     }
