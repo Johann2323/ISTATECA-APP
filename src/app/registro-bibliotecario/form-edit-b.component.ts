@@ -58,10 +58,10 @@ export class FormEditBComponent implements OnInit {
       confirmButtonText: '¡Si, modificalo!'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.bibliotecarios.per_id = this.persona
-        this.bibliotecarios.cgo_id = this.bibliotecarioE.cgo_id
-        this.persona.per_id = this.bibliotecarioE.per_id?.per_id
-        this.persona.per_activo = true;
+        this.bibliotecarios.persona = this.persona
+        this.bibliotecarios.id = this.bibliotecarioE.id
+        this.persona.id = this.bibliotecarioE.persona?.id
+        this.persona.activo = true;
 
 
         this.bibliotecarioservice.update(bibliotecarios)
@@ -75,7 +75,7 @@ export class FormEditBComponent implements OnInit {
               icon: 'success',
               html:
               
-                'El bibliotecario<br><b>'+this.bibliotecarios.per_id?.per_nombres+'</b><br>'+
+                'El bibliotecario<br><b>'+this.bibliotecarios.persona?.nombres+'</b><br>'+
                 'ha sido actualizado correctamente'
             
            }
@@ -100,21 +100,21 @@ export class FormEditBComponent implements OnInit {
 
     this.bibliotecarioservice.obtenerBibliotecarioId(this.idb).subscribe(
       bibliotecarioE => {
-        this.bibliotecarioE = bibliotecarioE, this.persona.per_cedula = bibliotecarioE.per_id?.per_cedula, this.persona.per_nombres = bibliotecarioE.per_id?.per_nombres, this.persona.per_celular = bibliotecarioE.per_id?.per_celular
-        , this.persona.per_correo = bibliotecarioE.per_id?.per_correo, this.persona.per_tipo = bibliotecarioE.per_id?.per_tipo
-        if(bibliotecarioE.cgo_activo_bibliotecario==true){
+        this.bibliotecarioE = bibliotecarioE, this.persona.cedula = bibliotecarioE.persona?.cedula, this.persona.nombres = bibliotecarioE.persona?.nombres, this.persona.celular = bibliotecarioE.persona?.celular
+        , this.persona.correo = bibliotecarioE.persona?.correo, this.persona.tipo = bibliotecarioE.persona?.tipo
+        if(bibliotecarioE.activoBibliotecario==true){
           this.estado="Activo"
 
 
-        }else if(bibliotecarioE.cgo_activo_bibliotecario==false){
+        }else if(bibliotecarioE.activoBibliotecario==false){
           this.estado="Inactivo"
 
         }
 
-        if(bibliotecarioE.per_id?.per_tipo==1){
+        if(bibliotecarioE.persona?.tipo==1){
           this.tipob="Bibliotecario"
           
-        }else if(bibliotecarioE.per_id?.per_tipo==0){
+        }else if(bibliotecarioE.persona?.tipo==0){
           this.tipob="Administrador"
           
         }

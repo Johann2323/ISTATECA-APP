@@ -132,14 +132,14 @@
 
         <h2>
           <input class="form-check-input" type="radio" name="flexRadioDefault1" value="0" id="admin"
-            (ngModel)="persona.per_tipo" required>
+            (ngModel)="persona.tipo" required>
           &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault3">
             Administrador
           </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
           <input class="form-check-input" type="radio" name="flexRadioDefault1" value="1" id="biblioteca"
-            (ngModel)="persona.per_tipo" required>
+            (ngModel)="persona.tipo" required>
           &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault4">
             Bibliotecario
           </label>
@@ -160,7 +160,7 @@
         <h3>Fecha de inicio:</h3>
       </label>
       <div class="col-sm-5">
-        <h6><input type="date" (ngModel)="bibliotecarios.cgo_fecha_inicio" class="form-control text-center"
+        <h6><input type="date" (ngModel)="bibliotecarios.fechaInicio" class="form-control text-center"
             placeholder="Ingrese la fecha de entrada" name="usuario" required>
         </h6>
       </div>
@@ -172,7 +172,7 @@
         <h3>Fecha de salida:</h3>
       </label>
       <div class="col-sm-5">
-        <h6><input type="date" class="form-control text-center" (ngModel)="bibliotecarios.cgo_fecha_fin"
+        <h6><input type="date" class="form-control text-center" (ngModel)="bibliotecarios.fechaFin"
             placeholder="Ingrese la fecha de salida" name="usuario" required>
         </h6>
       </div>
@@ -188,14 +188,14 @@
 
         <h2>
           <input class="form-check-input" type="radio" name="flexRadioDefault" value="true" id="activo"
-            (ngModel)="bibliotecarios.cgo_activo_bibliotecario" required>
+            (ngModel)="bibliotecarios.activoBibliotecario" required>
           &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault1">
             Activo
           </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
           <input class="form-check-input" type="radio" name="flexRadioDefault" value="false" id="inactivo"
-            (ngModel)="bibliotecarios.cgo_activo_bibliotecario" required>
+            (ngModel)="bibliotecarios.activoBibliotecario" required>
           &nbsp;&nbsp;<label class="form-check-label" for="flexRadioDefault2">
             Inactivo
           </label>

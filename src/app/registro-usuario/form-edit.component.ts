@@ -47,7 +47,7 @@ export class FormEditComponent implements OnInit {
       confirmButtonText: '¡Si, modificalo!'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.usuario = this.persona
+        /*this.usuario = this.persona
         this.usuario.per_id 
         this.persona.per_id 
         this.persona.per_activo = true;
