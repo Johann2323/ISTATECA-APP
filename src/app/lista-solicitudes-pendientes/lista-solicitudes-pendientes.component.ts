@@ -33,10 +33,12 @@ export class ListaSolicitudesPendientesComponent implements OnInit {
   aceptarDomicilio(prestamo: Prestamo) {
     const objetoString = JSON.stringify(prestamo);
     localStorage.setItem("AceptarSolicitud", objetoString);
-    this.router.navigate(['/app-solicitud-libro']);
+    this.router.navigate(['/app-solicitud-libro-domicilio']);
   }
   aceptar(prestamo: Prestamo){
-
+    const objetoString = JSON.stringify(prestamo);
+    localStorage.setItem("AceptarSolicitud", objetoString);
+    this.router.navigate(['/app-solicitud-libro']);
   }
 
 }

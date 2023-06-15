@@ -26,8 +26,8 @@
         <tr *ngFor="let prestamo of listaprestamos">
           <td>{{prestamo.id}}</td>
           <td>{{prestamo.libro?.titulo}}</td>
-          <td>
-            <button (click)="aceptarDomicilio(prestamo)">Aceptar Solitud Domicilio</button>
+          <td style="display: flex; justify-content: center;">
+            <button (click)="aceptarDomicilio(prestamo)">Aceptar Solitud Domicilio</button>&nbsp;
             <button (click)="aceptar(prestamo)">Aceptar Solitud Institución</button>
           </td>
         </tr>

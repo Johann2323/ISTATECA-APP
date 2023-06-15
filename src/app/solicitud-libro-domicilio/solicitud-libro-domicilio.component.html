@@ -18,15 +18,8 @@
                     Paso {{ step }} de {{ totalSteps }} 
                     <div class="user-details" *ngIf="step === 1">
                         <div class="input-box">
-                            <span class="details">No. Solicitud:</span>
-                            <input type="text" class="form-control"  disabled name="carrera" required >
-                        </div>
-                        <div class="input-box">
                             <span class="details">Carrera:</span>
-                            <select class="form-select" *ngFor="let carrera of carreras" >
-                                <option selected>Open this select menu</option>
-                                <option value={{carrera}}> {{carrera}}</option>
-                              </select>
+                            <input type="text" class="form-control"   name="carrera" required >
                         </div>
                         <div class="input-box">
                             <span class="details">Nombres:</span>

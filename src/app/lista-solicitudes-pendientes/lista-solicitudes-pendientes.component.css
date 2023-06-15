@@ -51,12 +51,11 @@ button {
   align-items: center;
   font-family: inherit;
   font-weight: 500;
-  font-size: 9px;
+  font-size: 12px;
   padding: 0.8em 1.3em 0.8em 0.9em;
   color: white;
   background: #1C69B7;
   border: none;
-  letter-spacing: 0.05em;
   border-radius: 16px;
 }
 

@@ -28,6 +28,7 @@ import { VistaRegistroNewComponent } from './vista-registro-new/vista-registro-n
 import { HomeComponent } from './home/home/home.component';
 import { ReporteLibrosComponent } from './reporte-libros/reporte-libros.component';
 import { ReporteSugerenciasComponent } from './reporte-sugerencias/reporte-sugerencias.component';
+import { SolicitudLibroDomicilioComponent } from './solicitud-libro-domicilio/solicitud-libro-domicilio.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ReporteSugerenciasComponent } from './reporte-sugerencias/reporte-suger
     HomeComponent,
     ReporteLibrosComponent,
     ReporteSugerenciasComponent,
+    SolicitudLibroDomicilioComponent,
 
   ],
   imports: [
@@ -76,6 +78,7 @@ import { ReporteSugerenciasComponent } from './reporte-sugerencias/reporte-suger
       {path: 'app-listas', component: ListasComponent},
       {path: 'app-lista-solicitudes-pendientes', component: ListaSolicitudesPendientesComponent},
       {path: 'app-solicitud-libro', component: SolicitudLibroComponent},
+      {path: 'app-solicitud-libro-domicilio', component: SolicitudLibroDomicilioComponent},
       {path: 'app-vista-registro-new', component: VistaRegistroNewComponent},
       
     ]),

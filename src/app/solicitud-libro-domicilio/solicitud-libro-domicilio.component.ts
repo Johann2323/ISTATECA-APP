@@ -1,20 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { Prestamo } from '../models/Prestamo';
-import { Carrera } from '../models/Carrera';
-import { CarreraService } from '../services/carrera.service';
-import { doch } from './doch';
 import Swal from 'sweetalert2';
+import { doch } from '../solicitud-libro/doch';
 
 
 @Component({
-  selector: 'app-solicitud-libro',
-  templateUrl: './solicitud-libro.component.html',
-  styleUrls: ['./solicitud-libro.component.css']
+  selector: 'app-solicitud-libro-domicilio',
+  templateUrl: './solicitud-libro-domicilio.component.html',
+  styleUrls: ['./solicitud-libro-domicilio.component.css']
 })
-export class SolicitudLibroComponent implements OnInit {
+export class SolicitudLibroDomicilioComponent implements OnInit {
   prestamo: Prestamo = new Prestamo();
-  carreras: Carrera[] = [];
   mostrar: boolean = false;
   doch: doch[] = []
   variable?: number
@@ -24,18 +21,12 @@ export class SolicitudLibroComponent implements OnInit {
 
   step = 1;
   totalSteps = 2;
-  constructor(private carreraService: CarreraService) { }
+
   ngOnInit(): void {
     var solicitudJSONGET = localStorage.getItem("AceptarSolicitud");
     var solicitud = JSON.parse(solicitudJSONGET + "");
     this.prestamo = solicitud;
     console.log(this.prestamo);
-    this.carreraService.getCarreras().subscribe(
-      respose => {
-        this.carreras = respose;
-      }
-    );
-
   }
 
   avanzar1() {
@@ -64,7 +55,7 @@ export class SolicitudLibroComponent implements OnInit {
   }
 
 
-
+  constructor() { }
   activarDoc() {
     this.mostrar = true
   }
@@ -91,7 +82,4 @@ export class SolicitudLibroComponent implements OnInit {
 
 
   }
-
-
-
 }
