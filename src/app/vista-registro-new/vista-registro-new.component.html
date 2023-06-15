@@ -18,12 +18,12 @@
                 <div class="user-details" *ngIf="step === 1">
                     <div class="input-box">
                         <span class="details">Codigo DEWEY:</span>
-                        <input type="text" class="form-control" name="codigo-DEWEY" (ngModel)="Libro.lib_codigo_dewey"
+                        <input type="text" class="form-control" name="codigo-DEWEY" (ngModel)="Libro.codigoDewey"
                             required>
                     </div>
                     <div class="input-box">
                         <span class="details">Codigo ISBM:</span>
-                        <input type="text" class="form-control" name="codigo-ISBN" (ngModel)="Libro.lib_cod_isbn"
+                        <input type="text" class="form-control" name="codigo-ISBN" (ngModel)="Libro.conIsbn"
                             required>
                     </div>
                 </div>
@@ -31,47 +31,47 @@
                 <div class="user-details" *ngIf="step === 2">
                     <div class="input-box">
                         <span class="details">Indice 1:</span>
-                        <input type="text" class="form-control" name="indice1" (ngModel)="Libro.lib_indice_uno" required>
+                        <input type="text" class="form-control" name="indice1" (ngModel)="Libro.indiceUno" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Indice 2:</span>
-                        <input type="text" class="form-control" name="indice2" (ngModel)="Libro.lib_indice_dos" required>
+                        <input type="text" class="form-control" name="indice2" (ngModel)="Libro.indiceDos" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Indice 3:</span>
-                        <input type="text" class="form-control" name="indice3" (ngModel)="Libro.lib_indice_tres" required>
+                        <input type="text" class="form-control" name="indice3" (ngModel)="Libro.indiceTres" required>
                     </div>
                 </div>
 
                 <div class="user-details" *ngIf="step === 3">
                     <div class="input-box">
                         <span class="details">Adquisicion del Libro:</span>
-                        <input type="text" class="form-control" name="adquisicion-libro" (ngModel)="Libro.lib_adquisicion"
+                        <input type="text" class="form-control" name="adquisicion-libro" (ngModel)="Libro.adquisicion"
                             required>
                     </div>
                     <div class="input-box">
                         <span class="details">Descripción:</span>
                         <input type="text" class="form-control"  name="descripcion"
-                        (ngModel)="Libro.lib_descripcion" required>
+                        (ngModel)="Libro.descripcion" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Dimensiones:</span>
-                        <input type="text" class="form-control" name="dimensiones" (ngModel)="Libro.lib_dimenciones"
+                        <input type="text" class="form-control" name="dimensiones" (ngModel)="Libro.dimenciones"
                             required>
                     </div>
                     <div class="input-box">
                         <span class="details">N° de Paginas:</span>
                         <input type="number" class="form-control"  name="num-Paginas"
-                            (ngModel)="Libro.lib_num_paginas" required>
+                            (ngModel)="Libro.numPaginas" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Idioma:</span>
-                        <input type="text" class="form-control" name="idioma" (ngModel)="Libro.lib_idioma" required>
+                        <input type="text" class="form-control" name="idioma" (ngModel)="Libro.idioma" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Estado:</span>
                         <input type="text" id="estado" class="form-control" name="estado"
-                            (ngModel)="Libro.lib_estado_libro" required>
+                            (ngModel)="Libro.estadoLibro" required>
                     </div>
 
                 </div>
@@ -80,22 +80,22 @@
                     <div class="input-box">
                         <span class="details">Titulo del Libro:</span>
                         <input type="text"  class="form-control" name="titulo-Libro"
-                            (ngModel)="Libro.lib_titulo" required>
+                            (ngModel)="Libro.titulo" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Editor:</span>
-                        <input type="text"  class="form-control" name="editor" (ngModel)="Libro.lib_editor"
+                        <input type="text"  class="form-control" name="editor" (ngModel)="Libro.editor"
                             required>
                     </div>
                     <div class="input-box">
                         <span class="details">Area:</span>
-                        <input type="text" class="form-control" name="area" (ngModel)="Libro.lib_area"
+                        <input type="text" class="form-control" name="area" (ngModel)="Libro.area"
                             required>
                     </div>
                     <div class="input-box">
                         <span class="details">Año de Publicación:</span>
                         <input type="number" class="form-control"  name="año-Publicacion"
-                            (ngModel)="Libro.lib_anio_publicacion" required>
+                            (ngModel)="Libro.anioPublicacion" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Autor:</span>
@@ -181,7 +181,7 @@
                             <i> <img
                                     src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar%20libro.png?alt=media&token=b7f639da-1aaa-4d12-8133-a59742d32d87"></i>
                         </label>
-                        <input id="subir" accept="image/*" (change)="capturarImagen($event)" (ngModel)="Libro.lib_url_imagen"
+                        <input id="subir" accept="image/*" (change)="capturarImagen($event)" (ngModel)="Libro.urlImagen"
                             type="file" name="Image">
                     </div>
                     <!--FIN SUBIR FOTO-->
@@ -197,16 +197,16 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Fecha de Creación:</span>
-                        <input type="date" class="form-control" name="fecha-Creacion" (ngModel)="Libro.lib_fecha_creacion"
+                        <input type="date" class="form-control" name="fecha-Creacion" (ngModel)="Libro.fechaCreacion"
                             required>
                     </div>
                     <div class="input-box">
                         <span class="details">URL Digital:</span>
-                        <input type="text" class="form-control" name="url" (ngModel)="Libro.lib_url_digital" required>
+                        <input type="text" class="form-control" name="url" (ngModel)="Libro.urlDigital" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Ciudad:</span>
-                        <input type="text" class="form-control" name="ciudad" (ngModel)="Libro.lib_ciudad" required>
+                        <input type="text" class="form-control" name="ciudad" (ngModel)="Libro.ciudad" required>
                     </div>
 
                 </div>
@@ -232,7 +232,7 @@
                         <div class="input-box">
                                 <span class="details">Nombre Donante:</span>
                                 <input type="text" class="form-control" name="donante"
-                                        (ngModel)="Libro.lib_nombre_donante" required rigth>
+                                        (ngModel)="Libro.nombreDonante" required rigth>
                             </div>
 
                     </div>
@@ -241,7 +241,7 @@
                     <div class="input-box">
                         <span class="details">Disponibilidad:</span>
                         <div class="form-group">
-                          <select class="form-select" name="disponibilidad" (ngModel)="Libro.lib_disponibilidad" required>
+                          <select class="form-select" name="disponibilidad" (ngModel)="Libro.disponibilidad" required>
                             <option value="true">Disponible</option>
                             <option value="false">No Disponible</option>
                           </select>

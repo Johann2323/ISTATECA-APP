@@ -14,7 +14,7 @@
 
 
 .elemento {
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20fondo%20borroso%20peque%C3%B1o.jpg?alt=media&token=8a7bcc9b-f7e0-4757-b3eb-2a20e389ffae);
+    background-image: url();
     background-repeat: no-repeat;
     background-position: right;
 }
@@ -51,7 +51,7 @@ button {
   align-items: center;
   font-family: inherit;
   font-weight: 500;
-  font-size: 17px;
+  font-size: 9px;
   padding: 0.8em 1.3em 0.8em 0.9em;
   color: white;
   background: #1C69B7;

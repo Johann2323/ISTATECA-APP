@@ -9,29 +9,34 @@ import { prestamoService } from '../services/prestamo.service';
   styleUrls: ['./lista-solicitudes-pendientes.component.css']
 })
 export class ListaSolicitudesPendientesComponent implements OnInit {
-  prestamos: Prestamo[] = [];
-  
-  
-
+  listaprestamos: Prestamo[] = [];
 
   constructor(private prestamoService: prestamoService, private router: Router) { }
 
   ngOnInit(): void {
     this.prestamoService.getPrestamos().subscribe(
-      response =>{
-        response.forEach(element => {
-          if (element.pre_estado_prestamo== 1) {
-            this.prestamos.push(element);
+      response => {
+        /*response.forEach(element => {
+          if (element.pre_estado_prestamo == 4) {
+            this.prestamos.push(element)
           }
         });
+        */
+       this.listaprestamos=response;
+       console.log(response)
+       console.log("Lista Prestamos: "+this.listaprestamos.length);
       }
+
     );
   }
 
-  aceptar(prestamo:Prestamo){
+  aceptarDomicilio(prestamo: Prestamo) {
     const objetoString = JSON.stringify(prestamo);
     localStorage.setItem("AceptarSolicitud", objetoString);
     this.router.navigate(['/app-solicitud-libro']);
+  }
+  aceptar(prestamo: Prestamo){
+
   }
 
 }

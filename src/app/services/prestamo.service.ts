@@ -9,7 +9,7 @@ import { Libro } from '../models/Libro';
 })
 export class prestamoService {
 
-  private urlEndPoint: string='http://localhost:8080/api/listarprestamo'
+  private urlEndPoint: string='http://localhost:8080/prestamo/listar'
   private urlBuscarLibro: string ='http://localhost:8080/api/listarprestamoxestado';
   private urlendpoint: string ='http://localhost:8080/api/crearPrestamo';
 

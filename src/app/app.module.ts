@@ -16,7 +16,6 @@ import { PaginaInicioService } from './services/pagina-inicio.service';
 import { ListaBibliotecariosComponent } from './lista-bibliotecarios/lista-bibliotecarios.component';
 import { ListasComponent } from './listas/listas.component';
 import { ListaSolicitudesPendientesComponent } from './lista-solicitudes-pendientes/lista-solicitudes-pendientes.component';
-import { RegistroLibroComponent } from './registro-libro/registro-libro.component';
 import { PersonaService } from './services/persona.service';
 import { FormComponentb } from './registro-bibliotecario/form.component';
 import { RegistroLibroService } from './services/registro-libro.service';
@@ -27,6 +26,8 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { DevolverLibroComponent } from './devolver-libro/devolver-libro.component';
 import { VistaRegistroNewComponent } from './vista-registro-new/vista-registro-new.component';
 import { HomeComponent } from './home/home/home.component';
+import { ReporteLibrosComponent } from './reporte-libros/reporte-libros.component';
+import { ReporteSugerenciasComponent } from './reporte-sugerencias/reporte-sugerencias.component';
 
 @NgModule({
   declarations: [
@@ -42,13 +43,14 @@ import { HomeComponent } from './home/home/home.component';
     ListaBibliotecariosComponent,
     ListasComponent,
     ListaSolicitudesPendientesComponent,
-    RegistroLibroComponent,
     SolicitudLibroComponent,
     FormEditComponent,
     FormEditBComponent,
     DevolverLibroComponent,
     VistaRegistroNewComponent,
     HomeComponent,
+    ReporteLibrosComponent,
+    ReporteSugerenciasComponent,
 
   ],
   imports: [
@@ -61,6 +63,8 @@ import { HomeComponent } from './home/home/home.component';
       {path: 'app-directiva', component: DirectivaComponent},
       {path: 'app-devolver-libro', component: DevolverLibroComponent},
       {path: 'app-registro-usuario', component: RegistroUsuarioComponent},
+      {path: 'app-reporte-sugerencias', component: ReporteSugerenciasComponent},
+      {path: 'app-reporte-libros', component: ReporteLibrosComponent},
       {path: '', component: InicioSesionComponent,pathMatch:'full'},
       {path: 'app-form', component: FormComponent},
       {path: 'app-form-bibliotecario', component: FormComponentb},
@@ -70,7 +74,6 @@ import { HomeComponent } from './home/home/home.component';
       {path: 'app-registro-bibliotecario', component: RegistroBibliotecarioComponent},
       {path: 'app-lista-bibliotecarios', component: ListaBibliotecariosComponent},
       {path: 'app-listas', component: ListasComponent},
-      {path: 'registro-libro', component: RegistroLibroComponent},
       {path: 'app-lista-solicitudes-pendientes', component: ListaSolicitudesPendientesComponent},
       {path: 'app-solicitud-libro', component: SolicitudLibroComponent},
       {path: 'app-vista-registro-new', component: VistaRegistroNewComponent},

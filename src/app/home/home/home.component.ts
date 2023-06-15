@@ -1,7 +1,6 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { PaginaInicioService } from 'src/app/services/pagina-inicio.service';
 import { Router, RouterLink } from '@angular/router';
-import { RegistroLibroComponent } from 'src/app/registro-libro/registro-libro.component';
 import { Libro } from 'src/app/models/Libro';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';

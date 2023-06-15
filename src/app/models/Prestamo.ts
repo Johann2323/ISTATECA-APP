@@ -3,18 +3,18 @@ import { Carrera } from "./Carrera";
 import { Persona } from "./Persona";
 
 export class Prestamo {
-    pre_id?: number;
-    pre_activo?: boolean;
-    pre_documento_habilitante?: string;
-    pre_escaneo_matriz?:string;
-    pre_estado_libro?: string;
-    pre_estado_prestamo?: number;
-    pre_fecha_entrega?: Date;
-    pre_fecha_maxima?: Date;
-    pre_fecha_devolucion?: Date;
-    pre_tipo_prestamo?:number;
-    car_id?: Carrera;
-    per_id_entrega?:Persona;
-    per_id_solicitante?:Persona;
-    lib_id?: Libro;
+    id?: number;
+    activo?: boolean;
+    documento_habilitante?: string;
+    escaneo_matriz?:string;
+    estado_libro?: string;
+    estado_prestamo?: number;
+    fecha_entrega?: Date;
+    fecha_maxima?: Date;
+    fecha_devolucion?: Date;
+    tipo_prestamo?:number;
+    carrera?: Carrera;
+    idEntrega?:Persona;
+    idSolicitante?:Persona;
+    libro?: Libro;
 }

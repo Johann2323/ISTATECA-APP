@@ -22,12 +22,13 @@
       </thead>
 
 
-      <tbody class="text-center">
-        <tr *ngFor="let prestamo of prestamos">
-          <td>{{prestamo.per_id_solicitante?.per_cedula}}</td>
-          <td>{{prestamo.lib_id?.lib_titulo}}</td>
+      <tbody class="text-center" >
+        <tr *ngFor="let prestamo of listaprestamos">
+          <td>{{prestamo.id}}</td>
+          <td>{{prestamo.libro?.titulo}}</td>
           <td>
-            <button (click)="aceptar(prestamo)">Aceptar Solitud</button>
+            <button (click)="aceptarDomicilio(prestamo)">Aceptar Solitud Domicilio</button>
+            <button (click)="aceptar(prestamo)">Aceptar Solitud Institución</button>
           </td>
         </tr>
       </tbody>
