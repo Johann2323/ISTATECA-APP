@@ -8,8 +8,8 @@ import { Libro } from '../models/Libro';
 })
 export class PaginaInicioService {
 
-  private urlEndPoint: string='http://localhost:8080/api/listarlibros'
-  private urlBuscarLibro: string ='http://localhost:8080/api/listarlibrosxnombre';
+  private urlEndPoint: string='http://localhost:8080/libro/listar'
+  private urlBuscarLibro: string ='http://localhost:8080/libro/buscarxcoincidencia';
   private urlBuscarUsuario: string ='http://localhost:8080/api/usuario';
   constructor(private http: HttpClient ) { }
 
@@ -19,7 +19,7 @@ export class PaginaInicioService {
 
   buscarLibro (nombre:String)
   :Observable<Libro[]>{
-    let res=this.urlBuscarLibro+'/'+nombre;
+    let res=this.urlBuscarLibro+`?parametro=${nombre}`;
     return this.http.get<Libro[]>(res);
   }
  /* obtenerUsuariosId(id:number){
