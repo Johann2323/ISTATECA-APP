@@ -1,4 +1,4 @@
-import { PersonaP } from "./PersonaP";
+
 export class Persona {
     id?: number;
     activo?: boolean;
@@ -10,5 +10,5 @@ export class Persona {
     calificacion?:string;
     tipo?:number;
     password?: string;
-    fenixId?: PersonaP;
+    fenixId?: number;
 }

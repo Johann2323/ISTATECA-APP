@@ -25,16 +25,19 @@ export class FormEditComponent implements OnInit {
   constructor(private usuarioservice: RegistroUsuarioService, private router: Router) { }
 
   ngOnInit(): void {
-    this.reporteV = localStorage.getItem('usuario') + "";
-    console.log("Usuario: " + this.reporteV + "");
-    this.buscar(this.reporteV + "")
+    
+
+    var personaJSONGET = localStorage.getItem("usuario");
+    var personget = JSON.parse(personaJSONGET + "");
+    this.buscar("1")
+    console.log(personget)
   }
 
 
 
 
 
-  actualizarUsuario(usuario: Usuario) {
+  actualizarUsuario(persona: Persona) {
 
     Swal.fire({
       title: '¿Quieres guardar los cambios?',
@@ -47,15 +50,12 @@ export class FormEditComponent implements OnInit {
       confirmButtonText: '¡Si, modificalo!'
     }).then((result) => {
       if (result.isConfirmed) {
-        /*this.usuario = this.persona
-        this.usuario.per_id 
-        this.persona.per_id 
-        this.persona.per_activo = true;
-        this.persona.per_tipo = 2;
-        /*this.usuarioservice.update(usuario)
+        
+        
+        this.usuarioservice.updatePersona(persona)
           .subscribe(data => {
-            this.usuario = data
-          })*/
+            this.persona = data
+          })
         Swal.fire({
           title: '<strong>¡Usuario Actualizado!</strong>',
             confirmButtonText: 'OK',
@@ -81,13 +81,11 @@ export class FormEditComponent implements OnInit {
 
     this.id = Number.parseInt(idss)
 
-    // this.usuarioservice.obtenerUsuariosId(this.id).subscribe(
-    //   usuarioE => {
-    //     this.usuarioE = usuarioE, this.persona.per_cedula = usuarioE.persona?.cedula, this.persona.nombres = usuarioE.persona?.nombres, this.persona.celular = usuarioE.persona?.celular
-    //     , this.persona.per_correo = usuarioE.persona?.correo, this.persona.usuario = usuarioE.persona?.usuario, this.persona.clave = usuarioE.persona?.clave
-
-    //   }
-    // )
+    this.usuarioservice.obtenerPersonasId(this.id).subscribe(
+      response => {
+       this.persona=response
+      }
+    )
   }
 
 }

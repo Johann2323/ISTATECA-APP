@@ -1,64 +1,15 @@
-<style>
-    
-    h3 {
-         text-align: center; 
-         margin-inline-start: 40%;
-     
-     }
-     
-     h4 {
-     font-size:45px;
-     margin-top: 1%;
-     text-align: center; 
- 
-     }
-     h5 {
-      position: absolute;
-    top: 182px;
-
-     left: 65%;
-     }
- 
-     h6 {
- margin-top: 1%;
- font-size: 0px;
-     text-align: center; 
-     margin-inline-start: 20%;
- 
-     }
- 
-     h1 {
-       position: absolute;
-       left: 2%;
-       margin-left: -1px;
-       margin-top: 109px;
-       top: 0;
-     }
- 
-     h2{
-       text-align: center; 
-       font-size:20px;
- 
- 
-     }
- 
-     
- 
-     
- </style>
- 
 
  
  <header> <h4><strong>Modificar Usuario</strong></h4><br> </header>
  
  <body class="elemento" ba>
- <form  style="text-align:center ;" ngNativeValidate class="row gy-2 gx-3 align-items-center" (ngSubmit)="actualizarUsuario(usuario)">
+ <form  style="text-align:center ;" ngNativeValidate class="row gy-2 gx-3 align-items-center" (ngSubmit)="actualizarUsuario(persona)">
   
   
   <div class="row mb-3">
        <label for="cedula" class="col-sm-3 col-form-label"> <h3>Cédula:</h3></label>
        <div class="col-sm-5">
-         <h6><input type="number" class="form-control text-center" (ngModel)="persona.cedula" placeholder="Ingrese un numero de cedula" name="cedula" readonly required>
+         <h6><input type="number" class="form-control text-center" [(ngModel)]="persona.cedula" placeholder="Ingrese un numero de cedula" name="cedula" readonly required>
         </h6>
          </div>
      </div>
@@ -68,7 +19,7 @@
      <div class="row mb-3">
        <label for="nombres" class="col-sm-3 col-form-label"><h3>Nombres:</h3></label>
        <div class="col-sm-5">
-         <h6><input  type="text" o class="form-control text-center" (ngModel)="persona.nombres"  placeholder="Aqui apareceran sus datos" name="nombre" readonly  required>
+         <h6><input  type="text" o class="form-control text-center" [(ngModel)]="persona.nombres"  placeholder="Aqui apareceran sus datos" name="nombre" readonly  required>
              </h6>
          </div>
      </div>
@@ -78,14 +29,14 @@
      <div class="row mb-3">
        <label for="celular" class="col-sm-3 col-form-label"><h3>Celular:</h3></label>
        <div class="col-sm-5">
-         <h6><input type="number" class="form-control text-center" (ngModel)="persona.celular"  placeholder="Aqui apareceran sus datos"   name="celular"  required>
+         <h6><input type="number" class="form-control text-center" [(ngModel)]="persona.celular"  placeholder="Aqui apareceran sus datos"   name="celular"  required>
            </h6>
        </div>
      </div>
    <div class="row mb-3">
      <label for="correo" class="col-sm-3 col-form-label"><h3>Email:</h3></label>
      <div class="col-sm-5">
-       <h6><input type="email" class="form-control text-center" (ngModel)="persona.correo"  placeholder="Aqui apareceran sus datos"  name="correo"  required>
+       <h6><input type="email" class="form-control text-center" [(ngModel)]="persona.correo"  placeholder="Aqui apareceran sus datos"  name="correo"  required>
            </h6>
        </div>
    </div>

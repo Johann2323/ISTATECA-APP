@@ -11,7 +11,7 @@ import { Prestamo } from 'src/app/models/Prestamo';
 import { prestamoService } from 'src/app/services/prestamo.service';
 import { NotificacionesService } from 'src/app/services/notificaciones.service';
 import { Usuario } from 'src/app/models/Usuario';
-
+import * as QRCode from 'qrcode';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -36,6 +36,15 @@ export class HomeComponent implements OnInit {
 
   constructor(private prestamoService: prestamoService, private paginainicioService: PaginaInicioService, private router: Router, private router1: Router,private notificacionesService: NotificacionesService) { }
 
+  ///////////////////////////qr
+generateQRCode(registroId:string) {
+  const canvas = document.querySelector('canvas');
+  QRCode.toCanvas(canvas, registroId, (error) => {
+    if (error) {
+      console.error(error);
+    }
+  });
+}
   downloadPDF() {
     // Extraemos el
     const DATA: any = document.getElementById('htmlData');
@@ -121,6 +130,8 @@ export class HomeComponent implements OnInit {
       })
       this.router.navigate(['/']);
     } else {
+      
+      this.generateQRCode(paginacrear.id);
       alert(paginacrear.titulo)
       var overlay = document.getElementById('overlay');
       overlay?.classList.add('active');
