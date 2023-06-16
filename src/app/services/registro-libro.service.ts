@@ -8,7 +8,7 @@ import { Autor } from '../models/Autor';
   providedIn: 'root'
 })
 export class RegistroLibroService {
-  private urlendpoint:string='http://localhost:8080/api/crearlibro';
+  private urlendpoint:string='http://localhost:8080/libro/crear';
   private urlendpoint1:string='http://localhost:8080/api/listarlibros';
   private urlBuscarLibro: string ='http://localhost:8080/api/listarlibrosxnombre';
   private urlListarAutor: string = 'http://localhost:8080/api/listarautor';
