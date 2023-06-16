@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { Prestamo } from '../models/Prestamo';
+import { CarreraService } from '../services/carrera.service';
+import { Carrera } from '../models/Carrera';
 import Swal from 'sweetalert2';
 import { doch } from '../solicitud-libro/doch';
+import { prestamoService } from '../services/prestamo.service';
 
 
 @Component({
@@ -12,6 +15,7 @@ import { doch } from '../solicitud-libro/doch';
 })
 export class SolicitudLibroDomicilioComponent implements OnInit {
   prestamo: Prestamo = new Prestamo();
+  carreras:Carrera[]=[];
   mostrar: boolean = false;
   doch: doch[] = []
   variable?: number
@@ -21,12 +25,18 @@ export class SolicitudLibroDomicilioComponent implements OnInit {
 
   step = 1;
   totalSteps = 2;
-
+  constructor(private carreraService: CarreraService,private PrestamoService: prestamoService) { }
   ngOnInit(): void {
     var solicitudJSONGET = localStorage.getItem("AceptarSolicitud");
     var solicitud = JSON.parse(solicitudJSONGET + "");
     this.prestamo = solicitud;
     console.log(this.prestamo);
+
+    this.carreraService.getCarreras().subscribe(
+      respose => {
+        this.carreras = respose;
+      }
+    );
   }
 
   avanzar1() {
@@ -42,20 +52,22 @@ export class SolicitudLibroDomicilioComponent implements OnInit {
 
 
   crear() {
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: '<strong>Guardado correctamente</strong>',
-      showConfirmButton: false,
-      timer: 1500
-    })
-    setTimeout(() => {
-      location.reload();
-    }, 1000);
+    /*this.prestamo.estado_prestamo=2;*/
+    console.log(this.prestamo);
+    this.PrestamoService.update(this.prestamo).subscribe(
+      response=>{
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: '<strong>Guardado correctamente</strong>',
+          showConfirmButton: false,
+          timer: 1500
+      })}
+    );
   }
 
 
-  constructor() { }
+  
   activarDoc() {
     this.mostrar = true
   }

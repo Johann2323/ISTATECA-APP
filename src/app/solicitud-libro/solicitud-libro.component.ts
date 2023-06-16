@@ -3,6 +3,7 @@ import { NgForm, NgModel } from '@angular/forms';
 import { Prestamo } from '../models/Prestamo';
 import { Carrera } from '../models/Carrera';
 import { CarreraService } from '../services/carrera.service';
+import { prestamoService } from '../services/prestamo.service';
 import { doch } from './doch';
 import Swal from 'sweetalert2';
 
@@ -24,7 +25,7 @@ export class SolicitudLibroComponent implements OnInit {
 
   step = 1;
   totalSteps = 2;
-  constructor(private carreraService: CarreraService) { }
+  constructor(private carreraService: CarreraService, private PrestamoService:prestamoService) { }
   ngOnInit(): void {
     var solicitudJSONGET = localStorage.getItem("AceptarSolicitud");
     var solicitud = JSON.parse(solicitudJSONGET + "");
@@ -51,16 +52,18 @@ export class SolicitudLibroComponent implements OnInit {
 
 
   crear() {
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: '<strong>Guardado correctamente</strong>',
-      showConfirmButton: false,
-      timer: 1500
-    })
-    setTimeout(() => {
-      location.reload();
-    }, 1000);
+    /*this.prestamo.estado_prestamo=2;*/
+    console.log(this.prestamo);
+    this.PrestamoService.update(this.prestamo).subscribe(
+      response=>{
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: '<strong>Guardado correctamente</strong>',
+          showConfirmButton: false,
+          timer: 1500
+      })}
+    );
   }
 
 
