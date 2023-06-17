@@ -18,7 +18,9 @@ export class SolicitudLibroDomicilioComponent implements OnInit {
   carreras:Carrera[]=[];
   mostrar: boolean = false;
   doch: doch[] = []
-  variable?: number
+  variable?: number;
+  car: Carrera = new Carrera;
+  idC?:number;
 
   documentos: doch = new doch;
   names?: string[] = [];
@@ -49,23 +51,35 @@ export class SolicitudLibroDomicilioComponent implements OnInit {
       this.step--;
     }
   }
-
-
-  crear() {
-    /*this.prestamo.estado_prestamo=2;*/
-    console.log(this.prestamo);
-    this.PrestamoService.update(this.prestamo).subscribe(
-      response=>{
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: '<strong>Guardado correctamente</strong>',
-          showConfirmButton: false,
-          timer: 1500
-      })}
-    );
+  seleccionT(e: any) {
+    this.idC = e.target.value;
   }
 
+
+  guardar() {
+    /*this.prestamo.estado_prestamo=2;*/
+    this.prestamo.carrera = this.car;
+    if (this.idC != undefined) {
+      this.carreraService.obtenerCarreraId(this.idC).subscribe(
+        response => {
+          this.prestamo.carrera = response;
+          this.PrestamoService.update(this.prestamo).subscribe(
+            response => {
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: '<strong>Guardado correctamente</strong>',
+                showConfirmButton: false,
+                timer: 1500
+              })
+            }
+          );
+        }
+      );
+    }
+    
+
+  }
 
   
   activarDoc() {

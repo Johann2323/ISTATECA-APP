@@ -1,113 +1,124 @@
+<div class="imagen">
+    <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20normal%20peque%C3%B1o.png?alt=media&token=59a16c73-3229-4ba7-81be-567aae799d61"
+        height="60" width="200" style="margin-left: 10%; margin-top: 1%;">
+</div>
+<!--FORMULARIO-->
+
+<div class="imagen">
+    <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20normal%20peque%C3%B1o.png?alt=media&token=59a16c73-3229-4ba7-81be-567aae799d61"
+        height="60" width="200" style="margin-left: 10%; margin-top: 1%;">
+</div>
+<!--FORMULARIO-->
+
 <body class="elemento">
-    <p style="text-align: center; font-size: 30px; margin-top: 2dvb; color: #2E2F5E;"><strong>Devolución de un
-            libro</strong></p>
-    <div style="display: flex; flex-wrap: wrap;">
+    <div class="card">
+        <h1>Ficha de Solicitud en la Institución</h1>
+        <div class="content">
+            <form (ngSubmit)="guardar()">
+                <div class="step-counter">
+                    <p>Paso {{ step }} de {{ totalSteps }} </p>
+                    <div class="user-details" *ngIf="step === 1">
+                        <div class="input-box">
+                            <span class="details">No. Solicitud:</span>
+                            <input type="text" class="form-control" value="{{prestamo.id}}" disabled name="id"
+                                required>
 
-        <div style="flex-basis: 80%; flex-grow: 9;">
-            <div class="card bg-transparent shadow-none border-0 " style="margin-bottom: -5%;">
-                <div class="card-body">
-                    <div class="imagen">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/logos%2Flogo%20normal%20peque%C3%B1o.png?alt=media&token=59a16c73-3229-4ba7-81be-567aae799d61"
-                            height="40" width="160" style="margin-left: 20%; margin-top: -10%;">
-                    </div>
-                    <form style="margin-left: 15%; margin-right: 15%; margin-top: -3%;">
-                        <div style="display: flex; justify-content: space-between;">
-                            <label class="destacado form-label" style="font-size: 17px; color: #2E2F5E;">Cédula del
-                                Estudiante:</label>
-                            <input class="text-center" type="text" size="60" style="text-align: right;">
+                            <span class="details">Cedula del Solicitante:</span>
+                            <input type="text" class="form-control" value="{{prestamo.idSolicitante?.cedula}}"  disabled name="id"
+                                required>
                         </div>
-                        <div style="display: flex; justify-content: space-between; margin-top: 2dvb;">
-                            <label class="destacado form-label" style="font-size: 17px; color: #2E2F5E;">Documento
-                                Habilitante:</label>
-                            <input class="text-center" type="text" size="60" style="text-align: right;">
-                        </div>
-                        <div style="display: flex; justify-content: space-between; margin-top: 2dvb;">
-                            <label class="destacado form-label" style="font-size: 17px; color: #2E2F5E;">Titulo del
-                                libro:</label>
-                            <input class="text-center" type="text" size="60" style="text-align: right;">
-                        </div>
-                        <div style="display: flex; justify-content: space-between; margin-top: 2dvb;">
-                            <label class="destacado form-label" style="font-size: 17px; color: #2E2F5E;">Estado
-                                entregado:</label>
-                            <input class="text-center" type="text" size="60" style="text-align: right;">
-                        </div>
-                        <div style="display: flex; justify-content: space-between; margin-top: 2dvb;">
-                            <label class="destacado form-label"
-                                style="font-size: 17px; color: #2E2F5E;">Entrega:</label>
-                            <input class="text-center" type="text" size="20" style="text-align: right;">
-                            <label class="destacado form-label"
-                                style="font-size: 17px; color: #2E2F5E;">Devolución:</label>
-                            <input class="text-center" type="text" size="20" style="text-align: right;">
-                        </div>
-                        <div style="display: flex; justify-content: space-between; margin-top: 2dvb;">
-                            <label class="destacado form-label" style="font-size: 17px; color: #2E2F5E;">Fecha en la que
-                                devuelve:</label>
-                            <input class="text-center" type="text" size="60" style="text-align: right;">
-                        </div>
-                        <div style="display: flex; justify-content: space-between; margin-top: 2dvb;">
-                            <label class="destacado form-label" style="font-size: 17px; color: #2E2F5E;">Bibliotecario
-                                que entrego:</label>
-                            <input class="text-center" type="text" size="60" style="text-align: right;">
-                        </div>
-                        <div style="display: flex; justify-content: space-between; margin-top: 2dvb;">
-                            <label class="destacado form-label" style="font-size: 17px; color: #2E2F5E;">Bibliotecario
-                                que recibe:</label>
-                            <input class="text-center" type="text" size="60" style="text-align: right;">
-                        </div>
-                        <div style="display: flex; justify-content: space-between; margin-top: 2dvb;">
-                            <label class="destacado form-label" style="font-size: 17px; color: #2E2F5E;">Estado actual
-                                del libro:</label>
-                            <input class="text-center" type="text" size="60" style="text-align: right;">
-                        </div>
+                        <div class="input-box">
+                            <span class="details">Documento Habilitante:</span>
+                            <input type="text" class="form-control" value="{{prestamo.documentoHabilitante}}"
+                                name="nombres" required>
 
-                        <div style="display: flex; justify-content: space-between; margin-top: 2dvb;">
-                            <label class="destacado form-label"
-                                style="font-size: 17px; color: #2E2F5E;">Penalización:</label>
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                                checked>
-                            <label class="form-check-label" for="flexRadioDefault2" style="margin-left: -3%;">
-                                Si
-                            </label>
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                                checked>
-                            <label class="form-check-label" for="flexRadioDefault2" style="margin-left: -3%; margin-right: 20%;">
-                               No
-                            </label>
+                            <span class="details">Titulo del Libro:</span>
+                            <input type="text" class="form-control" 
+                                name="apellidos" required>
                         </div>
-                        <div style="display: flex; justify-content: space-between; margin-top: 2dvb;">
-                            <label class="destacado form-label"
-                                style="font-size: 17px; color: #2E2F5E;">Observaciones:</label>
-                            <input class="text-center" type="text" size="60" style="text-align: right;">
+                        <div class="input-box">
+                            <span class="details">Estado de Entrega del Libro</span>
+                            <input type="text" class="form-control"   name="domicilio" required>
+                            <span class="details">Estado de Actual del Libro</span>
+                            <input type="text" class="form-control"   name="domicilio" required>
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div style="flex-basis: 20%; flex-grow: 1;">
-            <div class="card bg-transparent shadow-none border-0 ">
-                <div class="card-body" style="border: 2px solid #2E2F5E; margin-right: 20%; align-items: center;">
-                    <div class="col">
-                        <div class="col">
-                            <button class="btn" type="submit" style="background-color:transparent ; color: #2E2F5E;">
-                                <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fagregar%20libro.png?alt=media&token=b7f639da-1aaa-4d12-8133-a59742d32d87"
-                                    width=25 height=25 align="center">
-                                Guardar</button>
+                        <div class="input-box">
+                            <span class="details">Fecha Entrega:</span>
+                            <input type="email" value="{{prestamo.idSolicitante?.correo}}" class="form-control"
+                                name="correo" required>
+                                <span class="details">Fecha Devolución:</span>
+                                <input type="email" value="{{prestamo.idSolicitante?.correo}}" class="form-control"
+                                    name="correo" required>
                         </div>
-                        <button class="btn" type="button" style="background-color:transparent; color: #2E2F5E;">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fmodificar.png?alt=media&token=80f892de-c49a-4833-8019-1e8d7ec8ef06"
-                                width=30 height=25 align="center">
-                            Modificar</button>
+                        <div class="input-box">
+                            <span class="">Fecha en la que Devuelve:</span>
+                            <input type="email" value="{{prestamo.idSolicitante?.correo}}" class="form-control"
+                                name="correo" required>
+                        </div>
                     </div>
-                    <div class="col">
-                        <button class="btn" type="button" style="background-color:transparent; color: #2E2F5E; margin-left: 3px;">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Flistas.png?alt=media&token=97df573d-51ec-4d24-8b96-d68164b717ff"
-                                width=25 height=25 align="center">
-                            Lista Prestamos</button>
+
+                    <div class="user-details" *ngIf="step === 2">
+                        <div class="input-box">
+                            <span class="details">Bibliotecario que Entrega</span>
+                            <input type="text" value="{{prestamo.libro?.titulo}}" class="form-control" name="titulo"
+                                required>
+
+                            <span class="details">Bibliotecario que Recibe:</span>
+                            <input type="text" value="{{prestamo.libro?.codigoDewey}}" class="form-control"
+                                name="codigoDewey" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Penalización:</span>
+                            <input type="date" class="form-control" name="fecha_entrega" required
+                                [(ngModel)]="prestamo.fechaEntrega">
+
+                            <span class="details">Observaciones:</span>
+                            <input type="date" class="form-control" name="fecha_devolucion" required
+                                [(ngModel)]="prestamo.fechaMaxima">
+                        </div>
                     </div>
                 </div>
-            </div>
+
+
+
+
+
+
+                <div class="button text-center">
+                    <button type="button" class="btn btn-outline-secondary btn-lg mx-3" (click)="retroceder1()"
+                        *ngIf="step > 1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                            <path fill-rule="evenodd"
+                                d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                        </svg> Retroceder
+                    </button>
+                    <button type="button" class="btn btn-outline-primary btn-lg mx-3" (click)="avanzar1()"
+                        *ngIf="step < 2">
+                        Siguiente <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
+                            <path fill-rule="evenodd"
+                                d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </button>
+                    <button type="submit" class="btn btn-outline-success btn-lg mx-3" *ngIf="step === 2">
+                        Guardar <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-folder-check" viewBox="0 0 16 16">
+                            <path
+                                d="m.5 3 .04.87a1.99 1.99 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14H9v-1H2.826a1 1 0 0 1-.995-.91l-.637-7A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09L14.54 8h1.005l.256-2.819A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2zm5.672-1a1 1 0 0 1 .707.293L7.586 3H2.19c-.24 0-.47.042-.683.12L1.5 2.98a1 1 0 0 1 1-.98h3.672z" />
+                            <path
+                                d="M15.854 10.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.707 0l-1.5-1.5a.5.5 0 0 1 .707-.708l1.146 1.147 2.646-2.647a.5.5 0 0 1 .708 0z" />
+                        </svg>
+                    </button>
+                </div>
+
+
+            </form>
         </div>
     </div>
-
 
 </body>

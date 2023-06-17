@@ -7,6 +7,7 @@ export class Persona {
     correo?: string;
     nombres?: string;
     apellidos?:string;
+    direccion?:string;
     calificacion?:string;
     tipo?:number;
     password?: string;

@@ -8,7 +8,7 @@
     <div class="card">
         <h1>Ficha de Solicitud en la Institución</h1>
         <div class="content">
-            <form (ngSubmit)="crear()">
+            <form (ngSubmit)="guardar()">
                 <div class="step-counter">
                     <p>Paso {{ step }} de {{ totalSteps }} </p>
                     <div class="user-details" *ngIf="step === 1">
@@ -18,9 +18,9 @@
                                 required>
 
                             <span class="details">Carrera:</span>
-                            <select class="combo form-select" [(ngModel)]="prestamo.carrera" name="carrera">
+                            <select class="combo form-select" [(ngModel)]="prestamo.carrera" (change)="seleccionT($event)" name="carrera">
                                 <option disabled selected>Seleccione una carrera</option>
-                                <option  *ngFor="let carrera of carreras"> {{carrera.nombre}}</option>
+                                <option  *ngFor="let carrera of carreras" value="{{carrera.id}}"> {{carrera.nombre}}</option>
                             </select>
                         </div>
                         <div class="input-box">
@@ -34,7 +34,7 @@
                         </div>
                         <div class="input-box">
                             <span class="details">Domicilio</span>
-                            <input type="text" class="form-control" name="domicilio" required>
+                            <input type="text" class="form-control" value="{{prestamo.idSolicitante?.direccion}}"  name="domicilio" required>
 
                             <span class="details">Celular:</span>
                             <input type="number" value="{{prestamo.idSolicitante?.celular}}" class="form-control"

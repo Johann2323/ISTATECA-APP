@@ -16,21 +16,21 @@ import Swal from 'sweetalert2';
 export class SolicitudLibroComponent implements OnInit {
   prestamo: Prestamo = new Prestamo();
   carreras: Carrera[] = [];
+  car: Carrera = new Carrera;
   mostrar: boolean = false;
   doch: doch[] = []
   variable?: number
 
   documentos: doch = new doch;
   names?: string[] = [];
-
+  idC?: number;
   step = 1;
   totalSteps = 2;
-  constructor(private carreraService: CarreraService, private PrestamoService:prestamoService) { }
+  constructor(private carreraService: CarreraService, private PrestamoService: prestamoService) { }
   ngOnInit(): void {
     var solicitudJSONGET = localStorage.getItem("AceptarSolicitud");
     var solicitud = JSON.parse(solicitudJSONGET + "");
     this.prestamo = solicitud;
-    console.log(this.prestamo);
     this.carreraService.getCarreras().subscribe(
       respose => {
         this.carreras = respose;
@@ -51,21 +51,34 @@ export class SolicitudLibroComponent implements OnInit {
   }
 
 
-  crear() {
+  guardar() {
     /*this.prestamo.estado_prestamo=2;*/
-    console.log(this.prestamo);
-    this.PrestamoService.update(this.prestamo).subscribe(
-      response=>{
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: '<strong>Guardado correctamente</strong>',
-          showConfirmButton: false,
-          timer: 1500
-      })}
-    );
+    this.prestamo.carrera = this.car;
+    if (this.idC != undefined) {
+      this.carreraService.obtenerCarreraId(this.idC).subscribe(
+        response => {
+          this.prestamo.carrera = response;
+          this.PrestamoService.update(this.prestamo).subscribe(
+            response => {
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: '<strong>Guardado correctamente</strong>',
+                showConfirmButton: false,
+                timer: 1500
+              })
+            }
+          );
+        }
+      );
+    }
+    
+
   }
 
+  seleccionT(e: any) {
+    this.idC = e.target.value;
+  }
 
 
   activarDoc() {
