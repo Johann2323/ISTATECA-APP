@@ -1,33 +1,16 @@
-<header class="text-center" style="font-size:45px;"> <strong>Inicio Sesión</strong></header>
-
-<body class="elemento" ba>
-  <form ngNativeValidate style="text-align:center ;" method="post" >
-    <div class="mb-3">
-      <img
-        src="https://firebasestorage.googleapis.com/v0/b/istateca.appspot.com/o/Iconos%2Fusuario%20(1).png?alt=media&token=03b9a82c-d34a-428c-9c01-4e91a71f69ee"
-        width=150 height=150><br>
-      <label for="exampleInputEmail1" class="destacado form-label">
-        <font size="4">Usuario:</font>
-      </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <input #email class="text-center" id="txtcorreo" type="text" size="55"
-        placeholder="Escriba su usuario" required>
-    </div>
-    
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="destacado form-label">
-        <font size="4">Contraseña:</font>
-      </label>&nbsp;&nbsp;&nbsp;
-      <input #contra type="password" id="txtcontra" class="text-center" size="55" required>
-    </div>
-    <button type="submit" class="boton btn btn-primary" >
-      Ingresar &nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-up-right-circle" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.854 10.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707l-4.096 4.096z"/>
-      </svg></button><br><br>
-    <label for="" style="color:#2E2F5E ;" routerLink="/app-registro-usuario"><u>Registrate aquí</u></label>
-    
-    
-    
-  </form>
-  
-  
+<body>
+  <div class="form-container">
+    <p class="title">Inicio Sesión</p>
+    <form class="form">
+      <p >Porfavor inicie sesión en google</p>
+      <!--<asl-google-signin-button type='icon' size='medium'></asl-google-signin-button>
+      <div *ngIf="user">
+          <img src="{{ user.photoUrl }}">
+          <div>
+              <h4>{{ user.name }}</h4>
+              <p>{{ user.email }}</p>
+          </div>
+      </div>-->
+    </form>
+  </div>
 </body>
