@@ -31,20 +31,20 @@ export class HomeComponent implements OnInit {
   bus: boolean = true;
   buscarval: boolean = false;
 
-  
 
 
-  constructor(private prestamoService: prestamoService, private paginainicioService: PaginaInicioService, private router: Router, private router1: Router,private notificacionesService: NotificacionesService) { }
+
+  constructor(private prestamoService: prestamoService, private paginainicioService: PaginaInicioService, private router: Router, private router1: Router, private notificacionesService: NotificacionesService) { }
 
   ///////////////////////////qr
-generateQRCode(registroId:string) {
-  const canvas = document.querySelector('canvas');
-  QRCode.toCanvas(canvas, registroId, (error) => {
-    if (error) {
-      console.error(error);
-    }
-  });
-}
+  generateQRCode(registroId: string) {
+    const canvas = document.querySelector('canvas');
+    QRCode.toCanvas(canvas, registroId, (error) => {
+      if (error) {
+        console.error(error);
+      }
+    });
+  }
   downloadPDF() {
     // Extraemos el
     const DATA: any = document.getElementById('htmlData');
@@ -74,10 +74,10 @@ generateQRCode(registroId:string) {
     this.reporteV = JSON.parse(localStorage.getItem('rol') + "");
     console.log("Rol del Usuario: " + this.reporteV + "")
     if (parseInt(this.reporteV) == 0 || parseInt(this.reporteV) == 1) {
-      
+
       this.mostrar = true;
     }
-    
+
   }
   ngOnInit(): void {
     this.paginainicioService.getLibros().subscribe(
@@ -86,12 +86,12 @@ generateQRCode(registroId:string) {
     );
     this.buscarval = false;
     this.bus = true;
-    
-    
 
-    
+
+
+
   }
-  
+
 
 
   onKeydownEvent(event: KeyboardEvent, titulo: String): void {
@@ -116,8 +116,8 @@ generateQRCode(registroId:string) {
       }
     )
   }
-  SolicitarLibro(paginacrear:any) {
-    
+  SolicitarLibro(paginacrear: Libro) {
+
     if (parseInt(this.reporteV) == 9) {
       console.log('no ha entrado');
       Swal.fire({
@@ -130,16 +130,16 @@ generateQRCode(registroId:string) {
       })
       this.router.navigate(['/']);
     } else {
-      
-      this.generateQRCode(paginacrear.id);
+
+      this.generateQRCode(paginacrear.id+"");
       alert(paginacrear.titulo)
       var overlay = document.getElementById('overlay');
       overlay?.classList.add('active');
       this.createbibliotecario(paginacrear);
-      
 
 
-      
+
+
 
     }
   }
@@ -147,39 +147,40 @@ generateQRCode(registroId:string) {
     var overlay = document.getElementById('overlay');
     overlay?.classList.remove('active');
   }
- 
-  
+
+
 
   public createbibliotecario(paginacrear: any) {
     this.reporteV = localStorage.getItem('usuariopag') + "";
-      console.log("Usuario: " + this.reporteV + "");
+    console.log("Usuario: " + this.reporteV + "");
 
-      let usuarioJSON = localStorage.getItem('usuariopag')+"";
-      let persona = JSON.parse(usuarioJSON);
-/*
+    let usuarioJSON = localStorage.getItem('usuariopag') + "";
+    let persona = JSON.parse(usuarioJSON);
+
     console.log("ha realizado un clic")
     this.prestamos.libro = paginacrear
-    this.prestamos.usuario=persona
+    this.prestamos.idSolicitante = persona
 
     console.log(this.prestamos.libro?.titulo)
-    console.log(this.prestamos.usuario?.persona?.nombres)
+    console.log(this.prestamos.idSolicitante?.nombres)
     alert(this.prestamos.libro?.titulo)
-    alert(this.prestamos.usuario?.persona?.nombres)
+    alert(this.prestamos.idSolicitante?.nombres)
 
     this.prestamoService.create(this.prestamos).subscribe(
-      response => { this.prestamos 
-      Swal.fire({
-        title: '<strong>Libro Solicitado!</strong>',
-        confirmButtonText: 'OK',
-        confirmButtonColor: '#012844',
-        icon: 'success',
-        html:
-          '<b>'+this.prestamos.libro?.titulo+'</b><br>'+
-          'Se ha solicitado con exito'
-      })
-      this.notificacionesService.actualizarConteo(1)
-      
-    }
-    );*/
+      response => {
+        this.prestamos
+        Swal.fire({
+          title: '<strong>Libro Solicitado!</strong>',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#012844',
+          icon: 'success',
+          html:
+            '<b>' + this.prestamos.libro?.titulo + '</b><br>' +
+            'Se ha solicitado con exito'
+        })
+        this.notificacionesService.actualizarConteo(1)
+
+      }
+    );
   }
 }
