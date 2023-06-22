@@ -52,7 +52,8 @@ export class FormComponent implements OnInit {
     }else{
     this.usuarioservice.createPersona(this.persona).subscribe(
       
-      response => {console.log(response)
+      response => {var personaJSONSET = JSON.stringify(response);
+        localStorage.setItem("persona", personaJSONSET),console.log(response)
        /*,this.router.navigate([''])*/
         //Swal.fire('Usuario Guardado','Te damos la bienvenida "'+this.usuario.persona?.nombres+'" te has registrado con exito','success')
         Swal.fire({

@@ -65,9 +65,7 @@ export class HeaderComponent implements DoCheck {
     }
     cerrarSesion() {
         this.router1.navigate(['']);
-        /*InicioSesionComponent.rol = 9;*/
-        console.log("Cerrar Sesion")
-        localStorage.setItem('rol', 9+""); 
+        localStorage.removeItem('persona'); 
     }
 
 

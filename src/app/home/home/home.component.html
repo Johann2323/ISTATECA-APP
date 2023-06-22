@@ -116,11 +116,12 @@
     <div class="overlay" id="overlay">
       <div class="popup" id="popup">
         <h3>Solicitud Enviada</h3>
-        <h4>Toma una captura y facilita la busqueda de tu solicitud</h4>
-        <!-- <div>
-        <canvas #qrCanvas></canvas>
-      </div> -->
-        <button id="cerrarpopup" (click)="cerrarpopup()" class="boton btn btn-primary" style="background-color: #2e2f5e">
+        
+        <h4>Estimado {{datos}} la solicitud del libro "{{datoslibro}}" se ha creado correctamente<hr> Porfavor toma una captura y facilita la busqueda de tu solicitud</h4>
+         <div>
+        <canvas #qrCanvas style="margin-top: -7%;"></canvas>
+      </div> 
+        <button id="cerrarpopup" sy (click)="cerrarpopup()" class="boton btn btn-primary" style="background-color: #2e2f5e">
           <FONT COLOR="white">Aceptar</FONT>
         </button>
       </div>
