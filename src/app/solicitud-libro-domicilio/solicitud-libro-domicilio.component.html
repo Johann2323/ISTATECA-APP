@@ -15,7 +15,7 @@
                     <div class="user-details" *ngIf="step === 1">
                         <div class="input-box">
                             <span class="details">Carrera:</span>
-                            <select class="combo form-select" [(ngModel)]="prestamo.carrera" (change)="seleccionT($event)" name="carrera">
+                            <select class="combo form-select" (change)="seleccionT($event)" name="carrera">
                                 <option disabled selected>Seleccione una carrera</option>
                                 <option  *ngFor="let carrera of carreras" value="{{carrera.id}}"> {{carrera.nombre}}</option>
                             </select>
@@ -29,7 +29,7 @@
                         </div>
                         <div class="input-box">
                             <span class="details">Domicilio</span>
-                            <input type="text" class="form-control" name="domicilio" required>
+                            <input type="text" class="form-control" name="domicilio" value="{{prestamo.idSolicitante?.direccion}}" required>
 
                             <span class="details">Celular:</span>
                             <input type="number" value="{{prestamo.idSolicitante?.celular}}" class="form-control" name="telefono" required>
@@ -48,6 +48,11 @@
                         <div class="input-box">
                             <span class="details">Codigo:</span>
                             <input type="text" value="{{prestamo.libro?.codigoDewey}}" class="form-control" name="codigo" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Documento Habilitante:</span>
+                            <input type="email" class="form-control" name="correo"
+                                [(ngModel)]="prestamo.documentoHabilitante" required>
                         </div>
                         <div class="input-box">
                             <span class="details">Fecha de Prestamo:</span>

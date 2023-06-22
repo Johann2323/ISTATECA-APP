@@ -9,7 +9,9 @@ import { Libro } from '../models/Libro';
 })
 export class prestamoService {
 
-  private urlEndPoint: string = 'http://localhost:8080/prestamo/listar'
+  private urlEndPoint: string = 'http://localhost:8080/prestamo/listar';
+  private urlEndPoint1: string = 'http://localhost:8080/prestamo/listarxestado'
+  private urlEndPoint2: string = 'http://localhost:8080/prestamo/listarxcedula'
   private urlEditar: string = 'http://localhost:8080/prestamo/editar';
   private urlEndPointCrearPrestamo: string = 'http://localhost:8080/prestamo/crear';
 
@@ -20,21 +22,24 @@ export class prestamoService {
     return this.http.get<Prestamo[]>(this.urlEndPoint);
   }
 
-  /*buscarPrestamo(estado_prestamo: String)
-    : Observable<Prestamo[]> {
-    let res = this.urlBuscarLibro + '/' + estado_prestamo;
-    return this.http.get<Prestamo[]>(res);
-  }*/
-
   create(prestamos: Prestamo): Observable<Prestamo> {
     return this.http.post<Prestamo>(this.urlEndPointCrearPrestamo, prestamos, { headers: this.httpHeaders })
   }
 
-  update(prestamo:Prestamo){
-    return this.http.put<Prestamo>(this.urlEditar+"/"+prestamo.id, prestamo);
-      
+  update(prestamo: Prestamo) {
+    return this.http.put<Prestamo>(this.urlEditar + "/" + prestamo.id, prestamo);
+
   }
 
+  listarxestado(estado_prestamo: number)
+    : Observable<Prestamo[]> {
+    let res = this.urlEndPoint1 + '?parametro=' + estado_prestamo;
+    return this.http.get<Prestamo[]>(res);
+  }
 
+  buscarPrestamo(cedula: String): Observable<Prestamo[]> {
+    let res = this.urlEndPoint2 + '?cedula=' + cedula;
+    return this.http.get<Prestamo[]>(res);
+  }
 
 }

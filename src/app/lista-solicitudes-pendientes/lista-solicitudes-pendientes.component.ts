@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Prestamo } from '../models/Prestamo';
+import Swal from 'sweetalert2';
 import { prestamoService } from '../services/prestamo.service';
 
 @Component({
@@ -19,8 +20,6 @@ export class ListaSolicitudesPendientesComponent implements OnInit {
   restituido?: boolean;
   buscar?: boolean;
 
-  estadoPrestamo?:string;
-
   constructor(private prestamoService: prestamoService, private router: Router) { }
 
   ngOnInit(): void {
@@ -30,17 +29,9 @@ export class ListaSolicitudesPendientesComponent implements OnInit {
     this.nodevuelto = false;
     this.restituido = false;
     this.buscar = false;
-    this.prestamoService.getPrestamos().subscribe(
+    this.prestamoService.listarxestado(1).subscribe(
       response => {
-        /*response.forEach(element => {
-          if (element.pre_estado_prestamo == 4) {
-            this.prestamos.push(element)
-          }
-        });
-        */
         this.listaprestamos = response;
-        this.estadoPrestamo="Pendiente"
-        console.log(response)
         console.log("Lista Prestamos: " + this.listaprestamos.length);
       }
 
@@ -65,31 +56,48 @@ export class ListaSolicitudesPendientesComponent implements OnInit {
     this.router.navigate(['/app-devolver-libro']);
   }
 
-  listaPendientes():void{
+  listaPendientes(): void {
     this.ngOnInit();
   }
 
   listaPrestados(): void {
+    this.prestamoService.listarxestado(2).subscribe(
+      response => {
+        this.listaprestamos = response;
+        console.log("Lista Prestamos: " + this.listaprestamos.length);
+      }
+
+    );
     this.pendientes = false;
     this.prestados = true;
     this.recibidos = false;
     this.nodevuelto = false;
     this.restituido = false;
     this.buscar = false;
-
-    this.estadoPrestamo="Prestado"
   }
   listaRecibidos(): void {
+    this.prestamoService.listarxestado(3).subscribe(
+      response => {
+        this.listaprestamos = response;
+        console.log("Lista Prestamos: " + this.listaprestamos.length);
+      }
+
+    );
     this.pendientes = false;
     this.prestados = false;
     this.recibidos = true;
     this.nodevuelto = false;
     this.restituido = false;
     this.buscar = false;
-
-    this.estadoPrestamo="Recibido"
   }
   listaNoDevueltos(): void {
+    this.prestamoService.listarxestado(5).subscribe(
+      response => {
+        this.listaprestamos = response;
+        console.log("Lista Prestamos: " + this.listaprestamos.length);
+      }
+
+    );
     this.pendientes = false;
     this.prestados = false;
     this.recibidos = false;
@@ -97,32 +105,85 @@ export class ListaSolicitudesPendientesComponent implements OnInit {
     this.restituido = false;
     this.buscar = false;
 
-    this.estadoPrestamo="No Devuelto"
   }
   listaRestituidos(): void {
+    this.prestamoService.listarxestado(6).subscribe(
+      response => {
+        this.listaprestamos = response;
+        console.log("Lista Prestamos: " + this.listaprestamos.length);
+      }
+
+    );
     this.pendientes = false;
     this.prestados = false;
     this.recibidos = false;
     this.nodevuelto = false;
     this.restituido = true;
     this.buscar = false;
-
-    this.estadoPrestamo="Restituido"
   }
 
-  onKeydownEvent(event: KeyboardEvent, buscar: String): void {
+  getNombreEstado(numeroEstado: number | undefined): string {
+    let nombreEstado = 'Desconocido'; // Valor predeterminado si el número del estado es undefined
+
+    if (numeroEstado !== undefined) {
+      switch (numeroEstado) {
+        case 1:
+          nombreEstado = 'Solicitado';
+          break;
+        case 2:
+          nombreEstado = 'Prestado';
+          break;
+        case 3:
+          nombreEstado = 'Recibido';
+          break;
+        case 4:
+          nombreEstado = 'Libro Destruido';
+          break;
+        case 5:
+          nombreEstado = 'No Devuelto';
+          break;
+        case 6:
+          nombreEstado = 'Restituido';
+          break;
+        // Agrega más casos según tus necesidades
+      }
+    }
+
+    return nombreEstado;
+  }
+
+
+
+  onKeydownEvent(event: KeyboardEvent, buscar2: String): void {
     this.pendientes = false;
     this.prestados = false;
     this.recibidos = false;
     this.nodevuelto = false;
     this.restituido = false;
     //buscar
-    this.estadoPrestamo="Restituido"
     this.buscar = true;
-    if (buscar == "") {
+
+    if (buscar2 == "") {
       this.ngOnInit();
-    }else if(buscar.length==10){
-      
+    } else if (buscar2.length == 10) {
+
+      this.prestamoService.buscarPrestamo(buscar2).subscribe(
+        response => {
+          console.log(response);
+          if (response.length == 0) {
+            Swal.fire({
+              title: '<strong>Prestamo no encontrado</strong>',
+              confirmButtonText: 'error',
+              confirmButtonColor: '#012844',
+              icon: 'error',
+            })
+            this.ngOnInit();
+          } else {
+
+            this.listaprestamos = response;
+          }
+        }
+      );
     }
   }
 
