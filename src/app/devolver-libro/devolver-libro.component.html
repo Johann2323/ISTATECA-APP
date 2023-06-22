@@ -44,15 +44,15 @@
                         </div>
                         <div class="input-box">
                             <span class="details">Fecha Entrega:</span>
-                            <input type="email" value="{{prestamo.idSolicitante?.correo}}" class="form-control"
+                            <input type="email" value="{{prestamo.fechaEntrega}}" class="form-control"
                                 name="correo" required>
                                 <span class="details">Fecha Devolución:</span>
                                 <input type="email"  class="form-control"
-                                    name="correo" required>
+                                    name="correo" value="{{prestamo.fechaDevolucion}}" required>
                         </div>
                         <div class="input-box">
                             <span class="">Fecha en la que Devuelve:</span>
-                            <input type="email" value="{{prestamo.idSolicitante?.correo}}" class="form-control"
+                            <input type="date" class="form-control"
                                 name="correo" required>
                         </div>
                     </div>
@@ -69,11 +69,11 @@
                         </div>
                         <div class="input-box">
                             <span class="details">Penalización:</span>
-                            <input type="date" class="form-control" name="fecha_entrega" required
+                            <input type="" class="form-control" name="fecha_entrega" required
                                 >
 
                             <span class="details">Observaciones:</span>
-                            <input type="date" class="form-control" name="fecha_devolucion" required
+                            <input type="" class="form-control" name="fecha_devolucion" required
                             >
                         </div>
                     </div>
