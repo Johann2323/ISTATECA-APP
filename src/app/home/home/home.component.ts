@@ -20,6 +20,7 @@ import * as QRCode from 'qrcode';
 export class HomeComponent implements OnInit {
 
   reporteV: string = "";
+  datos: string = "";
   public PaginaI: Libro = new Libro();
   public usuarioe: Usuario = new Usuario();
   public prestamos: Prestamo = new Prestamo();
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit {
   libs: Libro[] = [];
   bus: boolean = true;
   buscarval: boolean = false;
+  datoslibro: string="";
 
 
 
@@ -39,7 +41,17 @@ export class HomeComponent implements OnInit {
   ///////////////////////////qr
   generateQRCode(registroId: string) {
     const canvas = document.querySelector('canvas');
-    QRCode.toCanvas(canvas, registroId, (error) => {
+    QRCode.toCanvas(canvas, registroId,{
+      errorCorrectionLevel: 'H', // Nivel de corrección de errores alto para mayor resiliencia
+    margin: 1,
+    width:200,
+      color: {
+        dark: '#0067CF', // Color de los módulos oscuros
+        light: '#f8f8f8' // Color de los módulos claros
+
+      },
+      
+    }, (error) => {
       if (error) {
         console.error(error);
       }
@@ -130,12 +142,14 @@ export class HomeComponent implements OnInit {
       })
       this.router.navigate(['/']);
     } else {
+      this.confirmar(paginacrear);
+
 
       this.generateQRCode(paginacrear.id+"");
-      alert(paginacrear.titulo)
-      var overlay = document.getElementById('overlay');
-      overlay?.classList.add('active');
-      this.createbibliotecario(paginacrear);
+      
+      
+
+      
 
 
 
@@ -151,10 +165,10 @@ export class HomeComponent implements OnInit {
 
 
   public createbibliotecario(paginacrear: any) {
-    this.reporteV = localStorage.getItem('usuariopag') + "";
+    this.reporteV = localStorage.getItem('persona') + "";
     console.log("Usuario: " + this.reporteV + "");
 
-    let usuarioJSON = localStorage.getItem('usuariopag') + "";
+    let usuarioJSON = localStorage.getItem('persona') + "";
     let persona = JSON.parse(usuarioJSON);
 
     console.log("ha realizado un clic")
@@ -163,24 +177,60 @@ export class HomeComponent implements OnInit {
 
     console.log(this.prestamos.libro?.titulo)
     console.log(this.prestamos.idSolicitante?.nombres)
-    alert(this.prestamos.libro?.titulo)
-    alert(this.prestamos.idSolicitante?.nombres)
+    this.prestamos.estadoLibro=1
+    this.prestamos.estadoPrestamo=1
+    this.prestamos.fechaMaxima = new Date(Date.now());
+    this.prestamos.tipoPrestamo=1
+
+
 
     this.prestamoService.create(this.prestamos).subscribe(
-      response => {
-        this.prestamos
-        Swal.fire({
-          title: '<strong>Libro Solicitado!</strong>',
-          confirmButtonText: 'OK',
-          confirmButtonColor: '#012844',
-          icon: 'success',
-          html:
-            '<b>' + this.prestamos.libro?.titulo + '</b><br>' +
-            'Se ha solicitado con exito'
-        })
+      response => {this.datos=response.idSolicitante?.nombres+"",this.datoslibro=response.libro?.titulo+""
+      var overlay = document.getElementById('overlay');
+      overlay?.classList.add('active');
+        
         this.notificacionesService.actualizarConteo(1)
 
       }
     );
+  }
+
+  confirmar(paginacrear:Libro) {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+      title: '¿Confirme la solicitud?',
+      text: "Este paso es irreversible esta seguro!!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, acepto!',
+      cancelButtonText: 'No, cancelar!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.createbibliotecario(paginacrear);
+        swalWithBootstrapButtons.fire(
+          'Confirmado!',
+          
+
+
+        )
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelado!'
+
+
+        )
+      }
+    })
   }
 }

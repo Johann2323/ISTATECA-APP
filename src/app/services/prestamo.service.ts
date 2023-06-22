@@ -11,7 +11,7 @@ export class prestamoService {
 
   private urlEndPoint: string = 'http://localhost:8080/prestamo/listar'
   private urlEditar: string = 'http://localhost:8080/prestamo/editar';
-  private urlendpoint: string = 'http://localhost:8080/api/crearPrestamo';
+  private urlEndPointCrearPrestamo: string = 'http://localhost:8080/prestamo/crear';
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
   constructor(private http: HttpClient) { }
@@ -27,7 +27,7 @@ export class prestamoService {
   }*/
 
   create(prestamos: Prestamo): Observable<Prestamo> {
-    return this.http.post<Prestamo>(this.urlendpoint, prestamos, { headers: this.httpHeaders })
+    return this.http.post<Prestamo>(this.urlEndPointCrearPrestamo, prestamos, { headers: this.httpHeaders })
   }
 
   update(prestamo:Prestamo){
