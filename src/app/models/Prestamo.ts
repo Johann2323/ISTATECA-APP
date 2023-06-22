@@ -7,7 +7,7 @@ export class Prestamo {
     activo?: boolean;
     documentoHabilitante?: string;
     escaneoMatriz?:string;
-    estadoLibro?: string;
+    estadoLibro?: number;
     estadoPrestamo?: number;
     fechaEntrega?: Date;
     fechaMaxima?: Date;

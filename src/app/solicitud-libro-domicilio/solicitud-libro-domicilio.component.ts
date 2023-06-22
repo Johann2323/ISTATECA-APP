@@ -57,7 +57,7 @@ export class SolicitudLibroDomicilioComponent implements OnInit {
 
 
   guardar() {
-    /*this.prestamo.estado_prestamo=2;*/
+    this.prestamo.estadoPrestamo=2;
     this.prestamo.carrera = this.car;
     if (this.idC != undefined) {
       this.carreraService.obtenerCarreraId(this.idC).subscribe(

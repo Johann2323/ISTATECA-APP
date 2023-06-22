@@ -52,12 +52,16 @@ export class SolicitudLibroComponent implements OnInit {
 
 
   guardar() {
-    /*this.prestamo.estado_prestamo=2;*/
+    
+    this.prestamo.estadoPrestamo=2;
     this.prestamo.carrera = this.car;
     if (this.idC != undefined) {
+    alert("guardar")
+
       this.carreraService.obtenerCarreraId(this.idC).subscribe(
         response => {
           this.prestamo.carrera = response;
+          console.log(this.prestamo.carrera);
           this.PrestamoService.update(this.prestamo).subscribe(
             response => {
               Swal.fire({

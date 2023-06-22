@@ -255,17 +255,17 @@ export class VistaRegistroNewComponent implements OnInit {
   /*disponible?: boolean = this.Libro.disponibilidad;*/
 
   public crearLibro(/*reg: NgForm*/): void {
-/*
+
 
     console.log("Se ha realizado un click")
     this.Libro.tipo = this.tipo
-    this.Libro.bibliotecario = this.bibliotecarios
-    this.Libro.bibliotecario = this.bibliotecarioE
+   // this.Libro.bibliotecario = this.bibliotecarios
+   // this.Libro.bibliotecario = this.bibliotecarioE
 
-    console.log(this.Libro.bibliotecario)
+    //console.log(this.Libro.bibliotecario)
 
-    this.bibliotecarioE.id_bibliotecario = this.Libro.bibliotecario.id_bibliotecario
-    this.Libro.tipo.id_tipo = this.idT
+    //this.bibliotecarioE.id_bibliotecario = this.Libro.bibliotecario.id_bibliotecario
+    this.Libro.tipo.id = this.idT
     //this.Libro.imagen= this.previsualizacion
     this.Libro.activo = true;
 
@@ -303,34 +303,34 @@ export class VistaRegistroNewComponent implements OnInit {
     }
 
 
-    reg.reset();
-*/
+    //reg.reset();
+
   }
 
 
 
   validarCampos() {
-  /*  if (!this.Libro.codigo_dewey) {
+   if (!this.Libro.codigoDewey) {
       return 'Código Dewey';
-    } else if (!this.Libro.cod_ISBN) {
+    } else if (!this.Libro.conIsbn) {
       return 'Código ISBN';
-    } else if (!this.Libro.indice_uno) {
+    } else if (!this.Libro.indiceUno) {
       return 'Indice 1';
-    } else if (!this.Libro.indice_dos) {
+    } else if (!this.Libro.indiceDos) {
       return 'Indice 2';
-    } else if (!this.Libro.indice_tres) {
+    } else if (!this.Libro.indiceTres) {
       return 'Indice 3';
     } else if (!this.Libro.adquisicion) {
       return 'Adquisicion';
     } else if (!this.Libro.descripcion) {
       return 'Descripción';
-    } else if (!this.Libro.dimensiones) {
+    } else if (!this.Libro.dimenciones) {
       return 'Dimensiones';
-    } else if (!this.Libro.num_paginas) {
+    } else if (!this.Libro.numPaginas) {
       return 'N° de Paginas';
     } else if (!this.Libro.idioma) {
       return 'Idioma';
-    } else if (!this.Libro.estado_libro) {
+    } else if (!this.Libro.estadoLibro) {
       return 'Estado libro';
     } else if (!this.Libro.titulo) {
       return 'Titulo del Libro';
@@ -338,28 +338,28 @@ export class VistaRegistroNewComponent implements OnInit {
       return 'Editor';
     } else if (!this.Libro.area) {
       return 'Area';
-    } else if (!this.Libro.anio_publicacion) {
+    } else if (!this.Libro.anioPublicacion) {
       return 'Año de Publicación';
 /*     } else if (!this.Libro.autor) {
       return 'Autor'; */
 /*     } else if (!this.Libro.tipo) {
       return 'Tipo libro'; */
 /*     } else if (!this.Libro.imagen) {
-      return 'Imagen'; *//*
-    } else if (!this.Libro.fecha_creacion) {
+      return 'Imagen'; */
+    } else if (!this.Libro.fechaCreacion) {
       return 'Fecha de Creación';
-    }else if (!this.Libro.url_digital) {
+    }else if (!this.Libro.urlActaDonacion) {
       return 'URL Digital';
     }else if (!this.Libro.ciudad) {
       return 'Ciudad';
     }else if (!this.Libro.disponibilidad) {
       return 'Disponibilidad'; 
-    }else if (!this.Libro.nombre_donante) {
+    }else if (!this.Libro.nombreDonante) {
       return 'Nombre Donante';
     }else {
       return '';
     }
-  */}
+  }
 
-
+  
 }

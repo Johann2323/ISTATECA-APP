@@ -9,7 +9,7 @@ import { Observable} from 'rxjs';
 })
 export class ListasService {
   private urlendpoint:string='http://localhost:8080/api/listarautor';
-  private urlendpoint1:string='http://localhost:8080/api/listartipo';
+  private urlendpoint1:string='http://localhost:8080/tipo/listar';
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
   constructor(private http:HttpClient) { }
