@@ -34,11 +34,11 @@
 
                             <span class="details">Titulo del Libro:</span>
                             <input type="text" class="form-control" 
-                                name="apellidos" required>
+                                name="apellidos"  value="{{prestamo.libro?.titulo}}" required>
                         </div>
                         <div class="input-box">
                             <span class="details">Estado de Entrega del Libro</span>
-                            <input type="text" class="form-control"   name="domicilio" required>
+                            <input type="text" class="form-control"   name="domicilio" value="{{prestamo.libro?.estadoLibro}}" required>
                             <span class="details">Estado de Actual del Libro</span>
                             <input type="text" class="form-control"   name="domicilio" required>
                         </div>
@@ -47,7 +47,7 @@
                             <input type="email" value="{{prestamo.idSolicitante?.correo}}" class="form-control"
                                 name="correo" required>
                                 <span class="details">Fecha Devolución:</span>
-                                <input type="email" value="{{prestamo.idSolicitante?.correo}}" class="form-control"
+                                <input type="email"  class="form-control"
                                     name="correo" required>
                         </div>
                         <div class="input-box">
@@ -60,21 +60,21 @@
                     <div class="user-details" *ngIf="step === 2">
                         <div class="input-box">
                             <span class="details">Bibliotecario que Entrega</span>
-                            <input type="text" value="{{prestamo.libro?.titulo}}" class="form-control" name="titulo"
+                            <input type="text" class="form-control" name="titulo"
                                 required>
 
                             <span class="details">Bibliotecario que Recibe:</span>
-                            <input type="text" value="{{prestamo.libro?.codigoDewey}}" class="form-control"
+                            <input type="text"  class="form-control"
                                 name="codigoDewey" required>
                         </div>
                         <div class="input-box">
                             <span class="details">Penalización:</span>
                             <input type="date" class="form-control" name="fecha_entrega" required
-                                [(ngModel)]="prestamo.fechaEntrega">
+                                >
 
                             <span class="details">Observaciones:</span>
                             <input type="date" class="form-control" name="fecha_devolucion" required
-                                [(ngModel)]="prestamo.fechaMaxima">
+                            >
                         </div>
                     </div>
                 </div>
