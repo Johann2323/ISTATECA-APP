@@ -6,6 +6,8 @@ import { Bibliotecario } from '../models/Bibliotecario_Cargo';
 import Swal from 'sweetalert2';
 import { NgForm } from '@angular/forms';
 import { RegistroBibliotecarioService } from '../services/registro-bibliotecario.service';
+import { LogInService } from '../services/log-in.service';
+import { getCookie } from 'typescript-cookie';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -16,7 +18,7 @@ import { RegistroBibliotecarioService } from '../services/registro-bibliotecario
 export class InicioSesionComponent implements OnInit {
   public reporteVN?:string
   respuesta: boolean = false;
-  Persona: Persona = new Persona;
+  persona: Persona = new Persona;
   /*usuarioo: Usuario = new Usuario;
   public static rol: number = 9;
   public static usu_id:Usuario;*/
@@ -24,7 +26,10 @@ export class InicioSesionComponent implements OnInit {
   public static nomb:string;
   id_persona:number=0;
   rol2:number=9;
-  constructor(private personaservice: PersonaService, private router: Router,private bibliotecarioservice2: RegistroBibliotecarioService) { }
+
+  constructor(private personaservice: PersonaService, private router: Router,private bibliotecarioservice2: RegistroBibliotecarioService, 
+    private loginService: LogInService) { }
+
   ngOnInit(): void {
 }/*
   notificacion(email: String, contra: String) {
@@ -114,5 +119,19 @@ export class InicioSesionComponent implements OnInit {
       }
     });
   }*/
+
+
+  loginLibrary() {
+    this.loginService.validateLoginDetails(this.persona).subscribe(
+      responseData => {
+        window.sessionStorage.setItem("Authorization",responseData.headers.get('Authorization')!);
+        this.persona = <any> responseData.body;
+        this.persona.authStatus = 'AUTH';
+        window.sessionStorage.setItem("userdetails",JSON.stringify(this.persona));
+        let xsrf = getCookie('XSRF-TOKEN')!;
+        window.sessionStorage.setItem("XSRF-TOKEN",xsrf);
+        this.router.navigate(['dashboard']);
+      });
+  }
 
 }

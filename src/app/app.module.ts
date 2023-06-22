@@ -5,7 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import { DirectivaComponent } from './directiva/directiva.component';
 import { RouterModule } from '@angular/router';
-import{HttpClientModule} from '@angular/common/http';
+import{HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
 import { RegistroUsuarioService } from './services/registro-usuario.service';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
@@ -29,6 +29,8 @@ import { HomeComponent } from './home/home/home.component';
 import { ReporteLibrosComponent } from './reporte-libros/reporte-libros.component';
 import { ReporteSugerenciasComponent } from './reporte-sugerencias/reporte-sugerencias.component';
 import { SolicitudLibroDomicilioComponent } from './solicitud-libro-domicilio/solicitud-libro-domicilio.component';
+import { LibraryInterceptor } from './interceptor/library.interceptor';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -82,8 +84,22 @@ import { SolicitudLibroDomicilioComponent } from './solicitud-libro-domicilio/so
       {path: 'app-vista-registro-new', component: VistaRegistroNewComponent},
       
     ]),
+    HttpClientXsrfModule.withOptions({
+      cookieName: 'XSRF-TOKEN',
+      headerName: 'X-XSRF-TOKEN',
+    }),
   ],
-  providers: [RegistroUsuarioService, PaginaInicioService, PersonaService,RegistroLibroService],
+  providers: [
+    RegistroUsuarioService,
+    PaginaInicioService,
+    PersonaService,
+    RegistroLibroService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LibraryInterceptor,
+      multi: true
+    },
+    AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
