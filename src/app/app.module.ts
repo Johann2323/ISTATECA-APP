@@ -29,6 +29,8 @@ import { HomeComponent } from './home/home/home.component';
 import { ReporteLibrosComponent } from './reporte-libros/reporte-libros.component';
 import { ReporteSugerenciasComponent } from './reporte-sugerencias/reporte-sugerencias.component';
 import { SolicitudLibroDomicilioComponent } from './solicitud-libro-domicilio/solicitud-libro-domicilio.component';
+import { RegistroAutorComponent } from './registro-autor/registro-autor.component';
+import { RegistroTipoComponent } from './registro-tipo/registro-tipo.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { SolicitudLibroDomicilioComponent } from './solicitud-libro-domicilio/so
     ReporteLibrosComponent,
     ReporteSugerenciasComponent,
     SolicitudLibroDomicilioComponent,
+    RegistroAutorComponent,
+    RegistroTipoComponent,
 
   ],
   imports: [
@@ -80,6 +84,8 @@ import { SolicitudLibroDomicilioComponent } from './solicitud-libro-domicilio/so
       {path: 'app-solicitud-libro', component: SolicitudLibroComponent},
       {path: 'app-solicitud-libro-domicilio', component: SolicitudLibroDomicilioComponent},
       {path: 'app-vista-registro-new', component: VistaRegistroNewComponent},
+      {path: 'app-registro-autor', component: RegistroAutorComponent},
+      {path: 'app-registro-tipo', component: RegistroTipoComponent},
       
     ]),
   ],
