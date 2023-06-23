@@ -6,6 +6,8 @@ import { Carrera } from '../models/Carrera';
 import Swal from 'sweetalert2';
 import { doch } from '../solicitud-libro/doch';
 import { prestamoService } from '../services/prestamo.service';
+import { Persona } from '../models/Persona';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,6 +17,8 @@ import { prestamoService } from '../services/prestamo.service';
 })
 export class SolicitudLibroDomicilioComponent implements OnInit {
   prestamo: Prestamo = new Prestamo();
+  persona: Persona= new Persona();
+  reporteV: string = "";
   carreras:Carrera[]=[];
   mostrar: boolean = false;
   doch: doch[] = []
@@ -27,8 +31,11 @@ export class SolicitudLibroDomicilioComponent implements OnInit {
 
   step = 1;
   totalSteps = 2;
-  constructor(private carreraService: CarreraService,private PrestamoService: prestamoService) { }
+  constructor(private router: Router,private carreraService: CarreraService,private PrestamoService: prestamoService) { }
   ngOnInit(): void {
+    this.reporteV = localStorage.getItem('persona') + "";
+    let usuarioJSON = localStorage.getItem('persona') + "";
+    this.persona = JSON.parse(usuarioJSON);
     var solicitudJSONGET = localStorage.getItem("AceptarSolicitud");
     var solicitud = JSON.parse(solicitudJSONGET + "");
     this.prestamo = solicitud;
@@ -58,6 +65,7 @@ export class SolicitudLibroDomicilioComponent implements OnInit {
 
   guardar() {
     this.prestamo.estadoPrestamo=2;
+    this.prestamo.idEntrega=this.persona;
     this.prestamo.carrera = this.car;
     if (this.idC != undefined) {
       this.carreraService.obtenerCarreraId(this.idC).subscribe(
@@ -72,6 +80,7 @@ export class SolicitudLibroDomicilioComponent implements OnInit {
                 showConfirmButton: false,
                 timer: 1500
               })
+              this.router.navigate(['/app-lista-solicitudes-pendientes']);
             }
           );
         }

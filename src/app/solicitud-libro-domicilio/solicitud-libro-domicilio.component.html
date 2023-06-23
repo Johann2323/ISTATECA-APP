@@ -53,6 +53,9 @@
                             <span class="details">Documento Habilitante:</span>
                             <input type="email" class="form-control" name="correo"
                                 [(ngModel)]="prestamo.documentoHabilitante" required>
+                                <span class="details">Bibliotecario que entrega:</span>
+                                <input type="email" class="form-control" name="correo"
+                                    value="{{persona.nombres||' '||persona.apellidos}}" required>
                         </div>
                         <div class="input-box">
                             <span class="details">Fecha de Prestamo:</span>
